@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/btnquit"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_titlebar_btn"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/btn_back" />
+
+    <TextView
+        android:id="@+id/tvTitlebar_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/title_activity_book_info"
+        android:textColor="@color/color_white"
+        android:textSize="22dp" />
+
+    <ImageButton
+        android:id="@+id/btnmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_titlebar_btn"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/btn_listadd" />
+
+</LinearLayout>

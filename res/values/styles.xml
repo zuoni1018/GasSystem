@@ -1,0 +1,75 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+        <item name="android:colorBackground">@color/background_holo_light</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+    <style name="mainTitleBackground">
+        <item name="android:background">#003f97</item>
+        </style>        
+        
+        <style name="mainTitleBar" parent="android:Theme">
+            <item name="android:windowTitleSize">50dp</item>
+            <item name="android:windowTitleBackgroundStyle">@style/mainTitleBackground</item>  
+            <item name="android:popupMenuStyle">@style/MyPopupMenu</item>
+             <item name="android:textAppearanceLargePopupMenu">@style/MyPopupMenuLargeText</item>
+            </style>  
+
+            <style name="MyPopupMenuLargeText">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/item_unpressed</item>
+    </style>
+        
+<style name="MyPopupMenu">
+        <item name="android:popupBackground">@color/item_text</item>   
+    </style>
+    
+<style name="biglisttext">
+    <item name="android:textSize">22sp</item>
+    <item name="android:textColor">#003f97</item>
+</style>
+    
+<style name="largetext">
+    <item name="android:textSize">30sp</item>
+    <item name="android:textColor">#003f97</item>
+</style>
+
+<style name="midtext">
+    <item name="android:textSize">20dp</item>
+    <item name="android:textColor">#003f97</item>
+</style>
+
+<style name="smalltext">
+    <item name="android:textSize">15dp</item>
+    <item name="android:textColor">#003f97</item>
+</style>
+
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    
+</resources>

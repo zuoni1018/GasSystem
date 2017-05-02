@@ -1,0 +1,182 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pl.gassystem.CopyOneActivity" 
+    android:orientation="vertical"  android:background="#ffffff">
+
+    
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_listview_item" 
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/linCopyoneUnRead">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.3"
+        android:src="@drawable/ivonecopyunread" />
+
+    <TextView
+        style="@style/biglisttext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.7"
+        android:text="选取未抄" 
+      />
+</LinearLayout>
+  <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+  
+    android:layout_gravity="center"
+ android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_listview_item" 
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/linCopyoneRead">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.3"
+        android:src="@drawable/ivonecopyread" />
+
+    <TextView
+        style="@style/biglisttext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.7"
+        android:text="选取已抄" 
+      />
+</LinearLayout>
+  <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_listview_item" 
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/linCopyoneAll">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.3"
+        android:src="@drawable/ivonecopyreadall" />
+
+    <TextView
+        style="@style/biglisttext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.7"
+        android:text="选取全部" 
+      />
+</LinearLayout>
+  <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+ android:layout_height="0dp"
+    android:layout_weight="1"  android:orientation="horizontal"
+    android:background="@drawable/bg_listview_item" 
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/linCopyonePutNumber">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.3"
+        android:src="@drawable/ivonecopyinput" />
+
+    <TextView
+        style="@style/biglisttext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.7"
+        android:text="输入通讯编号" 
+      />
+</LinearLayout>
+  <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+  
+<LinearLayout
+    android:layout_width="match_parent"
+  android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_listview_item" 
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/linCopyonePrint" >
+    
+       <ImageView
+       android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.3"
+        android:src="@drawable/ivonecopyweihu" />
+
+    <TextView
+        style="@style/biglisttext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.7"
+        android:text="表具维护" 
+      />
+    
+</LinearLayout>
+ 
+<LinearLayout
+    android:layout_width="match_parent"
+   android:layout_height="55dp"
+    android:orientation="horizontal" 
+   >
+    <LinearLayout android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="0.35" android:gravity="center" android:background="#003f97" >    
+        <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content"  android:src="@drawable/ivcopynogroup" android:layout_gravity="center"
+             android:id="@+id/ivToCopyGroup" />
+        </LinearLayout>
+    <LinearLayout android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="0.35" android:gravity="center">
+            <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@drawable/ivcopyone" android:layout_gravity="center"/>
+    </LinearLayout>
+    <LinearLayout android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="0.35" android:background="#003f97" android:gravity="center">
+        <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@drawable/ivcopyother" android:layout_gravity="center"  
+             android:id="@+id/ivToCopyOneOther" />
+    </LinearLayout>
+</LinearLayout>
+
+</LinearLayout>

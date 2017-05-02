@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\custom_progress_round.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_round.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\bg_style_02.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\bg_style_02.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\bg_style_01.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\bg_style_01.xml"
+    }
+]

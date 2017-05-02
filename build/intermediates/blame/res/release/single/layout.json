@@ -1,0 +1,198 @@
+[
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\device_name.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_group_info_statistic.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_info_statistic.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\ac_zbar_finder.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ac_zbar_finder.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_shcmd.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_shcmd.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_about.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_data_download.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_data_download.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_result.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_result.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\head_style.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\head_style.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_copydataicrf_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydataicrf_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_set_mjc.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_set_mjc.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_book_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_book_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_group.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_group.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\camera.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\camera.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_group_bind.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_bind.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_book_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_book_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_copydata_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydata_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\detail_chart.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\detail_chart.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_input_photo_com_num.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_input_photo_com_num.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\titlebar_main.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_main.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\fullscreen.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\fullscreen.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\sname.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\sname.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_set_copy_time.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_copy_time.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_maintenance.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_maintenance.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copyphoto.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copyphoto.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_groupbind_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_groupbind_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\custom_progressdialog.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\custom_progressdialog.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_detials.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_detials.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_copydataphoto_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydataphoto_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_input_com_num.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_input_com_num.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\titlebar_onlyback.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_onlyback.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\titlebar_listview.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_listview.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_select_meter.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_select_meter.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copydataicrf_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copydataicrf_detail.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copying.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copying.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_book_info_update.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_book_info_update.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_log.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_log.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_bluetooth_communication.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_bluetooth_communication.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copydata_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copydata_detail.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_data_manage.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_data_manage.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_main_old.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_main_old.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_set_run_mode.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_run_mode.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\device_list.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_main.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_group_info_update.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_info_update.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_login.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_set_update.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_update.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_setting.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_one.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_one.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\listview_item_group_info_statistic.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\listview_item_group_info_statistic.xml"
+    }
+]

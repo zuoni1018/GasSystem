@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable\\bg_titlebar_btn.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable\\bg_titlebar_btn.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable\\rounded_edittext.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable\\rounded_edittext.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable\\bg_listview_item.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable\\bg_listview_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable\\progress_diy.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable\\progress_diy.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable\\progressbar_indeterminate.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable\\progressbar_indeterminate.xml"
+    }
+]

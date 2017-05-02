@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pl.gassystem.GroupInfoUpdateActivity" 
+ android:orientation="vertical" android:paddingLeft="10dp" android:paddingRight="10dp"  android:paddingTop="10dp" android:background="#ffffff" >
+
+    <LinearLayout android:layout_height="40dp" android:layout_width="match_parent"  android:orientation="horizontal"  >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分组编号："    android:textColor="@color/item_text"  android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tvBookNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"  android:textColor="@color/item_text"  android:textSize="25dp"
+            />
+        
+    </LinearLayout>
+       <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp"/>
+       
+    <LinearLayout android:layout_height="40dp"  android:layout_width="match_parent"  android:orientation="horizontal"  >
+
+        <TextView
+            android:layout_width="wrap_content"
+            
+            android:layout_height="wrap_content"
+            android:text="分组名称："   android:textColor="@color/item_text"  android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/etBookName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:ems="10" >
+        </EditText>
+
+    </LinearLayout>
+       <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp"/>
+    <LinearLayout android:layout_height="40dp" android:layout_width="match_parent"   android:orientation="horizontal"  >
+        
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="表计类型："    android:textColor="@color/item_text"  android:textSize="20dp"/>
+            
+           <RadioGroup android:id="@+id/rgMeterType" android:checkedButton="@+id/rdoIC" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+               android:layout_weight="0.7" android:orientation="horizontal" android:gravity="center_vertical"  >
+            <RadioButton android:id="@id/rdoIC" android:text="IC卡无线" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                android:layout_weight="1" android:textSize="17dp" android:textColor="@color/item_text" />
+             <RadioButton android:id="@+id/rdoWX" android:text="纯无线" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                android:layout_weight="1" android:textSize="17dp" android:textColor="@color/item_text" />
+        </RadioGroup>
+            
+    </LinearLayout>
+       <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp"/>
+    <LinearLayout android:layout_height="40dp"  android:layout_width="match_parent"  android:orientation="horizontal"  >
+        
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小区编号："    android:textColor="@color/item_text"  android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/etestateNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:ems="10" >
+        </EditText>
+        
+    </LinearLayout>
+       <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp"/>
+        <LinearLayout android:layout_height="40dp" android:layout_width="match_parent"   android:orientation="horizontal"  >
+                       <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="备注："   android:textColor="@color/item_text"  android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/etRemark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+        </EditText>
+            
+        </LinearLayout>
+           <TextView
+        android:background="@color/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp"/>
+        <LinearLayout android:layout_height="40dp"  android:layout_width="match_parent"   android:orientation="horizontal"  >
+
+            <Button
+                android:id="@+id/btnBkUpSubmit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="提交"
+                android:layout_weight="0.5" 
+                android:textColor="@color/item_text" />
+
+            <Button
+                android:id="@+id/btnBkUpQuit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                android:layout_weight="0.5" 
+                android:textColor="@color/item_text" />
+
+        </LinearLayout>
+    
+
+</LinearLayout>
