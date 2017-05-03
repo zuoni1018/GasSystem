@@ -51,17 +51,19 @@ public class CopyDetailsActivity extends BaseTitleActivity {
             mProgressBar.setVisibility(View.GONE);
             LogUtil.i("结果"+mNoCoypNum+"===="+mCoypNum);
             setHeight(mNoCoypNum,mCoypNum);
-
-
         }
     };
 
+
     @Override
     protected void initData() {
+
         meterNos = getIntent().getStringArrayListExtra("meterNos");
+
         meterTypeNo = getIntent().getStringExtra("meterTypeNo");
         setTitle("" + getIntent().getStringExtra("name") + " 抄表情况");
         gpInfo = (GroupInfo) getIntent().getSerializableExtra("GroupInfo");
+
         if (gpInfo != null) {
             groupName = gpInfo.getGroupName();
         } else {
@@ -69,6 +71,7 @@ public class CopyDetailsActivity extends BaseTitleActivity {
         }
 
         copyBiz = new CopyBiz(this);
+
 
         int noCopyNum = getIntent().getIntExtra("noCopy", 0);
         int CopyNum = getIntent().getIntExtra("CopyNum", 0);
@@ -100,63 +103,57 @@ public class CopyDetailsActivity extends BaseTitleActivity {
     private int mCoypNum = 0;
     private int mNoCoypNum = 0;
 
+    private mySearchThread t;
     @Override
     protected void onResume() {
         super.onResume();
+        LogUtil.i("onResume");
         mProgressBar.setVisibility(View.VISIBLE);
         mCoypNum = 0;
         mNoCoypNum = 0;
         isRun = true;
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                //
-                if (isRun) {
-
-                    if (meterTypeNo.equals("04")) {// IC卡无线
-                        LogUtil.i("IC卡无线");
-
-                        ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
-                        if (copyDataICRFs != null) {
-//                            allNum = copyDataICRFs.size();
-                            for (int j = 0; j < copyDataICRFs.size(); j++) {
-                                if (copyDataICRFs.get(j).getCopyState() == 1) {
-//                                    copyNum++;
-                                    mCoypNum++;
-                                } else {
-//                                    noNum++;
-                                    mNoCoypNum++;
-                                }
-                            }
-                        }
-                    } else if (meterTypeNo.equals("05")) {// 纯无线
-
-                        ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, 2);
-                        LogUtil.i("纯无线" + copyDatas.size());
-                        if (copyDatas != null) {
-//                            allNum = copyDatas.size();
-                            for (int j = 0; j < copyDatas.size(); j++) {
-                                if (copyDatas.get(j).getCopyState() == 1) {
-//                                    copyNum++;
-                                    mCoypNum++;
-                                } else {
-//                                    noNum++;
-                                    mNoCoypNum++;
-                                }
-                            }
-                        }
-                    }
-
-                    Message msg = Message.obtain();
-                    mHandler.sendMessage(msg);
-                    LogUtil.i("查询结束啦");
-
-                }
-            }
-        };
+        t=new mySearchThread();
         t.start();
     }
 
+
+    private class mySearchThread extends Thread{
+        @Override
+        public void run() {
+//            super.run();
+            if (isRun) {
+                meterNos = copyBiz.GetCopyMeterNo(gpInfo.getGroupNo());//获得每栋楼 里每个住户的信息
+                if (meterTypeNo.equals("04")) {// IC卡无线
+                    LogUtil.i("IC卡无线");
+                    ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
+                    if (copyDataICRFs != null) {
+                        for (int j = 0; j < copyDataICRFs.size(); j++) {
+                            if (copyDataICRFs.get(j).getCopyState() == 1) {
+                                mCoypNum++;
+                            } else {
+                                mNoCoypNum++;
+                            }
+                        }
+                    }
+                } else if (meterTypeNo.equals("05")) {// 纯无线
+                    ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, 2);
+                    LogUtil.i("纯无线" + copyDatas.size());
+                    if (copyDatas != null) {
+                        for (int j = 0; j < copyDatas.size(); j++) {
+                            if (copyDatas.get(j).getCopyState() == 1) {
+                                mCoypNum++;
+                            } else {
+                                mNoCoypNum++;
+                            }
+                        }
+                    }
+                }
+                Message msg = Message.obtain();
+                mHandler.sendMessage(msg);
+                LogUtil.i("查询结束啦");
+            }
+        }
+    }
     @Override
     protected void onPause() {
         super.onPause();

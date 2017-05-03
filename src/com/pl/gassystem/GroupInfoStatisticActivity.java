@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.common.utils.FileUtil;
 import com.common.utils.KeyBoardUtils;
+import com.common.utils.ToastUtils;
 import com.pl.bean.GroupInfoStatistic;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
@@ -41,7 +43,7 @@ import static com.common.utils.FileUtil.getSDPath;
  * 账册分组统计界面
  */
 
-public class GroupInfoStatisticActivity extends BaseTitleActivity {
+public class GroupInfoStatisticActivity extends BaseTitleActivity implements SwipeRefreshLayout.OnRefreshListener {
 
 
     private ListView mListView;
@@ -59,6 +61,8 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
     private EditText etSearch;
     private ImageView ivSearch;
     private ProgressBar mProgressBar;
+    private SwipeRefreshLayout mSwipeLayout;
+    private mySearchThread t;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -68,7 +72,9 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
             mGroupInfoStatisticList.addAll(mGroupInfoStatisticList2);
             mAdapter.notifyDataSetChanged();
             if (msg.what == 1) {
+                isRun = false;
                 mProgressBar.setVisibility(View.GONE);
+                mSwipeLayout.setRefreshing(false);
                 Toast.makeText(GroupInfoStatisticActivity.this, "数据查询完毕", Toast.LENGTH_SHORT).show();
             }
 
@@ -89,81 +95,41 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
             } else if (msg.what == 4) {
                 Toast.makeText(GroupInfoStatisticActivity.this, "BookInfo Excel导出成功", Toast.LENGTH_SHORT).show();
             }
-
         }
     };
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        isRun = true;
         //从数据库里查询所有数据
-        Thread t = new Thread() {
-
-            public void run() {
-                if (isRun) {
-                    //通过 bookNo 去查询获得所有楼的信息
-                    ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
-                    //获得每栋楼的里面信息
-                    for (int i = 0; i < groupInfos.size(); i++) {
-                        ArrayList<String> meterNos = copyBiz.GetCopyMeterNo(groupInfos.get(i).getGroupNo());//获得每栋楼 里每个住户的信息
-                        int noNum = 0;
-                        int copyNum = 0;
-                        int allNum = 0;
-                        if (meterTypeNo.equals("04")) {// IC卡无线
-                            LogUtil.i("IC卡无线");
-
-                            ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
-                            if (copyDataICRFs != null) {
-                                allNum = copyDataICRFs.size();
-                                for (int j = 0; j < copyDataICRFs.size(); j++) {
-                                    if (copyDataICRFs.get(j).getCopyState() == 1) {
-                                        copyNum++;
-                                    } else {
-                                        noNum++;
-                                    }
-                                }
-                            }
-                        } else if (meterTypeNo.equals("05")) {// 纯无线
-
-                            ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, 2);
-                            LogUtil.i("纯无线" + copyDatas.size());
-                            if (copyDatas != null) {
-                                allNum = copyDatas.size();
-                                for (int j = 0; j < copyDatas.size(); j++) {
-                                    if (copyDatas.get(j).getCopyState() == 1) {
-                                        copyNum++;
-                                    } else {
-                                        noNum++;
-                                    }
-                                }
-                            }
-                        }
-                        //
-                        GroupInfoStatistic mGroupInfoStatistic = new GroupInfoStatistic();
-                        mGroupInfoStatistic.setAllNum(allNum);
-                        mGroupInfoStatistic.setCopyNum(copyNum);
-                        mGroupInfoStatistic.setNoNum(noNum);
-                        mGroupInfoStatistic.setPoint(groupInfos.get(i).getGroupName().trim() + "");
-                        mGroupInfoStatistic.setMeterNos(meterNos);
-                        mGroupInfoStatistic.setmGroupInfo(groupInfos.get(i));
-                        mGroupInfoStatisticList2.add(mGroupInfoStatistic);
-                        //40条刷新一次
-                        if (i % 40 == 0) {
-                            Message message = Message.obtain();
-                            mHandler.sendMessage(message);
-                        }
-                    }
-                    Message message = Message.obtain();
-                    message.what = 1;
-                    mHandler.sendMessage(message);
-                    isSearch = false;
-                }
-            }
-        };
+        mySearchThread t = new mySearchThread();
         t.start();
     }
 
+    /**
+     * 显示界面的时候重新获取数据刷新一次界面
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        isRun = false;
+    }
+
+
+    /**
+     * 初始化数据
+     */
     @Override
     protected void initData() {
         mGroupInfoStatisticList = new ArrayList<>();
@@ -171,8 +137,6 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
         isRun = true;
         copyBiz = new CopyBiz(this);
         groupInfoBiz = new GroupInfoBiz(this);
-
-
         bookNo = getIntent().getStringExtra("BookNo").toString();
         bookName = getIntent().getStringExtra("BookName").toString();
         meterTypeNo = getIntent().getStringExtra("meterTypeNo").toString();
@@ -180,12 +144,6 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
 
         mAdapter = new ListViewAdapter(mGroupInfoStatisticList, GroupInfoStatisticActivity.this);
         mListView.setAdapter(mAdapter);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        isRun = false;
     }
 
 
@@ -196,6 +154,14 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
         ivSearch = (ImageView) findViewById(R.id.ivSearch);
         mProgressBar = (ProgressBar) findViewById(R.id.mProgressBar);
         mListView = (ListView) findViewById(R.id.mListView);
+        mSwipeLayout = (android.support.v4.widget.SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        mSwipeLayout.setOnRefreshListener(this);
+        // 设置下拉圆圈上的颜色，蓝色、绿色、橙色、红色
+        mSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
+                android.R.color.holo_orange_light, android.R.color.holo_red_light);
+        mSwipeLayout.setDistanceToTriggerSync(400);// 设置手指在屏幕下拉多少距离会触发下拉刷新
+        mSwipeLayout.setProgressBackgroundColor(R.color.colorAccent); // 设定下拉圆圈的背景
+        mSwipeLayout.setSize(SwipeRefreshLayout.DEFAULT); // 设置圆圈的大小
     }
 
 
@@ -221,6 +187,7 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
                 startActivity(mIntent);
             }
         });
+
         findViewById(R.id.btAddGroup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,15 +213,15 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
                         ExcelHandler.sendMessage(message);
                         file = new File(getSDPath() + "/HongHuDate");
                         FileUtil.makeDir(file);
-                        ExcelUtils.initExcel(file.toString() + "/BookInfo.xls", title);
-                        ExcelUtils.writeObjListToExcel(getSqlDate(), FileUtil.getSDPath() + "/HongHuDate/BookInfo.xls", GroupInfoStatisticActivity.this);
+                        ExcelUtils.initExcel(file.toString() + "/Data.xls", title, "BookInfo");
+                        ExcelUtils.writeObjListToExcel(getSqlDate(), FileUtil.getSDPath() + "/HongHuDate/Data.xls", GroupInfoStatisticActivity.this);
                         Message message2 = Message.obtain();
                         message2.what = 2;
                         ExcelHandler.sendMessage(message2);
                         file2 = new File(getSDPath() + "/HongHuDate");
                         FileUtil.makeDir(file2);
-                        ExcelUtils.initExcel(file2.toString() + "/CopyData.xls", title);
-                        ExcelUtils.writeObjListToExcel(getSqlDate2(), FileUtil.getSDPath() + "/HongHuDate/CopyData.xls", GroupInfoStatisticActivity.this);
+                        ExcelUtils.initExcel(file2.toString() + "/Data.xls", title, "CopyData");
+                        ExcelUtils.writeObjListToExcel(getSqlDate2(), FileUtil.getSDPath() + "/HongHuDate/Data.xls", GroupInfoStatisticActivity.this);
                         Message message3 = Message.obtain();
                         message3.what = 3;
                         ExcelHandler.sendMessage(message3);
@@ -312,7 +279,7 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
                     for (int j = 0; j < copyDataICRFs.size(); j++) {
 
                         beanList.add(copyDataICRFs.get(j).getAccBuyMoney());
-                        beanList.add(copyDataICRFs.get(j).getCardAttTimes()+"");
+                        beanList.add(copyDataICRFs.get(j).getCardAttTimes() + "");
                         beanList.add(copyDataICRFs.get(j).getCopyMan());
                         beanList.add(copyDataICRFs.get(j).getLast1MonthTotal());
                         beanList.add(copyDataICRFs.get(j).getLast2MonthTotal());
@@ -330,7 +297,7 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
                         beanList.add("222222222");
                         beanList.add(copyDatas.get(j).getLastDosage());
                         beanList.add(copyDatas.get(j).getCopyWay());
-                        beanList.add(copyDatas.get(j).getCopyState()+"");
+                        beanList.add(copyDatas.get(j).getCopyState() + "");
                         beanList.add(copyDatas.get(j).getOperator());
                         beanList.add(copyDatas.get(j).getLastDosage());
                         mList.add(beanList);
@@ -338,7 +305,7 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
                 }
             }
         }
-        LogUtil.i("hah",mList.toString());
+        LogUtil.i("hah", mList.toString());
         return mList;
     }
 
@@ -348,6 +315,9 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
     }
 
 
+    /**
+     * 按钮点击事件
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -390,6 +360,86 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity {
                     mAdapter.notifyDataSetChanged();
                 }
             }
+        }
+    }
+
+    @Override
+    public void onRefresh() {
+        //从数据库中重新读取数据
+        LogUtil.i("下拉刷新重新获取数据库");
+        //如果当前线程正在运行
+        if (!isRun) {
+            isRun = true;
+            t = new mySearchThread();
+            t.start();
+        } else {
+            ToastUtils.showToast(getApplication(), "正在刷新数据，请稍后再试");
+            mSwipeLayout.setRefreshing(false);
+        }
+    }
+
+   private class mySearchThread extends Thread {
+        @Override
+        public void run() {
+//        super.run();
+            if (isRun) {
+                mGroupInfoStatisticList2.clear();
+                //通过 bookNo 去查询获得所有楼的信息
+                ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
+                //获得每栋楼的里面信息
+                for (int i = 0; i < groupInfos.size(); i++) {
+                    ArrayList<String> meterNos = copyBiz.GetCopyMeterNo(groupInfos.get(i).getGroupNo());//获得每栋楼 里每个住户的信息
+                    int noNum = 0;
+                    int copyNum = 0;
+                    int allNum = 0;
+                    if (meterTypeNo.equals("04")) {// IC卡无线
+                        LogUtil.i("查表", "IC卡无线");
+                        ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
+                        if (copyDataICRFs != null) {
+                            allNum = copyDataICRFs.size();
+                            for (int j = 0; j < copyDataICRFs.size(); j++) {
+                                if (copyDataICRFs.get(j).getCopyState() == 1) {
+                                    copyNum++;
+                                } else {
+                                    noNum++;
+                                }
+                            }
+                        }
+                    } else if (meterTypeNo.equals("05")) {// 纯无线
+                        ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, 2);
+                        LogUtil.i("查表", "纯无线" + copyDatas.size());
+                        if (copyDatas != null) {
+                            allNum = copyDatas.size();
+                            for (int j = 0; j < copyDatas.size(); j++) {
+                                if (copyDatas.get(j).getCopyState() == 1) {
+                                    copyNum++;
+                                } else {
+                                    noNum++;
+                                }
+                            }
+                        }
+                    }
+                    //
+                    GroupInfoStatistic mGroupInfoStatistic = new GroupInfoStatistic();
+                    mGroupInfoStatistic.setAllNum(allNum);
+                    mGroupInfoStatistic.setCopyNum(copyNum);
+                    mGroupInfoStatistic.setNoNum(noNum);
+                    mGroupInfoStatistic.setPoint(groupInfos.get(i).getGroupName().trim() + "");
+                    mGroupInfoStatistic.setMeterNos(meterNos);
+                    mGroupInfoStatistic.setmGroupInfo(groupInfos.get(i));
+                    mGroupInfoStatisticList2.add(mGroupInfoStatistic);
+                    //40条刷新一次
+                    if (i % 40 == 0) {
+                        Message message = Message.obtain();
+                        mHandler.sendMessage(message);
+                    }
+                }
+                Message message = Message.obtain();
+                message.what = 1;
+                mHandler.sendMessage(message);
+                isSearch = false;
+            }
+
         }
     }
 }

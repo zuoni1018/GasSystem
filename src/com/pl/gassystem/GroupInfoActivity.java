@@ -65,8 +65,7 @@ public class GroupInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_book_info);
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-                R.layout.titlebar_listview);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_listview);
 
         bookNo = getIntent().getStringExtra("BookNo").toString();
         bookName = getIntent().getStringExtra("BookName").toString();

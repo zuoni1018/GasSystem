@@ -36,12 +36,10 @@ public class GroupInfoUpdateActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.activity_group_info_update);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-				R.layout.titlebar_main);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_main);
 
 		groupInfoBiz = new GroupInfoBiz(this);
-		opType = getIntent().getIntExtra(GlobalConsts.EXTRA_BOOKINFO_OP_TYPE,
-				GlobalConsts.TYPE_ADD);
+		opType = getIntent().getIntExtra(GlobalConsts.EXTRA_BOOKINFO_OP_TYPE, GlobalConsts.TYPE_ADD);
 		bookNo = getIntent().getStringExtra("BookNo").toString();
 		meterTypeNo = getIntent().getStringExtra("meterTypeNo").toString();
 
@@ -111,12 +109,9 @@ public class GroupInfoUpdateActivity extends Activity {
 				case GlobalConsts.TYPE_ADD:
 					String beginGroupNo = bookNo.substring(5);
 					String endGroupNo;
-					ArrayList<GroupInfo> groupInfos = groupInfoBiz
-							.getGroupInfos(bookNo);
+					ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
 					if (groupInfos != null && groupInfos.size() > 0) {
-						endGroupNo = StringFormatter
-								.getAddStringGroupNo(groupInfos.get(0)
-										.getGroupNo().substring(5));
+						endGroupNo = StringFormatter.getAddStringGroupNo(groupInfos.get(0).getGroupNo().substring(5));
 					} else {
 						endGroupNo = "00001";
 					}

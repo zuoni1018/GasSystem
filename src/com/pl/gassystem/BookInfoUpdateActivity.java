@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pl.bll.BookInfoBiz;
 import com.pl.entity.BookInfo;
@@ -87,13 +86,13 @@ public class BookInfoUpdateActivity extends Activity {
                 String etestateNo2 = etestateNo.getText().toString().trim();
                 String etstaffNo2 =   etstaffNo.getText().toString().trim();
 
-                if ("".equals(bookName)) {
-                    Toast.makeText(BookInfoUpdateActivity.this, "请先输入账册名称", Toast.LENGTH_SHORT).show();
-                } else if ("".equals(etstaffNo2)) {
-                    Toast.makeText(BookInfoUpdateActivity.this, "请输入表工编号", Toast.LENGTH_SHORT).show();
-                } else if ("".equals(etestateNo2)) {
-                    Toast.makeText(BookInfoUpdateActivity.this, "请输入小区编号", Toast.LENGTH_SHORT).show();
-                } else {
+//                if ("".equals(bookName)) {
+//                    Toast.makeText(BookInfoUpdateActivity.this, "请先输入账册名称", Toast.LENGTH_SHORT).show();
+//                } else if ("".equals(etstaffNo2)) {
+//                    Toast.makeText(BookInfoUpdateActivity.this, "请输入表工编号", Toast.LENGTH_SHORT).show();
+//                } else if ("".equals(etestateNo2)) {
+//                    Toast.makeText(BookInfoUpdateActivity.this, "请输入小区编号", Toast.LENGTH_SHORT).show();
+//                } else {
                     // 获取输入
                     BookInfo bkInfo = new BookInfo();
                     bkInfo.setBookName(bookName);
@@ -122,7 +121,7 @@ public class BookInfoUpdateActivity extends Activity {
                             break;
                     }
                     finish();
-                }
+//                }
             }
         });
 
