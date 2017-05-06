@@ -8,6 +8,7 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="19" />
 
+    <!-- 往sdcard中写入数据的权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -77,6 +78,7 @@
         </activity>
         <activity android:name="com.pl.gassystem.GroupInfoStatisticActivity" />
         <activity android:name="com.pl.gassystem.CopyDetailsActivity" />
+        <activity android:name="com.pl.gassystem.ExportExcelActivity" />
         <activity
             android:name="com.pl.gassystem.BookInfoActivity"
             android:label="@string/title_activity_book_info"

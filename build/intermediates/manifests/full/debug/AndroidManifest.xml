@@ -78,6 +78,8 @@
         </activity>
         <activity android:name="com.pl.gassystem.GroupInfoStatisticActivity" />
         <activity android:name="com.pl.gassystem.CopyDetailsActivity" />
+        <activity android:name="com.pl.gassystem.ExportExcelActivity" />
+        <activity android:name="com.pl.gassystem.ImportExcelActivity" />
         <activity
             android:name="com.pl.gassystem.BookInfoActivity"
             android:label="@string/title_activity_book_info"

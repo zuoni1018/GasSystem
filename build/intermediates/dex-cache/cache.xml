@@ -11,12 +11,21 @@
         <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jxl_0b09d168b7142da0bb10afbb46f667447af859a3\classes.dex" />
     </item>
     <item
+        is-multidex="false"
+        jar="D:\zzz\GasSystem\libs\jxl.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="955fa72ef2e3d5a45db59d84802401f75bc973a5">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\release\jxl_0b09d168b7142da0bb10afbb46f667447af859a3.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="D:\zzz\GasSystem\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c7a689340d9323f4616f3d0d6bf8cdffc14b087d">
+        sha1="b6bec65a32d47fc640397139d131ca0a047af62d">
         <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_29afea97ffb414318314a21f19d26c069c5acaf1\classes.dex" />
     </item>
     <item

@@ -148,6 +148,7 @@ public class CopyDataICRF {
 
 	private int Id=0;// 流水号
 	private String meterNo="";// 表计编号
+	private String meterName;// 表具名称
 	private String Cumulant="";// 累计量
 	private String SurplusMoney="";// 剩余金额
 	private String OverZeroMoney="";// 过零金额
@@ -165,6 +166,14 @@ public class CopyDataICRF {
 	private String copyTime;// 抄表时间
 	private String copyMan;// 抄表员姓名
 	private int copyState;// 抄表状态(0未抄 1已抄)
+	private String unitPrice;// 当前单价
+	private String accMoney; // 累计用气金额
+	private String accBuyMoney; // 累计充值金额
+	private String currentShow; // 本周期使用量
+	private String dBm;// 信号强度
+	private String elec;// 电量
+
+
 
 	public int getCopyState() {
 		return copyState;
@@ -174,7 +183,7 @@ public class CopyDataICRF {
 		this.copyState = copyState;
 	}
 
-	private String meterName;// 表具名称
+
 
 	public String getMeterName() {
 		return meterName;
@@ -184,8 +193,7 @@ public class CopyDataICRF {
 		this.meterName = meterName;
 	}
 
-	private String dBm;// 信号强度
-	private String elec;// 电量
+
 
 	public String getdBm() {
 		return dBm;
@@ -203,10 +211,7 @@ public class CopyDataICRF {
 		this.elec = elec;
 	}
 
-	private String unitPrice;// 当前单价
-	private String accMoney; // 累计用气金额
-	private String accBuyMoney; // 累计充值金额
-	private String currentShow; // 本周期使用量
+
 
 	public String getUnitPrice() {
 		return unitPrice;

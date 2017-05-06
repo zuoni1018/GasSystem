@@ -10,11 +10,11 @@
         android:layout_marginTop="10dp">
 
         <ImageView
-            android:layout_marginLeft="10dp"
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:layout_weight="0.06"
             android:src="@drawable/settingtx" />
 
@@ -329,14 +329,21 @@
             android:layout_weight="0.005"
             android:background="@color/main_back" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.32" />
+
         <Button
             android:id="@+id/btExportExcel"
-            android:text="导出数据库"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.32"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="导出数据库"
+            android:visibility="gone" />
     </LinearLayout>
 
     <View

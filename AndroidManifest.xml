@@ -78,6 +78,8 @@
 
         <activity android:name=".GroupInfoStatisticActivity"/>
         <activity android:name=".CopyDetailsActivity"/>
+        <activity android:name=".ExportExcelActivity"/>
+        <activity android:name=".ImportExcelActivity"/>
         <activity
             android:name=".BookInfoActivity"
             android:label="@string/title_activity_book_info"
