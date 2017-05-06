@@ -23,7 +23,6 @@ import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -37,10 +36,8 @@ import com.pl.common.NetWorkManager;
 import com.pl.entity.BookInfo;
 import com.pl.entity.GroupInfo;
 import com.pl.utils.GlobalConsts;
-
 import org.apache.http.Header;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -117,7 +114,7 @@ public class BookInfoActivity extends Activity {
             setBiz = new SetBiz(this);
             serverUrl = setBiz.getBookInfoUrl();
             // ºÏ≤‚Õ¯¬Á
-            if (NetWorkManager.isConnect(this) == false) {
+            if (!NetWorkManager.isConnect(this)) {
                 new AlertDialog.Builder(this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog)
                         .setTitle("Õ¯¬Á¥ÌŒÛ")
@@ -357,6 +354,13 @@ public class BookInfoActivity extends Activity {
                         Intent intent1 = new Intent(BookInfoActivity.this, BookInfoActivity.class);
                         intent1.putExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_DOWNLOAD);
                         startActivity(intent1);
+                        finish();
+                        break;
+                    case R.id.action_importExcel://¥”Excelµº»Î’À≤·
+
+                        Intent intent2 = new Intent(BookInfoActivity.this, ImportExcelActivity.class);
+                        intent2.putExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_DOWNLOAD);
+                        startActivity(intent2);
                         finish();
                         break;
                 }
