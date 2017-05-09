@@ -1,13 +1,13 @@
 package com.pl.dal;
 
-import java.util.ArrayList;
-
-import com.pl.entity.GroupBind;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.pl.entity.GroupBind;
+
+import java.util.ArrayList;
 
 public class GroupBindDao {
 

@@ -1,14 +1,16 @@
 package com.pl.gassystem;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParserException;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -26,17 +28,16 @@ import com.pl.entity.GroupBind;
 import com.pl.entity.GroupInfo;
 import com.pl.utils.GlobalConsts;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class DataDownloadActivity extends Activity {
 
@@ -83,8 +84,7 @@ public class DataDownloadActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.activity_data_download);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-				R.layout.titlebar_onlyback);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_onlyback);
 		tvTitlebar_name = (TextView) findViewById(R.id.tvTitlebar_onlyback_name);
 		tvTitlebar_name.setText("数据管理");
 
@@ -107,8 +107,7 @@ public class DataDownloadActivity extends Activity {
 		setBiz = new SetBiz(this);
 		serverUrl = setBiz.getBookInfoUrl();
 
-		bookInfoType = getIntent().getIntExtra("bookInfoType",
-				GlobalConsts.BOOKINFO_TYPE_COPY);
+		bookInfoType = getIntent().getIntExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_COPY);
 		if (bookInfoType == GlobalConsts.BOOKINFO_TYPE_DOWNLOAD) {
 			tvDataDownTips.setText("正在下载数据，请稍后");
 			getBookInfoData();
@@ -390,12 +389,10 @@ public class DataDownloadActivity extends Activity {
 					copyDataICRFs = parser.parseCopyDataICRFs(in);
 					in.close();
 					if (copyDataICRFs != null) {
-						Message msg = Message.obtain(handler,
-								getCopyDataSuccess);
+						Message msg = Message.obtain(handler, getCopyDataSuccess);
 						handler.sendMessage(msg);
 					} else {
-						Message msg = Message.obtain(handler,
-								getCopyDataFailure);
+						Message msg = Message.obtain(handler, getCopyDataFailure);
 						handler.sendMessage(msg);
 					}
 				} catch (XmlPullParserException | IOException e) {
@@ -465,12 +462,10 @@ public class DataDownloadActivity extends Activity {
 					bookInfos = parser.parseBookInfos(in);
 					in.close();
 					if (bookInfos != null) {
-						Message msg = Message.obtain(handler,
-								getBookInfoSuccess);
+						Message msg = Message.obtain(handler, getBookInfoSuccess);
 						handler.sendMessage(msg);
 					} else {
-						Message msg = Message.obtain(handler,
-								getBookInfoFailure);
+						Message msg = Message.obtain(handler, getBookInfoFailure);
 						handler.sendMessage(msg);
 					}
 				} catch (XmlPullParserException | IOException e) {
@@ -496,8 +491,7 @@ public class DataDownloadActivity extends Activity {
 		client.post(url, params, new AsyncHttpResponseHandler() {
 
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
 				Message msg = Message.obtain(handler, getGroupInfoFailure);
 				handler.sendMessage(msg);
 			}
@@ -510,12 +504,10 @@ public class DataDownloadActivity extends Activity {
 					groupInfos = parser.parseGroupInfos(in);
 					in.close();
 					if (groupInfos != null) {
-						Message msg = Message.obtain(handler,
-								getGroupInfoSuccess);
+						Message msg = Message.obtain(handler, getGroupInfoSuccess);
 						handler.sendMessage(msg);
 					} else {
-						Message msg = Message.obtain(handler,
-								getGroupInfoFailure);
+						Message msg = Message.obtain(handler, getGroupInfoFailure);
 						handler.sendMessage(msg);
 					}
 				} catch (XmlPullParserException | IOException e) {

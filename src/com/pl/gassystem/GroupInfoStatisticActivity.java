@@ -266,6 +266,7 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity implements Swi
 //        super.run();
 
             mGroupInfoStatisticList2.clear();
+//            mGroupInfoStatisticList.clear();
             //通过 bookNo 去查询获得所有楼的信息
             ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
             //获得每栋楼的里面信息

@@ -85,14 +85,14 @@ public class ExportExcelActivity extends BaseTitleActivity {
                 case EXCEL_ERROR:
 
                     dialog.setTitle("EXCEL 导出失败");
-                    num = 0;
+                    num = 1;
                     dialog.show();
                     break;
                 case EXCEL_OK:
 
 
                     dialog.setTitle("EXCEL 导出完成");
-                    num = 0;
+                    num = 1;
                     dialog.show();
 
                     Intent intent = new Intent("android.intent.action.VIEW");
@@ -115,7 +115,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        num = 0;
+        num = 1;
         isRun = true;
 //        exportCopyDataExcelThread t = new exportCopyDataExcelThread();
 //        t.start();
@@ -252,8 +252,6 @@ public class ExportExcelActivity extends BaseTitleActivity {
     }
 
 
-
-
     private void initDialog() {
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage("还车中请稍后...");
@@ -291,11 +289,15 @@ public class ExportExcelActivity extends BaseTitleActivity {
      */
 
     private String booksName;
+
+
     private String[] CopyDataTab = {
-            "流水号", "表计编号", "上次读数", "上次用量", "本次读数",
-            "本次用量", "单价", "打印标志", "表具状态", "抄表方式",
-            "抄表状态", "抄表时间", "抄表员姓名", "操作员", "操作时间",
-            "结算标志", "备注", "表具名称", "信号强度", "电量"};
+           "表计编号", "上次读数", "上次用量", "本次读数",
+            "本次用量", "表具状态", "抄表状态", "抄表时间",
+            "抄表员姓名", "表具名称", "信号强度", "电量","","分组名称"};
+
+
+
     private String[] CopyDataICRFTab = {
             "流水号", "表计编号", "表具名称", "累计量", "剩余金额",
             "过零金额", "购买次数", "过流次数", "磁攻击次数", "卡攻击次数",
@@ -306,20 +308,18 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
     private WritableWorkbook mWritableWorkbook;
     private WritableSheet ws;
-    public int num = 0;
+    public int num = 1;
 
     private class exportCopyDataExcelThread extends Thread {
 
         @Override
         public void run() {
-            //先创建当前账册的excel表
 
 
-            //创建文件目录
-            File file = new File(getSDPath() + "/HongHuDate");
-            FileUtil.makeDir(file);
+            File file = new File(getSDPath() + "/HongHuDate"); //创建文件目录
+            FileUtil.makeDir(file);//先创建当前账册的excel表
             //创建excel文件
-            File file2 = new File(file.toString() + "/" + bookName +mYear+ getDateString(mMonth) + getDateString(mDay) + ".xls");
+            File file2 = new File(file.toString() + "/" + bookName + mYear + getDateString(mMonth+1) + getDateString(mDay) + ".xls");
             filePath = file2.toString();
             //每次都重新生成当前文件
             if (file2.exists()) {
@@ -332,21 +332,44 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
                 if (isRun) {
 
+                    //创建tab
+                    if (meterTypeNo.equals("05")) {
+                        //在第二行创建tab
+                        for (int j = 0; j < CopyDataTab.length; j++) {
+                            Label mLabel2 = new Label(j, 0, CopyDataTab[j]);
+                            ws.addCell(mLabel2);
+                        }
+//                        //在(0,0)位置创建meterTypeNo
+//                        Label mLabel2 = new Label(0, 0, "");
+//                        ws.addCell(mLabel2);
+                    } else if (meterTypeNo.equals("04")) {
+                        //在第二行创建tab
+                        for (int j = 0; j < CopyDataICRFTab.length; j++) {
+                            Label mLabel2 = new Label(j, 1, CopyDataICRFTab[j]);
+                            ws.addCell(mLabel2);
+                        }
+                        Label mLabel2 = new Label(0, 0, "4");
+                        ws.addCell(mLabel2);
+                    }
+
+
                     for (int i = 0; i < groupInfos.size(); i++) {
-                        //获得当分组名称
-                        Label mLabel = new Label(0, num, "分组名：" + groupInfos.get(i).getGroupName());
-                        ws.addCell(mLabel);
-                        num++;
+
+                        //编写分组名称在每个分组的第一个表的最后一列添加分组名称
+                        if (meterTypeNo.equals("05")) {
+                            //在第CopyDataTab.length+1处
+                            Label mLabel2 = new Label(CopyDataTab.length-1,num,groupInfos.get(i).getGroupName());
+                            ws.addCell(mLabel2);
+                        } else if (meterTypeNo.equals("04")) {
+                            //在第CopyDataICRFTab.length+1处
+                            Label mLabel2 = new Label(CopyDataICRFTab.length-1,num,groupInfos.get(i).getGroupName());
+                            ws.addCell(mLabel2);
+                        }
+
                         ArrayList<String> meterNos = copyBiz.GetCopyMeterNo(groupInfos.get(i).getGroupNo());//获得每栋楼 里每个住户的信息
-                        //
 
                         if (meterTypeNo.equals("04")) {// IC卡无线
-                            //创建tab
-                            for (int j = 0; j < CopyDataICRFTab.length; j++) {
-                                Label mLabel2 = new Label(j, num, CopyDataICRFTab[j]);
-                                ws.addCell(mLabel2);
-                            }
-                            num++;
+
                             ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
                             if (copyDataICRFs != null) {
                                 for (int j = 0; j < copyDataICRFs.size(); j++) {
@@ -385,45 +408,29 @@ public class ExportExcelActivity extends BaseTitleActivity {
                                         createALabel(24, copyDataICRFs.get(j).getElec() + "");
                                         num++;
                                     }
-
-
                                 }
                             }
                         } else if (meterTypeNo.equals("05")) {// 纯无线
                             ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, 2);
-                            for (int j = 0; j < CopyDataTab.length; j++) {
-                                Label mLabel2 = new Label(j, num, CopyDataTab[j]);
-                                ws.addCell(mLabel2);
-                            }
-                            num++;
-                            if (copyDatas != null) {
 
+                            if (copyDatas != null) {
                                 for (int j = 0; j < copyDatas.size(); j++) {
                                     if (checkDate(copyDatas.get(j).getCopyTime())) {
 
-                                        createALabel(0, copyDatas.get(j).getId() + "");
-                                        createALabel(1, copyDatas.get(j).getMeterNo() + "");
-                                        createALabel(2, copyDatas.get(j).getLastShow() + "");
-                                        createALabel(3, copyDatas.get(j).getLastDosage() + "");
-                                        createALabel(4, copyDatas.get(j).getCurrentShow() + "");
+                                        createALabel(0, copyDatas.get(j).getMeterNo() + "");
+                                        createALabel(1, copyDatas.get(j).getLastShow() + "");
+                                        createALabel(2, copyDatas.get(j).getLastDosage() + "");
+                                        createALabel(3, copyDatas.get(j).getCurrentShow() + "");
+                                        createALabel(4, copyDatas.get(j).getCurrentDosage() + "");
+                                        createALabel(5, copyDatas.get(j).getMeterState() + "");
 
-                                        createALabel(5, copyDatas.get(j).getCurrentDosage() + "");
-                                        createALabel(6, copyDatas.get(j).getUnitPrice() + "");
-                                        createALabel(7, copyDatas.get(j).getPrintFlag() + "");
-                                        createALabel(8, copyDatas.get(j).getMeterState() + "");
-                                        createALabel(9, copyDatas.get(j).getCopyWay() + "");
+                                        createALabel(6, copyDatas.get(j).getCopyState() + "");
+                                        createALabel(7, copyDatas.get(j).getCopyTime() + "");
+                                        createALabel(8, copyDatas.get(j).getCopyMan() + "");
+                                        createALabel(9, copyDatas.get(j).getMeterName() + "");
+                                        createALabel(10, copyDatas.get(j).getdBm() + "");
+                                        createALabel(11, copyDatas.get(j).getElec() + "");
 
-                                        createALabel(10, copyDatas.get(j).getCopyState() + "");
-                                        createALabel(11, copyDatas.get(j).getCopyTime() + "");
-                                        createALabel(12, copyDatas.get(j).getCopyMan() + "");
-                                        createALabel(13, copyDatas.get(j).getOperator() + "");
-                                        createALabel(14, copyDatas.get(j).getOperateTime() + "");
-
-                                        createALabel(15, copyDatas.get(j).getIsBalance() + "");
-                                        createALabel(16, copyDatas.get(j).getRemark() + "");
-                                        createALabel(17, copyDatas.get(j).getMeterName() + "");
-                                        createALabel(18, copyDatas.get(j).getdBm() + "");
-                                        createALabel(19, copyDatas.get(j).getElec() + "");
                                         num++;
                                     }
 

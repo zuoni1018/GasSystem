@@ -26,6 +26,9 @@ public class GroupInfo implements Serializable {
 	}
 
 	public String getGroupName() {
+		if(groupName==null){
+			return "";
+		}
 		return groupName;
 	}
 

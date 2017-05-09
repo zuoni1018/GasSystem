@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.pl.entity.BookInfo;
 import com.pl.gassystem.R;
-import com.pl.utils.MeterType;
 
 import java.util.ArrayList;
 
@@ -74,7 +73,13 @@ public class BookInfoAdapter extends BaseAdapter {
         }
         BookInfo bookInfo = getItem(position);
         holder.tvBookInfoName.setText(bookInfo.getBookName());
-        holder.tvMeterType.setText("±Ì¿‡–Õ: " + MeterType.GetMeterTypeName(bookInfo.getMeterTypeNo())+"");
+        String msg;
+        if(bookInfo.getMeterTypeNo().equals("04")){
+            msg="’À≤·±‡∫≈:"+"ICWX"+bookInfo.getBookNo().substring(bookInfo.getBookNo().length()-4,bookInfo.getBookNo().length());
+        }else {
+            msg="’À≤·±‡∫≈:"+"WX"+bookInfo.getBookNo().substring(bookInfo.getBookNo().length()-4,bookInfo.getBookNo().length());
+        }
+        holder.tvMeterType.setText(msg);
         return convertView;
     }
 

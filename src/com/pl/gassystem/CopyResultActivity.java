@@ -26,6 +26,8 @@ import com.pl.entity.CopyDataICRF;
 import com.pl.utils.GlobalConsts;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CopyResultActivity extends Activity {
 
@@ -55,11 +57,28 @@ public class CopyResultActivity extends Activity {
         lvCopyResult = (ListView) findViewById(R.id.lvCopyResult);
         if (meterTypeNo.equals("04")) {// IC卡无线
             ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, copyState);
+            //进行排序
+            Collections.sort(copyDataICRFs,new Comparator<CopyDataICRF>(){
+
+                public int compare(CopyDataICRF arg0, CopyDataICRF arg1) {
+                    return arg0.getMeterNo().compareTo(arg1.getMeterNo());
+                }
+            });
+
             copyDataICRFAdapter = new CopyDataICRFAdapter(this, copyDataICRFs);
             lvCopyResult.setAdapter(copyDataICRFAdapter);
             tvCopyResultCount.setText("共" + copyDataICRFAdapter.getCount() + "表");
         } else if (meterTypeNo.equals("05")) {// 纯无线
             ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, copyState);
+
+
+            Collections.sort(copyDatas,new Comparator<CopyData>(){
+
+                public int compare(CopyData arg0, CopyData arg1) {
+                    return arg0.getMeterNo().compareTo(arg1.getMeterNo());
+                }
+            });
+
             copyDataAdapter = new CopyDataAdapter(this, copyDatas);
             lvCopyResult.setAdapter(copyDataAdapter);
             tvCopyResultCount.setText("共" + copyDataAdapter.getCount() + "表");

@@ -23,6 +23,7 @@ import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -36,8 +37,10 @@ import com.pl.common.NetWorkManager;
 import com.pl.entity.BookInfo;
 import com.pl.entity.GroupInfo;
 import com.pl.utils.GlobalConsts;
+
 import org.apache.http.Header;
 import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,6 +68,10 @@ public class BookInfoActivity extends Activity {
     private final static int getBookInfoFailure = 11;
 
     private static String serverUrl;
+
+
+    private GroupInfoBiz groupInfoBiz;
+    private GroupBindBiz groupBindBiz;
 
     private void setupView() {
         btnquit = (ImageButton) findViewById(R.id.btnquit);
@@ -100,7 +107,8 @@ public class BookInfoActivity extends Activity {
         bookInfoType = getIntent().getIntExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_COPY);
         tvTitlebar_name = (TextView) findViewById(R.id.tvTitlebar_name);
 
-
+        groupInfoBiz = new GroupInfoBiz(this);
+        groupBindBiz = new GroupBindBiz(this);
         //判断是从哪个界面点进来的
         //如果是从抄表按钮、统计查询点进来的
         if (bookInfoType == GlobalConsts.BOOKINFO_TYPE_COPY || bookInfoType == GlobalConsts.BOOKINFO_TYPE_SELECT) {
@@ -212,7 +220,6 @@ public class BookInfoActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-
                 if (bookInfoType == GlobalConsts.BOOKINFO_TYPE_COPY) {
                     //如果是从抄表按钮点进来的
 //                    Intent intent = new Intent(BookInfoActivity.this, GroupInfoActivity.class);
@@ -226,7 +233,7 @@ public class BookInfoActivity extends Activity {
                 } else if (bookInfoType == GlobalConsts.BOOKINFO_TYPE_SELECT) {
                     //如果是从统计查询按钮点进来的
                     Intent intent = new Intent(BookInfoActivity.this, GroupInfoActivity.class);
-                   //修改  不跳这里
+                    //修改  不跳这里
 //                    Intent intent = new Intent(BookInfoActivity.this, GroupInfoStatisticActivity.class);
                     BookInfo bkinfo = adapter.getItem(position);//拿到表名
                     intent.putExtra("BookNo", bkinfo.getBookNo());
@@ -323,6 +330,19 @@ public class BookInfoActivity extends Activity {
                 break;
             case MENU_CTX_DELETE:
                 int count = bookInfoBiz.removeBookInfo(bkinfo.getBookNo());
+                //获得该账册下的所有分组
+
+
+                //感觉这里要开启一个线程进行处理以后再进行优化
+                ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bkinfo.getBookNo());
+                for (int i = 0; i < groupInfos.size(); i++) {
+                    //删除该分组内绑定的表
+                    groupBindBiz.removeGroupBindByGroupNo(groupInfos.get(i).getGroupNo());
+                    //移除该分组
+                    groupInfoBiz.removeGroupInfo(groupInfos.get(i).getGroupNo());
+                }
+
+
                 if (count != 0) {
                     adapter.removeItem(info.position);
                 }

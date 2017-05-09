@@ -17,9 +17,6 @@ import com.pl.bll.PreferenceBiz;
 import com.pl.common.MyApplication;
 import com.pl.utils.GlobalConsts;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 主菜单界面
  */
@@ -60,6 +57,18 @@ public class MainActivity extends Activity implements OnTouchListener {
         addListener();
         // assCopy();
 
+
+
+    }
+
+
+    private int getInt(String str){
+
+        try {
+            return  Integer.parseInt(str);
+        }catch (Exception e){
+            return 0;
+        }
     }
 
     // private void assCopy(){
@@ -93,7 +102,7 @@ public class MainActivity extends Activity implements OnTouchListener {
     }
     ///////////////////////////////////
 
-//    private ArrayList<ArrayList<String>> getBillData() {
+    //    private ArrayList<ArrayList<String>> getBillData() {
 //        Cursor mCrusor = mDbHelper.exeSql("select * from family_bill");
 //        while (mCrusor.moveToNext()) {
 //            ArrayList<String> beanList=new ArrayList<String>();
@@ -195,7 +204,6 @@ public class MainActivity extends Activity implements OnTouchListener {
     }
 
 
-
     /**
      * 设置点击时候的动画效果
      */
@@ -209,6 +217,7 @@ public class MainActivity extends Activity implements OnTouchListener {
         ivSystemSet.setOnTouchListener(this);
         ivAbout.setOnTouchListener(this);
     }
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
