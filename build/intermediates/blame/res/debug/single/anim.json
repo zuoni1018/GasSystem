@@ -1,58 +1,10 @@
 [
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_fade_in.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_fade_out.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\pop_win_content_fade_out.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\9f7f3b1709f41747bff0ec82cd4bc8fccddc9fb7\\output\\res\\anim\\pop_win_content_fade_out.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\btn_alpha_scale_end.xml",
         "source": "D:\\zzz\\GasSystem\\res\\anim\\btn_alpha_scale_end.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_popup_enter.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\pop_win_content_fade_in.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\9f7f3b1709f41747bff0ec82cd4bc8fccddc9fb7\\output\\res\\anim\\pop_win_content_fade_in.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\btn_alpha_scale_begin.xml",
         "source": "D:\\zzz\\GasSystem\\res\\anim\\btn_alpha_scale_begin.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_popup_exit.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     }
 ]

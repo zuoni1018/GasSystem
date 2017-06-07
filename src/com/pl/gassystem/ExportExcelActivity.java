@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.utils.FileUtil;
+import com.pl.MyDatePickerDialog;
 import com.pl.adapter.DateListViewAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
@@ -98,6 +99,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
                     Intent intent = new Intent("android.intent.action.VIEW");
                     intent.addCategory("android.intent.category.DEFAULT");
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                     Uri uri = Uri.fromFile(new File(filePath));
                     intent.setDataAndType(uri, "application/vnd.ms-excel");
                     startActivity(intent);
@@ -151,7 +153,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DATE_DIALOG:
-                return new DatePickerDialog(this, mdateListener, mYear, mMonth, mDay);
+                return new MyDatePickerDialog(this, mdateListener, mYear, mMonth, mDay);
         }
         return null;
     }
@@ -259,12 +261,13 @@ public class ExportExcelActivity extends BaseTitleActivity {
         mProgressDialog.setCancelable(false);
     }
 
-    private DatePickerDialog.OnDateSetListener mdateListener = new DatePickerDialog.OnDateSetListener() {
+    private DatePickerDialog.OnDateSetListener mdateListener = new MyDatePickerDialog.OnDateSetListener() {
 
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             mList.add(year + "-" + getDateString(monthOfYear + 1) + "-" + getDateString(dayOfMonth));
             mAdapter.notifyDataSetChanged();
+//            LogUtil.i("zzzzzzzz");
         }
     };
 
@@ -299,11 +302,11 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
 
     private String[] CopyDataICRFTab = {
-            "流水号", "表计编号", "表具名称", "累计量", "剩余金额",
+            "电量", "表计编号", "表具名称", "累计量", "剩余金额",
             "过零金额", "购买次数", "过流次数", "磁攻击次数", "卡攻击次数",
             "表状态", "表状态解析信息", "当月累计量", "上月累计量", "上上月累计量",
             "上上上月累计量", "抄表方式", "抄表时间", "抄表状态", "当前单价",
-            "累计用气金额", "累计充值金额", "本周期使用量", "信号强度", "电量"};
+            "累计用气金额", "累计充值金额", "本周期使用量", "信号强度","","分组名称" };
 
 
     private WritableWorkbook mWritableWorkbook;
@@ -345,11 +348,11 @@ public class ExportExcelActivity extends BaseTitleActivity {
                     } else if (meterTypeNo.equals("04")) {
                         //在第二行创建tab
                         for (int j = 0; j < CopyDataICRFTab.length; j++) {
-                            Label mLabel2 = new Label(j, 1, CopyDataICRFTab[j]);
+                            Label mLabel2 = new Label(j, 0, CopyDataICRFTab[j]);
                             ws.addCell(mLabel2);
                         }
-                        Label mLabel2 = new Label(0, 0, "4");
-                        ws.addCell(mLabel2);
+//                        Label mLabel2 = new Label(0, 0, "4");
+//                        ws.addCell(mLabel2);
                     }
 
 
@@ -361,6 +364,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
                             Label mLabel2 = new Label(CopyDataTab.length-1,num,groupInfos.get(i).getGroupName());
                             ws.addCell(mLabel2);
                         } else if (meterTypeNo.equals("04")) {
+                            String a =groupInfos.get(i).getGroupName();
                             //在第CopyDataICRFTab.length+1处
                             Label mLabel2 = new Label(CopyDataICRFTab.length-1,num,groupInfos.get(i).getGroupName());
                             ws.addCell(mLabel2);
@@ -374,10 +378,10 @@ public class ExportExcelActivity extends BaseTitleActivity {
                             if (copyDataICRFs != null) {
                                 for (int j = 0; j < copyDataICRFs.size(); j++) {
                                     //判断是否满足选择条件
-
                                     if (checkDate(copyDataICRFs.get(j).getCopyTime())) {
                                         //满足条件
-                                        createALabel(0, copyDataICRFs.get(j).getId() + "");
+//                                        createALabel(0, copyDataICRFs.get(j).getId() + "");
+                                        createALabel(0, copyDataICRFs.get(j).getElec() + "");
                                         createALabel(1, copyDataICRFs.get(j).getMeterNo() + "");
                                         createALabel(2, copyDataICRFs.get(j).getMeterName() + "");
                                         createALabel(3, copyDataICRFs.get(j).getCumulant() + "");
@@ -405,7 +409,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
                                         createALabel(21, copyDataICRFs.get(j).getAccBuyMoney() + "");
                                         createALabel(22, copyDataICRFs.get(j).getCurrentShow() + "");
                                         createALabel(23, copyDataICRFs.get(j).getdBm() + "");
-                                        createALabel(24, copyDataICRFs.get(j).getElec() + "");
+
                                         num++;
                                     }
                                 }
@@ -430,7 +434,6 @@ public class ExportExcelActivity extends BaseTitleActivity {
                                         createALabel(9, copyDatas.get(j).getMeterName() + "");
                                         createALabel(10, copyDatas.get(j).getdBm() + "");
                                         createALabel(11, copyDatas.get(j).getElec() + "");
-
                                         num++;
                                     }
 

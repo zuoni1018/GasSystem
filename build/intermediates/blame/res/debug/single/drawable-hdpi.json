@@ -4,52 +4,72 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyone.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivsetting.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivsetting.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ck_false.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ck_false.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyunread.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyunread.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_3.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_3.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivquery.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivquery.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyunread.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyunread.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivsetting.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivsetting.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivphotocopy_new.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivphotocopy_new.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyweihu.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyweihu.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyother.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyother.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivconpc.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivconpc.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btnlogin.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btnlogin.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivmaintain.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivmaintain.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_8.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_8.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenopenvalve.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenopenvalve.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\loginbk_hh.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\loginbk_hh.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\navbar.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\navbar.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\zx_code_line.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\zx_code_line.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\imglogin_pwd.png",
@@ -68,10 +88,6 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivdatamanage.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_005.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mainbk.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\mainbk.png"
     },
@@ -82,10 +98,6 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_icon.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_icon.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_7.png",
@@ -100,24 +112,44 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenprice.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_4.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_4.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivprint.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivprint.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatasuccess.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatasuccess.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivabout.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivabout.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyprint.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyprint.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyingstop.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyingstop.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivsetting_new.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivsetting_new.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatadelete.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatadelete.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenvalve.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenvalve.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_2.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_2.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenclosevalve.png",
@@ -128,8 +160,24 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyinput.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenpwd.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenpwd.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ck_true.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ck_true.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivcopy_new.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivcopy_new.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatadownload.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatadownload.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyingstart.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyingstart.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyunread.png",
@@ -144,32 +192,40 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenbuy.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\se.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\se.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopystart.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopystart.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\loginbk_rw.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\loginbk_rw.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyread.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyread.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\zx_code_kuang.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\zx_code_kuang.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_5.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_5.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenstate.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenstate.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopynoone.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopynoone.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_back.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btn_back.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_1.png",
@@ -180,20 +236,20 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyreadall.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\pbload2.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\pbload2.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdataupdate.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdataupdate.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\pbload2.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\pbload2.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_listadd.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btn_listadd.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivabout_new.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivabout_new.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivdatamanage_new.png",
@@ -204,8 +260,16 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopygroup.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyreadun.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyreadun.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivmaintain_new.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivmaintain_new.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopynogroup.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopynogroup.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivquery_new.png",
@@ -216,8 +280,20 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatafailure.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\add.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\add.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\imglogin_name.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\imglogin_name.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintencomnumer.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintencomnumer.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivonecopy_new.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivonecopy_new.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\delete.png",
@@ -234,254 +310,6 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmanagegropu.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmanagegropu.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ck_false.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ck_false.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_3.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_3.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyweihu.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyweihu.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyother.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyother.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btnlogin.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btnlogin.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivmaintain.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivmaintain.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenopenvalve.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenopenvalve.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_focused_holo.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\loginbk_hh.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\loginbk_hh.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\navbar.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\navbar.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\zx_code_line.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\zx_code_line.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_4.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_4.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivprint.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivprint.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatasuccess.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatasuccess.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyprint.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyprint.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_longpressed_holo.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyingstop.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyingstop.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenvalve.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenvalve.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_2.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\custom_progress_2.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenpwd.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenpwd.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivcopy_new.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivcopy_new.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatadownload.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatadownload.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyingstart.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyingstart.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_rating_star_off_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\se.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\se.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\loginbk_rw.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\loginbk_rw.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyread.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyread.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\zx_code_kuang.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\zx_code_kuang.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenstate.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenstate.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopynoone.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopynoone.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_rating_star_on_mtrl_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_btn_rating_star_on_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_listadd.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btn_listadd.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivabout_new.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivabout_new.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopyreadun.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyreadun.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivcopynogroup.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopynogroup.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\add.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\add.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_pressed_holo_light.9.png",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\d584ee12a77c333cbf0cfaf24d99345fb6daf8da\\output\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\imglogin_name.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\imglogin_name.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintencomnumer.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintencomnumer.png"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivonecopy_new.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivonecopy_new.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\custom_progress_6.png",

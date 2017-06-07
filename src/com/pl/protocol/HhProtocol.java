@@ -25,9 +25,9 @@ public class HhProtocol {
 	private CXmlAnalyze xml = null;
 
 	// ª›÷›√‹¬Î
-	private String password = "01020304050607080000000000000000";
+//	private String password = "01020304050607080000000000000000";
 
-	// private String password = "701f72a20f59f4140000000000000000";
+	 private String password = "701f72a20f59f4140000000000000000";
 
 	private void HhProtocol() {
 

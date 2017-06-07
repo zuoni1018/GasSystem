@@ -44,12 +44,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\imgblank.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ivmaintenclosevalve.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenclosevalve.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\btn_back.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btn_back.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ivmaintenclosevalve.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenclosevalve.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\pbload1.png",
@@ -168,12 +168,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintencomnumer.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ivcopyingstart.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyingstart.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\main_ivabout_new.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivabout_new.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ivcopyingstart.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyingstart.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\loginbk_hh.png",

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pl.gassystem"
-    android:versionCode="2"
-    android:versionName="1.4" >
+    android:versionCode="3"
+    android:versionName="1.5" >
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -79,6 +79,7 @@
         <activity android:name="com.pl.gassystem.GroupInfoStatisticActivity" />
         <activity android:name="com.pl.gassystem.CopyDetailsActivity" />
         <activity android:name="com.pl.gassystem.ExportExcelActivity" />
+        <activity android:name="com.pl.gassystem.ImportExcelActivity" />
         <activity
             android:name="com.pl.gassystem.BookInfoActivity"
             android:label="@string/title_activity_book_info"

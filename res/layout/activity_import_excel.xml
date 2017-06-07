@@ -34,6 +34,38 @@
             android:layout_marginTop="10dp"
             android:background="#fa7676"
             android:text="选择Excel文件路径" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="请选择导入所导入账册的抄表方式" />
+
+        <RadioGroup
+            android:id="@+id/mRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="IC无线" />
+
+            <RadioButton
+                android:id="@+id/rb02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="纯无线" />
+
+        </RadioGroup>
+
+
         <Button
             android:id="@+id/btImport"
             android:layout_width="match_parent"
