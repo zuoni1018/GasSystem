@@ -59,6 +59,9 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity implements Swi
     private SwipeRefreshLayout mSwipeLayout;
     private mySearchThread t;
 
+
+    private TextView tvNoCopy, tvCopy, tvAllNum;
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -70,6 +73,18 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity implements Swi
                 mProgressBar.setVisibility(View.GONE);
                 mSwipeLayout.setRefreshing(false);
                 Toast.makeText(GroupInfoStatisticActivity.this, "数据查询完毕", Toast.LENGTH_SHORT).show();
+                int all = 0;
+                int copy = 0;
+                int noCopy = 0;
+                //计算总数
+                for (int i = 0; i < mGroupInfoStatisticList.size(); i++) {
+                    all = all + mGroupInfoStatisticList.get(i).getAllNum();
+                    copy = copy + mGroupInfoStatisticList.get(i).getCopyNum();
+                    noCopy = noCopy + mGroupInfoStatisticList.get(i).getNoNum();
+                }
+                tvAllNum.setText("总数（" + all + "）");
+                tvCopy.setText("已抄（" + copy + "）");
+                tvNoCopy.setText("未抄（" + noCopy + "）");
             }
 
         }
@@ -141,6 +156,11 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity implements Swi
         mSwipeLayout.setDistanceToTriggerSync(400);// 设置手指在屏幕下拉多少距离会触发下拉刷新
         mSwipeLayout.setProgressBackgroundColor(R.color.colorPrimaryDark); // 设定下拉圆圈的背景
         mSwipeLayout.setSize(SwipeRefreshLayout.DEFAULT); // 设置圆圈的大小
+
+        tvAllNum = (TextView) findViewById(R.id.tvAllNum);
+        tvCopy = (TextView) findViewById(R.id.tvCopy);
+        tvNoCopy = (TextView) findViewById(R.id.tvNoCopy);
+
     }
 
 
@@ -311,7 +331,9 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity implements Swi
                     mGroupInfoStatistic.setPoint(groupInfos.get(i).getGroupName().trim() + "");
                     mGroupInfoStatistic.setMeterNos(meterNos);
                     mGroupInfoStatistic.setmGroupInfo(groupInfos.get(i));
-                    mGroupInfoStatisticList2.add(mGroupInfoStatistic);
+                    if(!mGroupInfoStatistic.getPoint().trim().equals("")){
+                        mGroupInfoStatisticList2.add(mGroupInfoStatistic);
+                    }
                     //40条刷新一次
                     if (i % 40 == 0) {
                         Message message = Message.obtain();

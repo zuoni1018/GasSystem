@@ -56,6 +56,11 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="IC无线" />
+            <RadioButton
+                android:id="@+id/rb03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="西宁IC纯无线" />
 
             <RadioButton
                 android:id="@+id/rb02"

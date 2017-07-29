@@ -1,7 +1,4 @@
-#Wed Jun 07 14:34:07 CST 2017
-base.0=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_29afea97ffb414318314a21f19d26c069c5acaf1
-renamed.1=classes2.dex
+#Wed Jul 26 15:59:24 CST 2017
+base.0=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.1=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_9582766026caea2e3d66c28b97de95164f1588fe\\classes.dex
-base.1=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_9582766026caea2e3d66c28b97de95164f1588fe
-file.0=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_29afea97ffb414318314a21f19d26c069c5acaf1\\classes.dex
+file.0=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

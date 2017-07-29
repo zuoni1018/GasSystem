@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.utils.FileUtil;
+import com.common.utils.LogUtil;
 import com.pl.MyDatePickerDialog;
 import com.pl.adapter.DateListViewAdapter;
 import com.pl.bll.CopyBiz;
@@ -48,6 +49,10 @@ import static com.common.utils.FileUtil.getSDPath;
  */
 
 public class ExportExcelActivity extends BaseTitleActivity {
+
+    private TextView tvTime01, tvTime02;
+
+
     private ProgressDialog mProgressDialog;
     private boolean isRun;
 
@@ -74,6 +79,8 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
     private String filePath;
 
+
+    private Button btXiNingIC;
     private final int EXCEL_ERROR = 0;
     private final int EXCEL_OK = 1;
     private final int EXCEL_PROGRESS = 3;
@@ -162,6 +169,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
     protected void initOnClickListener() {
         btSearch.setOnClickListener(this);
         btGetTime.setOnClickListener(this);
+        btXiNingIC.setOnClickListener(this);
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -175,14 +183,46 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
     }
 
+    private DatePickerDialog mDatePickerDialog;
+
+    private void showDatePickerDialog(final TextView tv) {
+        if(mDatePickerDialog!=null&&mDatePickerDialog.isShowing()){
+            mDatePickerDialog.dismiss();
+        }
+        mDatePickerDialog=new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                tv.setText(year + "-" + getDateString(monthOfYear + 1) + "-" + getDateString(dayOfMonth));
+            }
+        }, mYear, mMonth, mDay);
+        mDatePickerDialog.show();
+    }
+
     @Override
     protected void initUI() {
         setTitle("导出Excel");
         btSearch = (Button) findViewById(R.id.btSearch);
         mListView = (ListView) findViewById(R.id.mListView);
         btGetTime = (Button) findViewById(R.id.btGetTime);
+        btXiNingIC = (Button) findViewById(R.id.btXiNingIC);
         initDialog();
 
+
+        tvTime01 = (TextView) findViewById(R.id.tvTime01);
+        tvTime02 = (TextView) findViewById(R.id.tvTime02);
+
+        tvTime01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog(tvTime01);
+            }
+        });
+        tvTime02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog(tvTime02);
+            }
+        });
     }
 
 
@@ -194,6 +234,15 @@ public class ExportExcelActivity extends BaseTitleActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            case R.id.btXiNingIC:
+                mProgressDialog.setMessage("正在导出excel，请不要退出App或其他操作");
+                mProgressDialog.show();
+                exportXiNingICExcelThread t = new exportXiNingICExcelThread();
+                t.start();
+
+                break;
+
             case R.id.btSearch:
 //                showDialog(DATE_DIALOG);
                 if (mList.size() == 0) {
@@ -295,23 +344,114 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
 
     private String[] CopyDataTab = {
-           "表计编号", "上次读数", "上次用量", "本次读数",
+            "表计编号", "上次读数", "上次用量", "本次读数",
             "本次用量", "表具状态", "抄表状态", "抄表时间",
-            "抄表员姓名", "表具名称", "信号强度", "电量","","分组名称"};
+            "抄表员姓名", "表具名称", "信号强度", "电量", "", "分组名称"};
 
 
-
+    private String[] CopyXiNingTab = {
+            "用户编号", "表具编号", "表具钢号", "地址描述", "用户名称", "表具累计用量", "表具累计用气金额",
+            "表具剩余金额", "当前运行价格", "采集方式", "采集时间", "采集成功标志", "失败原因", "表具时间",
+            "阀门状态", "IC卡购气次数", "远程购气次数", "累计上表购气金额", "表具故障状态"
+    };
     private String[] CopyDataICRFTab = {
             "电量", "表计编号", "表具名称", "累计量", "剩余金额",
             "过零金额", "购买次数", "过流次数", "磁攻击次数", "卡攻击次数",
             "表状态", "表状态解析信息", "当月累计量", "上月累计量", "上上月累计量",
             "上上上月累计量", "抄表方式", "抄表时间", "抄表状态", "当前单价",
-            "累计用气金额", "累计充值金额", "本周期使用量", "信号强度","","分组名称" };
+            "累计用气金额", "累计充值金额", "本周期使用量", "信号强度", "", "分组名称"};
 
 
     private WritableWorkbook mWritableWorkbook;
     private WritableSheet ws;
     public int num = 1;
+
+    private class exportXiNingICExcelThread extends Thread {
+
+        @Override
+        public void run() {
+
+            File file = new File(getSDPath() + "/HongHuDate"); //创建文件目录
+            FileUtil.makeDir(file);//先创建当前账册的excel表
+            //创建excel文件
+            File file2 = new File(file.toString() + "/" + bookName + mYear + getDateString(mMonth + 1) + getDateString(mDay) + ".xls");
+            filePath = file2.toString();
+            //每次都重新生成当前文件
+            if (file2.exists()) {
+                file2.delete();
+            }
+            try {
+                mWritableWorkbook = Workbook.createWorkbook(file2);
+                ws = mWritableWorkbook.createSheet("测试表", 0);
+                ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
+
+                if (isRun) {
+
+                    //创建tab
+
+                    //在第二行创建tab
+                    for (int j = 0; j < CopyXiNingTab.length; j++) {
+                        Label mLabel2 = new Label(j, 0, CopyXiNingTab[j]);
+                        ws.addCell(mLabel2);
+                    }
+
+//
+                    for (int i = 0; i < groupInfos.size(); i++) {
+
+                        String groupName = groupInfos.get(i).getGroupName();
+                        //编写分组名称在每个分组的第一个表的最后一列添加分组名称
+                        ArrayList<String> meterNos = copyBiz.GetCopyMeterNo(groupInfos.get(i).getGroupNo());//获得每栋楼 里每个住户的信息
+                        ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
+
+                        if (copyDataICRFs != null) {
+                            for (int j = 0; j < copyDataICRFs.size(); j++) {
+                                createALabel(0, copyDataICRFs.get(j).getNo01() + "");
+                                createALabel(1, copyDataICRFs.get(j).getNo02() + "");
+                                createALabel(2, copyDataICRFs.get(j).getMeterNo() + "");//填写表具钢号
+                                createALabel(3, groupName + "");//填写表具钢号
+                                createALabel(4, copyDataICRFs.get(j).getName() + "");//用户名称
+                                createALabel(5, copyDataICRFs.get(j).getCumulant() + "");//表具累计用量
+                                createALabel(6, copyDataICRFs.get(j).getAccMoney() + "");//累计用气金额
+                                createALabel(7, copyDataICRFs.get(j).getSurplusMoney() + "");//累计用气金额
+                                createALabel(8, copyDataICRFs.get(j).getUnitPrice() + "");
+                                createALabel(9, copyDataICRFs.get(j).getCopyWay() + "");
+                                createALabel(10, copyDataICRFs.get(j).getCopyTime() + "");//抄表时间
+                                createALabel(12, copyDataICRFs.get(j).getStateMessage() + "");
+                                createALabel(13, copyDataICRFs.get(j).getCopyTime() + "");
+                                createALabel(15, copyDataICRFs.get(j).getBuyTimes() + "");
+                                createALabel(17, copyDataICRFs.get(j).getAccBuyMoney() + "");
+                                num++;
+                            }
+                        }
+
+
+                    }
+                }
+                mWritableWorkbook.write();
+                mWritableWorkbook.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                Message message = Message.obtain();
+                message.what = EXCEL_ERROR;
+                mHandler.sendMessage(message);
+            } catch (WriteException e) {
+                e.printStackTrace();
+                Message message = Message.obtain();
+                message.what = EXCEL_ERROR;
+                mHandler.sendMessage(message);
+            } finally {
+                mProgressDialog.dismiss();
+            }
+            // 创建表单,其中sheet表示该表格的名字,0表示第一个表格,
+
+            Message message = Message.obtain();
+            message.what = EXCEL_OK;
+            mHandler.sendMessage(message);
+
+        }
+    }
+
 
     private class exportCopyDataExcelThread extends Thread {
 
@@ -322,7 +462,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
             File file = new File(getSDPath() + "/HongHuDate"); //创建文件目录
             FileUtil.makeDir(file);//先创建当前账册的excel表
             //创建excel文件
-            File file2 = new File(file.toString() + "/" + bookName + mYear + getDateString(mMonth+1) + getDateString(mDay) + ".xls");
+            File file2 = new File(file.toString() + "/" + bookName + mYear + getDateString(mMonth + 1) + getDateString(mDay) + ".xls");
             filePath = file2.toString();
             //每次都重新生成当前文件
             if (file2.exists()) {
@@ -361,12 +501,12 @@ public class ExportExcelActivity extends BaseTitleActivity {
                         //编写分组名称在每个分组的第一个表的最后一列添加分组名称
                         if (meterTypeNo.equals("05")) {
                             //在第CopyDataTab.length+1处
-                            Label mLabel2 = new Label(CopyDataTab.length-1,num,groupInfos.get(i).getGroupName());
+                            Label mLabel2 = new Label(CopyDataTab.length - 1, num, groupInfos.get(i).getGroupName());
                             ws.addCell(mLabel2);
                         } else if (meterTypeNo.equals("04")) {
-                            String a =groupInfos.get(i).getGroupName();
+                            String a = groupInfos.get(i).getGroupName();
                             //在第CopyDataICRFTab.length+1处
-                            Label mLabel2 = new Label(CopyDataICRFTab.length-1,num,groupInfos.get(i).getGroupName());
+                            Label mLabel2 = new Label(CopyDataICRFTab.length - 1, num, groupInfos.get(i).getGroupName());
                             ws.addCell(mLabel2);
                         }
 
@@ -469,6 +609,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
     }
 
     private boolean checkDate(String copyTime) {
+        LogUtil.i("检查日期",copyTime);
         if (mList.size() == 0) {
             return true;
         } else {
@@ -481,7 +622,18 @@ public class ExportExcelActivity extends BaseTitleActivity {
         return false;
     }
 
-
+    private boolean checkDate2(String copyTime) {
+        if (mList.size() == 0) {
+            return true;
+        } else {
+            for (int i = 0; i < mList.size(); i++) {
+                if (copyTime.contains(mList.get(i))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     private void createALabel(int y, String s) {
         //成功插入一条数据的时候行号加1
         try {

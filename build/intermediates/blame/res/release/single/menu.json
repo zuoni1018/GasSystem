@@ -92,12 +92,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\menu\\group_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\menu\\main.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\main.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\menu\\maintenance.xml",
         "source": "D:\\zzz\\GasSystem\\res\\menu\\maintenance.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\menu\\main.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\menu\\main.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\menu\\group_info_update.xml",

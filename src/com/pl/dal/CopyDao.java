@@ -661,6 +661,9 @@ public class CopyDao {
                         copyIcrf.setAccMoney(cursor.getString(cursor.getColumnIndex("accMoney")));
                         copyIcrf.setAccBuyMoney(cursor.getString(cursor.getColumnIndex("accBuyMoney")));
                         copyIcrf.setCurrentShow(cursor.getString(cursor.getColumnIndex("currentShow")));
+                        copyIcrf.setNo01(cursor.getString(cursor.getColumnIndex("No01")));
+                        copyIcrf.setNo02(cursor.getString(cursor.getColumnIndex("No02")));
+                        copyIcrf.setName(cursor.getString(cursor.getColumnIndex("name")));
                         copyDataICRFs.add(copyIcrf);
                     }
                     cursor.close();
@@ -828,6 +831,9 @@ public class CopyDao {
         values.put("accMoney", copyDataICRF.getAccMoney());
         values.put("accBuyMoney", copyDataICRF.getAccBuyMoney());
         values.put("currentShow", copyDataICRF.getCurrentShow());
+        values.put("No01", copyDataICRF.getNo01());//向数据库中多存取这2个数据
+        values.put("No02", copyDataICRF.getNo02());
+        values.put("name", copyDataICRF.getName());
         long rowId = db.insert("CopyDataICRF", null, values);
         db.close();
         return rowId;

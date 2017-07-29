@@ -1,4 +1,4 @@
-#Wed Jun 07 14:34:06 CST 2017
+#Fri Jun 16 13:02:29 CST 2017
 file.2=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_6b3805ddaea86c5e67c4f60612fc656bc3f7a8db\\classes.dex
 base.2=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_6b3805ddaea86c5e67c4f60612fc656bc3f7a8db
 file.1=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\okhttp-3.3.1_6c1bd5a593dd493adc69eb4adb91b721b1a8e717\\classes.dex

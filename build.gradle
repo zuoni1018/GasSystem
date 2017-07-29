@@ -53,4 +53,7 @@ android {
         release.setRoot('build-types/release')
     }
     compileOptions.encoding = "GBK"
+
 }
+
+

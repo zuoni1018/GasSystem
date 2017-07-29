@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBOpenHelper extends SQLiteOpenHelper {
 
 	public DBOpenHelper(Context context) {
-		super(context, "gasSystem.db", null, 2);
+		super(context, "gasSystem.db", null, 3);
 	}
 
 	@Override
@@ -54,6 +54,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		sql = "CREATE TABLE CopyDataICRF ("
 				+ "_id integer primary key autoincrement ,"
 				+ "meterNo TEXT NOT NULL, Cumulant TEXT,"
+				+ "No01 TEXT, No02 TEXT, name TEXT,"
 				+ "SurplusMoney TEXT, OverZeroMoney TEXT,"
 				+ "BuyTimes integer, OverFlowTimes integer,"
 				+ "MagAttTimes integer,CardAttTimes integer,"
@@ -96,10 +97,19 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO 自动生成的方法存根
+
+
+
 		if (oldVersion < 2) {
 			String sql = "ALTER TABLE SetUp ADD COLUMN repeatCount integer";
 			db.execSQL(sql);
 			sql = "update SetUp set repeatCount = 0";
+			db.execSQL(sql);
+			System.out.println("数据库更新成功");
+		}
+
+		if (oldVersion < 3) {
+			String sql = "ALTER TABLE CopyDataICRF ADD COLUMN No01 TEXT , No02 TEXT,name TEXT";
 			db.execSQL(sql);
 			System.out.println("数据库更新成功");
 		}

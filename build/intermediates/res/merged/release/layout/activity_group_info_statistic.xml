@@ -11,8 +11,7 @@
         android:id="@+id/btExportExcel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="导出账册"
-       />
+        android:text="导出账册" />
 
     <Button
 
@@ -80,11 +79,12 @@
             android:background="@color/color_line" />
 
         <TextView
+            android:id="@+id/tvAllNum"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="总数" />
+            android:text="总数(200)" />
 
         <View
             android:layout_width="1dp"
@@ -92,11 +92,12 @@
             android:background="@color/color_line" />
 
         <TextView
+            android:id="@+id/tvCopy"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="已抄" />
+            android:text="已抄(200)" />
 
         <View
             android:layout_width="1dp"
@@ -104,23 +105,13 @@
             android:background="@color/color_line" />
 
         <TextView
+            android:id="@+id/tvNoCopy"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="未抄" />
+            android:text="未抄(200)" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/color_line" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="操作" />
 
         <View
             android:layout_width="1dp"

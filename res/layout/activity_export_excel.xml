@@ -22,6 +22,35 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTime01"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="----" />
+
+        <TextView
+            android:id="@+id/tvTime02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btGetTime"
@@ -31,7 +60,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:background="#39c7ff"
-        android:text="添加查询日期" />
+        android:text="添加查询指定日期" />
 
     <Button
         android:id="@+id/btSearch"
@@ -43,5 +72,31 @@
         android:background="#39c7ff"
         android:text="查询" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#999999" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:text="提示:若为西宁IC无线请直接点击下面按钮进行导出操作"
+        android:textColor="#999999"
+        android:textSize="14sp" />
+
+    <Button
+
+        android:id="@+id/btXiNingIC"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#39c7ff"
+        android:text="西宁IC无线导出" />
 
 </LinearLayout>

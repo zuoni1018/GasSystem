@@ -120,7 +120,10 @@ public class HhProtocol {
 		} else {
 			if (cmd.equals("23")) {
 				all += "07"; // 查询 摄像表数据域长度
-			} else {
+			} else if (cmd.equals("81")){
+				all += "06"; //港泰抄表协议长度
+			}
+			else {
 				all += "02";// 查询 数据域长度(查询)
 			}
 		}
@@ -877,7 +880,7 @@ public class HhProtocol {
 	 * 组包
 	 * 
 	 * @param data
-	 * @param x
+	 * @param
 	 * @return
 	 */
 	public String encodeIC(CqueueData data) {
@@ -1002,10 +1005,12 @@ public class HhProtocol {
 			// + unpack.substring(100, 110) + ";"
 			// + unpack.substring(110, 120) + ";"
 			// + unpack.substring(120, 126);
-			data1 += ";|" + unpack.substring(82, 88) + ";"
-					+ unpack.substring(88, 98) + ";"
-					+ unpack.substring(98, 108) + ";"
-					+ unpack.substring(108, 114);
+			if(unpack.length() > 108){
+				data1 += ";|" + unpack.substring(82, 88) + ";"
+						+ unpack.substring(88, 98) + ";"
+						+ unpack.substring(98, 108) + ";"
+						+ unpack.substring(108, 114);
+			}
 		} else if (cmdType.equals("08")) { // 查询费率参数
 			data1 = unpack.substring(26, 32) + ";" + unpack.substring(32, 38)
 					+ ";" + unpack.substring(38, 44) + ";"

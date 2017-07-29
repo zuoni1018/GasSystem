@@ -45,6 +45,7 @@ import jxl.Workbook;
 
 /**
  * Created by zangyi_shuai_ge on 2017/5/6
+ * 导入账册
  */
 public class ImportExcelActivity extends BaseTitleActivity {
     private Button btChoose;
@@ -158,6 +159,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
     private int lastColumn;
 
     private boolean isIC = true;
+    private int type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,6 +167,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
 
         isRun = true;
         isIC = true;
+        type=1;
 
     }
 
@@ -192,8 +195,13 @@ public class ImportExcelActivity extends BaseTitleActivity {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.rb01) {
                     isIC = true;
+                    type=1;
                 } else if (checkedId == R.id.rb02) {
                     isIC = false;
+                    type=2;
+                }else {
+                    isIC = true;
+                    type=3;
                 }
 
             }
@@ -326,11 +334,14 @@ public class ImportExcelActivity extends BaseTitleActivity {
             sheet = book.getSheet(0);
             Rows = sheet.getRows();//获得总行数
             int Cols = sheet.getColumns();//获得总列数
-            if (isIC) {
+            if (type==1) {
                 meterType = "04";
                 lastColumn = 25;
-            } else {
+            } else if(type==2){
                 meterType = "05";
+                lastColumn = 13;
+            }else {
+                meterType = "04";
                 lastColumn = 13;
             }
             //查询覆盖
@@ -442,72 +453,132 @@ public class ImportExcelActivity extends BaseTitleActivity {
                 groupBindBiz.addGroupBind(groupBind);
             }
         } else if (meterType.equals("04")) {
+            //普通IC无线
+            if(type==1){
 
-            for (int num = 1; num < Rows && isRun; num++) {
-                //得到当前行第21例的数据
-                if (!getCellDate(sheet, lastColumn, num).trim().equals("")) {
-                    //插入新的分组
-                    groupInfoName = getCellDate(sheet, lastColumn, num).trim();//得到当前的分组名称
-                    GroupInfo groupInfo = new GroupInfo();
-                    groupInfo.setGroupName(groupInfoName);
-                    groupInfo.setEstateNo("");
-                    groupInfo.setRemark("");
-                    groupInfo.setMeterTypeNo(meterType);
-                    groupInfo.setBookNo(bookNo);
-                    String beginGroupNo = bookNo.substring(5);
-                    String endGroupNo;
-                    ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
-                    if (groupInfos != null && groupInfos.size() > 0) {
-                        endGroupNo = StringFormatter.getAddStringGroupNo(groupInfos.get(0).getGroupNo().substring(5));
-                    } else {
-                        endGroupNo = "00001";
+                for (int num = 1; num < Rows && isRun; num++) {
+                    //得到当前行第21例的数据
+                    if (!getCellDate(sheet, lastColumn, num).trim().equals("")) {
+                        //插入新的分组
+                        groupInfoName = getCellDate(sheet, lastColumn, num).trim();//得到当前的分组名称
+                        GroupInfo groupInfo = new GroupInfo();
+                        groupInfo.setGroupName(groupInfoName);
+                        groupInfo.setEstateNo("");
+                        groupInfo.setRemark("");
+                        groupInfo.setMeterTypeNo(meterType);
+                        groupInfo.setBookNo(bookNo);
+                        String beginGroupNo = bookNo.substring(5);
+                        String endGroupNo;
+                        ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
+                        if (groupInfos != null && groupInfos.size() > 0) {
+                            endGroupNo = StringFormatter.getAddStringGroupNo(groupInfos.get(0).getGroupNo().substring(5));
+                        } else {
+                            endGroupNo = "00001";
+                        }
+                        groupNo = beginGroupNo + endGroupNo;
+                        groupInfo.setGroupNo(groupNo);
+                        groupInfoBiz.addGroupInfo(groupInfo);//添加分组
+
                     }
-                    groupNo = beginGroupNo + endGroupNo;
-                    groupInfo.setGroupNo(groupNo);
-                    groupInfoBiz.addGroupInfo(groupInfo);//添加分组
+                    CopyDataICRF copyDataICRF = new CopyDataICRF();
+                    copyDataICRF.setElec(getCellDate(sheet, 0, num).trim());
+                    copyDataICRF.setMeterNo(getCellDate(sheet, 1, num).trim());
+                    copyDataICRF.setMeterName(getCellDate(sheet, 2, num).trim());
+                    copyDataICRF.setCumulant(getCellDate(sheet, 3, num).trim());
+                    copyDataICRF.setSurplusMoney(getCellDate(sheet, 4, num).trim());
+
+
+                    copyDataICRF.setOverZeroMoney(getCellDate(sheet, 5, num).trim());
+                    copyDataICRF.setBuyTimes(getInt(getCellDate(sheet, 6, num).trim()));
+                    copyDataICRF.setOverFlowTimes(getInt(getCellDate(sheet, 7, num).trim()));
+                    copyDataICRF.setMagAttTimes(getInt(getCellDate(sheet, 8, num).trim()));
+                    copyDataICRF.setCardAttTimes(getInt(getCellDate(sheet, 9, num).trim()));
+
+                    copyDataICRF.setMeterState(getInt(getCellDate(sheet, 10, num).trim()));
+                    copyDataICRF.setStateMessage(getCellDate(sheet, 11, num).trim());
+                    copyDataICRF.setCurrMonthTotal(getCellDate(sheet, 12, num).trim());
+                    copyDataICRF.setLast1MonthTotal(getCellDate(sheet, 13, num).trim());
+                    copyDataICRF.setLast2MonthTotal(getCellDate(sheet, 14, num).trim());
+
+                    copyDataICRF.setLast3MonthTotal(getCellDate(sheet, 15, num).trim());
+                    copyDataICRF.setCopyWay(getCellDate(sheet, 16, num).trim());
+                    copyDataICRF.setCopyTime(getCellDate(sheet, 17, num).trim());
+                    copyDataICRF.setCopyTime(getCellDate(sheet, 18, num).trim());
+                    copyDataICRF.setCopyState(getInt(getCellDate(sheet, 19, num).trim()));
+
+
+                    copyDataICRF.setLast3MonthTotal(getCellDate(sheet, 20, num).trim());
+                    copyDataICRF.setAccBuyMoney(getCellDate(sheet, 21, num).trim());
+                    copyDataICRF.setCurrentShow(getCellDate(sheet, 22, num).trim());
+                    copyDataICRF.setdBm(getCellDate(sheet, 23, num).trim());
+                    copyBiz.addCopyDataICRF(copyDataICRF);
+                    // 绑定数据
+                    GroupBind groupBind = new GroupBind();
+                    groupBind.setMeterName(copyDataICRF.getMeterName() + "");
+                    groupBind.setGroupNo(groupNo);
+                    groupBind.setMeterNo(copyDataICRF.getMeterNo());
+                    groupBind.setMeterType("05");
+                    groupBindBiz.addGroupBind(groupBind);
 
                 }
-                CopyDataICRF copyDataICRF = new CopyDataICRF();
-                copyDataICRF.setElec(getCellDate(sheet, 0, num).trim());
-                copyDataICRF.setMeterNo(getCellDate(sheet, 1, num).trim());
-                copyDataICRF.setMeterName(getCellDate(sheet, 2, num).trim());
-                copyDataICRF.setCumulant(getCellDate(sheet, 3, num).trim());
-                copyDataICRF.setSurplusMoney(getCellDate(sheet, 4, num).trim());
 
 
-                copyDataICRF.setOverZeroMoney(getCellDate(sheet, 5, num).trim());
-                copyDataICRF.setBuyTimes(getInt(getCellDate(sheet, 6, num).trim()));
-                copyDataICRF.setOverFlowTimes(getInt(getCellDate(sheet, 7, num).trim()));
-                copyDataICRF.setMagAttTimes(getInt(getCellDate(sheet, 8, num).trim()));
-                copyDataICRF.setCardAttTimes(getInt(getCellDate(sheet, 9, num).trim()));
 
-                copyDataICRF.setMeterState(getInt(getCellDate(sheet, 10, num).trim()));
-                copyDataICRF.setStateMessage(getCellDate(sheet, 11, num).trim());
-                copyDataICRF.setCurrMonthTotal(getCellDate(sheet, 12, num).trim());
-                copyDataICRF.setLast1MonthTotal(getCellDate(sheet, 13, num).trim());
-                copyDataICRF.setLast2MonthTotal(getCellDate(sheet, 14, num).trim());
+            }else if(type==3){
+                //西宁无线
+                for (int num = 1; num < Rows && isRun; num++) {
 
-                copyDataICRF.setLast3MonthTotal(getCellDate(sheet, 15, num).trim());
-                copyDataICRF.setCopyWay(getCellDate(sheet, 16, num).trim());
-                copyDataICRF.setCopyTime(getCellDate(sheet, 17, num).trim());
-                copyDataICRF.setCopyTime(getCellDate(sheet, 18, num).trim());
-                copyDataICRF.setCopyState(getInt(getCellDate(sheet, 19, num).trim()));
+                    String address=getCellDate(sheet, 4, num).trim();//这是分组名
 
+                    if(!address.equals(groupInfoName)&&!address.equals("")){
+                        //新建一个分组
 
-                copyDataICRF.setLast3MonthTotal(getCellDate(sheet, 20, num).trim());
-                copyDataICRF.setAccBuyMoney(getCellDate(sheet, 21, num).trim());
-                copyDataICRF.setCurrentShow(getCellDate(sheet, 22, num).trim());
-                copyDataICRF.setdBm(getCellDate(sheet, 23, num).trim());
-                copyBiz.addCopyDataICRF(copyDataICRF);
-                // 绑定数据
-                GroupBind groupBind = new GroupBind();
-                groupBind.setMeterName(copyDataICRF.getMeterName() + "");
-                groupBind.setGroupNo(groupNo);
-                groupBind.setMeterNo(copyDataICRF.getMeterNo());
-                groupBind.setMeterType("05");
-                groupBindBiz.addGroupBind(groupBind);
+                        groupInfoName=address;
+                        GroupInfo groupInfo = new GroupInfo();
+                        groupInfo.setGroupName(groupInfoName);
+                        groupInfo.setEstateNo("");
+                        groupInfo.setRemark("");
+                        groupInfo.setMeterTypeNo(meterType);
+                        groupInfo.setBookNo(bookNo);
+                        String beginGroupNo = bookNo.substring(5);
+                        String endGroupNo;
+                        ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
+                        if (groupInfos != null && groupInfos.size() > 0) {
+                            endGroupNo = StringFormatter.getAddStringGroupNo(groupInfos.get(0).getGroupNo().substring(5));
+                        } else {
+                            endGroupNo = "00001";
+                        }
+                        groupNo = beginGroupNo + endGroupNo;
+                        groupInfo.setGroupNo(groupNo);
+                        groupInfoBiz.addGroupInfo(groupInfo);//添加分组
+                    }
 
+                    CopyDataICRF copyDataICRF = new CopyDataICRF();
+                    copyDataICRF.setNo01(getCellDate(sheet, 0, num).trim());
+                    copyDataICRF.setNo02(getCellDate(sheet, 1, num).trim());
+                    copyDataICRF.setMeterNo(getCellDate(sheet, 2, num).trim());//设置表号码
+                    copyDataICRF.setMeterName(getCellDate(sheet, 5, num).trim()+getCellDate(sheet, 6, num).trim());//用户名
+                    copyDataICRF.setName(getCellDate(sheet, 6, num).trim());
+                    copyDataICRF.setUnitPrice(getCellDate(sheet,10, num).trim());//设置单价
+                    copyDataICRF.setCopyState(0);
+
+                    if(!copyDataICRF.getMeterNo().equals("")){
+                        copyBiz.addCopyDataICRF(copyDataICRF);
+                        // 绑定数据
+                        GroupBind groupBind = new GroupBind();
+                        groupBind.setMeterName(copyDataICRF.getMeterName() + "");
+                        groupBind.setGroupNo(groupNo);
+                        groupBind.setMeterNo(copyDataICRF.getMeterNo());
+                        groupBind.setMeterType("05");
+                        groupBindBiz.addGroupBind(groupBind);
+                    }
+//
+
+                }
             }
+
+
+
         }
 
         //导入成功
