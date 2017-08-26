@@ -270,4 +270,12 @@ public class CopyDataICRF {
         this.currentShow = currentShow;
     }
 
+    private boolean isChoose = false;//默认为不选中
+
+    public boolean isChoose() {
+        return isChoose;
+    }
+    public void setChoose(boolean choose) {
+        isChoose = choose;
+    }
 }

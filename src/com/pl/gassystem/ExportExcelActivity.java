@@ -19,12 +19,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cache.UserInfo;
 import com.common.utils.FileUtil;
 import com.common.utils.LogUtil;
 import com.pl.MyDatePickerDialog;
 import com.pl.adapter.DateListViewAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
+import com.pl.dal.UserInfoDao;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.GroupInfo;
@@ -186,10 +188,10 @@ public class ExportExcelActivity extends BaseTitleActivity {
     private DatePickerDialog mDatePickerDialog;
 
     private void showDatePickerDialog(final TextView tv) {
-        if(mDatePickerDialog!=null&&mDatePickerDialog.isShowing()){
+        if (mDatePickerDialog != null && mDatePickerDialog.isShowing()) {
             mDatePickerDialog.dismiss();
         }
-        mDatePickerDialog=new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+        mDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 tv.setText(year + "-" + getDateString(monthOfYear + 1) + "-" + getDateString(dayOfMonth));
@@ -366,6 +368,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
     private WritableSheet ws;
     public int num = 1;
 
+
     private class exportXiNingICExcelThread extends Thread {
 
         @Override
@@ -381,6 +384,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
                 file2.delete();
             }
             try {
+                UserInfoDao userInfoDao = new UserInfoDao(ExportExcelActivity.this);
                 mWritableWorkbook = Workbook.createWorkbook(file2);
                 ws = mWritableWorkbook.createSheet("测试表", 0);
                 ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
@@ -405,11 +409,16 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
                         if (copyDataICRFs != null) {
                             for (int j = 0; j < copyDataICRFs.size(); j++) {
-                                createALabel(0, copyDataICRFs.get(j).getNo01() + "");
-                                createALabel(1, copyDataICRFs.get(j).getNo02() + "");
+                                String mTableNumber = copyDataICRFs.get(j).getMeterNo() + "";
+//                                UserInfo userInfo=UserInfo.
+                                UserInfo userInfoList = userInfoDao.getUserInfo(mTableNumber);
+
+                                createALabel(0, userInfoList.getUserNum());
+                                createALabel(1, userInfoList.getXiNingTableNumber());
+                                createALabel(4, userInfoList.getUserName());//用户名称
+
                                 createALabel(2, copyDataICRFs.get(j).getMeterNo() + "");//填写表具钢号
-                                createALabel(3, groupName + "");//填写表具钢号
-                                createALabel(4, copyDataICRFs.get(j).getName() + "");//用户名称
+                                createALabel(3, groupName + "  "+userInfoList.getAddress());
                                 createALabel(5, copyDataICRFs.get(j).getCumulant() + "");//表具累计用量
                                 createALabel(6, copyDataICRFs.get(j).getAccMoney() + "");//累计用气金额
                                 createALabel(7, copyDataICRFs.get(j).getSurplusMoney() + "");//累计用气金额
@@ -609,7 +618,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
     }
 
     private boolean checkDate(String copyTime) {
-        LogUtil.i("检查日期",copyTime);
+        LogUtil.i("检查日期", copyTime);
         if (mList.size() == 0) {
             return true;
         } else {
@@ -634,6 +643,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
         }
         return false;
     }
+
     private void createALabel(int y, String s) {
         //成功插入一条数据的时候行号加1
         try {

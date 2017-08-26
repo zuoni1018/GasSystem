@@ -1023,8 +1023,7 @@ public class CopyingActivity extends Activity {
                                         }
                                         copyBiz.addCopyData(copyData);
                                         // 修改抄表状态
-                                        copyBiz.ChangeCopyState(copyData.getMeterNo(),
-                                                1, meterTypeNo);
+                                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, meterTypeNo);
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");

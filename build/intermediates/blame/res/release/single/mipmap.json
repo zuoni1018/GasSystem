@@ -20,6 +20,10 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_05.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\mipmap\\choose_02.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\choose_02.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\mipmap\\icon_04.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_04.png"
     },
@@ -30,6 +34,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\mipmap\\detail03.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\detail03.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\mipmap\\choose_01.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\choose_01.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\mipmap\\icon_14.png",

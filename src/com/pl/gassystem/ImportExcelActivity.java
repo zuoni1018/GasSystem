@@ -21,11 +21,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cache.UserInfo;
+import com.common.utils.LogUtil;
 import com.common.utils.SPUtils;
 import com.pl.bll.BookInfoBiz;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupBindBiz;
 import com.pl.bll.GroupInfoBiz;
+import com.pl.dal.UserInfoDao;
 import com.pl.entity.BookInfo;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
@@ -48,6 +51,7 @@ import jxl.Workbook;
  * 导入账册
  */
 public class ImportExcelActivity extends BaseTitleActivity {
+    //导入账册的时候同时需要导入用户信息
     private Button btChoose;
     private Button btImport;
     private TextView tvFilePath;
@@ -167,7 +171,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
 
         isRun = true;
         isIC = true;
-        type=1;
+        type = 1;
 
     }
 
@@ -195,13 +199,13 @@ public class ImportExcelActivity extends BaseTitleActivity {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.rb01) {
                     isIC = true;
-                    type=1;
+                    type = 1;
                 } else if (checkedId == R.id.rb02) {
                     isIC = false;
-                    type=2;
-                }else {
+                    type = 2;
+                } else {
                     isIC = true;
-                    type=3;
+                    type = 3;
                 }
 
             }
@@ -235,6 +239,15 @@ public class ImportExcelActivity extends BaseTitleActivity {
                 break;
 
             case R.id.btImport:
+                UserInfo userInfo = new UserInfo();
+                userInfo.setTableNumber("2");//表具编号
+                userInfo.setUserNum("3");//用户编号
+//                userInfo.setXiNingTableNumber(getCellDate(sheet, 1, num).trim());//西宁表具编号
+//                userInfo.setUserName(getCellDate(sheet, 6, num).trim());//用户名称
+//                userInfo.setAddress(getCellDate(sheet, 5, num).trim());//房间地址
+//                    userInfo.saveOrUpdate("tableNumber=?",110+"");//去保存
+                userInfo.save();
+                LogUtil.i("存数据888", userInfo.save() + "");
                 String mFilePath = filePath.substring(filePath.length() - 4, filePath.length());
                 if (mFilePath.equals(".xls")) {
                     //开启线程解析
@@ -257,7 +270,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
                 Uri uri = data.getData();
 
                 filePath = uri.getPath();
-                filePath=getRealFilePath(ImportExcelActivity.this,uri);
+                filePath = getRealFilePath(ImportExcelActivity.this, uri);
 //                filePath=filePath.replaceAll(":","/");
                 tvFilePath.setText(filePath);
                 SPUtils.put(ImportExcelActivity.this, "filePath", filePath);
@@ -266,21 +279,21 @@ public class ImportExcelActivity extends BaseTitleActivity {
     }
 
 
-    public static String getRealFilePath( final Context context, final Uri uri ) {
-        if ( null == uri ) return null;
+    public static String getRealFilePath(final Context context, final Uri uri) {
+        if (null == uri) return null;
         final String scheme = uri.getScheme();
         String data = null;
-        if ( scheme == null )
+        if (scheme == null)
             data = uri.getPath();
-        else if ( ContentResolver.SCHEME_FILE.equals( scheme ) ) {
+        else if (ContentResolver.SCHEME_FILE.equals(scheme)) {
             data = uri.getPath();
-        } else if ( ContentResolver.SCHEME_CONTENT.equals( scheme ) ) {
-            Cursor cursor = context.getContentResolver().query( uri, new String[] { MediaStore.Images.ImageColumns.DATA }, null, null, null );
-            if ( null != cursor ) {
-                if ( cursor.moveToFirst() ) {
-                    int index = cursor.getColumnIndex( MediaStore.Images.ImageColumns.DATA );
-                    if ( index > -1 ) {
-                        data = cursor.getString( index );
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme)) {
+            Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.ImageColumns.DATA}, null, null, null);
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                    if (index > -1) {
+                        data = cursor.getString(index);
                     }
                 }
                 cursor.close();
@@ -288,6 +301,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
         }
         return data;
     }
+
     private class ImportExcelThread extends Thread {
         @Override
         public void run() {
@@ -334,13 +348,13 @@ public class ImportExcelActivity extends BaseTitleActivity {
             sheet = book.getSheet(0);
             Rows = sheet.getRows();//获得总行数
             int Cols = sheet.getColumns();//获得总列数
-            if (type==1) {
+            if (type == 1) {
                 meterType = "04";
                 lastColumn = 25;
-            } else if(type==2){
+            } else if (type == 2) {
                 meterType = "05";
                 lastColumn = 13;
-            }else {
+            } else {
                 meterType = "04";
                 lastColumn = 13;
             }
@@ -386,10 +400,10 @@ public class ImportExcelActivity extends BaseTitleActivity {
         bkInfo.setStaffNo("");
         bkInfo.setMeterTypeNo(meterType);
         //
-        if(needDelete){
+        if (needDelete) {
             bkInfo.setBookNo(deleteBookNo);
             bookNo = bkInfo.getBookNo();
-        }else {
+        } else {
             bkInfo.setBookNo(StringFormatter.getAddStringNo(bookInfoBiz.getLastBookNo()));
             bookNo = bkInfo.getBookNo();
         }
@@ -451,10 +465,12 @@ public class ImportExcelActivity extends BaseTitleActivity {
                 groupBind.setMeterNo(copyData.getMeterNo());
                 groupBind.setMeterType("05");
                 groupBindBiz.addGroupBind(groupBind);
+
+
             }
         } else if (meterType.equals("04")) {
             //普通IC无线
-            if(type==1){
+            if (type == 1) {
 
                 for (int num = 1; num < Rows && isRun; num++) {
                     //得到当前行第21例的数据
@@ -523,17 +539,16 @@ public class ImportExcelActivity extends BaseTitleActivity {
                 }
 
 
-
-            }else if(type==3){
+            } else if (type == 3) {
                 //西宁无线
                 for (int num = 1; num < Rows && isRun; num++) {
 
-                    String address=getCellDate(sheet, 4, num).trim();//这是分组名
+                    String address = getCellDate(sheet, 4, num).trim();//这是分组名
 
-                    if(!address.equals(groupInfoName)&&!address.equals("")){
+                    if (!address.equals(groupInfoName) && !address.equals("")) {
                         //新建一个分组
 
-                        groupInfoName=address;
+                        groupInfoName = address;
                         GroupInfo groupInfo = new GroupInfo();
                         groupInfo.setGroupName(groupInfoName);
                         groupInfo.setEstateNo("");
@@ -557,12 +572,26 @@ public class ImportExcelActivity extends BaseTitleActivity {
                     copyDataICRF.setNo01(getCellDate(sheet, 0, num).trim());
                     copyDataICRF.setNo02(getCellDate(sheet, 1, num).trim());
                     copyDataICRF.setMeterNo(getCellDate(sheet, 2, num).trim());//设置表号码
-                    copyDataICRF.setMeterName(getCellDate(sheet, 5, num).trim()+getCellDate(sheet, 6, num).trim());//用户名
+                    copyDataICRF.setMeterName(getCellDate(sheet, 5, num).trim() + getCellDate(sheet, 6, num).trim());//用户名
                     copyDataICRF.setName(getCellDate(sheet, 6, num).trim());
-                    copyDataICRF.setUnitPrice(getCellDate(sheet,10, num).trim());//设置单价
+                    copyDataICRF.setUnitPrice(getCellDate(sheet, 10, num).trim());//设置单价
                     copyDataICRF.setCopyState(0);
 
-                    if(!copyDataICRF.getMeterNo().equals("")){
+                    //新建一张用户信息表
+                    UserInfo userInfo = new UserInfo();
+                    userInfo.setTableNumber(getCellDate(sheet, 2, num).trim() + "");//表具编号
+                    userInfo.setUserNum(getCellDate(sheet, 0, num).trim());//用户编号
+                    userInfo.setXiNingTableNumber(getCellDate(sheet, 1, num).trim());//西宁表具编号
+                    userInfo.setUserName(getCellDate(sheet, 6, num).trim());//用户名称
+                    userInfo.setAddress(getCellDate(sheet, 5, num).trim());//房间地址
+//                    userInfo.saveOrUpdate("tableNumber=?",110+"");//去保存
+//                    userInfo.save();
+
+                    UserInfoDao userInfoDao=new UserInfoDao(ImportExcelActivity.this);
+                    userInfoDao.putUserInfo(userInfo);
+
+
+                    if (!copyDataICRF.getMeterNo().equals("")) {
                         copyBiz.addCopyDataICRF(copyDataICRF);
                         // 绑定数据
                         GroupBind groupBind = new GroupBind();
@@ -572,11 +601,9 @@ public class ImportExcelActivity extends BaseTitleActivity {
                         groupBind.setMeterType("05");
                         groupBindBiz.addGroupBind(groupBind);
                     }
-//
-
                 }
-            }
 
+            }
 
 
         }

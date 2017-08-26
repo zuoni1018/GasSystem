@@ -293,6 +293,7 @@ public class GroupBindActivity extends Activity {
     private void setupView() {
         lvGroupBind = (ListView) findViewById(R.id.lvGroupBind);
         ArrayList<GroupBind> groupBinds = groupBindBiz.getGroupBindByGroupNo(groupNo);
+
         adapter = new GroupBindAdapter(this, groupBinds, handler);
         lvGroupBind.setAdapter(adapter);
         btnquit = (ImageButton) findViewById(R.id.btn_onlyback_quit);

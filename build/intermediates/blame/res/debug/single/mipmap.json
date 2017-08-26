@@ -24,6 +24,14 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_05.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\choose_02.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\choose_02.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\choose_01.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\choose_01.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\search.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\search.png"
     },

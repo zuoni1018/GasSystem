@@ -24,12 +24,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_data_download.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\head_style.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\head_style.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_result.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_result.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\head_style.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\head_style.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_copydataicrf_info.xml",
@@ -44,12 +44,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\item_book_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\camera.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\camera.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_copy_group.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_group.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\camera.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\camera.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_group_bind.xml",
@@ -100,12 +100,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copyphoto.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_groupbind_info.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_groupbind_info.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\activity_export_excel.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_export_excel.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\item_groupbind_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_groupbind_info.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\release\\layout\\custom_progressdialog.xml",

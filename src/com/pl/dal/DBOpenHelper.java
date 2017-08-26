@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBOpenHelper extends SQLiteOpenHelper {
 
 	public DBOpenHelper(Context context) {
-		super(context, "gasSystem.db", null, 3);
+		super(context, "gasSystem.db", null, 4);
 	}
 
 	@Override
@@ -82,6 +82,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 				+ "BookInfoUrl TEXT, CopyPhotoUrl TEXT, "
 				+ "RunMode TEXT, intervalTime integer, wakeupTime TEXT, copyWait integer, repeatCount integer)";
 		db.execSQL(sql);
+
+
+
 		values.clear();
 		values.put("BookInfoUrl", "http://app.hh-ic.com/");
 		values.put("CopyPhotoUrl", "http://app.hh-ic.com/");
@@ -98,8 +101,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO 自动生成的方法存根
 
-
-
 		if (oldVersion < 2) {
 			String sql = "ALTER TABLE SetUp ADD COLUMN repeatCount integer";
 			db.execSQL(sql);
@@ -112,6 +113,17 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 			String sql = "ALTER TABLE CopyDataICRF ADD COLUMN No01 TEXT , No02 TEXT,name TEXT";
 			db.execSQL(sql);
 			System.out.println("数据库更新成功");
+		}
+
+		if(oldVersion<5){
+			//创建用户信息表
+			db.execSQL("drop table if exists UserInfo2");//删除原来的表
+			//新建这张表
+			String sql = "CREATE TABLE UserInfo2 ("
+					+ "_id integer primary key autoincrement ,"
+					+ "tableNumber TEXT, userName TEXT, "
+					+ "address TEXT, userNum TEXT, userPhone TEXT, tableName TEXT, xiNingTableNumber TEXT)";
+			db.execSQL(sql);
 		}
 
 	}

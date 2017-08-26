@@ -3,6 +3,24 @@
 
     <item
         is-multidex="false"
+        jar="D:\zzz\GasSystem\libs\jxl.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="955fa72ef2e3d5a45db59d84802401f75bc973a5">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\jxl_0b09d168b7142da0bb10afbb46f667447af859a3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\zzz\GasSystem\libs\jaxen-1.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\jaxen-1.1.1_e72f32ae9135e83d1a4769d94c6565bc899adc2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\zzz\GasSystem\libs\zbar.jar"
         jumboMode="false"
         optimize="true"
@@ -12,12 +30,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\PVer\.android\build-cache\36b93d3a9260a65dd1231e99355a064635bb7763\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="859d48ef355b663295e59c7785cd754f9c7f0aad">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\classes_8968da51d0cc805b038357002108bff21a9f0257.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\zzz\GasSystem\libs\universal-image-loader-1.9.4.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
         <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.4_06c844b443189cbc9d186c0566766261cd73adc5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\zzz\GasSystem\libs\android-async-http-1.4.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="77bbfe240e437ecb396d982afa0d3bd4f9090ba7">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\android-async-http-1.4.8_a12837a037e9e637ad2eccf06310aa5dedb07999.jar" />
     </item>
     <item
         is-multidex="false"
@@ -45,33 +81,6 @@
         revision="25.0.0"
         sha1="6301e7214e651730acacf9815ac3a56701231015">
         <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\badgeview_432c1cd688537e35be32befb2ac892bd28bd7fb3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\zzz\GasSystem\libs\jxl.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="955fa72ef2e3d5a45db59d84802401f75bc973a5">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\jxl_0b09d168b7142da0bb10afbb46f667447af859a3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\zzz\GasSystem\libs\jaxen-1.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\jaxen-1.1.1_e72f32ae9135e83d1a4769d94c6565bc899adc2a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\zzz\GasSystem\libs\android-async-http-1.4.8.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="77bbfe240e437ecb396d982afa0d3bd4f9090ba7">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\pre-dexed\debug\android-async-http-1.4.8_a12837a037e9e637ad2eccf06310aa5dedb07999.jar" />
     </item>
 
 </items>

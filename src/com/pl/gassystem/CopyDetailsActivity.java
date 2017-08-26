@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 /**
  * Created by zangyi_shuai_ge on 2017/4/21
+ * 抄表细节界面
  */
 
 public class CopyDetailsActivity extends BaseTitleActivity {
@@ -219,6 +220,7 @@ public class CopyDetailsActivity extends BaseTitleActivity {
 
             case R.id.btNoCopy://抄取未抄
                 if (gpInfo != null) {
+                    //获取未抄了列表
                     meterNos = copyBiz.GetCopyUnReadMeterNo(gpInfo.getGroupNo(), gpInfo.getMeterTypeNo());
                     meterTypeNo = gpInfo.getMeterTypeNo();
                     if (meterNos != null && meterNos.size() > 0) {

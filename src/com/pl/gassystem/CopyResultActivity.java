@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,6 +29,7 @@ import com.pl.utils.GlobalConsts;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class CopyResultActivity extends Activity {
 
@@ -46,7 +48,11 @@ public class CopyResultActivity extends Activity {
     private ImageView delete;
     private TextView tvCopyResultCount;
 
+
+    private Button btGoCopy;
+
     private void setupView() {
+        btGoCopy = (Button) findViewById(R.id.btGoCopy);
         btnquit = (ImageButton) findViewById(R.id.btnquit);
         btnmenu = (ImageButton) findViewById(R.id.btnmenu);
         search = (EditText) findViewById(R.id.search);
@@ -58,7 +64,7 @@ public class CopyResultActivity extends Activity {
         if (meterTypeNo.equals("04")) {// IC卡无线
             ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, copyState);
             //进行排序
-            Collections.sort(copyDataICRFs,new Comparator<CopyDataICRF>(){
+            Collections.sort(copyDataICRFs, new Comparator<CopyDataICRF>() {
 
                 public int compare(CopyDataICRF arg0, CopyDataICRF arg1) {
                     return arg0.getMeterNo().compareTo(arg1.getMeterNo());
@@ -72,7 +78,7 @@ public class CopyResultActivity extends Activity {
             ArrayList<CopyData> copyDatas = copyBiz.getCopyDataByMeterNos(meterNos, copyState);
 
 
-            Collections.sort(copyDatas,new Comparator<CopyData>(){
+            Collections.sort(copyDatas, new Comparator<CopyData>() {
 
                 public int compare(CopyData arg0, CopyData arg1) {
                     return arg0.getMeterNo().compareTo(arg1.getMeterNo());
@@ -83,6 +89,42 @@ public class CopyResultActivity extends Activity {
             lvCopyResult.setAdapter(copyDataAdapter);
             tvCopyResultCount.setText("共" + copyDataAdapter.getCount() + "表");
         }
+
+        btGoCopy.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (meterTypeNo.equals("04")) {// IC卡无线
+                    List<CopyDataICRF> getCopyDataICRFs = copyDataICRFAdapter.getCopyDataICRFs();
+                    ArrayList<String> meterNos2 = new ArrayList<>();
+                    for (int i = 0; i < getCopyDataICRFs.size(); i++) {
+                        if (getCopyDataICRFs.get(i).isChoose()) {
+                            meterNos2.add(getCopyDataICRFs.get(i).getMeterNo());
+                        }
+                    }
+                    Intent intent = new Intent(CopyResultActivity.this, CopyingActivity.class);
+                    intent.putExtra("meterNos", meterNos2);
+                    intent.putExtra("meterTypeNo", "04");
+                    intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);
+                    intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);
+                    startActivity(intent);
+
+                } else {
+                    List<CopyData> copyDatas=copyDataAdapter.getCopyDatas();
+                    ArrayList<String> meterNos2 = new ArrayList<>();
+                    for (int i = 0; i < copyDatas.size(); i++) {
+                        if (copyDatas.get(i).isChoose()) {
+                            meterNos2.add(copyDatas.get(i).getMeterNo());
+                        }
+                    }
+                    Intent intent = new Intent(CopyResultActivity.this, CopyingActivity.class);
+                    intent.putExtra("meterNos", meterNos2);
+                    intent.putExtra("meterTypeNo", "05");
+                    intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);
+                    intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);
+                    startActivity(intent);
+                }
+            }
+        });
         search.addTextChangedListener(new TextWatcher() {
 
             @Override
