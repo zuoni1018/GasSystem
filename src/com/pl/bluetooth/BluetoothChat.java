@@ -65,7 +65,7 @@ public class BluetoothChat extends Activity {
 	private static final String TAG = "BluetoothChat";
 	private static boolean D = true;
 
-	// 从BluetoothChatService发送给Handler处理的消息类型
+	// 从BluetoothChatServie发送给Handler处理的消息类型
 	public static final int MESSAGE_STATE_CHANGE = 1;
 	public static final int MESSAGE_READ = 2;
 	public static final int MESSAGE_WRITE = 3;

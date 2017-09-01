@@ -7,7 +7,7 @@
     <dbname value="gasSystem2" />
     <version value="4" />
     <list>
-        <mapping class="com.cache.UserInfo"/>
+        <mapping class="com.pl.bean.UserInfo"/>
     </list>
 
     <storage value="external" />

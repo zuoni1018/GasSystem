@@ -89,8 +89,32 @@ public class CopyDataAdapter extends BaseAdapter {
 		final CopyData copyData = getItem(position);
 		holder.tvCopyDataMeterNo.setText(copyData.getMeterNo());
 		holder.tvCopyDataMeterName.setText(copyData.getMeterName());
-		holder.tvCopyDataCurrentShow.setText(copyData.getCurrentShow());
-		holder.tvCopyDataCurrentDosage.setText(copyData.getCurrentDosage());
+
+		String[]  a1=copyData.getCurrentShow().split("\\.");
+		if(a1.length==2){
+			if(a1[1].length()>2){
+				holder.tvCopyDataCurrentShow.setText(a1[0]+"."+a1[1].substring(0,2));//本次读数
+			}else {
+				holder.tvCopyDataCurrentShow.setText(a1[0]+"."+a1[1]);//本次读数
+			}
+		}else {
+			holder.tvCopyDataCurrentShow.setText(a1[0]);//本次读数
+		}
+
+
+		String[]  a2=copyData.getCurrentDosage().split("\\.");
+		if(a2.length==2){
+			if(a2[1].length()>2){
+				holder.tvCopyDataCurrentDosage.setText(a2[0]+"."+a2[1].substring(0,2));//本次读数
+			}else {
+				holder.tvCopyDataCurrentDosage.setText(a2[0]+"."+a2[1]);//本次读数
+			}
+		}else {
+			holder.tvCopyDataCurrentDosage.setText(a2[0]);//本次读数
+		}
+
+//		holder.tvCopyDataCurrentShow.setText(copyData.getCurrentShow());//本次读数
+//		holder.tvCopyDataCurrentDosage.setText(copyData.getCurrentDosage());//本次用量
 		holder.tvCopyDataCopyTime.setText(copyData.getCopyTime());
 		holder.tvCopyDataCopyState.setText(MeterType.GetCopyState(copyData
 				.getCopyState()));

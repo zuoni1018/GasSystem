@@ -6,6 +6,7 @@ import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,16 +46,53 @@ public class CopyDetailsActivity extends BaseTitleActivity {
     private boolean isRun = true;
 
     private ProgressBar mProgressBar;
+
+
+    private boolean haveWarning = false;//是否存在报警
+    private ImageView ivWarn;
+    private LinearLayout layoutWarnBig;
+
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
 //            super.handleMessage(msg);
             mProgressBar.setVisibility(View.GONE);
-            LogUtil.i("结果"+mNoCoypNum+"===="+mCoypNum);
-            setHeight(mNoCoypNum,mCoypNum);
+            LogUtil.i("结果" + mNoCoypNum + "====" + mCoypNum);
+            if (haveWarning) {
+                ivWarn.setImageResource(R.mipmap.warning_big);
+            } else {
+                ivWarn.setImageResource(R.mipmap.warning_normal);
+            }
+            setHeight(mNoCoypNum, mCoypNum);
         }
     };
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LogUtil.i("onResume");
+        mProgressBar.setVisibility(View.VISIBLE);
+        mCoypNum = 0;
+        mNoCoypNum = 0;
+        isRun = true;
+        t = new mySearchThread();
+        t.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isRun = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        isRun = false;
+        super.onDestroy();
+
+    }
 
     @Override
     protected void initData() {
@@ -80,7 +118,9 @@ public class CopyDetailsActivity extends BaseTitleActivity {
 
     }
 
-
+    /**
+     * 设置柱状图高度
+     */
     public void setHeight(int noCopyNum, int CopyNum) {
 //        noCopyNum=8;
 //        CopyNum=5;
@@ -105,20 +145,9 @@ public class CopyDetailsActivity extends BaseTitleActivity {
     private int mNoCoypNum = 0;
 
     private mySearchThread t;
-    @Override
-    protected void onResume() {
-        super.onResume();
-        LogUtil.i("onResume");
-        mProgressBar.setVisibility(View.VISIBLE);
-        mCoypNum = 0;
-        mNoCoypNum = 0;
-        isRun = true;
-        t=new mySearchThread();
-        t.start();
-    }
 
 
-    private class mySearchThread extends Thread{
+    private class mySearchThread extends Thread {
         @Override
         public void run() {
 //            super.run();
@@ -129,11 +158,32 @@ public class CopyDetailsActivity extends BaseTitleActivity {
                     ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
                     if (copyDataICRFs != null) {
                         for (int j = 0; j < copyDataICRFs.size(); j++) {
-                            if (copyDataICRFs.get(j).getCopyState() == 1) {
+//                            if (copyDataICRFs.get(j).getCopyState() == 1) {
+//                                mCoypNum++;
+//                            } else {
+//                                mNoCoypNum++;
+//                            }
+                            //查询最新一条数据
+
+                            CopyDataICRF mCopyDataICRF = copyBiz.getCopyDataICRFById(copyDataICRFs.get(j).getId() + "");
+
+                            if (mCopyDataICRF.getCopyState() == 1) {
                                 mCoypNum++;
                             } else {
                                 mNoCoypNum++;
                             }
+
+                            //
+                            try {
+                                double dd = Double.valueOf(mCopyDataICRF.getCumulant());
+                                if (dd > 10000) {
+                                    haveWarning = true;
+                                }
+                            } catch (NumberFormatException e) {
+//                                Toast.makeText(CopyDetailsActivity.this, "zzz", Toast.LENGTH_SHORT).show();
+                            }
+
+
                         }
                     }
                 } else if (meterTypeNo.equals("05")) {// 纯无线
@@ -141,11 +191,28 @@ public class CopyDetailsActivity extends BaseTitleActivity {
                     LogUtil.i("纯无线" + copyDatas.size());
                     if (copyDatas != null) {
                         for (int j = 0; j < copyDatas.size(); j++) {
-                            if (copyDatas.get(j).getCopyState() == 1) {
+
+
+//                            if (copyDatas.get(j).getCopyState() == 1) {
+//                                mCoypNum++;
+//                            } else {
+//                                mNoCoypNum++;
+//                            }
+                            CopyData mCopyData = copyBiz.getCopyDataById(copyDatas.get(j).getId() + "");//拿到最新的一条数据
+                            if (mCopyData.getCopyState() == 1) {
                                 mCoypNum++;
                             } else {
                                 mNoCoypNum++;
                             }
+                            try {
+                                double dd = Double.valueOf(mCopyData.getCurrentShow());
+                                if (dd > 10000) {
+                                    haveWarning = true;
+                                }
+                            } catch (NumberFormatException e) {
+//                                Toast.makeText(CopyDetailsActivity.this, "zzz", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                     }
                 }
@@ -154,18 +221,6 @@ public class CopyDetailsActivity extends BaseTitleActivity {
                 LogUtil.i("查询结束啦");
             }
         }
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        isRun = false;
-    }
-
-    @Override
-    protected void onDestroy() {
-        isRun = false;
-        super.onDestroy();
-
     }
 
     @Override
@@ -177,6 +232,30 @@ public class CopyDetailsActivity extends BaseTitleActivity {
         findViewById(R.id.btShowAll).setOnClickListener(this);
         findViewById(R.id.btMaintain).setOnClickListener(this);
         findViewById(R.id.btSetting).setOnClickListener(this);
+
+        layoutWarnBig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (haveWarning) {
+                    if (gpInfo != null) {
+                        meterNos = copyBiz.GetCopyMeterNo(gpInfo.getGroupNo());
+                        if (meterNos != null && meterNos.size() > 0) {
+                            Intent intent = new Intent(CopyDetailsActivity.this, CopyResultActivityWarnBig.class);
+                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_SHOWALL);
+                            intent.putExtra("meterNos", meterNos);
+                            intent.putExtra("meterTypeNo", gpInfo.getMeterTypeNo());
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(CopyDetailsActivity.this, "该分组内无表具", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(CopyDetailsActivity.this, "未知分组", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(CopyDetailsActivity.this, "本次读数没有大于一万的表", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -198,6 +277,9 @@ public class CopyDetailsActivity extends BaseTitleActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.mProgressBar);
         mProgressBar.setVisibility(View.GONE);
 
+
+        ivWarn = (ImageView) findViewById(R.id.ivWarn);
+        layoutWarnBig = (LinearLayout) findViewById(R.id.layoutWarnBig);
     }
 
 

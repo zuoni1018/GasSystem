@@ -323,27 +323,39 @@
                 android:layout_weight="0.1" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.005"
-            android:background="@color/main_back" />
-
         <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.32" />
-
-        <Button
-            android:id="@+id/btExportExcel"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#eeeeee" />
+        <LinearLayout
+            android:id="@+id/layoutConcentrator"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.32"
-            android:gravity="center"
-            android:text="导出数据库"
-            android:visibility="gone" />
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <ImageButton
+                android:id="@+id/ivMainConcentrator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:background="#ffffff"
+                android:scaleType="centerInside"
+                android:src="@mipmap/mian_concentrator" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <View

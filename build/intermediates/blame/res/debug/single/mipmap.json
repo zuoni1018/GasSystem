@@ -16,8 +16,24 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\detail03.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\excel_import02.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\excel_import02.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\warning_normal.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\warning_normal.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_02.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_02.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\excel_import01.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\excel_import01.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\mian_concentrator.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\mian_concentrator.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_05.png",
@@ -36,11 +52,19 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\search.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\other.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\other.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_14.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_14.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_06.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_06.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\warning_big.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\warning_big.png"
     }
 ]

@@ -1,5 +1,4 @@
 package com.pl.gassystem;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

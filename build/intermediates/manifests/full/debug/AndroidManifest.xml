@@ -48,25 +48,24 @@
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
-        android:smallScreens="true" >
-    </supports-screens>
+        android:smallScreens="true" />
 
     <meta-data
         android:name="android.support.VERSION"
-        android:value="26.0.0-alpha1" />
+        android:value="25.3.0" />
 
     <application
         android:name="com.pl.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/main_icon"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.pl.gassystem.MainActivity"
             android:label="主菜单"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.LoginActivity"
             android:screenOrientation="portrait"
@@ -85,71 +84,59 @@
             android:name="com.pl.gassystem.BookInfoActivity"
             android:label="@string/title_activity_book_info"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.BookInfoUpdateActivity"
             android:label="@string/title_activity_book_info_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.GroupInfoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.GroupInfoUpdateActivity"
             android:label="@string/title_activity_group_info_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyGroupActivity"
             android:label="@string/title_activity_copy_group"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyOneActivity"
             android:label="@string/title_activity_copy_one"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyingActivity"
             android:label="@string/title_activity_copying"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyResultActivity"
             android:label="@string/title_activity_copy_result"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyDataDetailActivity"
             android:label="@string/title_activity_copy_detail"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyDataICRFDetailActivity"
             android:label="@string/title_activity_copy_detail"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.bluetooth.BluetoothChat"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.DeviceListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_device_list"
-            android:theme="@android:style/Theme.Holo.Light.Dialog" >
-        </activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity
             android:name="com.pl.bluetooth.FullScreen"
             android:parentActivityName="com.pl.bluetooth.BluetoothChat"
@@ -161,112 +148,110 @@
         <activity
             android:name="com.pl.gassystem.GroupBindActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.MaintenanceActivity"
             android:label="@string/title_activity_maintenance"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.SelectMeterActivity"
             android:label="@string/title_activity_select_meter"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.InputComNumActivity"
             android:label="@string/title_activity_input_com_num"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.DataDownloadActivity"
             android:label="@string/title_activity_data_download"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.CopyPhotoActivity"
             android:label="@string/title_activity_copy_photo"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.InputPhotoComNumActivity"
             android:label="@string/title_activity_input_photo_com_num"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.LogActivity"
             android:label="@string/title_activity_log"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.DataManageActivity"
             android:label="@string/title_activity_data_manage"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.SettingActivity"
             android:label="@string/title_activity_setting"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.SetUpdateActivity"
             android:label="@string/title_activity_set_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.qu.QRActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/qr_activity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name="com.pl.gassystem.SetRunModeActivity"
             android:label="@string/title_activity_set_run_mode"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.SetCopyTimeActivity"
             android:label="@string/title_activity_set_copy_time"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.gassystem.SHCmdActivity"
             android:label="@string/title_activity_shcmd"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.zxing.activity.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name="com.pl.gassystem.CopySetMjcActivity"
             android:label="@string/title_activity_copy_set_mjc"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
+        <activity android:name="com.pl.gassystem.OtherFunctionActivity" />
+        <activity android:name="com.pl.gassystem.userinfo.XiNingUserInfoImportActivity" />
+        <activity
+            android:name="com.pl.gassystem.CopyResultActivityWarnBig"
+            android:label="@string/title_activity_copy_result"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainTitleBar" />
+
+        <!-- 集中器抄表 -->
+        <activity android:name="com.pl.concentrator.activity.CtConcentratorListActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopySituationActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtShowBookListActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyingActivity" />
     </application>
 
 </manifest>

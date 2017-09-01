@@ -1,23 +1,339 @@
 [
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copydata_book_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copydata_book_detail.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\listview_item_group_info_statistic.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\listview_item_group_info_statistic.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_shcmd.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_shcmd.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ac_zbar_finder.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\ac_zbar_finder.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_book_copydata_item.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_rv_book_copydata_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\device_list.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_concentrator_list.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_concentrator_list.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copying.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copying.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_show_book_list.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_show_book_list.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_title_bar_style.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_title_bar_style.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_copydataphoto_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydataphoto_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_list_footer_network_error.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_list_footer_network_error.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_footer.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_footer.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_swipe_item_default.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_swipe_item_default.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_log.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_log.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copydata_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copydata_detail.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copy_situation.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copy_situation.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\device_name.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_select_meter.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_select_meter.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copyphoto.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copyphoto.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_list_footer_loading.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_list_footer_loading.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_other_function.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_other_function.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_list_footer.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_list_footer.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_info_update.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_info_update.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_situation_chart.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_situation_chart.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_move_book.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_move_book.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_xi_ning_user_info_import.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_xi_ning_user_info_import.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copydataicrf_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copydataicrf_detail.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_concentrator_list_item.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_rv_concentrator_list_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\head_style.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\head_style.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_book_info.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_book_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_run_mode.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_run_mode.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\pull_to_refresh_head.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\pull_to_refresh_head.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_onlyback.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_onlyback.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_data_download.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_data_download.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_bind.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_bind.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_book_info_update.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_book_info_update.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_info_statistic.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_info_statistic.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_copy_time.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_copy_time.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_main.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_main.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\detail_chart.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\detail_chart.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_indicator_view.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_indicator_view.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\listview_header.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\listview_header.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_list_footer_end.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_list_footer_end.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_result.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_result.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\device_list.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\device_list.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ac_zbar_finder.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ac_zbar_finder.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_input_com_num.xml",
@@ -32,12 +348,36 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\sname.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\fullscreen.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\fullscreen.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_move_item.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_rv_move_item.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_copydataicrf_info.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydataicrf_info.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_header.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_header.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_book_copydataicrf_item.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_rv_book_copydataicrf_item.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bluetooth_communication.xml",
@@ -48,36 +388,24 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_book_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_copydataphoto_info.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydataphoto_info.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_about.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_one.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_one.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_set_mjc.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_set_mjc.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_one.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_one.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_log.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_log.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\camera.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\camera.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copydata_detail.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copydata_detail.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\camera.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\camera.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_listview.xml",
@@ -88,6 +416,10 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copying.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\date_item.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\date_item.xml"
     },
@@ -96,12 +428,8 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_input_photo_com_num.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\device_name.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\device_name.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_select_meter.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_select_meter.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_networking_list_item.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_rv_networking_list_item.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_import_excel.xml",
@@ -112,99 +440,91 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\custom_progressdialog.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copyphoto.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copyphoto.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_detials.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_detials.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main_old.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_main_old.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copydataicrf_book_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copydataicrf_book_detail.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_info_update.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_info_update.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main_old.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_main_old.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_copydata_info.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\item_copydata_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copydataicrf_detail.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copydataicrf_detail.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_networking.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_networking.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\head_style.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\head_style.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_book_info.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\item_book_info.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_navigation_menu.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_data_manage.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_data_manage.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_setting.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_maintenance.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_maintenance.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_run_mode.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_run_mode.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_navigation_item.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_onlyback.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_onlyback.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_groupbind_info.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\item_groupbind_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_data_download.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_data_download.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_bind.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_bind.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_book_info_update.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_book_info_update.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_info_statistic.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_group_info_statistic.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_copy_time.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_set_copy_time.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_icon_group.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_export_excel.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_export_excel.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_login.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_group.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_group.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_main.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\titlebar_main.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\detail_chart.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\detail_chart.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     }
 ]

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.pl.gassystem"
     android:versionCode="3"
-    android:versionName="1.5" >
+    android:versionName="1.5">
 
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="19" />
-
-
 
 
     <!--往sdcard中写入数据的权限 -->
@@ -51,25 +50,24 @@
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
-        android:smallScreens="true" >
-    </supports-screens>
+        android:smallScreens="true"/>
 
     <application
+
         android:name="com.pl.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/main_icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="主菜单"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -77,83 +75,71 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".GroupInfoStatisticActivity"/>
-        <activity android:name=".CopyDetailsActivity"/>
-        <activity android:name=".ExportExcelActivity"/>
-        <activity android:name=".ImportExcelActivity"/>
+        <activity android:name=".GroupInfoStatisticActivity" />
+        <activity android:name=".CopyDetailsActivity" />
+        <activity android:name=".ExportExcelActivity" />
+        <activity android:name=".ImportExcelActivity" />
         <activity
             android:name=".BookInfoActivity"
             android:label="@string/title_activity_book_info"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".BookInfoUpdateActivity"
             android:label="@string/title_activity_book_info_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".GroupInfoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".GroupInfoUpdateActivity"
             android:label="@string/title_activity_group_info_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".CopyGroupActivity"
             android:label="@string/title_activity_copy_group"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".CopyOneActivity"
             android:label="@string/title_activity_copy_one"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar"/>
         <activity
             android:name=".CopyingActivity"
             android:label="@string/title_activity_copying"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyResultActivity"
             android:label="@string/title_activity_copy_result"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyDataDetailActivity"
             android:label="@string/title_activity_copy_detail"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyDataICRFDetailActivity"
             android:label="@string/title_activity_copy_detail"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.bluetooth.BluetoothChat"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".DeviceListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_device_list"
-            android:theme="@android:style/Theme.Holo.Light.Dialog" >
-        </activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity
             android:name="com.pl.bluetooth.FullScreen"
             android:parentActivityName="com.pl.bluetooth.BluetoothChat"
-            android:windowSoftInputMode="stateVisible|adjustPan" >
+            android:windowSoftInputMode="stateVisible|adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pl.bluetooth.BluetoothChat" />
@@ -161,112 +147,119 @@
         <activity
             android:name=".GroupBindActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".MaintenanceActivity"
             android:label="@string/title_activity_maintenance"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".SelectMeterActivity"
             android:label="@string/title_activity_select_meter"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".InputComNumActivity"
             android:label="@string/title_activity_input_com_num"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".DataDownloadActivity"
             android:label="@string/title_activity_data_download"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyPhotoActivity"
             android:label="@string/title_activity_copy_photo"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".InputPhotoComNumActivity"
             android:label="@string/title_activity_input_photo_com_num"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".LogActivity"
             android:label="@string/title_activity_log"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".DataManageActivity"
             android:label="@string/title_activity_data_manage"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".SetUpdateActivity"
             android:label="@string/title_activity_set_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.pl.qu.QRActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/qr_activity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".SetRunModeActivity"
             android:label="@string/title_activity_set_run_mode"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".SetCopyTimeActivity"
             android:label="@string/title_activity_set_copy_time"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".SHCmdActivity"
             android:label="@string/title_activity_shcmd"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name="com.zxing.activity.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".CopySetMjcActivity"
-            android:label="@string/title_activity_copy_set_mjc" 
+            android:label="@string/title_activity_copy_set_mjc"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" >
-        </activity>
-    </application>
+            android:theme="@style/mainTitleBar" />
 
+        <activity android:name=".OtherFunctionActivity" />
+        <activity android:name=".userinfo.XiNingUserInfoImportActivity" />
+
+
+
+
+
+
+
+        <activity
+            android:name=".CopyResultActivityWarnBig"
+            android:label="@string/title_activity_copy_result"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainTitleBar" />
+
+
+        <!--集中器抄表-->
+        <activity android:name="com.pl.concentrator.activity.CtConcentratorListActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtCopySituationActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtShowBookListActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtCopyingActivity"/>
+
+    </application>
 </manifest>

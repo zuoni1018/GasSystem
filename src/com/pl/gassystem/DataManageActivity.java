@@ -16,13 +16,14 @@ import com.pl.bll.BookInfoBiz;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupBindBiz;
 import com.pl.bll.GroupInfoBiz;
+import com.pl.gassystem.userinfo.XiNingUserInfoImportActivity;
 import com.pl.utils.GlobalConsts;
 
 public class DataManageActivity extends Activity {
 
     private TextView tvTitlebar_name;
     private ImageButton btnOnlybackQuit;
-    private LinearLayout linDataDownload, linDataUpdate, linDataDelete;
+    private LinearLayout linDataDownload, linDataUpdate, linDataDelete,layoutExcelBooksImport,layoutExcelXiNingUserInfoImport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class DataManageActivity extends Activity {
         linDataDownload = (LinearLayout) findViewById(R.id.linDataDownload);
         linDataUpdate = (LinearLayout) findViewById(R.id.linDataUpdate);
         linDataDelete = (LinearLayout) findViewById(R.id.linDataDelete);
+        layoutExcelXiNingUserInfoImport= (LinearLayout) findViewById(R.id.layoutExcelXiNingUserInfoImport);
+        layoutExcelBooksImport= (LinearLayout) findViewById(R.id.layoutExcelBooksImport);
     }
 
     private void addListener() {
@@ -75,6 +78,21 @@ public class DataManageActivity extends Activity {
             }
         });
 
+        layoutExcelBooksImport.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(DataManageActivity.this, ImportExcelActivity.class);
+                intent2.putExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_DOWNLOAD);
+                startActivity(intent2);
+            }
+        });
+        layoutExcelXiNingUserInfoImport.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent=new Intent(DataManageActivity.this, XiNingUserInfoImportActivity.class);
+                startActivity(mIntent);
+            }
+        });
         linDataDelete.setOnClickListener(new OnClickListener() {
 
             @Override

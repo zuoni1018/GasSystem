@@ -101,11 +101,13 @@ public class CopyDataDetailActivity extends Activity {
         // пе╨ег©╤х
         String dBm = copyData.getdBm();
         if (dBm != null&!"".equals(dBm)) {
-            int dbm_1 = Integer.parseInt(dBm) + 25;
-            if (dbm_1 < -100) {
-                dbm_1 = -100;
+            if(!"".equals(dBm.trim())){
+                int dbm_1 = Integer.parseInt(dBm) + 25;
+                if (dbm_1 < -100) {
+                    dbm_1 = -100;
+                }
+                tvCopyDataDetailDbm.setText(100 + dbm_1 + "%");
             }
-            tvCopyDataDetailDbm.setText(100 + dbm_1 + "%");
         }
         // tvCopyDataDetailIsBalance.setText(MeterType.GetIsBalance(copyData.getIsBalance()));
         tvCopyDataDetailRemark.setText(copyData.getRemark());

@@ -19,14 +19,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cache.UserInfo;
+import com.pl.bean.UserInfo;
 import com.common.utils.FileUtil;
 import com.common.utils.LogUtil;
 import com.pl.MyDatePickerDialog;
 import com.pl.adapter.DateListViewAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
-import com.pl.dal.UserInfoDao;
+import com.pl.dal.userinfo.UserInfoDao;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.GroupInfo;
@@ -352,9 +352,9 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
 
     private String[] CopyXiNingTab = {
-            "用户编号", "表具编号", "表具钢号", "地址描述", "用户名称", "表具累计用量", "表具累计用气金额",
+            "用户编号", "表具编号", "表具钢号", "地址描述", "用户名称", "表具累计用量",
             "表具剩余金额", "当前运行价格", "采集方式", "采集时间", "采集成功标志", "失败原因", "表具时间",
-            "阀门状态", "IC卡购气次数", "远程购气次数", "累计上表购气金额", "表具故障状态"
+            "阀门状态", "IC卡购气次数", "远程购气次数", "表具故障状态"
     };
     private String[] CopyDataICRFTab = {
             "电量", "表计编号", "表具名称", "累计量", "剩余金额",
@@ -388,18 +388,13 @@ public class ExportExcelActivity extends BaseTitleActivity {
                 mWritableWorkbook = Workbook.createWorkbook(file2);
                 ws = mWritableWorkbook.createSheet("测试表", 0);
                 ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
-
                 if (isRun) {
-
                     //创建tab
-
                     //在第二行创建tab
                     for (int j = 0; j < CopyXiNingTab.length; j++) {
                         Label mLabel2 = new Label(j, 0, CopyXiNingTab[j]);
                         ws.addCell(mLabel2);
                     }
-
-//
                     for (int i = 0; i < groupInfos.size(); i++) {
 
                         String groupName = groupInfos.get(i).getGroupName();
@@ -412,23 +407,27 @@ public class ExportExcelActivity extends BaseTitleActivity {
                                 String mTableNumber = copyDataICRFs.get(j).getMeterNo() + "";
 //                                UserInfo userInfo=UserInfo.
                                 UserInfo userInfoList = userInfoDao.getUserInfo(mTableNumber);
-
+                                //用户信息
                                 createALabel(0, userInfoList.getUserNum());
                                 createALabel(1, userInfoList.getXiNingTableNumber());
                                 createALabel(4, userInfoList.getUserName());//用户名称
+                                //拿到最新的一条
+                                CopyDataICRF mCopyDataICRF = copyBiz.getCopyDataICRFById(copyDataICRFs.get(j).getId() + "");
 
-                                createALabel(2, copyDataICRFs.get(j).getMeterNo() + "");//填写表具钢号
-                                createALabel(3, groupName + "  "+userInfoList.getAddress());
-                                createALabel(5, copyDataICRFs.get(j).getCumulant() + "");//表具累计用量
-                                createALabel(6, copyDataICRFs.get(j).getAccMoney() + "");//累计用气金额
-                                createALabel(7, copyDataICRFs.get(j).getSurplusMoney() + "");//累计用气金额
-                                createALabel(8, copyDataICRFs.get(j).getUnitPrice() + "");
-                                createALabel(9, copyDataICRFs.get(j).getCopyWay() + "");
-                                createALabel(10, copyDataICRFs.get(j).getCopyTime() + "");//抄表时间
-                                createALabel(12, copyDataICRFs.get(j).getStateMessage() + "");
-                                createALabel(13, copyDataICRFs.get(j).getCopyTime() + "");
-                                createALabel(15, copyDataICRFs.get(j).getBuyTimes() + "");
-                                createALabel(17, copyDataICRFs.get(j).getAccBuyMoney() + "");
+                                //查询抄表信息
+                                createALabel(2, mCopyDataICRF.getMeterNo() + "");//填写表具钢号
+                                createALabel(3, groupName + "  " + userInfoList.getAddress());
+                                createALabel(5, mCopyDataICRF.getCumulant() + "");//表具累计用量
+//                                createALabel(6, mCopyDataICRF.getAccMoney() + "");//累计用气金额
+                                createALabel(7-1, mCopyDataICRF.getSurplusMoney() + "");//累计用气金额
+                                createALabel(8-1, userInfoList.getXiNingUnitPrice() + "");
+                                createALabel(9-1, mCopyDataICRF.getCopyWay() + "");
+                                createALabel(10-1, mCopyDataICRF.getCopyTime() + "");//抄表时间
+                                createALabel(12-1, mCopyDataICRF.getStateMessage() + "");
+                                createALabel(13-1, mCopyDataICRF.getCopyTime() + "");
+                                createALabel(15-1, mCopyDataICRF.getBuyTimes() + "");
+//                                createALabel(17, mCopyDataICRF.getAccBuyMoney() + "");
+                                createALabel(18-2,mCopyDataICRF.getMeterState()+"");
                                 num++;
                             }
                         }
@@ -481,9 +480,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
                 mWritableWorkbook = Workbook.createWorkbook(file2);
                 ws = mWritableWorkbook.createSheet("测试表", 0);
                 ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
-
                 if (isRun) {
-
                     //创建tab
                     if (meterTypeNo.equals("05")) {
                         //在第二行创建tab

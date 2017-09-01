@@ -35,6 +35,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:singleLine="true"
                 android:id="@+id/tvCopyDataMeterNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -52,6 +53,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:singleLine="true"
                 android:id="@+id/tvCopyDataMeterName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -76,6 +78,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:singleLine="true"
                 android:id="@+id/tvCopyDataCurrentShow"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -93,6 +96,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:singleLine="true"
                 android:id="@+id/tvCopyDataCurrentDosage"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -117,6 +121,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:singleLine="true"
                 android:id="@+id/tvCopyDataCopyState"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -135,6 +140,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:singleLine="true"
                 android:id="@+id/tvCopyDataCopyTime"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

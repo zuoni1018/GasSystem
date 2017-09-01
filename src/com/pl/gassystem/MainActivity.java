@@ -11,10 +11,12 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pl.bll.PreferenceBiz;
 import com.pl.common.MyApplication;
+import com.pl.concentrator.activity.CtConcentratorListActivity;
 import com.pl.utils.GlobalConsts;
 
 /**
@@ -41,6 +43,11 @@ public class MainActivity extends Activity implements OnTouchListener {
 
     // private SharedPreferences preferences;
 
+//    private LinearLayout layoutOther;
+
+    //    private LinearLayout layoutConcentrator;
+    private ImageView ivMainConcentrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,21 +59,39 @@ public class MainActivity extends Activity implements OnTouchListener {
         anim_btn_begin = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_begin);
         anim_btn_end = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_end);
 
+
+        ivMainConcentrator = (ImageView) findViewById(R.id.ivMainConcentrator);
+        ivMainConcentrator.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(MainActivity.this, CtConcentratorListActivity.class);
+                startActivity(mIntent);
+            }
+        });
+
         setupView();
         addOnTouchListener();
         addListener();
         // assCopy();
 
-
+//        layoutOther= (LinearLayout) findViewById(R.id.layoutOther);
+//        layoutOther.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent mIntent=new Intent(MainActivity.this,OtherFunctionActivity.class);
+//                startActivity(mIntent);
+//
+//            }
+//        });
 
     }
 
 
-    private int getInt(String str){
+    private int getInt(String str) {
 
         try {
-            return  Integer.parseInt(str);
-        }catch (Exception e){
+            return Integer.parseInt(str);
+        } catch (Exception e) {
             return 0;
         }
     }
@@ -98,6 +123,16 @@ public class MainActivity extends Activity implements OnTouchListener {
         tvUserName = (TextView) findViewById(R.id.tvmainUserName);//用户名
         preferenceBiz = new PreferenceBiz(this);
         tvUserName.setText(preferenceBiz.getUserName());//设置用户名
+
+//        layoutConcentrator= (LinearLayout) findViewById(layoutConcentrator);
+//        layoutConcentrator.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                LogUtil.i("点我");
+//                Intent mIntent=new Intent(MainActivity.this, CtConcentratorListActivity.class);
+//                startActivity(mIntent);
+//            }
+//        });
 
     }
     ///////////////////////////////////

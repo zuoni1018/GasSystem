@@ -69,5 +69,6 @@
     <string name="title_activity_set_copy_time">SetCopyTimeActivity</string>
     <string name="title_activity_shcmd">SHCmdActivity</string>
     <string name="title_activity_copy_set_mjc">CopySetMjcActivity</string>
+    <string name="ct_activity_concentrator_list_title">选择集中器</string>
 
 </resources>

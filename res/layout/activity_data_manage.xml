@@ -153,6 +153,92 @@
         android:layout_marginRight="5dp"
         android:background="@color/item_line" />
 
+
+
+    <LinearLayout
+        android:id="@+id/layoutExcelBooksImport"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_listview_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.12"
+            android:text="" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.06"
+            android:src="@mipmap/excel_import01" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.12"
+            android:text="" />
+        <TextView
+            style="@style/biglisttext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.7"
+            android:text="Excel账册导入"
+            android:textSize="22sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+    <LinearLayout
+        android:id="@+id/layoutExcelXiNingUserInfoImport"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_listview_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.12"
+            android:text="" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.06"
+            android:src="@mipmap/excel_import02" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.12"
+            android:text="" />
+        <TextView
+            style="@style/biglisttext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.7"
+            android:text="西宁用户信息导入"
+            android:textSize="22sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
     <LinearLayout
         android:layout_width="match_parent"
 
@@ -187,7 +273,6 @@
         android:clickable="true"
         android:focusable="true"
         android:orientation="horizontal">
-
 
     </LinearLayout>
 

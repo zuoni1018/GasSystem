@@ -9,18 +9,14 @@ import java.util.Map;
 
 /**
  * Created by zangyi_shuai_ge on 2017/3/22
- * SharedPreferenceså°è£…ç±»
+ * SharedPreferences·â×°Àà
  */
 
 public class SPUtils {
-    /**
-     * ä¿å­˜åœ¨æ‰‹æœºé‡Œé¢çš„æ–‡ä»¶å
-     */
+
     public static final String FILE_NAME = "share_data";
 
-    /**
-     * ä¿å­˜æ•°æ®çš„æ–¹æ³•ï¼Œæˆ‘ä»¬éœ€è¦æ‹¿åˆ°ä¿å­˜æ•°æ®çš„å…·ä½“ç±»å‹ï¼Œç„¶åæ ¹æ®ç±»å‹è°ƒç”¨ä¸åŒçš„ä¿å­˜æ–¹æ³•
-     */
+
     public static void put(Context context, String key, Object object) {
 
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -45,7 +41,7 @@ public class SPUtils {
     }
 
     /**
-     * å¾—åˆ°ä¿å­˜æ•°æ®çš„æ–¹æ³•ï¼Œæˆ‘ä»¬æ ¹æ®é»˜è®¤å€¼å¾—åˆ°ä¿å­˜çš„æ•°æ®çš„å…·ä½“ç±»å‹ï¼Œç„¶åè°ƒç”¨ç›¸å¯¹äºçš„æ–¹æ³•è·å–å€¼
+     * µÃµ½±£´æÊı¾İµÄ·½·¨£¬ÎÒÃÇ¸ù¾İÄ¬ÈÏÖµµÃµ½±£´æµÄÊı¾İµÄ¾ßÌåÀàĞÍ£¬È»ºóµ÷ÓÃÏà¶ÔÓÚµÄ·½·¨»ñÈ¡Öµ
      */
     public static Object get(Context context, String key, Object defaultObject) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -67,7 +63,7 @@ public class SPUtils {
     }
 
     /**
-     * ç§»é™¤æŸä¸ªkeyå€¼å·²ç»å¯¹åº”çš„å€¼
+     * ÒÆ³ıÄ³¸ökeyÖµÒÑ¾­¶ÔÓ¦µÄÖµ
      */
     public static void remove(Context context, String key) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -78,7 +74,7 @@ public class SPUtils {
     }
 
     /**
-     * æ¸…é™¤æ‰€æœ‰æ•°æ®
+     * Çå³ıËùÓĞÊı¾İ
      */
     public static void clear(Context context) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -89,7 +85,7 @@ public class SPUtils {
     }
 
     /**
-     * æŸ¥è¯¢æŸä¸ªkeyæ˜¯å¦å·²ç»å­˜åœ¨
+     * ²éÑ¯Ä³¸ökeyÊÇ·ñÒÑ¾­´æÔÚ
      */
     public static boolean contains(Context context, String key) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -98,7 +94,7 @@ public class SPUtils {
     }
 
     /**
-     * è¿”å›æ‰€æœ‰çš„é”®å€¼å¯¹
+     * ·µ»ØËùÓĞµÄ¼üÖµ¶Ô
      */
     public static Map<String, ?> getAll(Context context) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -107,13 +103,13 @@ public class SPUtils {
     }
 
     /**
-     * åˆ›å»ºä¸€ä¸ªè§£å†³SharedPreferencesCompat.applyæ–¹æ³•çš„ä¸€ä¸ªå…¼å®¹ç±»
+     * ´´½¨Ò»¸ö½â¾öSharedPreferencesCompat.apply·½·¨µÄÒ»¸ö¼æÈİÀà
      */
     private static class SharedPreferencesCompat {
         private static final Method sApplyMethod = findApplyMethod();
 
         /**
-         * åå°„æŸ¥æ‰¾applyçš„æ–¹æ³•
+         * ·´Éä²éÕÒapplyµÄ·½·¨
          */
         @SuppressWarnings({"unchecked", "rawtypes"})
         private static Method findApplyMethod() {
@@ -127,7 +123,7 @@ public class SPUtils {
         }
 
         /**
-         * å¦‚æœæ‰¾åˆ°åˆ™ä½¿ç”¨applyæ‰§è¡Œï¼Œå¦åˆ™ä½¿ç”¨commit
+         * Èç¹ûÕÒµ½ÔòÊ¹ÓÃapplyÖ´ĞĞ£¬·ñÔòÊ¹ÓÃcommit
          */
         public static void apply(SharedPreferences.Editor editor) {
             try {

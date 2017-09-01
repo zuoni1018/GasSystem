@@ -21,14 +21,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cache.UserInfo;
-import com.common.utils.LogUtil;
+import com.pl.bean.UserInfo;
 import com.common.utils.SPUtils;
 import com.pl.bll.BookInfoBiz;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupBindBiz;
 import com.pl.bll.GroupInfoBiz;
-import com.pl.dal.UserInfoDao;
+import com.pl.dal.userinfo.UserInfoDao;
 import com.pl.entity.BookInfo;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
@@ -168,7 +167,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setTitle("账册导入");
         isRun = true;
         isIC = true;
         type = 1;
@@ -239,15 +238,15 @@ public class ImportExcelActivity extends BaseTitleActivity {
                 break;
 
             case R.id.btImport:
-                UserInfo userInfo = new UserInfo();
-                userInfo.setTableNumber("2");//表具编号
-                userInfo.setUserNum("3");//用户编号
+//                UserInfo userInfo = new UserInfo();
+//                userInfo.setTableNumber("2");//表具编号
+//                userInfo.setUserNum("3");//用户编号
 //                userInfo.setXiNingTableNumber(getCellDate(sheet, 1, num).trim());//西宁表具编号
 //                userInfo.setUserName(getCellDate(sheet, 6, num).trim());//用户名称
 //                userInfo.setAddress(getCellDate(sheet, 5, num).trim());//房间地址
 //                    userInfo.saveOrUpdate("tableNumber=?",110+"");//去保存
-                userInfo.save();
-                LogUtil.i("存数据888", userInfo.save() + "");
+//                userInfo.save();
+//                LogUtil.i("存数据888", userInfo.save() + "");
                 String mFilePath = filePath.substring(filePath.length() - 4, filePath.length());
                 if (mFilePath.equals(".xls")) {
                     //开启线程解析
@@ -584,6 +583,7 @@ public class ImportExcelActivity extends BaseTitleActivity {
                     userInfo.setXiNingTableNumber(getCellDate(sheet, 1, num).trim());//西宁表具编号
                     userInfo.setUserName(getCellDate(sheet, 6, num).trim());//用户名称
                     userInfo.setAddress(getCellDate(sheet, 5, num).trim());//房间地址
+                    userInfo.setXiNingUnitPrice(getCellDate(sheet,10,num).trim());
 //                    userInfo.saveOrUpdate("tableNumber=?",110+"");//去保存
 //                    userInfo.save();
 

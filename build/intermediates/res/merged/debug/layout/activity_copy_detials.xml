@@ -18,6 +18,9 @@
 
             <include layout="@layout/detail_chart" />
 
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height"
@@ -94,6 +97,27 @@
                     android:layout_width="@dimen/button_height"
                     android:layout_height="@dimen/button_height"
                     android:background="@mipmap/icon_14" />
+
+                <LinearLayout
+                    android:id="@+id/layoutWarnBig"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#BEC8D1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/ivWarn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/warning_normal" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>

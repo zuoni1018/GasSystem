@@ -5,18 +5,18 @@ import android.widget.Toast;
 
 /**
  * Created by zangyi_shuai_ge on 2017/4/22
- * é˜²æ­¢é‡å¤æ˜¾ç¤ºToast
- * è¿™é‡ŒContext å¿…é¡»ä¼ é€’ Application
+ * ·ÀÖ¹ÖØ¸´ÏÔÊ¾Toast
+ * ÕâÀïContext ±ØĞë´«µİ Application
  */
 
 public class ToastUtils {
-    private static String oldMsg;//ä¹‹å‰æ˜¾ç¤ºçš„å†…å®¹
-    private static Toast toast = null;//Toastå¯¹è±¡
-    private static long oneTime = 0;//ç¬¬ä¸€æ¬¡æ—¶é—´
-    private static long twoTime = 0;//ç¬¬äºŒæ¬¡æ—¶é—´
+    private static String oldMsg;//Ö®Ç°ÏÔÊ¾µÄÄÚÈİ
+    private static Toast toast = null;//Toast¶ÔÏó
+    private static long oneTime = 0;//µÚÒ»´ÎÊ±¼ä
+    private static long twoTime = 0;//µÚ¶ş´ÎÊ±¼ä
 
     /**
-     * æ˜¾ç¤ºToast
+     * ÏÔÊ¾Toast
      */
     public static void showToast(Context context, String message) {
 
