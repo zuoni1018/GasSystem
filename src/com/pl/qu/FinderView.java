@@ -1,11 +1,9 @@
 /**
- *  2014-7-15   ‰∏äÂçà11:14:21
+ *  2014-7-15   …œŒÁ11:14:21
  *  Created By niexiaoqiang
  */
 
 package com.pl.qu;
-
-import com.pl.gassystem.R;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,100 +13,102 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.pl.gassystem.R;
+
 /**
- * Êü•ÊâæÔøΩ?
+ * ≤È’“??
  * @author niexiaoqiang
  */
 public class FinderView extends View {
-	private static final long ANIMATION_DELAY = 30;
-	private Paint finderMaskPaint;
-	private int measureedWidth;
-	private int measureedHeight;
+    private static final long ANIMATION_DELAY = 30;
+    private Paint finderMaskPaint;
+    private int measureedWidth;
+    private int measureedHeight;
 
-	public FinderView(Context context) {
-		super(context);
-		init(context);
-	}
+    public FinderView(Context context) {
+        super(context);
+        init(context);
+    }
 
-	public FinderView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		init(context);
-	}
+    public FinderView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
 
-	@Override
-	protected void onDraw(Canvas canvas) {
-		super.onDraw(canvas);
-		canvas.drawRect(leftRect, finderMaskPaint);
-		canvas.drawRect(topRect, finderMaskPaint);
-		canvas.drawRect(rightRect, finderMaskPaint);
-		canvas.drawRect(bottomRect, finderMaskPaint);
-		//ÁîªÊ°Ü
-		zx_code_kuang.setBounds(middleRect);
-		zx_code_kuang.draw(canvas);
-		if (lineRect.bottom < middleRect.bottom) {
-			zx_code_line.setBounds(lineRect);
-			lineRect.top = lineRect.top + lineHeight / 2;
-			lineRect.bottom = lineRect.bottom + lineHeight / 2;
-		} else {
-			lineRect.set(middleRect);
-			lineRect.bottom = lineRect.top + lineHeight;
-			zx_code_line.setBounds(lineRect);
-		}
-		zx_code_line.draw(canvas);
-		postInvalidateDelayed(ANIMATION_DELAY, middleRect.left, middleRect.top, middleRect.right, middleRect.bottom);
-	}
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawRect(leftRect, finderMaskPaint);
+        canvas.drawRect(topRect, finderMaskPaint);
+        canvas.drawRect(rightRect, finderMaskPaint);
+        canvas.drawRect(bottomRect, finderMaskPaint);
+        //ª≠øÚ
+        zx_code_kuang.setBounds(middleRect);
+        zx_code_kuang.draw(canvas);
+        if (lineRect.bottom < middleRect.bottom) {
+            zx_code_line.setBounds(lineRect);
+            lineRect.top = lineRect.top + lineHeight / 2;
+            lineRect.bottom = lineRect.bottom + lineHeight / 2;
+        } else {
+            lineRect.set(middleRect);
+            lineRect.bottom = lineRect.top + lineHeight;
+            zx_code_line.setBounds(lineRect);
+        }
+        zx_code_line.draw(canvas);
+        postInvalidateDelayed(ANIMATION_DELAY, middleRect.left, middleRect.top, middleRect.right, middleRect.bottom);
+    }
 
-	private Rect topRect = new Rect();
-	private Rect bottomRect = new Rect();
-	private Rect rightRect = new Rect();
-	private Rect leftRect = new Rect();
-	private Rect middleRect = new Rect();
+    private Rect topRect = new Rect();
+    private Rect bottomRect = new Rect();
+    private Rect rightRect = new Rect();
+    private Rect leftRect = new Rect();
+    private Rect middleRect = new Rect();
 
-	private Rect lineRect = new Rect();
-	private Drawable zx_code_kuang;
-	private Drawable zx_code_line;
-	private int lineHeight;
+    private Rect lineRect = new Rect();
+    private Drawable zx_code_kuang;
+    private Drawable zx_code_line;
+    private int lineHeight;
 
-	private void init(Context context) {
-		int finder_mask = context.getResources().getColor(R.color.finder_mask);
-		finderMaskPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		finderMaskPaint.setColor(finder_mask);
-		zx_code_kuang = context.getResources().getDrawable(R.drawable.zx_code_kuang);
-		zx_code_line = context.getResources().getDrawable(R.drawable.zx_code_line);
-		lineHeight = 30;
-	}
+    private void init(Context context) {
+        int finder_mask = context.getResources().getColor(R.color.finder_mask);
+        finderMaskPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        finderMaskPaint.setColor(finder_mask);
+        zx_code_kuang = context.getResources().getDrawable(R.drawable.zx_code_kuang);
+        zx_code_line = context.getResources().getDrawable(R.drawable.zx_code_line);
+        lineHeight = 30;
+    }
 
-	//////////////Êñ∞Â¢ûËØ•ÊñπÔøΩ?//////////////////////
-	/**
-	 * Ê†πÊçÆÂõæÁâásizeÊ±ÇÂá∫Áü©ÂΩ¢Ê°ÜÂú®ÂõæÁâáÔøΩ?Âú®‰ΩçÁΩÆÔºåtipÔºöÁõ∏Êú∫ÊóãÔøΩ?90Â∫¶‰ª•ÂêéÔºåÊãçÊëÑÁöÑÂõæÁâáÊòØÊ®™ÁùÄÁöÑÔºåÔøΩ?Êúâ‰º†ÈÄíÂèÇÊï∞Êó∂ÔºåÂÅö‰∫Ü‰∫§ÔøΩ?
-	 * @param w
-	 * @param h
-	 * @return
-	 */
-	public Rect getScanImageRect(int w, int h) {
-		//ÂÖàÊ±ÇÂá∫ÂÆûÈôÖÁü©ÔøΩ?
-		Rect rect = new Rect();
-		rect.left = middleRect.left;
-		rect.right = middleRect.right;
-		float temp = h / (float) measureedHeight;
-		rect.top = (int) (middleRect.top * temp);
-		rect.bottom = (int) (middleRect.bottom * temp);
-		return rect;
-	}
+    //////////////–¬‘ˆ∏√∑Ω??//////////////////////
+    /**
+     * ∏˘æ›Õº∆¨size«Û≥ˆæÿ–ŒøÚ‘⁄Õº∆¨??‘⁄Œª÷√£¨tip£∫œ‡ª˙–˝??90∂»“‘∫Û£¨≈ƒ…„µƒÕº∆¨ «∫·◊≈µƒ£¨??”–¥´µ›≤Œ ˝ ±£¨◊ˆ¡ÀΩª??
+     * @param w
+     * @param h
+     * @return
+     */
+    public Rect getScanImageRect(int w, int h) {
+        //œ»«Û≥ˆ µº æÿ??
+        Rect rect = new Rect();
+        rect.left = middleRect.left;
+        rect.right = middleRect.right;
+        float temp = h / (float) measureedHeight;
+        rect.top = (int) (middleRect.top * temp);
+        rect.bottom = (int) (middleRect.bottom * temp);
+        return rect;
+    }
 
-	////////////////////////////////////
-	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		measureedWidth = MeasureSpec.getSize(widthMeasureSpec);
-		measureedHeight = MeasureSpec.getSize(heightMeasureSpec);
-		int borderWidth = measureedWidth / 2 + 100;
-		middleRect.set((measureedWidth - borderWidth) / 2, (measureedHeight - borderWidth) / 2, (measureedWidth - borderWidth) / 2 + borderWidth, (measureedHeight - borderWidth) / 2 + borderWidth);
-		lineRect.set(middleRect);
-		lineRect.bottom = lineRect.top + lineHeight;
-		leftRect.set(0, middleRect.top, middleRect.left, middleRect.bottom);
-		topRect.set(0, 0, measureedWidth, middleRect.top);
-		rightRect.set(middleRect.right, middleRect.top, measureedWidth, middleRect.bottom);
-		bottomRect.set(0, middleRect.bottom, measureedWidth, measureedHeight);
-	}
+    ////////////////////////////////////
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        measureedWidth = MeasureSpec.getSize(widthMeasureSpec);
+        measureedHeight = MeasureSpec.getSize(heightMeasureSpec);
+        int borderWidth = measureedWidth / 2 + 100;
+        middleRect.set((measureedWidth - borderWidth) / 2, (measureedHeight - borderWidth) / 2, (measureedWidth - borderWidth) / 2 + borderWidth, (measureedHeight - borderWidth) / 2 + borderWidth);
+        lineRect.set(middleRect);
+        lineRect.bottom = lineRect.top + lineHeight;
+        leftRect.set(0, middleRect.top, middleRect.left, middleRect.bottom);
+        topRect.set(0, 0, measureedWidth, middleRect.top);
+        rightRect.set(middleRect.right, middleRect.top, measureedWidth, middleRect.bottom);
+        bottomRect.set(0, middleRect.bottom, measureedWidth, measureedHeight);
+    }
 }

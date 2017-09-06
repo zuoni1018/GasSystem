@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <include layout="@layout/ct_title_bar_style" />
@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:hint="搜索集中器"
+            android:hint="搜索集中器编号"
             android:textSize="14sp" />
 
         <ImageView
@@ -82,7 +82,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1.5"
                 android:gravity="center"
-                android:text="集中器"
+                android:text="集中器编号"
                 android:textColor="#000"
                 android:textSize="14sp" />
 
@@ -92,6 +92,7 @@
                 android:background="#b7b7b7" />
 
             <TextView
+                android:id="@+id/tvAllNum"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -106,6 +107,7 @@
                 android:background="#b7b7b7" />
 
             <TextView
+                android:id="@+id/tvReadNum"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -120,6 +122,7 @@
                 android:background="#b7b7b7" />
 
             <TextView
+                android:id="@+id/tvNoReadNum"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -134,7 +137,8 @@
     <com.github.jdsjlzx.recyclerview.LRecyclerView
         android:id="@+id/RvConcentratorList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp" />
 

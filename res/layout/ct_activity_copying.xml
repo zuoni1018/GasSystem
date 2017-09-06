@@ -229,5 +229,4 @@
             android:layout_height="40dip"
             android:progressDrawable="@drawable/progress_diy" />
     </LinearLayout>
-
 </LinearLayout>

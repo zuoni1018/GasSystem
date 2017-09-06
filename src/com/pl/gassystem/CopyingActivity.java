@@ -39,8 +39,7 @@ import java.util.Date;
 
 public class CopyingActivity extends Activity {
 
-    private TextView tvTitlebar_name, tvLoadingCount, tvLoadingAll, tvBtInfo,
-            tvCopyingBackMsg, tvLoadingComNum, tvLoadingName;
+    private TextView tvTitlebar_name, tvLoadingCount, tvLoadingAll, tvBtInfo, tvCopyingBackMsg, tvLoadingComNum, tvLoadingName;
     private ProgressBar pgbCopying;
     // private Handler handler;
     private CopyBiz copyBiz;
@@ -87,13 +86,11 @@ public class CopyingActivity extends Activity {
     public static final int MESSAGE_COPYCANT = 6;
     private PreferenceBiz preferenceBiz;
     @SuppressLint("SimpleDateFormat")
-    private static SimpleDateFormat df = new SimpleDateFormat(
-            "yyyy-MM-dd HH:mm:ss");
+    private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @SuppressLint("SimpleDateFormat")
     private static SimpleDateFormat copydf = new SimpleDateFormat("yyMMddHHmm");
     @SuppressLint("SimpleDateFormat")
-    private static SimpleDateFormat copydf6 = new SimpleDateFormat(
-            "yyMMddHHmmss");
+    private static SimpleDateFormat copydf6 = new SimpleDateFormat("yyMMddHHmmss");
     // 抄表模式
     private static int copyType;
     // 执行模式
@@ -120,13 +117,10 @@ public class CopyingActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_copying);
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-                R.layout.titlebar_main);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_main);
 
-        anim_btn_begin = AnimationUtils.loadAnimation(this,
-                R.anim.btn_alpha_scale_begin);
-        anim_btn_end = AnimationUtils.loadAnimation(this,
-                R.anim.btn_alpha_scale_end);
+        anim_btn_begin = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_begin);
+        anim_btn_end = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_end);
 
         setupView();
         addOnTouchListener();
@@ -156,7 +150,7 @@ public class CopyingActivity extends Activity {
         wakeupWait = (Integer.parseInt(wakeupTime, 16) * 100 + copyWait) / 100;
         copyWait = copyWait / 10;
         // 初始化抄表数据
-        meterTypeNo = getIntent().getStringExtra("meterTypeNo").toString(); // 表具类型
+        meterTypeNo = getIntent().getStringExtra("meterTypeNo"); // 表具类型
         // if(meterTypeNo.equals("04")){ //IC卡无线未完成前先直接退出界面
         // finish();
         // }
@@ -304,8 +298,7 @@ public class CopyingActivity extends Activity {
                 }
                 if (runMode.equals(GlobalConsts.RUNMODE_STANDARD)) { // 混合模式
                     String meterWIType = copyBiz.getMeterWITypeByNo(commNumber);
-                    if (meterWIType == null || meterWIType.equals("")
-                            || meterWIType.equals("2")) { // LORA以及默认
+                    if (meterWIType == null || meterWIType.equals("") || meterWIType.equals("2")) { // LORA以及默认
                         headMessage += "02";
                     } else if (meterWIType.equals("1")) { // FSK
                         headMessage += "01";
@@ -1018,8 +1011,7 @@ public class CopyingActivity extends Activity {
                                             copyData = getCopyDataHuiZhou(
                                                     loadingComNum, msgDecode);
                                         } else {
-                                            copyData = getCopyData(loadingComNum,
-                                                    dataString);
+                                            copyData = getCopyData(loadingComNum, dataString);
                                         }
                                         copyBiz.addCopyData(copyData);
                                         // 修改抄表状态
@@ -1056,12 +1048,8 @@ public class CopyingActivity extends Activity {
                                                 query();
                                             } else {
                                                 finish();
-                                                Intent intent = new Intent(
-                                                        CopyingActivity.this,
-                                                        CopyResultActivity.class);
-                                                intent.putExtra(
-                                                        GlobalConsts.EXTRA_COPYRESULT_TYPE,
-                                                        GlobalConsts.RE_TYPE_COPY);
+                                                Intent intent = new Intent(CopyingActivity.this, CopyResultActivity.class);
+                                                intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_COPY);
                                                 intent.putExtra("meterNos", AllMeterNo);
                                                 intent.putExtra("meterTypeNo", meterTypeNo);
                                                 startActivity(intent);
@@ -1070,16 +1058,12 @@ public class CopyingActivity extends Activity {
                                     }
                                     break;
                                 case "06": // IC卡无线抄表数据
-                                    if (msgDecode.getSourceAddr().equals(
-                                            loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
+                                    if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
                                         CopyDataICRF copyDataICRF;
-                                        copyDataICRF = getCopyDataICRF(loadingComNum,
-                                                dataString);
+                                        copyDataICRF = getCopyDataICRF(loadingComNum, dataString);
                                         copyBiz.addCopyDataICRF(copyDataICRF);
                                         // 修改抄表状态
-                                        copyBiz.ChangeCopyState(
-                                                copyDataICRF.getMeterNo(), 1,
-                                                meterTypeNo);
+                                        copyBiz.ChangeCopyState(copyDataICRF.getMeterNo(), 1, meterTypeNo);
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");
@@ -1098,12 +1082,8 @@ public class CopyingActivity extends Activity {
                                                 e.printStackTrace();
                                             }
                                             finish();
-                                            Intent intent = new Intent(
-                                                    CopyingActivity.this,
-                                                    CopyResultActivity.class);
-                                            intent.putExtra(
-                                                    GlobalConsts.EXTRA_COPYRESULT_TYPE,
-                                                    GlobalConsts.RE_TYPE_COPY);
+                                            Intent intent = new Intent(CopyingActivity.this, CopyResultActivity.class);
+                                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_COPY);
                                             intent.putExtra("meterNos", AllMeterNo);
                                             intent.putExtra("meterTypeNo", meterTypeNo);
                                             startActivity(intent);
@@ -1149,8 +1129,7 @@ public class CopyingActivity extends Activity {
                                 case "08":// 惠州修改通讯号
                                     if (readMessage.length() > 1) {
                                         tvCopyingBackMsg.setText("修改通讯号成功");
-                                        tvLoadingComNum.setText(msgDecode
-                                                .getSourceAddr());
+                                        tvLoadingComNum.setText(msgDecode.getSourceAddr());
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");

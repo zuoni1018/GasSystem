@@ -33,8 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="0.5dp"
-        android:layout_marginLeft="0.5dp"
-        android:layout_marginRight="0.5dp"
         android:layout_marginTop="0.5dp"
         android:background="#ffd443"
         android:orientation="horizontal">
@@ -43,6 +41,7 @@
             android:layout_height="match_parent"
             android:background="#b7b7b7" />
         <ImageView
+            android:id="@+id/ivChoose"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
@@ -57,6 +56,7 @@
             android:background="#b7b7b7" />
 
         <TextView
+            android:id="@+id/tvCollectorNo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -64,7 +64,6 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="集中器名"
             android:textColor="#000"
             android:textSize="14sp" />
 
@@ -81,7 +80,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="集中器号"
+            android:text="----"
             android:textColor="#000"
             android:textSize="14sp" />
         <View

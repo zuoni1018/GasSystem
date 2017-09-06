@@ -251,7 +251,9 @@
         <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity" />
         <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity" />
         <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtCopyingActivity" />
+        <activity android:name="com.pl.concentrator.activity.copy.CtCopyingActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyBookChooseActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyBookActivity" />
 
         <provider
             android:name="com.android.tools.fd.runtime.InstantRunContentProvider"

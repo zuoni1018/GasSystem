@@ -61,105 +61,105 @@ import java.io.UnsupportedEncodingException;
  * This is the main Activity that displays the current chat session.
  */
 public class BluetoothChat extends Activity {
-	// è°ƒè¯•ç”¨çš„æ—¥å¿—æ ‡å¿—TAGä¸æ˜¯å¦æ‰“å°æ—¥å¿—çš„æ ‡å¿—D
-	private static final String TAG = "BluetoothChat";
-	private static boolean D = true;
+    // µ÷ÊÔÓÃµÄÈÕÖ¾±êÖ¾TAGÓëÊÇ·ñ´òÓ¡ÈÕÖ¾µÄ±êÖ¾D
+    private static final String TAG = "BluetoothChat";
+    private static boolean D = true;
 
-	// ä»BluetoothChatServieå‘é€ç»™Handlerå¤„ç†çš„æ¶ˆæ¯ç±»å‹
-	public static final int MESSAGE_STATE_CHANGE = 1;
-	public static final int MESSAGE_READ = 2;
-	public static final int MESSAGE_WRITE = 3;
-	public static final int MESSAGE_DEVICE_NAME = 4;
-	public static final int MESSAGE_TOAST = 5;
+    // ´ÓBluetoothChatServie·¢ËÍ¸øHandler´¦ÀíµÄÏûÏ¢ÀàĞÍ
+    public static final int MESSAGE_STATE_CHANGE = 1;
+    public static final int MESSAGE_READ = 2;
+    public static final int MESSAGE_WRITE = 3;
+    public static final int MESSAGE_DEVICE_NAME = 4;
+    public static final int MESSAGE_TOAST = 5;
 
-	// ä»BluetoothChatServiceæ¥æ”¶åˆ°Handlerçš„é”®å€¼
-	public static final String DEVICE_NAME = "device_name";
-	public static final String TOAST = "toast";
+    // ´ÓBluetoothChatService½ÓÊÕµ½HandlerµÄ¼üÖµ
+    public static final String DEVICE_NAME = "device_name";
+    public static final String TOAST = "toast";
 
-	// Intentè¯·æ±‚ä»£ç 
-	public static final int REQUEST_CONNECT_DEVICE = 1;
-	private static final int REQUEST_ENABLE_BT = 2;
+    // IntentÇëÇó´úÂë
+    public static final int REQUEST_CONNECT_DEVICE = 1;
+    private static final int REQUEST_ENABLE_BT = 2;
 
-	public static final String BluetoothData = "fullscreen";
-	public String filename = ""; // ç”¨æ¥ä¿å­˜å­˜å‚¨çš„æ–‡ä»¶å
-	private String newCode = "";
-	private String newCode2 = "";
-	private String fmsg = ""; // ä¿å­˜ç”¨æ•°æ®ç¼“å­˜
+    public static final String BluetoothData = "fullscreen";
+    public String filename = ""; // ÓÃÀ´±£´æ´æ´¢µÄÎÄ¼şÃû
+    private String newCode = "";
+    private String newCode2 = "";
+    private String fmsg = ""; // ±£´æÓÃÊı¾İ»º´æ
 
-	// å¸ƒå±€è§†å›¾
-	// private TextView mTitle;
-	private EditText mInputEditText;
-	private EditText mOutEditText;
-	private EditText mOutEditText2;
-	private Button mSendButton;
-	private Button breakButton;
-	private CheckBox checkBox_sixteen;
-	private CheckBox HEXCheckBox;
-	// private ImageView ImageLogoView;
+    // ²¼¾ÖÊÓÍ¼
+    // private TextView mTitle;
+    private EditText mInputEditText;
+    private EditText mOutEditText;
+    private EditText mOutEditText2;
+    private Button mSendButton;
+    private Button breakButton;
+    private CheckBox checkBox_sixteen;
+    private CheckBox HEXCheckBox;
+    // private ImageView ImageLogoView;
 
-	// è¿æ¥è®¾å¤‡çš„åç§°
-	private String mConnectedDeviceName = null;
-	// æ•°ç»„é€‚é…å™¨å¯¹è¯çš„çº¿ç¨‹
-	private ArrayAdapter<String> mConversationArrayAdapter;
-	// ä¼ å‡ºæ¶ˆæ¯çš„å­—ç¬¦ä¸²ç¼“å†²åŒº
-	private StringBuffer mOutStringBuffer;
-	// æœ¬åœ°è“ç‰™é€‚é…å™¨
-	private BluetoothAdapter mBluetoothAdapter = null;
-	// æˆå‘˜å¯¹è±¡çš„èŠå¤©æœåŠ¡
-	private BluetoothChatService mChatService = null;
+    // Á¬½ÓÉè±¸µÄÃû³Æ
+    private String mConnectedDeviceName = null;
+    // Êı×éÊÊÅäÆ÷¶Ô»°µÄÏß³Ì
+    private ArrayAdapter<String> mConversationArrayAdapter;
+    // ´«³öÏûÏ¢µÄ×Ö·û´®»º³åÇø
+    private StringBuffer mOutStringBuffer;
+    // ±¾µØÀ¶ÑÀÊÊÅäÆ÷
+    private BluetoothAdapter mBluetoothAdapter = null;
+    // ³ÉÔ±¶ÔÏóµÄÁÄÌì·şÎñ
+    private BluetoothChatService mChatService = null;
 
-	// è®¾ç½®æ ‡è¯†ç¬¦ï¼Œé€‰æ‹©ç”¨æˆ·æ¥å—çš„æ•°æ®æ ¼å¼
-	private boolean dialogs;
+    // ÉèÖÃ±êÊ¶·û£¬Ñ¡ÔñÓÃ»§½ÓÊÜµÄÊı¾İ¸ñÊ½
+    private boolean dialogs;
 
-	// ç¬¬ä¸€æ¬¡è¾“å…¥åŠ å…¥-->å˜é‡
-	private int sum = 1;
-	private int UTF = 1;
+    // µÚÒ»´ÎÊäÈë¼ÓÈë-->±äÁ¿
+    private int sum = 1;
+    private int UTF = 1;
 
-	//
-	String mmsg = "";
-	String mmsg2 = "";
+    //
+    String mmsg = "";
+    String mmsg2 = "";
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		MyActivityManager.getInstance().pushActivity(this);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        MyActivityManager.getInstance().pushActivity(this);
 
-		D = false;
-		if (D)
-			Log.e(TAG, "+++ ON CREATE +++");
-		// Log.i(info, "" + dialogs);
+        D = false;
+        if (D)
+            Log.e(TAG, "+++ ON CREATE +++");
+        // Log.i(info, "" + dialogs);
 
-		// requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-		// è®¾ç½®çª—å£å¸ƒå±€
-		setContentView(R.layout.activity_bluetooth_communication);
-		// getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-		// R.layout.custom_title);
-		mInputEditText = (EditText) findViewById(R.id.editText1);
-		mInputEditText.setGravity(Gravity.TOP);
-		mInputEditText.setSelection(mInputEditText.getText().length(),
-				mInputEditText.getText().length());
-		mInputEditText.clearFocus();
-		mInputEditText.setFocusable(false);
-		// è®¾ç½®ImageView
-		// ImageLogoView = (ImageView) findViewById(R.id.imagelogo); //hpf åˆ é™¤
-		// --20141221
-		// ImageLogoView.setImageResource(R.drawable.logo); //hpf åˆ é™¤ --20141221
-		// è®¾ç½®æ–‡æœ¬çš„æ ‡é¢˜
-		// mTitle = (TextView) findViewById(R.id.title_left_text);
-		// mTitle.setText(R.string.app_name);
-		// mTitle = (TextView) findViewById(R.id.title_right_text);
+        // requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        // ÉèÖÃ´°¿Ú²¼¾Ö
+        setContentView(R.layout.activity_bluetooth_communication);
+        // getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+        // R.layout.custom_title);
+        mInputEditText = (EditText) findViewById(R.id.editText1);
+        mInputEditText.setGravity(Gravity.TOP);
+        mInputEditText.setSelection(mInputEditText.getText().length(),
+                mInputEditText.getText().length());
+        mInputEditText.clearFocus();
+        mInputEditText.setFocusable(false);
+        // ÉèÖÃImageView
+        // ImageLogoView = (ImageView) findViewById(R.id.imagelogo); //hpf É¾³ı
+        // --20141221
+        // ImageLogoView.setImageResource(R.drawable.logo); //hpf É¾³ı --20141221
+        // ÉèÖÃÎÄ±¾µÄ±êÌâ
+        // mTitle = (TextView) findViewById(R.id.title_left_text);
+        // mTitle.setText(R.string.app_name);
+        // mTitle = (TextView) findViewById(R.id.title_right_text);
 
-		breakButton = (Button) findViewById(R.id.button_connect);
+        breakButton = (Button) findViewById(R.id.button_connect);
 
-		// è·å–æœ¬åœ°è“ç‰™é€‚é…å™¨
-		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        // »ñÈ¡±¾µØÀ¶ÑÀÊÊÅäÆ÷
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-		// åˆå§‹åŒ–CheckBox
-		checkBox_sixteen = (CheckBox) findViewById(R.id.checkBox_sixteen);
-		HEXCheckBox = (CheckBox) findViewById(R.id.HexOut);
+        // ³õÊ¼»¯CheckBox
+        checkBox_sixteen = (CheckBox) findViewById(R.id.checkBox_sixteen);
+        HEXCheckBox = (CheckBox) findViewById(R.id.HexOut);
 
-		// ç‚¹å‡»å›¾ç‰‡è·³è½¬åˆ°å…¬å¸é¡µé¢
-		// hpf åˆ é™¤ --20141221
+        // µã»÷Í¼Æ¬Ìø×ªµ½¹«Ë¾Ò³Ãæ
+        // hpf É¾³ı --20141221
 		/*
 		 * ImageLogoView.setOnClickListener(new View.OnClickListener() {
 		 *
@@ -180,569 +180,569 @@ public class BluetoothChat extends Activity {
 		 * });
 		 */
 
-		if (getWindow().getAttributes().softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED) {
-			// éšè—è½¯é”®ç›˜
-			getWindow().setSoftInputMode(
-					WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-		}
+        if (getWindow().getAttributes().softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED) {
+            // Òş²ØÈí¼üÅÌ
+            getWindow().setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        }
 
-		// å¦‚æœé€‚é…å™¨æ˜¯null,é‚£ä¹ˆä¸æ”¯æŒè“ç‰™
-		if (mBluetoothAdapter == null) {
-			Toast.makeText(this, "è“ç‰™ä¸å¯ç”¨", Toast.LENGTH_LONG).show();
-			finish();
-			return;
-		}
+        // Èç¹ûÊÊÅäÆ÷ÊÇnull,ÄÇÃ´²»Ö§³ÖÀ¶ÑÀ
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(this, "À¶ÑÀ²»¿ÉÓÃ", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
-		checkBox_sixteen
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-					@Override
-					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-						// String getValue =
-						// mInputEditText.getText().toString();
-						// if (isChecked) {
-						// mInputEditText.setText(CodeFormat.stringToHex(getValue));
-						//
-						// } else {
-						// mInputEditText.setText(fmsg);
-						//
-						// }
-					}
-				});
-		HEXCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if (isChecked) {
-					mOutEditText.setText("");
-					mOutEditText.setVisibility(View.GONE);
-					mOutEditText2.setVisibility(View.VISIBLE);
-				} else {
-					mOutEditText.setVisibility(View.VISIBLE);
-					mOutEditText2.setVisibility(View.GONE);
-				}
+        checkBox_sixteen
+                .setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        // String getValue =
+                        // mInputEditText.getText().toString();
+                        // if (isChecked) {
+                        // mInputEditText.setText(CodeFormat.stringToHex(getValue));
+                        //
+                        // } else {
+                        // mInputEditText.setText(fmsg);
+                        //
+                        // }
+                    }
+                });
+        HEXCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mOutEditText.setText("");
+                    mOutEditText.setVisibility(View.GONE);
+                    mOutEditText2.setVisibility(View.VISIBLE);
+                } else {
+                    mOutEditText.setVisibility(View.VISIBLE);
+                    mOutEditText2.setVisibility(View.GONE);
+                }
 
-			}
-		});
-	}
+            }
+        });
+    }
 
-	@Override
-	public void onStart() {
-		super.onStart();
-		if (D)
-			Log.e(TAG, "++ ON START ++");
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (D)
+            Log.e(TAG, "++ ON START ++");
 
-		// å¦‚æœBTä¸åœ¨çš„è¯ï¼Œè¦æ±‚å°†å…¶æ¿€æ´»ã€‚
-		// setupChatåœ¨onActivityResult()å°†è¢«è°ƒç”¨
-		if (!mBluetoothAdapter.isEnabled()) {
-			// ä»¥ä¸ºè¿™æ ·ä¼šæ— æç¤ºï¼Œç»“æœæ— æ•ˆï¼Œfu'c'k
-			// mBluetoothAdapter.enable();
-			Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-			// å¦åˆ™ï¼Œè®¾ç½®ä¼šè¯
-		} else {
-			if (mChatService == null)
-				setupChat();
-		}
-	}
+        // Èç¹ûBT²»ÔÚµÄ»°£¬ÒªÇó½«Æä¼¤»î¡£
+        // setupChatÔÚonActivityResult()½«±»µ÷ÓÃ
+        if (!mBluetoothAdapter.isEnabled()) {
+            // ÒÔÎªÕâÑù»áÎŞÌáÊ¾£¬½á¹ûÎŞĞ§£¬fu'c'k
+            // mBluetoothAdapter.enable();
+            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+            // ·ñÔò£¬ÉèÖÃ»á»°
+        } else {
+            if (mChatService == null)
+                setupChat();
+        }
+    }
 
-	// è¿æ¥æŒ‰é”®å“åº”å‡½æ•°
-	public void onConnectButtonClicked(View v) {
+    // Á¬½Ó°´¼üÏìÓ¦º¯Êı
+    public void onConnectButtonClicked(View v) {
 
-		if (breakButton.getText().equals("è¿æ¥") || breakButton.getText().equals("connect")) {
-			Intent serverIntent = new Intent(this, DeviceListActivity.class); // è·³è½¬ç¨‹åºè®¾ç½®
-			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE); // è®¾ç½®è¿”å›å®å®šä¹‰
-			breakButton.setText(R.string.button_disconnect);
+        if (breakButton.getText().equals("Á¬½Ó") || breakButton.getText().equals("connect")) {
+            Intent serverIntent = new Intent(this, DeviceListActivity.class); // Ìø×ª³ÌĞòÉèÖÃ
+            startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE); // ÉèÖÃ·µ»Øºê¶¨Òå
+            breakButton.setText(R.string.button_disconnect);
 
-		} else {
-			// å…³é—­è¿æ¥socket
-			try {
-				// å…³é—­è“ç‰™
-				breakButton.setText(R.string.button_connect);
-				mChatService.stop();
+        } else {
+            // ¹Ø±ÕÁ¬½Ósocket
+            try {
+                // ¹Ø±ÕÀ¶ÑÀ
+                breakButton.setText(R.string.button_connect);
+                mChatService.stop();
 
-			} catch (Exception e) {
-			}
-		}
-		return;
-	}
+            } catch (Exception e) {
+            }
+        }
+        return;
+    }
 
-	@Override
-	public synchronized void onResume() {
-		super.onResume();
-		if (D)
-			Log.e(TAG, "+ ON RESUME +");
+    @Override
+    public synchronized void onResume() {
+        super.onResume();
+        if (D)
+            Log.e(TAG, "+ ON RESUME +");
 
-		// æ‰§è¡Œè¿™ç§æ£€æŸ¥åœ¨onResume()è¦†ç›–çš„æƒ…å†µä¸‹æ²¡æœ‰å¯ç”¨BTåœ¨onStart(),æ‰€ä»¥æˆ‘ä»¬åœä¸‹æ¥å¯ç”¨å®ƒâ€¦
-		// onresume()å°†è¢«è°ƒç”¨æ—¶ï¼Œaction_request_enableæ´»åŠ¨è¿”å›ã€‚
-		if (mChatService != null) {
-			// åªæœ‰çŠ¶æ€æ˜¯STATE_NONE,æˆ‘ä»¬å·²ç»çŸ¥é“,æˆ‘ä»¬è¿˜æ²¡å¼€å§‹åš
-			if (mChatService.getState() == BluetoothChatService.STATE_NONE) {
-				// å¯åŠ¨è“ç‰™Chat Service
-				mChatService.start();
-			}
-		}
-	}
+        // Ö´ĞĞÕâÖÖ¼ì²éÔÚonResume()¸²¸ÇµÄÇé¿öÏÂÃ»ÓĞÆôÓÃBTÔÚonStart(),ËùÒÔÎÒÃÇÍ£ÏÂÀ´ÆôÓÃËü¡­
+        // onresume()½«±»µ÷ÓÃÊ±£¬action_request_enable»î¶¯·µ»Ø¡£
+        if (mChatService != null) {
+            // Ö»ÓĞ×´Ì¬ÊÇSTATE_NONE,ÎÒÃÇÒÑ¾­ÖªµÀ,ÎÒÃÇ»¹Ã»¿ªÊ¼×ö
+            if (mChatService.getState() == BluetoothChatService.STATE_NONE) {
+                // Æô¶¯À¶ÑÀChat Service
+                mChatService.start();
+            }
+        }
+    }
 
-	private void setupChat() {
-		Log.d(TAG, "setupChat()");
-		// æ•°ç»„åˆå§‹åŒ–é€‚é…å™¨å¯¹è¯çš„çº¿ç¨‹
-		// mConversationArrayAdapter = new ArrayAdapter<String>(this,
-		// R.layout.message);
-		// åˆå§‹åŒ–ç»„åˆå­—æ®µä¸ä¸€ä¸ªä¾¦å¬å™¨è¿”å›é”®
-		mOutEditText = (EditText) findViewById(R.id.edit_text_out);
-		mOutEditText.setOnEditorActionListener(mWriteListener);
-		mOutEditText2 = (EditText) findViewById(R.id.edit_text_out2);
-		mOutEditText2.setOnEditorActionListener(mWriteListener);
+    private void setupChat() {
+        Log.d(TAG, "setupChat()");
+        // Êı×é³õÊ¼»¯ÊÊÅäÆ÷¶Ô»°µÄÏß³Ì
+        // mConversationArrayAdapter = new ArrayAdapter<String>(this,
+        // R.layout.message);
+        // ³õÊ¼»¯×éºÏ×Ö¶ÎÓëÒ»¸öÕìÌıÆ÷·µ»Ø¼ü
+        mOutEditText = (EditText) findViewById(R.id.edit_text_out);
+        mOutEditText.setOnEditorActionListener(mWriteListener);
+        mOutEditText2 = (EditText) findViewById(R.id.edit_text_out2);
+        mOutEditText2.setOnEditorActionListener(mWriteListener);
 
-		// åˆå§‹åŒ–å‘é€æŒ‰é’®ï¼Œå•å‡»äº‹ä»¶çš„ä¾¦å¬å™¨
-		mSendButton = (Button) findViewById(R.id.button_send);
-		mSendButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// ä½¿ç”¨æ–‡æœ¬ç¼–è¾‘æ§ä»¶çš„å†…å®¹å‘é€æ¶ˆæ¯
-				TextView view = (TextView) findViewById(R.id.edit_text_out);
-				TextView view2 = (TextView) findViewById(R.id.edit_text_out2);
-				String message = view.getText().toString();
-				String message2 = view2.getText().toString();
+        // ³õÊ¼»¯·¢ËÍ°´Å¥£¬µ¥»÷ÊÂ¼şµÄÕìÌıÆ÷
+        mSendButton = (Button) findViewById(R.id.button_send);
+        mSendButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ê¹ÓÃÎÄ±¾±à¼­¿Ø¼şµÄÄÚÈİ·¢ËÍÏûÏ¢
+                TextView view = (TextView) findViewById(R.id.edit_text_out);
+                TextView view2 = (TextView) findViewById(R.id.edit_text_out2);
+                String message = view.getText().toString();
+                String message2 = view2.getText().toString();
 
-				try {
-					message.getBytes("ISO_8859_1");
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if (HEXCheckBox.isChecked()) {
-					sendMessage(message2);
-				} else {
-					sendMessage(message);
-				}
-			}
-		});
+                try {
+                    message.getBytes("ISO_8859_1");
+                } catch (UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                if (HEXCheckBox.isChecked()) {
+                    sendMessage(message2);
+                } else {
+                    sendMessage(message);
+                }
+            }
+        });
 
-		// åˆå§‹åŒ–bluetoothchatserviceè¿›è¡Œè“ç‰™è¿æ¥
-		mChatService = new BluetoothChatService(this, mHandler);
+        // ³õÊ¼»¯bluetoothchatservice½øĞĞÀ¶ÑÀÁ¬½Ó
+        mChatService = new BluetoothChatService(this, mHandler);
 
-		// åˆå§‹åŒ–ä¼ å‡ºæ¶ˆæ¯ç¼“å†²åŒº
-		mOutStringBuffer = new StringBuffer("");
-	}
+        // ³õÊ¼»¯´«³öÏûÏ¢»º³åÇø
+        mOutStringBuffer = new StringBuffer("");
+    }
 
-	public void onMyButtonClick(View view) {
-		if (view.getId() == R.id.button_clean) {
-			mInputEditText.setText("");
-			fmsg = "";
-			sum = 0;
-		}
-		if (view.getId() == R.id.button_connect) {
+    public void onMyButtonClick(View view) {
+        if (view.getId() == R.id.button_clean) {
+            mInputEditText.setText("");
+            fmsg = "";
+            sum = 0;
+        }
+        if (view.getId() == R.id.button_connect) {
 
-			onConnectButtonClicked(breakButton);
-		}
-		if (view.getId() == R.id.button_full_screen) {
-			String Data = mInputEditText.getText().toString();
-			if (Data.length() > 0) {
-				Intent intent = new Intent();
-				intent.putExtra(BluetoothData, Data);
-				intent.setClass(BluetoothChat.this, FullScreen.class);
-				startActivity(intent);
-			} else {
-				Toast.makeText(this, R.string.prompt_message, Toast.LENGTH_LONG).show();
-			}
+            onConnectButtonClicked(breakButton);
+        }
+        if (view.getId() == R.id.button_full_screen) {
+            String Data = mInputEditText.getText().toString();
+            if (Data.length() > 0) {
+                Intent intent = new Intent();
+                intent.putExtra(BluetoothData, Data);
+                intent.setClass(BluetoothChat.this, FullScreen.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, R.string.prompt_message, Toast.LENGTH_LONG).show();
+            }
 
-		}
+        }
 
-	}
+    }
 
-	@Override
-	public synchronized void onPause() {
-		super.onPause();
-		if (D)
+    @Override
+    public synchronized void onPause() {
+        super.onPause();
+        if (D)
 
-			Log.e(TAG, "- ON PAUSE -");
-	}
+            Log.e(TAG, "- ON PAUSE -");
+    }
 
-	@Override
-	public void onStop() {
-		super.onStop();
-		if (D)
-			Log.e(TAG, "-- ON STOP --");
-	}
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (D)
+            Log.e(TAG, "-- ON STOP --");
+    }
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		// åœæ­¢è“ç‰™èŠå¤©æœåŠ¡
-		if (mChatService != null)
-			mChatService.stop();
-		if (D)
-			Log.e(TAG, "--- ON DESTROY ---");
-	}
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Í£Ö¹À¶ÑÀÁÄÌì·şÎñ
+        if (mChatService != null)
+            mChatService.stop();
+        if (D)
+            Log.e(TAG, "--- ON DESTROY ---");
+    }
 
-	// ä½¿æœ¬æœºè“ç‰™å¯è§
-	private void ensureDiscoverable() {
-		if (D)
-			Log.d(TAG, "ensure discoverable");
-		if (mBluetoothAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
-			Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-			discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);// æ±‚å¯è§æ—¶é—´ä¸º300ç§’
-			startActivity(discoverableIntent);
-		}
-	}
+    // Ê¹±¾»úÀ¶ÑÀ¿É¼û
+    private void ensureDiscoverable() {
+        if (D)
+            Log.d(TAG, "ensure discoverable");
+        if (mBluetoothAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+            Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+            discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);// Çó¿É¼ûÊ±¼äÎª300Ãë
+            startActivity(discoverableIntent);
+        }
+    }
 
-	/**
-	 * å‘é€ä¸€ä¸ªæ¶ˆæ¯
-	 *
-	 * @param message
-	 *            ä¸€ä¸ªæ–‡æœ¬å­—ç¬¦ä¸²å‘é€.
-	 */
-	private void sendMessage(String message) {
-		// æ£€æŸ¥æˆ‘ä»¬å®é™…ä¸Šåœ¨ä»»ä½•è¿æ¥
-		if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
-			Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
-			return;
-		}
+    /**
+     * ·¢ËÍÒ»¸öÏûÏ¢
+     *
+     * @param message
+     *            Ò»¸öÎÄ±¾×Ö·û´®·¢ËÍ.
+     */
+    private void sendMessage(String message) {
+        // ¼ì²éÎÒÃÇÊµ¼ÊÉÏÔÚÈÎºÎÁ¬½Ó
+        if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
+            Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-		// æ£€æŸ¥å®é™…ä¸Šå‘é€çš„ä¸œè¥¿
-		if (message.length() > 0) {
-			// å¾—åˆ°æ¶ˆæ¯çš„å­—èŠ‚ï¼Œå‘Šè¯‰bluetoothchatserviceå†™
-			byte[] send = message.getBytes();
-			mChatService.write(send);
-			// é‡ç½®äº†å­—ç¬¦ä¸²ç¼“å†²åŒºä¸ºé›¶å’Œæ˜ç¡®çš„ç¼–è¾‘æ–‡æœ¬å­—æ®µ
-			// mOutStringBuffer.setLength(0);
-			// mOutEditText.setText(mOutStringBuffer);
-			// mOutEditText2.setText(mOutStringBuffer);
-		}
-		// }else if(message.length()<=0){
-		// Toast.makeText(BluetoothChat.this, "è¿æ¥å·²æ–­å¼€",
-		// Toast.LENGTH_LONG).show();
-		// // ç”¨æˆ·æœªå¯ç”¨è“ç‰™æˆ–å‘ç”Ÿé”™è¯¯
-		// mChatService = new BluetoothChatService(this, mHandler);
-		// Intent serverIntent = new Intent(BluetoothChat.this,
-		// DeviceListActivity.class);
-		// startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-		// }
-	}
+        // ¼ì²éÊµ¼ÊÉÏ·¢ËÍµÄ¶«Î÷
+        if (message.length() > 0) {
+            // µÃµ½ÏûÏ¢µÄ×Ö½Ú£¬¸æËßbluetoothchatserviceĞ´
+            byte[] send = message.getBytes();
+            mChatService.write(send);
+            // ÖØÖÃÁË×Ö·û´®»º³åÇøÎªÁãºÍÃ÷È·µÄ±à¼­ÎÄ±¾×Ö¶Î
+            // mOutStringBuffer.setLength(0);
+            // mOutEditText.setText(mOutStringBuffer);
+            // mOutEditText2.setText(mOutStringBuffer);
+        }
+        // }else if(message.length()<=0){
+        // Toast.makeText(BluetoothChat.this, "Á¬½ÓÒÑ¶Ï¿ª",
+        // Toast.LENGTH_LONG).show();
+        // // ÓÃ»§Î´ÆôÓÃÀ¶ÑÀ»ò·¢Éú´íÎó
+        // mChatService = new BluetoothChatService(this, mHandler);
+        // Intent serverIntent = new Intent(BluetoothChat.this,
+        // DeviceListActivity.class);
+        // startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+        // }
+    }
 
-	// EditTextéƒ¨ä»¶åŠ¨ä½œç›‘å¬å™¨,ç›‘å¬å›è½¦é”®
-	private TextView.OnEditorActionListener mWriteListener = new TextView.OnEditorActionListener() {
-		@Override
-		public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+    // EditText²¿¼ş¶¯×÷¼àÌıÆ÷,¼àÌı»Ø³µ¼ü
+    private TextView.OnEditorActionListener mWriteListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
 
-			// å¦‚æœåŠ¨ä½œæ˜¯ä¸€ä¸ªå…³é”®äº‹ä»¶ä¸Šçš„è¿”å›é”®ï¼Œå‘é€æ¶ˆæ¯
-			if (actionId == EditorInfo.IME_NULL
-					&& event.getAction() == KeyEvent.ACTION_UP) {
-				if (view.getId() == R.id.edit_text_out2) {
-					String tmp = view.getText().toString();
-					String d;
-					for (int i = 0; i < tmp.length(); i++) {
-						d = tmp.charAt(i) + "";
-						if (i % 2 != 0) {
-							d += " ";
-						}
-						sendMessage("\n" + d);
-					}
-				}
-			}
-			if (D)
-				Log.i(TAG, "END onEditorAction");
-			return true;
-		}
-	};
+            // Èç¹û¶¯×÷ÊÇÒ»¸ö¹Ø¼üÊÂ¼şÉÏµÄ·µ»Ø¼ü£¬·¢ËÍÏûÏ¢
+            if (actionId == EditorInfo.IME_NULL
+                    && event.getAction() == KeyEvent.ACTION_UP) {
+                if (view.getId() == R.id.edit_text_out2) {
+                    String tmp = view.getText().toString();
+                    String d;
+                    for (int i = 0; i < tmp.length(); i++) {
+                        d = tmp.charAt(i) + "";
+                        if (i % 2 != 0) {
+                            d += " ";
+                        }
+                        sendMessage("\n" + d);
+                    }
+                }
+            }
+            if (D)
+                Log.i(TAG, "END onEditorAction");
+            return true;
+        }
+    };
 
-	private final void setStatus(int resId) {
-		final ActionBar actionBar = getActionBar();
-		actionBar.setSubtitle(resId);
-	}
+    private final void setStatus(int resId) {
+        final ActionBar actionBar = getActionBar();
+        actionBar.setSubtitle(resId);
+    }
 
-	private final void setStatus(CharSequence subTitle) {
-		final ActionBar actionBar = getActionBar();
-		actionBar.setSubtitle(subTitle);
-	}
+    private final void setStatus(CharSequence subTitle) {
+        final ActionBar actionBar = getActionBar();
+        actionBar.setSubtitle(subTitle);
+    }
 
-	// ä»BluetoothChatServiceå¤„ç†ç¨‹åºè·å¾—ä¿¡æ¯è¿”å›
-	private final Handler mHandler = new Handler() {
+    // ´ÓBluetoothChatService´¦Àí³ÌĞò»ñµÃĞÅÏ¢·µ»Ø
+    private final Handler mHandler = new Handler() {
 
-		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case MESSAGE_STATE_CHANGE:
-					// if (D)
-					// Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
-					switch (msg.arg1) {
-						case BluetoothChatService.STATE_CONNECTED:
-							// mTitle.setText(R.string.title_connected_to);
-							// mTitle.append(mConnectedDeviceName);
-							setStatus(getString(R.string.title_connected_to)
-									+ mConnectedDeviceName);
-							mInputEditText.setText("");
-							break;
-						case BluetoothChatService.STATE_CONNECTING:
-							// mTitle.setText(R.string.title_connecting);
-							setStatus(R.string.title_connecting);
-							break;
-						case BluetoothChatService.STATE_LISTEN:
-						case BluetoothChatService.STATE_NONE:
-							// mTitle.setText(R.string.title_not_connected);
-							setStatus(R.string.title_not_connected);
-							break;
-					}
-					break;
-				case MESSAGE_WRITE:
-					byte[] writeBuf = (byte[]) msg.obj;
-					// æ„å»ºä¸€ä¸ªå­—ç¬¦ä¸²ç¼“å†²åŒº
-					String writeMessage = new String(writeBuf);
-					sum = 1;
-					UTF = 1;
-					mmsg += writeMessage;
-					if (checkBox_sixteen.isChecked()) {
-						newCode = CodeFormat.Stringspace("\n<--" + writeMessage
-								+ "\n");
-						mInputEditText.getText().append(newCode);
-						fmsg += "\n<--" + newCode + "\n";
-					} else {
-						mInputEditText.getText().append(
-								"\n<--" + writeMessage + "\n");
-						fmsg += "\n<--" + writeMessage + "\n";
-					}
-					break;
-				case MESSAGE_READ:
-					byte[] readBuf = (byte[]) msg.obj;
-					// æ„å»ºä¸€ä¸ªå­—ç¬¦ä¸²æœ‰æ•ˆå­—èŠ‚çš„ç¼“å†²åŒº
-					if (sum == 1) {
-						mInputEditText.getText().append(
-								Html.fromHtml("<font color=\"#00bfff\">"
-										+ "\n-->\n" + "</font>"));
-						fmsg += "\n-->\n";
-						sum++;
-					} else {
-						sum++;
-					}
-					String readMessage = new String(readBuf, 0, msg.arg1);// å¯¹å‘è¿‡æ¥çš„æ•°æ®è¿›è¡ŒStringå†æ„é€ å¤„ç†
-					if (checkBox_sixteen.isChecked()) {
-						if (UTF == 1) {
-							newCode2 = CodeFormat.bytesToHexStringTwo(readBuf, 7);
-							mInputEditText.getText().append(
-									Html.fromHtml("<font color=\"#00bfff\">"
-											+ CodeFormat.Stringspace(newCode2)
-											+ "</font>"));
-							fmsg += Html.fromHtml("<font color=\"#00bfff\">"
-									+ CodeFormat.bytesToHexStringTwo(readBuf, 7)
-									+ "</font>");
-							UTF++;
-						} else {
-							UTF++;
-						}
-					} else {
-						mInputEditText.getText().append(
-								Html.fromHtml("<font color=\"#00bfff\">"
-										+ readMessage + "</font>"));
-						fmsg += Html.fromHtml("<font color=\"#00bfff\">"
-								+ readMessage + "</font>");
-					}
-					break;
-				case MESSAGE_DEVICE_NAME:
-					// ä¿å­˜è¿æ¥è®¾å¤‡çš„åå­—
-					mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
-					Toast.makeText(getApplicationContext(),
-							"å·²è¿æ¥ " + mConnectedDeviceName, Toast.LENGTH_SHORT)
-							.show();
-					break;
-				case MESSAGE_TOAST:
-					Toast.makeText(getApplicationContext(),
-							msg.getData().getString(TOAST), Toast.LENGTH_SHORT)
-							.show();
-					break;
-			}
-		}
-	};
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MESSAGE_STATE_CHANGE:
+                    // if (D)
+                    // Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
+                    switch (msg.arg1) {
+                        case BluetoothChatService.STATE_CONNECTED:
+                            // mTitle.setText(R.string.title_connected_to);
+                            // mTitle.append(mConnectedDeviceName);
+                            setStatus(getString(R.string.title_connected_to)
+                                    + mConnectedDeviceName);
+                            mInputEditText.setText("");
+                            break;
+                        case BluetoothChatService.STATE_CONNECTING:
+                            // mTitle.setText(R.string.title_connecting);
+                            setStatus(R.string.title_connecting);
+                            break;
+                        case BluetoothChatService.STATE_LISTEN:
+                        case BluetoothChatService.STATE_NONE:
+                            // mTitle.setText(R.string.title_not_connected);
+                            setStatus(R.string.title_not_connected);
+                            break;
+                    }
+                    break;
+                case MESSAGE_WRITE:
+                    byte[] writeBuf = (byte[]) msg.obj;
+                    // ¹¹½¨Ò»¸ö×Ö·û´®»º³åÇø
+                    String writeMessage = new String(writeBuf);
+                    sum = 1;
+                    UTF = 1;
+                    mmsg += writeMessage;
+                    if (checkBox_sixteen.isChecked()) {
+                        newCode = CodeFormat.Stringspace("\n<--" + writeMessage
+                                + "\n");
+                        mInputEditText.getText().append(newCode);
+                        fmsg += "\n<--" + newCode + "\n";
+                    } else {
+                        mInputEditText.getText().append(
+                                "\n<--" + writeMessage + "\n");
+                        fmsg += "\n<--" + writeMessage + "\n";
+                    }
+                    break;
+                case MESSAGE_READ:
+                    byte[] readBuf = (byte[]) msg.obj;
+                    // ¹¹½¨Ò»¸ö×Ö·û´®ÓĞĞ§×Ö½ÚµÄ»º³åÇø
+                    if (sum == 1) {
+                        mInputEditText.getText().append(
+                                Html.fromHtml("<font color=\"#00bfff\">"
+                                        + "\n-->\n" + "</font>"));
+                        fmsg += "\n-->\n";
+                        sum++;
+                    } else {
+                        sum++;
+                    }
+                    String readMessage = new String(readBuf, 0, msg.arg1);// ¶Ô·¢¹ıÀ´µÄÊı¾İ½øĞĞStringÔÙ¹¹Ôì´¦Àí
+                    if (checkBox_sixteen.isChecked()) {
+                        if (UTF == 1) {
+                            newCode2 = CodeFormat.bytesToHexStringTwo(readBuf, 7);
+                            mInputEditText.getText().append(
+                                    Html.fromHtml("<font color=\"#00bfff\">"
+                                            + CodeFormat.Stringspace(newCode2)
+                                            + "</font>"));
+                            fmsg += Html.fromHtml("<font color=\"#00bfff\">"
+                                    + CodeFormat.bytesToHexStringTwo(readBuf, 7)
+                                    + "</font>");
+                            UTF++;
+                        } else {
+                            UTF++;
+                        }
+                    } else {
+                        mInputEditText.getText().append(
+                                Html.fromHtml("<font color=\"#00bfff\">"
+                                        + readMessage + "</font>"));
+                        fmsg += Html.fromHtml("<font color=\"#00bfff\">"
+                                + readMessage + "</font>");
+                    }
+                    break;
+                case MESSAGE_DEVICE_NAME:
+                    // ±£´æÁ¬½ÓÉè±¸µÄÃû×Ö
+                    mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
+                    Toast.makeText(getApplicationContext(),
+                            "ÒÑÁ¬½Ó " + mConnectedDeviceName, Toast.LENGTH_SHORT)
+                            .show();
+                    break;
+                case MESSAGE_TOAST:
+                    Toast.makeText(getApplicationContext(),
+                            msg.getData().getString(TOAST), Toast.LENGTH_SHORT)
+                            .show();
+                    break;
+            }
+        }
+    };
 
-	public String changeCharset(String str, String newCharset)
-			throws UnsupportedEncodingException {
-		if (str != null) {
-			// ç”¨é»˜è®¤å­—ç¬¦ç¼–ç è§£ç å­—ç¬¦ä¸²ã€‚
-			byte[] bs = str.getBytes();
-			// ç”¨æ–°çš„å­—ç¬¦ç¼–ç ç”Ÿæˆå­—ç¬¦ä¸²
-			return new String(bs, newCharset);
-		}
-		return null;
-	}
+    public String changeCharset(String str, String newCharset)
+            throws UnsupportedEncodingException {
+        if (str != null) {
+            // ÓÃÄ¬ÈÏ×Ö·û±àÂë½âÂë×Ö·û´®¡£
+            byte[] bs = str.getBytes();
+            // ÓÃĞÂµÄ×Ö·û±àÂëÉú³É×Ö·û´®
+            return new String(bs, newCharset);
+        }
+        return null;
+    }
 
-	/**
-	 * å°†å­—ç¬¦ç¼–ç è½¬æ¢æˆUTF-8ç 
-	 */
-	public String toUTF_8(String str) throws UnsupportedEncodingException {
-		return this.changeCharset(str, "UTF_8");
-	}
+    /**
+     * ½«×Ö·û±àÂë×ª»»³ÉUTF-8Âë
+     */
+    public String toUTF_8(String str) throws UnsupportedEncodingException {
+        return this.changeCharset(str, "UTF_8");
+    }
 
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// if (D)
-		// Log.d(TAG, "onActivityResult " + resultCode);
-		switch (requestCode) {
-			case REQUEST_CONNECT_DEVICE:
-				// å½“devicelistactivityè¿”å›ä¸è®¾å¤‡è¿æ¥
-				if (resultCode == Activity.RESULT_OK) {
-					// è·å¾—è®¾å¤‡åœ°å€
-					String address = data.getExtras().getString(
-							DeviceListActivity.EXTRA_DEVICE_ADDRESS);
-					// è·å¾—BluetoothDeviceå¯¹è±¡
-					BluetoothDevice device = mBluetoothAdapter
-							.getRemoteDevice(address);
-					// å°è¯•è¿æ¥åˆ°è®¾å¤‡
-					mChatService.connect(device);
-				}
-				break;
-			case REQUEST_ENABLE_BT:
-				// å½“è¯·æ±‚å¯ç”¨è“ç‰™è¿”å›
-				if (resultCode == Activity.RESULT_OK) {
-					// è“ç‰™å·²å¯ç”¨ï¼Œæ‰€ä»¥å»ºç«‹ä¸€ä¸ªä¼šè¯
-					setupChat();
-				} else {
-					// ç”¨æˆ·æœªå¯ç”¨è“ç‰™æˆ–å‘ç”Ÿé”™è¯¯
-					Log.d(TAG, "BT not enabled");
-					Toast.makeText(this, R.string.bt_not_enabled_leaving,
-							Toast.LENGTH_SHORT).show();
-					finish();
-				}
-		}
-	}
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // if (D)
+        // Log.d(TAG, "onActivityResult " + resultCode);
+        switch (requestCode) {
+            case REQUEST_CONNECT_DEVICE:
+                // µ±devicelistactivity·µ»ØÓëÉè±¸Á¬½Ó
+                if (resultCode == Activity.RESULT_OK) {
+                    // »ñµÃÉè±¸µØÖ·
+                    String address = data.getExtras().getString(
+                            DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+                    // »ñµÃBluetoothDevice¶ÔÏó
+                    BluetoothDevice device = mBluetoothAdapter
+                            .getRemoteDevice(address);
+                    // ³¢ÊÔÁ¬½Óµ½Éè±¸
+                    mChatService.connect(device);
+                }
+                break;
+            case REQUEST_ENABLE_BT:
+                // µ±ÇëÇóÆôÓÃÀ¶ÑÀ·µ»Ø
+                if (resultCode == Activity.RESULT_OK) {
+                    // À¶ÑÀÒÑÆôÓÃ£¬ËùÒÔ½¨Á¢Ò»¸ö»á»°
+                    setupChat();
+                } else {
+                    // ÓÃ»§Î´ÆôÓÃÀ¶ÑÀ»ò·¢Éú´íÎó
+                    Log.d(TAG, "BT not enabled");
+                    Toast.makeText(this, R.string.bt_not_enabled_leaving,
+                            Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+        }
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.option_menu, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.scan:
-				// å¯åŠ¨DeviceListActivityçœ‹åˆ°è®¾å¤‡å’Œåšæ‰«æ
-				Intent serverIntent = new Intent(this, DeviceListActivity.class);
-				startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-				return true;
-			case R.id.discoverable:
-				// ç¡®ä¿è¯¥è®¾å¤‡æ˜¯å¯å‘ç°çš„
-				ensureDiscoverable();
-				return true;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.scan:
+                // Æô¶¯DeviceListActivity¿´µ½Éè±¸ºÍ×öÉ¨Ãè
+                Intent serverIntent = new Intent(this, DeviceListActivity.class);
+                startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+                return true;
+            case R.id.discoverable:
+                // È·±£¸ÃÉè±¸ÊÇ¿É·¢ÏÖµÄ
+                ensureDiscoverable();
+                return true;
 
-			case R.id.setup:
-				new AlertDialog.Builder(this)
-						.setTitle("è®¾ç½®å¯é€‰å‚æ•°")
-						.setIcon(android.R.drawable.ic_dialog_info)
-						.setSingleChoiceItems(new String[] { "åå…­è¿›åˆ¶", "å­—ç¬¦ä¸²" }, 0,
-								new DialogInterface.OnClickListener() {
-									@Override
-									public void onClick(DialogInterface dialog,
-														int which) {
+            case R.id.setup:
+                new AlertDialog.Builder(this)
+                        .setTitle("ÉèÖÃ¿ÉÑ¡²ÎÊı")
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .setSingleChoiceItems(new String[] { "Ê®Áù½øÖÆ", "×Ö·û´®" }, 0,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
 
-										if (dialog.equals("åå…­è¿›åˆ¶")) {
-											Log.d(TAG, "åå…­è¿›åˆ¶");
-											dialogs = true;
-										} else {
-											dialogs = false;
-											Log.d(TAG, "å­—ç¬¦ä¸²");
-										}
-										dialog.dismiss();
-									}
-								}).setNegativeButton("å–æ¶ˆ", null).show();
-				return true;
+                                        if (dialog.equals("Ê®Áù½øÖÆ")) {
+                                            Log.d(TAG, "Ê®Áù½øÖÆ");
+                                            dialogs = true;
+                                        } else {
+                                            dialogs = false;
+                                            Log.d(TAG, "×Ö·û´®");
+                                        }
+                                        dialog.dismiss();
+                                    }
+                                }).setNegativeButton("È¡Ïû", null).show();
+                return true;
 
-			case R.id.clenr:
-				finish();
-				return true;
-		}
-		return false;
-	}
+            case R.id.clenr:
+                finish();
+                return true;
+        }
+        return false;
+    }
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-			AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
-			localBuilder.setTitle("è“ç‰™é€šè®¯æµ‹è¯•") // æ·»åŠ logoï¼š.setIcon(R.drawable.logo_hh)
-					.setMessage("ä½ ç¡®å®šè¦é€€å‡ºå—ï¼Ÿ");
-			localBuilder.setPositiveButton("ç¡®å®š",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(
-								DialogInterface paramDialogInterface,
-								int paramInt) {
-							BluetoothChat.this.finish(); // ä¸é€€å‡ºè“ç‰™è¿æ¥
-						}
-					});
-			localBuilder.setNegativeButton("å–æ¶ˆ",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(
-								DialogInterface paramDialogInterface,
-								int paramInt) {
-							paramDialogInterface.cancel();
-						}
-					}).create();
-			localBuilder.show();
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
+            localBuilder.setTitle("À¶ÑÀÍ¨Ñ¶²âÊÔ") // Ìí¼Ólogo£º.setIcon(R.drawable.logo_hh)
+                    .setMessage("ÄãÈ·¶¨ÒªÍË³öÂğ£¿");
+            localBuilder.setPositiveButton("È·¶¨",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(
+                                DialogInterface paramDialogInterface,
+                                int paramInt) {
+                            BluetoothChat.this.finish(); // ²»ÍË³öÀ¶ÑÀÁ¬½Ó
+                        }
+                    });
+            localBuilder.setNegativeButton("È¡Ïû",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(
+                                DialogInterface paramDialogInterface,
+                                int paramInt) {
+                            paramDialogInterface.cancel();
+                        }
+                    }).create();
+            localBuilder.show();
 
-		} else if (keyCode == KeyEvent.KEYCODE_MENU) {
-			return false;
-		}
-		return true;
-	}
+        } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return false;
+        }
+        return true;
+    }
 
-	// ä¿å­˜æŒ‰é”®å“åº”å‡½æ•°
-	public void onSaveButtonClicked(View v) {
-		Save();
-	}
+    // ±£´æ°´¼üÏìÓ¦º¯Êı
+    public void onSaveButtonClicked(View v) {
+        Save();
+    }
 
-	// ä¿å­˜åŠŸèƒ½å®ç°
-	private void Save() {
-		// æ˜¾ç¤ºå¯¹è¯æ¡†è¾“å…¥æ–‡ä»¶å
-		LayoutInflater factory = LayoutInflater.from(this); // å›¾å±‚æ¨¡æ¿ç”Ÿæˆå™¨å¥æŸ„
-		final View DialogView = factory.inflate(R.layout.sname, null); // ç”¨sname.xmlæ¨¡æ¿ç”Ÿæˆè§†å›¾æ¨¡æ¿
-		new AlertDialog.Builder(this).setTitle("æ–‡ä»¶å").setView(DialogView) // è®¾ç½®è§†å›¾æ¨¡æ¿
-				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() // ç¡®å®šæŒ‰é”®å“åº”å‡½æ•°
-				{
-					@Override
-					public void onClick(DialogInterface dialog,
-										int whichButton) {
-						EditText text1 = (EditText) DialogView
-								.findViewById(R.id.sname); // å¾—åˆ°æ–‡ä»¶åè¾“å…¥æ¡†å¥æŸ„
-						filename = text1.getText().toString(); // å¾—åˆ°æ–‡ä»¶å
+    // ±£´æ¹¦ÄÜÊµÏÖ
+    private void Save() {
+        // ÏÔÊ¾¶Ô»°¿òÊäÈëÎÄ¼şÃû
+        LayoutInflater factory = LayoutInflater.from(this); // Í¼²ãÄ£°åÉú³ÉÆ÷¾ä±ú
+        final View DialogView = factory.inflate(R.layout.sname, null); // ÓÃsname.xmlÄ£°åÉú³ÉÊÓÍ¼Ä£°å
+        new AlertDialog.Builder(this).setTitle("ÎÄ¼şÃû").setView(DialogView) // ÉèÖÃÊÓÍ¼Ä£°å
+                .setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() // È·¶¨°´¼üÏìÓ¦º¯Êı
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int whichButton) {
+                        EditText text1 = (EditText) DialogView
+                                .findViewById(R.id.sname); // µÃµ½ÎÄ¼şÃûÊäÈë¿ò¾ä±ú
+                        filename = text1.getText().toString(); // µÃµ½ÎÄ¼şÃû
 
-						try {
-							if (Environment.getExternalStorageState()
-									.equals(Environment.MEDIA_MOUNTED)) { // å¦‚æœSDå¡å·²å‡†å¤‡å¥½
+                        try {
+                            if (Environment.getExternalStorageState()
+                                    .equals(Environment.MEDIA_MOUNTED)) { // Èç¹ûSD¿¨ÒÑ×¼±¸ºÃ
 
-								filename = filename + ".txt"; // åœ¨æ–‡ä»¶åæœ«å°¾åŠ ä¸Š.txt
-								File sdCardDir = Environment
-										.getExternalStorageDirectory(); // å¾—åˆ°SDå¡æ ¹ç›®å½•
-								File BuildDir = new File(sdCardDir,
-										"/data"); // æ‰“å¼€dataç›®å½•ï¼Œå¦‚ä¸å­˜åœ¨åˆ™ç”Ÿæˆ
-								if (BuildDir.exists() == false)
-									BuildDir.mkdirs();
-								File saveFile = new File(BuildDir,
-										filename); // æ–°å»ºæ–‡ä»¶å¥æŸ„ï¼Œå¦‚å·²å­˜åœ¨ä»æ–°å»ºæ–‡æ¡£
-								FileOutputStream stream = new FileOutputStream(
-										saveFile); // æ‰“å¼€æ–‡ä»¶è¾“å…¥æµ
-								stream.write(fmsg.getBytes());
-								stream.close();
-								Toast.makeText(BluetoothChat.this,
-										"å­˜å‚¨æˆåŠŸï¼", Toast.LENGTH_SHORT)
-										.show();
-							} else {
-								Toast.makeText(BluetoothChat.this,
-										"æ²¡æœ‰å­˜å‚¨å¡ï¼", Toast.LENGTH_LONG)
-										.show();
-							}
+                                filename = filename + ".txt"; // ÔÚÎÄ¼şÃûÄ©Î²¼ÓÉÏ.txt
+                                File sdCardDir = Environment
+                                        .getExternalStorageDirectory(); // µÃµ½SD¿¨¸ùÄ¿Â¼
+                                File BuildDir = new File(sdCardDir,
+                                        "/data"); // ´ò¿ªdataÄ¿Â¼£¬Èç²»´æÔÚÔòÉú³É
+                                if (BuildDir.exists() == false)
+                                    BuildDir.mkdirs();
+                                File saveFile = new File(BuildDir,
+                                        filename); // ĞÂ½¨ÎÄ¼ş¾ä±ú£¬ÈçÒÑ´æÔÚÈÔĞÂ½¨ÎÄµµ
+                                FileOutputStream stream = new FileOutputStream(
+                                        saveFile); // ´ò¿ªÎÄ¼şÊäÈëÁ÷
+                                stream.write(fmsg.getBytes());
+                                stream.close();
+                                Toast.makeText(BluetoothChat.this,
+                                        "´æ´¢³É¹¦£¡", Toast.LENGTH_SHORT)
+                                        .show();
+                            } else {
+                                Toast.makeText(BluetoothChat.this,
+                                        "Ã»ÓĞ´æ´¢¿¨£¡", Toast.LENGTH_LONG)
+                                        .show();
+                            }
 
-						} catch (IOException e) {
-							return;
-						}
+                        } catch (IOException e) {
+                            return;
+                        }
 
-					}
-				}).setNegativeButton("å–æ¶ˆ", // å–æ¶ˆæŒ‰é”®å“åº”å‡½æ•°,ç›´æ¥é€€å‡ºå¯¹è¯æ¡†ä¸åšä»»ä½•å¤„ç†
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog,
-										int which) {
-					}
-				}).show(); // æ˜¾ç¤ºå¯¹è¯æ¡†
-	}
+                    }
+                }).setNegativeButton("È¡Ïû", // È¡Ïû°´¼üÏìÓ¦º¯Êı,Ö±½ÓÍË³ö¶Ô»°¿ò²»×öÈÎºÎ´¦Àí
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                    }
+                }).show(); // ÏÔÊ¾¶Ô»°¿ò
+    }
 }

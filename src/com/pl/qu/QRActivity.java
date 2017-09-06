@@ -1,14 +1,4 @@
 package com.pl.qu;
-
-
-
-import com.pl.gassystem.R;
-
-import net.sourceforge.zbar.Config;
-import net.sourceforge.zbar.Image;
-import net.sourceforge.zbar.ImageScanner;
-import net.sourceforge.zbar.Symbol;
-import net.sourceforge.zbar.SymbolSet;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Rect;
@@ -26,46 +16,54 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.pl.gassystem.R;
+
+import net.sourceforge.zbar.Config;
+import net.sourceforge.zbar.Image;
+import net.sourceforge.zbar.ImageScanner;
+import net.sourceforge.zbar.Symbol;
+import net.sourceforge.zbar.SymbolSet;
+
 
 public class QRActivity extends Activity implements SurfaceHolder.Callback {
-	//private static String TAG = "QRSCAN";
-	private Camera mCamera;
-	private SurfaceHolder mHolder;
-	private SurfaceView surface_view;
-	private ImageScanner scanner;
-	private Handler autoFocusHandler;
-	private AsyncDecode asyncDecode;
-	private boolean playBeep = true;
-	//private MediaPlayer mediaPlayer;
-	private SoundPool soundPool;
-//	private static final float BEEP_VOLUME = 0.10f;
-	private static final long VIBRATE_DURATION = 200L;
+    //private static String TAG = "QRSCAN";
+    private Camera mCamera;
+    private SurfaceHolder mHolder;
+    private SurfaceView surface_view;
+    private ImageScanner scanner;
+    private Handler autoFocusHandler;
+    private AsyncDecode asyncDecode;
+    private boolean playBeep = true;
+    //private MediaPlayer mediaPlayer;
+    private SoundPool soundPool;
+    //	private static final float BEEP_VOLUME = 0.10f;
+    private static final long VIBRATE_DURATION = 200L;
 
-	private FinderView finder_view;
+    private FinderView finder_view;
 
-	static {
-		System.loadLibrary("iconv");
-	}
+    static {
+        System.loadLibrary("iconv");
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ac_zbar_finder);
-		init();
-		// åˆå§‹åŒ–å£°éŸ³å’Œéœ‡åŠ¨
-		AudioManager audioService = (AudioManager) getSystemService(AUDIO_SERVICE);
-		// å¦‚æœæ‰‹æœºæ˜¯éœ‡åŠ¨æ¨¡å¼å°±éœ‡åŠ¨
-		if (audioService.getRingerMode() != AudioManager.RINGER_MODE_NORMAL) {
-			playBeep = false;
-		}
-		// åˆå§‹åŒ–å£°ï¿½?
-		initBeepSound();
-	}
-	
-	/**
-	 * åˆå§‹åŒ–å£°ï¿½?
-	 */
-	private void initBeepSound() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ac_zbar_finder);
+        init();
+        // ³õÊ¼»¯ÉùÒôºÍÕğ¶¯
+        AudioManager audioService = (AudioManager) getSystemService(AUDIO_SERVICE);
+        // Èç¹ûÊÖ»úÊÇÕğ¶¯Ä£Ê½¾ÍÕğ¶¯
+        if (audioService.getRingerMode() != AudioManager.RINGER_MODE_NORMAL) {
+            playBeep = false;
+        }
+        // ³õÊ¼»¯Éù??
+        initBeepSound();
+    }
+
+    /**
+     * ³õÊ¼»¯Éù??
+     */
+    private void initBeepSound() {
 //		if (playBeep && mediaPlayer == null) {
 //			setVolumeControlStream(AudioManager.STREAM_MUSIC);
 //			mediaPlayer = new MediaPlayer();
@@ -83,200 +81,200 @@ public class QRActivity extends Activity implements SurfaceHolder.Callback {
 //				mediaPlayer = null;
 //			}
 //		}
-		soundPool= new SoundPool(10,AudioManager.STREAM_SYSTEM,5);
-		soundPool.load(this,R.raw.scan,1);
-	}
+        soundPool= new SoundPool(10,AudioManager.STREAM_SYSTEM,5);
+        soundPool.load(this,R.raw.scan,1);
+    }
 
-	private void init() {
-		surface_view = (SurfaceView) findViewById(R.id.surface_view);
-		finder_view = (FinderView) findViewById(R.id.finder_view);
-		mHolder = surface_view.getHolder();
-		mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-		mHolder.addCallback(this);
-		scanner = new ImageScanner();
-		scanner.setConfig(0, Config.X_DENSITY, 3);
-		scanner.setConfig(0, Config.Y_DENSITY, 3);
-		autoFocusHandler = new Handler();
-		asyncDecode = new AsyncDecode();
-	}
+    private void init() {
+        surface_view = (SurfaceView) findViewById(R.id.surface_view);
+        finder_view = (FinderView) findViewById(R.id.finder_view);
+        mHolder = surface_view.getHolder();
+        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        mHolder.addCallback(this);
+        scanner = new ImageScanner();
+        scanner.setConfig(0, Config.X_DENSITY, 3);
+        scanner.setConfig(0, Config.Y_DENSITY, 3);
+        autoFocusHandler = new Handler();
+        asyncDecode = new AsyncDecode();
+    }
 
-	@Override
-	public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-		if (mHolder.getSurface() == null) {
-			return;
-		}
-		try {
-			mCamera.stopPreview();
-		} catch (Exception e) {
-		}
-		try {
-			mCamera.setDisplayOrientation(90);
-			mCamera.setPreviewDisplay(mHolder);
-			mCamera.setPreviewCallback(previewCallback);
-			mCamera.startPreview();
-			mCamera.autoFocus(autoFocusCallback);
-		} catch (Exception e) {
-			Log.d("DBG", "Error starting camera preview: " + e.getMessage());
-		}
-	}
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+        if (mHolder.getSurface() == null) {
+            return;
+        }
+        try {
+            mCamera.stopPreview();
+        } catch (Exception e) {
+        }
+        try {
+            mCamera.setDisplayOrientation(90);
+            mCamera.setPreviewDisplay(mHolder);
+            mCamera.setPreviewCallback(previewCallback);
+            mCamera.startPreview();
+            mCamera.autoFocus(autoFocusCallback);
+        } catch (Exception e) {
+            Log.d("DBG", "Error starting camera preview: " + e.getMessage());
+        }
+    }
 
-	/**
-	 * é¢„è§ˆæ•°æ®
-	 */
-	PreviewCallback previewCallback = new PreviewCallback() {
-		@Override
-		public void onPreviewFrame(byte[] data, Camera camera) {
-			if (asyncDecode.isStoped()) {
-				//				Camera.Parameters parameters = camera.getParameters();
-				//				Size size = parameters.getPreviewSize();
-				//				Image barcode = new Image(size.width, size.height, "Y800");
-				//				barcode.setData(data);
-				//				asyncDecode = new AsyncDecode();
-				//				asyncDecode.execute(barcode);
-				Camera.Parameters parameters = camera.getParameters();
-				Size size = parameters.getPreviewSize();
-				//å›¾ç‰‡æ˜¯è¢«æ—‹è½¬ï¿½?90åº¦çš„
-				Image source = new Image(size.width, size.height, "Y800");
-				Rect scanImageRect = finder_view.getScanImageRect(size.height, size.width);
-				//å›¾ç‰‡æ—‹è½¬ï¿½?90åº¦ï¼Œå°†æ‰«ææ¡†çš„TOPä½œä¸ºleftè£å‰ª
-				source.setCrop(scanImageRect.top, scanImageRect.left, scanImageRect.bottom, scanImageRect.right);
-				source.setData(data);
-				asyncDecode = new AsyncDecode();
-				asyncDecode.execute(source);
+    /**
+     * Ô¤ÀÀÊı¾İ
+     */
+    PreviewCallback previewCallback = new PreviewCallback() {
+        @Override
+        public void onPreviewFrame(byte[] data, Camera camera) {
+            if (asyncDecode.isStoped()) {
+                //				Camera.Parameters parameters = camera.getParameters();
+                //				Size size = parameters.getPreviewSize();
+                //				Image barcode = new Image(size.width, size.height, "Y800");
+                //				barcode.setData(data);
+                //				asyncDecode = new AsyncDecode();
+                //				asyncDecode.execute(barcode);
+                Camera.Parameters parameters = camera.getParameters();
+                Size size = parameters.getPreviewSize();
+                //Í¼Æ¬ÊÇ±»Ğı×ª??90¶ÈµÄ
+                Image source = new Image(size.width, size.height, "Y800");
+                Rect scanImageRect = finder_view.getScanImageRect(size.height, size.width);
+                //Í¼Æ¬Ğı×ª??90¶È£¬½«É¨Ãè¿òµÄTOP×÷Îªleft²Ã¼ô
+                source.setCrop(scanImageRect.top, scanImageRect.left, scanImageRect.bottom, scanImageRect.right);
+                source.setData(data);
+                asyncDecode = new AsyncDecode();
+                asyncDecode.execute(source);
 
-			}
-		}
-	};
+            }
+        }
+    };
 
-	private class AsyncDecode extends AsyncTask<Image, Void, Void> {
-		private boolean stoped = true;
-		private String str = "";
+    private class AsyncDecode extends AsyncTask<Image, Void, Void> {
+        private boolean stoped = true;
+        private String str = "";
 
-		@Override
-		protected Void doInBackground(Image... params) {
-			stoped = false;
-			StringBuilder sb = new StringBuilder();
-			Image barcode = params[0];
-			int result = scanner.scanImage(barcode);
-			if (result != 0) {
-				//				mCamera.setPreviewCallback(null);
-				//				mCamera.stopPreview();
-				SymbolSet syms = scanner.getResults();
-				for (Symbol sym : syms) {
-					switch (sym.getType()) {
-						case Symbol.CODABAR:
-							//Log.d(TAG, "æ¡å½¢ï¿½?  " + sym.getData());
-							//æ¡å½¢ï¿½?  
-							sb.append(sym.getData());
-							break;
-						case Symbol.CODE128:
-							//128ç¼–ç æ ¼å¼äºŒç»´ï¿½?
-							//Log.d(TAG, "128ç¼–ç æ ¼å¼äºŒç»´ï¿½?:  " + sym.getData());
-							sb.append(sym.getData());
-							break;
-						case Symbol.QRCODE:
-							//QRç äºŒç»´ç   
-							//Log.d(TAG, "QRç äºŒç»´ç   :" + sym.getData());
-							sb.append(sym.getData());
-							break;
-						case Symbol.ISBN10:
-							//ISBN10å›¾ä¹¦æŸ¥è¯¢  
-							//Log.d(TAG, "ISBN10å›¾ä¹¦æŸ¥è¯¢  :   " + sym.getData());
-							sb.append(sym.getData());
-							break;
-						case Symbol.ISBN13:
-							//ISBN13å›¾ä¹¦æŸ¥è¯¢  
-							//Log.d(TAG, "ISBN13å›¾ä¹¦æŸ¥è¯¢   : " + sym.getData());
-							sb.append(sym.getData());
-							break;
-						case Symbol.NONE:
-							//Log.d(TAG, "æœªçŸ¥   : " + sym.getData());
-							sb.append(sym.getData());
-							break;
-						default:
-							//Log.d(TAG, "å…¶ä»–:   " + sym.getData());
-							sb.append(sym.getData());
-							break;
-					}
-				}
-			}
-			str = sb.toString();
-			return null;
-		}
+        @Override
+        protected Void doInBackground(Image... params) {
+            stoped = false;
+            StringBuilder sb = new StringBuilder();
+            Image barcode = params[0];
+            int result = scanner.scanImage(barcode);
+            if (result != 0) {
+                //				mCamera.setPreviewCallback(null);
+                //				mCamera.stopPreview();
+                SymbolSet syms = scanner.getResults();
+                for (Symbol sym : syms) {
+                    switch (sym.getType()) {
+                        case Symbol.CODABAR:
+                            //Log.d(TAG, "ÌõĞÎ??  " + sym.getData());
+                            //ÌõĞÎ??
+                            sb.append(sym.getData());
+                            break;
+                        case Symbol.CODE128:
+                            //128±àÂë¸ñÊ½¶şÎ¬??
+                            //Log.d(TAG, "128±àÂë¸ñÊ½¶şÎ¬??:  " + sym.getData());
+                            sb.append(sym.getData());
+                            break;
+                        case Symbol.QRCODE:
+                            //QRÂë¶şÎ¬Âë
+                            //Log.d(TAG, "QRÂë¶şÎ¬Âë  :" + sym.getData());
+                            sb.append(sym.getData());
+                            break;
+                        case Symbol.ISBN10:
+                            //ISBN10Í¼Êé²éÑ¯
+                            //Log.d(TAG, "ISBN10Í¼Êé²éÑ¯  :   " + sym.getData());
+                            sb.append(sym.getData());
+                            break;
+                        case Symbol.ISBN13:
+                            //ISBN13Í¼Êé²éÑ¯
+                            //Log.d(TAG, "ISBN13Í¼Êé²éÑ¯   : " + sym.getData());
+                            sb.append(sym.getData());
+                            break;
+                        case Symbol.NONE:
+                            //Log.d(TAG, "Î´Öª   : " + sym.getData());
+                            sb.append(sym.getData());
+                            break;
+                        default:
+                            //Log.d(TAG, "ÆäËû:   " + sym.getData());
+                            sb.append(sym.getData());
+                            break;
+                    }
+                }
+            }
+            str = sb.toString();
+            return null;
+        }
 
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			stoped = true;
-			if (null == str || str.equals("")) {
-			} else {			
-				Intent intent = new Intent();
-				intent.putExtra("Code", str);
-				setResult(RESULT_OK, intent);
-				playBeepSoundAndVibrate();// æ’­æ”¾å£°éŸ³å’ŒæŒ¯åŠ¨å¹¶è¿”å›
-				finish();
-			}
-		}
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            stoped = true;
+            if (null == str || str.equals("")) {
+            } else {
+                Intent intent = new Intent();
+                intent.putExtra("Code", str);
+                setResult(RESULT_OK, intent);
+                playBeepSoundAndVibrate();// ²¥·ÅÉùÒôºÍÕñ¶¯²¢·µ»Ø
+                finish();
+            }
+        }
 
-		public boolean isStoped() {
-			return stoped;
-		}
-	}
+        public boolean isStoped() {
+            return stoped;
+        }
+    }
 
-	/**
-	 * è‡ªåŠ¨å¯¹ç„¦å›è°ƒ
-	 */
-	AutoFocusCallback autoFocusCallback = new AutoFocusCallback() {
-		@Override
-		public void onAutoFocus(boolean success, Camera camera) {
-			autoFocusHandler.postDelayed(doAutoFocus, 1000);
-		}
-	};
+    /**
+     * ×Ô¶¯¶Ô½¹»Øµ÷
+     */
+    AutoFocusCallback autoFocusCallback = new AutoFocusCallback() {
+        @Override
+        public void onAutoFocus(boolean success, Camera camera) {
+            autoFocusHandler.postDelayed(doAutoFocus, 1000);
+        }
+    };
 
-	//è‡ªåŠ¨å¯¹ç„¦
-	private Runnable doAutoFocus = new Runnable() {
-		@Override
-		public void run() {
-			if (null == mCamera || null == autoFocusCallback) {
-				return;
-			}
-			mCamera.autoFocus(autoFocusCallback);
-		}
-	};
+    //×Ô¶¯¶Ô½¹
+    private Runnable doAutoFocus = new Runnable() {
+        @Override
+        public void run() {
+            if (null == mCamera || null == autoFocusCallback) {
+                return;
+            }
+            mCamera.autoFocus(autoFocusCallback);
+        }
+    };
 
-	@Override
-	public void surfaceCreated(SurfaceHolder holder) {
-		try {
-			mCamera = Camera.open();
-		} catch (Exception e) {
-			mCamera = null;
-		}
-	}
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        try {
+            mCamera = Camera.open();
+        } catch (Exception e) {
+            mCamera = null;
+        }
+    }
 
-	@Override
-	public void surfaceDestroyed(SurfaceHolder holder) {
-		if (mCamera != null) {
-			mCamera.setPreviewCallback(null);
-			mCamera.release();
-			mCamera = null;
-		}
-	}
-	
-	/**
-	 * æ’­æ”¾å£°éŸ³å’Œéœ‡ï¿½?
-	 */
-	private void playBeepSoundAndVibrate() {
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+        if (mCamera != null) {
+            mCamera.setPreviewCallback(null);
+            mCamera.release();
+            mCamera = null;
+        }
+    }
+
+    /**
+     * ²¥·ÅÉùÒôºÍÕğ??
+     */
+    private void playBeepSoundAndVibrate() {
 //		if (playBeep && mediaPlayer != null) {
 //			mediaPlayer.start();
 //		}
-		if(playBeep){
-			soundPool.play(1,1, 1, 0, 0, 1);
-		}
-		// æ‰“å¼€éœ‡åŠ¨
-		Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-		vibrator.vibrate(VIBRATE_DURATION);
-	}
-	
+        if(playBeep){
+            soundPool.play(1,1, 1, 0, 0, 1);
+        }
+        // ´ò¿ªÕğ¶¯
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        vibrator.vibrate(VIBRATE_DURATION);
+    }
+
 //	private final OnCompletionListener beepListener = new OnCompletionListener() {
 //		public void onCompletion(MediaPlayer mediaPlayer) {
 //			mediaPlayer.seekTo(0);

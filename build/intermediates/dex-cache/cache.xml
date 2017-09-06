@@ -12,138 +12,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\21986f603033e2e366c753926bdf784d25e165ce\output\jars\classes.jar"
+        jar="D:\zzz\GasSystem\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a34c11a9d548d23ecacae11a866b1e3bc0dd173e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a1a2b4b801306e23e7d266257af517b7fb367db9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\36b93d3a9260a65dd1231e99355a064635bb7763\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="859d48ef355b663295e59c7785cd754f9c7f0aad">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8968da51d0cc805b038357002108bff21a9f0257\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\90b148499fcea71053299d2fc5d014bea7395829\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="518768f3200963fbfec652f498da2c9d39245234">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_90632a8aeaaf8e9440d627a90147f457fbc2d05c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\919343c3eab103fcfd8420a739fcfa978f673891\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4cd24d5598342ce59d5d4cb335dc54ff536a82f0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\bea9d5607d521360e8e55834956fa8b59ccef52f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="a3e61044038fb54cddf6b8dc79f41d2b57f42caf">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8b0639f72bf835be0e60cd7a0c9e5ccdb05460d5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_52aa5198484b7458e94850b888d0796b282a76ae\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.0_1939f5ba3c98ed45e59dd8880f357185b938b989\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\zzz\GasSystem\libs\jxl.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="955fa72ef2e3d5a45db59d84802401f75bc973a5">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jxl_0b09d168b7142da0bb10afbb46f667447af859a3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\zzz\GasSystem\libs\universal-image-loader-1.9.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.4_06c844b443189cbc9d186c0566766261cd73adc5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\zzz\GasSystem\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_9582766026caea2e3d66c28b97de95164f1588fe\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\zzz\GasSystem\libs\jaxen-1.1.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jaxen-1.1.1_e72f32ae9135e83d1a4769d94c6565bc899adc2a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\5dec36c7a618e125920b26df12d96fb29071e83b\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="fbb206f7a119f66ce171d95aae1225a5b209a8b7">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2b20bf49696b44ebd0e5f7e9b65130e7688c38e5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\258087b5d5565c62994fbeb604b39adb41c90be1\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_994d94776e5d2922c2f50524ef53ce67b44f912d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9ab787a20aae245b5b3651ae0b9c38459eb37715">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d9f53f6e67fdea7329fc67227b1380c440e994f0\classes.dex" />
+        sha1="73e9ecfe1b6d52663c368f97bffc7ec1a94e2591">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_29afea97ffb414318314a21f19d26c069c5acaf1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -165,39 +39,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\zzz\GasSystem\libs\zxing.jar"
+        jar="D:\zzz\GasSystem\libs\jxl.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\zxing_9e7a8fc763139cb5eda7df283b114addea353eca\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\zzz\GasSystem\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="13a01ec932b3c2fa7b3165faa88640f3fd518a51">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_29afea97ffb414318314a21f19d26c069c5acaf1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\9880bf994a1d9ac9e0ea7aaeeeed3ee1bf796536\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_104bcb9003524475b947713bfe1987491855fe3d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ff32e15378e0d31e5f7e3ae8e8519ae90c8b0596\classes.dex" />
+        sha1="955fa72ef2e3d5a45db59d84802401f75bc973a5">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jxl_0b09d168b7142da0bb10afbb46f667447af859a3\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -210,12 +57,39 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\8110a873c36bd2cd27f6a7cc48734abf1f31b14f\output\jars\classes.jar"
+        jar="D:\zzz\GasSystem\libs\universal-image-loader-1.9.4.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1dc4a072662bb2f2624f44a7f31a306b91e62254\classes.dex" />
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.4_06c844b443189cbc9d186c0566766261cd73adc5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\zzz\GasSystem\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_9582766026caea2e3d66c28b97de95164f1588fe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\zzz\GasSystem\libs\zxing.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\zxing_9e7a8fc763139cb5eda7df283b114addea353eca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\zzz\GasSystem\libs\jaxen-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jaxen-1.1.1_e72f32ae9135e83d1a4769d94c6565bc899adc2a\classes.dex" />
     </item>
 
 </items>

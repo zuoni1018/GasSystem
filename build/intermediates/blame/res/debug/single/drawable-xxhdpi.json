@@ -1,10 +1,34 @@
 [
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\turn_right.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\turn_right.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\detail_no.9.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\detail_no.9.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\detail_copy.9.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\detail_copy.9.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\turn_right_click.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\turn_right_click.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\search_pressed.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\search_pressed.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\turn_left_click.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\turn_left_click.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\turn_left.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\turn_left.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\search_normal.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-xxhdpi\\search_normal.png"
     }
 ]

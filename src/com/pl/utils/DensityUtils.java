@@ -5,18 +5,18 @@ import android.util.TypedValue;
 
 /**
  * Created by zangyi_shuai_ge on 2017/3/22
- * å•ä½è½¬æ¢å·¥å…·ç±»
+ * µ¥Î»×ª»»¹¤¾ßÀà
  */
 
 public class DensityUtils {
 
     private DensityUtils() {
-        //ä¸èƒ½è¢« new å‡ºæ¥
+        //²»ÄÜ±» new ³öÀ´
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
     /**
-     * dpè½¬px
+     * dp×ªpx
      */
     public static int dp2px(Context context, float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
@@ -24,7 +24,7 @@ public class DensityUtils {
     }
 
     /**
-     * spè½¬px
+     * sp×ªpx
      */
     public static int sp2px(Context context, float spVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
@@ -32,7 +32,7 @@ public class DensityUtils {
     }
 
     /**
-     * pxè½¬dp
+     * px×ªdp
      */
     public static float px2dp(Context context, float pxVal) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -40,7 +40,7 @@ public class DensityUtils {
     }
 
     /**
-     * pxè½¬sp
+     * px×ªsp
      */
     public static float px2sp(Context context, float pxVal) {
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);

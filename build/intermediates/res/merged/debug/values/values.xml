@@ -661,6 +661,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_settings">Settings</string>
+    <string name="allNum">总数(</string>
     <string name="app_name">智能抄表</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
@@ -692,6 +693,7 @@
     <string name="listview_header_hint_release">释放立即刷新</string>
     <string name="listview_header_last_time">上次更新时间：</string>
     <string name="listview_loading">正在加载...</string>
+    <string name="noReadNum">未抄(</string>
     <string name="nomore_loading">没有了</string>
     <string name="none_found">没有建立连接</string>
     <string name="none_paired">没有已配对设备</string>
@@ -703,6 +705,7 @@
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="prompt_message">没有数据可供查看</string>
     <string name="qr_activity">请对准扫描</string>
+    <string name="readNum">已抄(</string>
     <string name="refresh_done">刷新完成</string>
     <string name="refreshing">正在刷新...</string>
     <string name="scanning">扫描未知设备...</string>

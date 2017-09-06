@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements OnTouchListener {
     private ImageButton ivCopy;//抄表按钮
     private ImageButton ivOneCopy;//单抄测试
     private ImageButton ivPhotoCopy;//摄像抄表
-    private ImageButton ivQuery;//统计查询
+//    private ImageButton ivQuery;//统计查询
     private ImageButton ivMaintain;//表具维护
     private ImageButton ivDataManger;//数据传输
     private ImageButton ivAbout;//关于
@@ -115,7 +115,7 @@ public class MainActivity extends Activity implements OnTouchListener {
         ivCopy = (ImageButton) findViewById(R.id.ivmainCopy);//抄表按钮
         ivOneCopy = (ImageButton) findViewById(R.id.ivmainOneCopy);//单抄测试
         ivPhotoCopy = (ImageButton) findViewById(R.id.ivmainPhotoCopy);//摄像抄表
-        ivQuery = (ImageButton) findViewById(R.id.ivmainQuery);//统计查询
+//        ivQuery = (ImageButton) findViewById(R.id.ivmainQuery);//统计查询
         ivMaintain = (ImageButton) findViewById(R.id.ivmainMaintain);//表具维护
         ivAbout = (ImageButton) findViewById(R.id.ivmainAbout);//关于
         ivDataManger = (ImageButton) findViewById(R.id.ivmainDataManger);//数据传输
@@ -227,15 +227,15 @@ public class MainActivity extends Activity implements OnTouchListener {
             }
         });
 
-        ivQuery.setOnClickListener(new OnClickListener() { // 统计查询
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BookInfoActivity.class);
-                intent.putExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_SELECT);
-                startActivity(intent);
-            }
-        });
+//        ivQuery.setOnClickListener(new OnClickListener() { // 统计查询
+//
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, BookInfoActivity.class);
+//                intent.putExtra("bookInfoType", GlobalConsts.BOOKINFO_TYPE_SELECT);
+//                startActivity(intent);
+//            }
+//        });
     }
 
 
@@ -246,11 +246,12 @@ public class MainActivity extends Activity implements OnTouchListener {
         ivCopy.setOnTouchListener(this);
         ivOneCopy.setOnTouchListener(this);
         ivPhotoCopy.setOnTouchListener(this);
-        ivQuery.setOnTouchListener(this);
+//        ivQuery.setOnTouchListener(this);
         ivDataManger.setOnTouchListener(this);
         ivMaintain.setOnTouchListener(this);
         ivSystemSet.setOnTouchListener(this);
         ivAbout.setOnTouchListener(this);
+        ivMainConcentrator.setOnTouchListener(this);
     }
 
     @Override

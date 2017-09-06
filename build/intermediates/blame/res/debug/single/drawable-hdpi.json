@@ -16,12 +16,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivsetting.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyunread.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyunread.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivquery.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivquery.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyunread.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyunread.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivphotocopy_new.png",
@@ -80,12 +80,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivbluescan.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\pbload1.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\pbload1.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivdatamanage.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivdatamanage.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\pbload1.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\pbload1.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mainbk.png",
@@ -120,12 +120,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivprint.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatasuccess.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatasuccess.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivabout.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivabout.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdatasuccess.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdatasuccess.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyprint.png",
@@ -160,12 +160,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivonecopyinput.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenpwd.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenpwd.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ck_true.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ck_true.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivmaintenpwd.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivmaintenpwd.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivcopy_new.png",
@@ -236,16 +236,16 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivcopyreadall.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdataupdate.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdataupdate.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\pbload2.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\pbload2.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_listadd.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\btn_listadd.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivdataupdate.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\ivdataupdate.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_ivabout_new.png",
@@ -296,12 +296,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\main_ivonecopy_new.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\delete.png",
-        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\delete.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\de.png",
         "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\de.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\delete.png",
+        "source": "D:\\zzz\\GasSystem\\res\\drawable-hdpi\\delete.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ivonecopyreadall.png",

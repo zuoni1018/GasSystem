@@ -6,78 +6,102 @@
 
     <include layout="@layout/ct_title_bar_style" />
 
-    <ScrollView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mSwipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include layout="@layout/ct_situation_chart" />
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/button_height"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btBeginCopy"
-                    android:layout_width="@dimen/button_height"
+                <include layout="@layout/ct_situation_chart" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/button_height"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@mipmap/icon_02" />
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btCopyAllBook"
-                    android:layout_width="@dimen/button_height"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@mipmap/icon_05" />
+                    <Button
+                        android:id="@+id/btBeginCopy"
+                        android:layout_width="@dimen/button_height"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/icon_02" />
 
-                <Button
-                    android:id="@+id/btShowAllBook"
-                    android:layout_width="@dimen/button_height"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@mipmap/icon_06" />
+                    <Button
+                        android:id="@+id/btCopyAllBook"
+                        android:layout_width="@dimen/button_height"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/icon_05" />
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/btShowAllBook"
+                        android:layout_width="@dimen/button_height"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/icon_06" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/button_height"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                android:gravity="center">
+                </LinearLayout>
 
 
                 <LinearLayout
-                    android:id="@+id/layoutNetworking"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:background="#BEC8D1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginTop="8dp"
-                        android:src="@drawable/ic_launcher" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutNetworking"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="#BEC8D1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_launcher" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutUpData"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="#BEC8D1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_launcher" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

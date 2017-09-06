@@ -90,14 +90,14 @@
                 android:layout_weight="0.1" />
 
             <ImageButton
-                android:id="@+id/ivmainQuery"
+                android:id="@+id/ivMainConcentrator"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.8"
                 android:background="#ffffff"
                 android:scaleType="centerInside"
-                android:src="@drawable/main_ivquery_new" />
+                android:src="@mipmap/mian_concentrator" />
 
             <TextView
                 android:layout_width="0dp"
@@ -340,15 +340,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.1" />
 
-            <ImageButton
-                android:id="@+id/ivMainConcentrator"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.8"
-                android:background="#ffffff"
-                android:scaleType="centerInside"
-                android:src="@mipmap/mian_concentrator" />
+
 
             <TextView
                 android:layout_width="0dp"

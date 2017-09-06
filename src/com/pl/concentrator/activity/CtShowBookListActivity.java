@@ -60,9 +60,7 @@ public class CtShowBookListActivity extends CtBaseTitleActivity {
         RvBookCopyDataListAdapter mRvBookCopyDataListAdapter = new RvBookCopyDataListAdapter(getContext(), mList);
         mAdapter = new LRecyclerViewAdapter(mRvBookCopyDataListAdapter);
         rvBookList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        DividerDecoration divider = new DividerDecoration.Builder(this)
-                .setColorResource(R.color.color_blue)
-                .build();
+        DividerDecoration divider = new DividerDecoration.Builder(this).setColorResource(R.color.color_blue).build();
         rvBookList.addItemDecoration(divider);
         rvBookList.setAdapter(mAdapter);
         rvBookList.setOnRefreshListener(new OnRefreshListener() {

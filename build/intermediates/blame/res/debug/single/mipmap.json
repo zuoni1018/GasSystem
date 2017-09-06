@@ -20,6 +20,10 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\excel_import02.png"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\up.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\up.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\warning_normal.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\warning_normal.png"
     },
@@ -38,6 +42,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_05.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\icon_05.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\down.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\down.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\choose_02.png",

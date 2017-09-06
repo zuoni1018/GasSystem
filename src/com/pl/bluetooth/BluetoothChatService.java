@@ -16,11 +16,6 @@
 
 package com.pl.bluetooth;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.UUID;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
@@ -29,6 +24,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.UUID;
 
 /**
  * 这个类并设置和管理的所有工作蓝牙连接其他设备。 监听传入连接的线程,一个线程与设备连接,连接时一个线程来执行数据传输。
@@ -89,8 +89,7 @@ public class BluetoothChatService {
 			mState = state;
 
 		// 给新状态的Handler，使界面活动可以更新
-		mHandler.obtainMessage(BluetoothChat.MESSAGE_STATE_CHANGE, state, -1)
-				.sendToTarget();
+		mHandler.obtainMessage(BluetoothChat.MESSAGE_STATE_CHANGE, state, -1).sendToTarget();
 	}
 
 	/**
@@ -459,8 +458,7 @@ public class BluetoothChatService {
 					bytes = mmInStream.read(buffer);
 
 					// 将获取到数据的消息发送到UI界面，同时也把内容buffer发过去显示
-					mHandler.obtainMessage(BluetoothChat.MESSAGE_READ, bytes,
-							-1, buffer).sendToTarget();
+					mHandler.obtainMessage(BluetoothChat.MESSAGE_READ, bytes, -1, buffer).sendToTarget();
 				} catch (IOException e) {
 					// Log.e(TAG, "disconnected", e);
 					connectionLost();
@@ -525,8 +523,7 @@ public class BluetoothChatService {
 
 				mmOutStream.write(buffer);
 				// 用于将自己发送给对方的内容也在UI界面显示
-				mHandler.obtainMessage(BluetoothChat.MESSAGE_WRITE, -1, -1,
-						buffer).sendToTarget();
+				mHandler.obtainMessage(BluetoothChat.MESSAGE_WRITE, -1, -1, buffer).sendToTarget();
 			} catch (IOException e) {
 				// Log.e(TAG, "Exception during write", e);
 			}

@@ -3,7 +3,8 @@ package com.pl.concentrator.activity.base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.widget.Toast;
+
+import com.common.utils.ToastUtils;
 
 /**
  * Created by zangyi_shuai_ge on 2017/4/21
@@ -29,6 +30,7 @@ public class CtBaseActivity extends Activity {
         return context;
     }
     public void  showToast(String message){
-        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+        ToastUtils.showToast(context.getApplicationContext(),message);
+//        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
     }
 }

@@ -70,5 +70,8 @@
     <string name="title_activity_shcmd">SHCmdActivity</string>
     <string name="title_activity_copy_set_mjc">CopySetMjcActivity</string>
     <string name="ct_activity_concentrator_list_title">选择集中器</string>
+    <string name="allNum">总数(</string>
+    <string name="readNum">已抄(</string>
+    <string name="noReadNum">未抄(</string>
 
 </resources>

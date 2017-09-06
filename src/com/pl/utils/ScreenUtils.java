@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 /**
  * Created by zangyi_shuai_ge on 2017/3/22
- * å±å¹•ç›¸å…³è¾…åŠ©ç±»
+ * ÆÁÄ»Ïà¹Ø¸¨ÖúÀà
  */
 
 public class ScreenUtils {
@@ -21,7 +21,7 @@ public class ScreenUtils {
     }
 
     /**
-     * è·å¾—å±å¹•é«˜åº¦
+     * »ñµÃÆÁÄ»¸ß¶È
      */
     public static int getScreenWidth(Context context) {
         WindowManager wm = (WindowManager) context
@@ -32,7 +32,7 @@ public class ScreenUtils {
     }
 
     /**
-     * è·å¾—å±å¹•å®½åº¦
+     * »ñµÃÆÁÄ»¿í¶È
      */
     public static int getScreenHeight(Context context) {
         WindowManager wm = (WindowManager) context
@@ -43,7 +43,7 @@ public class ScreenUtils {
     }
 
     /**
-     * è·å¾—çŠ¶æ€æ çš„é«˜åº¦
+     * »ñµÃ×´Ì¬À¸µÄ¸ß¶È
      */
     public static int getStatusHeight(Context context) {
 
@@ -61,7 +61,7 @@ public class ScreenUtils {
     }
 
     /**
-     * è·å–å½“å‰å±å¹•æˆªå›¾ï¼ŒåŒ…å«çŠ¶æ€æ 
+     * »ñÈ¡µ±Ç°ÆÁÄ»½ØÍ¼£¬°üº¬×´Ì¬À¸
      */
     public static Bitmap snapShotWithStatusBar(Activity activity) {
         View view = activity.getWindow().getDecorView();
@@ -78,7 +78,7 @@ public class ScreenUtils {
     }
 
     /**
-     * è·å–å½“å‰å±å¹•æˆªå›¾ï¼Œä¸åŒ…å«çŠ¶æ€æ 
+     * »ñÈ¡µ±Ç°ÆÁÄ»½ØÍ¼£¬²»°üº¬×´Ì¬À¸
      */
     public static Bitmap snapShotWithoutStatusBar(Activity activity) {
         View view = activity.getWindow().getDecorView();

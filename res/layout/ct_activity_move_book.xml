@@ -69,7 +69,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="集中器名"
+                android:text="集中器编号"
                 android:textColor="#000"
                 android:textSize="14sp" />
 
@@ -84,7 +84,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="集中器号"
+                android:text="-----"
                 android:textColor="#000"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#003F97"
-        android:text="将该表移动到"
+        android:text="移动表"
         android:textColor="#fff"
         android:textSize="14sp" />
 
