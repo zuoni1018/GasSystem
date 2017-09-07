@@ -351,8 +351,7 @@ public class CopyingActivity extends Activity {
                 if (operationType == GlobalConsts.COPY_OPERATION_COPY) { // 抄表
                     params.add(copydf.format(new Date()));
                 } else if (operationType == GlobalConsts.COPY_OPERATION_COMNUMBER) { // 修改通讯号
-                    params.add(getIntent().getStringExtra("setParam1")
-                            .toString());
+                    params.add(getIntent().getStringExtra("setParam1"));
                 } else if (operationType == GlobalConsts.COPYSH_OPERATION_REGNET) { // 入网命令
                     String state = getIntent().getStringExtra("state"); // 状态字
                     String colNo = getIntent().getStringExtra("colNo"); // 集中器ID
@@ -365,8 +364,7 @@ public class CopyingActivity extends Activity {
                             "relayMeterNo"); // 中继表ID号
                     params.add(relayMeterNo);
                 } else if (operationType == GlobalConsts.COPYSH_OPERATION_CANCELRELAYREGNET) { // 取消中继入网命令
-                    String relayMeterNo = getIntent().getStringExtra(
-                            "relayMeterNo"); // 中继表ID号
+                    String relayMeterNo = getIntent().getStringExtra("relayMeterNo"); // 中继表ID号
                     params.add(relayMeterNo);
                 } else if (operationType == GlobalConsts.COPYSH_OPERATION_TESTMODE) { // 测试模式设置命令
                     String cmd = getIntent().getStringExtra("cmd"); // 命令字
@@ -393,8 +391,7 @@ public class CopyingActivity extends Activity {
                     params.add(startDay);
                     params.add(endDay);
                 }
-                message = cchmp.encodeShangHai(operationType, commNumber,
-                        params);
+                message = cchmp.encodeShangHai(operationType, commNumber, params);
 
             } else {
                 CqueueData data = new CqueueData();
@@ -433,16 +430,21 @@ public class CopyingActivity extends Activity {
                         data.setCmdType("83");
                     }
                 } else if (operationType == GlobalConsts.COPY_OPERATION_COMNUMBER) {// 设置通讯号
-                    data.setCmdType("05");
-                    String setParam1 = getIntent().getStringExtra("setParam1")
-                            .toString();
+                    if(runMode.equals(GlobalConsts.RUNMODE_ZHGT)){
+                        //港泰
+                        data.setCmdType("87");
+                    }else {
+                        //普通
+                        data.setCmdType("05");
+                    }
+
+                    String setParam1 = getIntent().getStringExtra("setParam1");
                     data.set();
                     data.setDataBCD(setParam1);
                 } else if (operationType == GlobalConsts.COPY_OPERATION_SETBASENUM) { // 设置表底数
                     data.setCmdType("0b");
                     data.set();
-                    data.setDataBCD(getIntent().getStringExtra("baseNum")
-                            .toString());
+                    data.setDataBCD(getIntent().getStringExtra("baseNum"));
                 } else if (operationType == GlobalConsts.COPY_OPERATION_COPYFROZEN) { // 抄取冻结量
                     data.setCmdType("81");
                 }
@@ -1118,8 +1120,7 @@ public class CopyingActivity extends Activity {
                                 case "05":// 修改通讯号
                                     if (readMessage.length() > 2) {
                                         tvCopyingBackMsg.setText("修改通讯号成功");
-                                        tvLoadingComNum.setText(msgDecode
-                                                .getSourceAddr());
+                                        tvLoadingComNum.setText(msgDecode.getSourceAddr());
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");

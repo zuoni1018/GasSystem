@@ -88,8 +88,7 @@ public class SelectMeterActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {//  ‰»ÎÕ®—∂±‡∫≈
-				Intent intent = new Intent(SelectMeterActivity.this,
-						InputComNumActivity.class);
+				Intent intent = new Intent(SelectMeterActivity.this, InputComNumActivity.class);
 				intent.putExtra("operationType", operationType);
 				startActivity(intent);
 			}

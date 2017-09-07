@@ -190,8 +190,7 @@ public class InputComNumActivity extends Activity {
                     } else if (rgInputMeterType.getCheckedRadioButtonId() == R.id.rdoWX) {
                         meterTypeNo = "05";
                     }
-                    Intent intent = new Intent(InputComNumActivity.this,
-                            CopyingActivity.class);
+                    Intent intent = new Intent(InputComNumActivity.this, CopyingActivity.class);
                     intent.putExtra("meterNos", meterNos);
                     intent.putExtra("meterTypeNo", meterTypeNo);
                     intent.putExtra("copyType", GlobalConsts.COPY_TYPE_SINGLE);
@@ -199,9 +198,7 @@ public class InputComNumActivity extends Activity {
                     if (operationType == GlobalConsts.COPY_OPERATION_COMNUMBER) {// 修改通讯号
                         String setParam1 = etInputParam1.getText().toString();
                         if (setParam1.length() < 10) {
-                            Toast.makeText(getApplicationContext(),
-                                    "修改的通讯号必须大于等于10位!", Toast.LENGTH_SHORT)
-                                    .show();
+                            Toast.makeText(getApplicationContext(), "修改的通讯号必须大于等于10位!", Toast.LENGTH_SHORT).show();
                         } else {
                             intent.putExtra("setParam1", setParam1);
                             startActivity(intent);
