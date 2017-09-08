@@ -21,18 +21,10 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:hint="搜索集中器编号"
             android:textSize="14sp" />
-
-        <ImageView
-            android:id="@+id/ivSearchConcentrator"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:src="@mipmap/search" />
     </LinearLayout>
 
     <RelativeLayout

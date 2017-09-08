@@ -24,6 +24,7 @@ import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.bean.model.CtCopyData;
 import com.pl.concentrator.bean.model.CtCopyDataICRF;
 import com.pl.concentrator.dao.CtCopyDataDao;
+import com.pl.concentrator.dao.CtCopyDataICRFDao;
 import com.pl.gassystem.CopyResultActivity;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.R;
@@ -146,6 +147,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
 
 
     private CtCopyDataDao ctCopyDataDao;
+    private CtCopyDataICRFDao ctCopyDataICRFDao;
 
     private  String collectorNo;
 
@@ -157,6 +159,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         addOnTouchListener();
         addListener();
         ctCopyDataDao=new CtCopyDataDao(getContext());
+        ctCopyDataICRFDao=new CtCopyDataICRFDao(getContext());
         // 获取本地蓝牙适配器
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         // 如果适配器是null,那么不支持蓝牙
@@ -817,6 +820,8 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         copyDataICRF.setCopyTime(df.format(new Date()));
         //表具名称
         copyDataICRF.setMeterName(tvLoadingName.getText().toString());
+        copyDataICRF.setCommunicateNo("meterNo");
+        copyDataICRF.setCollectorNo(collectorNo);//集中器
 
         return copyDataICRF;
     }
@@ -1077,7 +1082,8 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                     if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
                                         CtCopyDataICRF copyDataICRF;
                                         copyDataICRF = getCopyDataICRF(loadingComNum, dataString);
-
+                                        //存进去
+                                        ctCopyDataICRFDao.putCtCopyData(copyDataICRF);
                                         //插入数据库
 //                                        copyBiz.addCopyDataICRF(copyDataICRF);
 //                                        // 修改抄表状态

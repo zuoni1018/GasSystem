@@ -1,6 +1,8 @@
 package com.pl.concentrator.activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -39,7 +41,7 @@ import okhttp3.Call;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
- * 抄表详情界面
+ * 当前集中器的抄表详情
  */
 
 public class CtCopySituationActivity extends CtBaseTitleActivity {
@@ -82,14 +84,9 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+
         collectorNo = getIntent().getStringExtra("CollectorNo");
         setTitle(collectorNo + "的抄表详情");
-//        progressDialog = new ProgressDialog(getContext());
-//        progressDialog.setMessage("载入中...");
-//        progressDialog.setCancelable(false);
-//        progressDialog.show();
-
-
 
         if (collectorNo == null) {
             showToast("集中器不存在");
@@ -102,18 +99,21 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                 finish();
             } else {
                 //通过集中器编号去查询数据
-
-            }
-        }
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+                mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        getInfo();
+                    }
+                });
                 getInfo();
             }
-        });
-        getInfo();
+        }
+
     }
 
+    /**
+     * 获取柱状图信息
+     */
     private void getInfo() {
 
         OkHttpUtils
@@ -162,7 +162,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     }
 
 
-    @OnClick({R.id.btBeginCopy, R.id.btCopyAllBook, R.id.btShowAllBook, R.id.layoutNetworking, R.id.layoutUpData,R.id.btMaintain,R.id.btSetting})
+    @OnClick({R.id.btBeginCopy, R.id.btCopyAllBook, R.id.btShowAllBook, R.id.layoutNetworking, R.id.layoutUpData, R.id.btMaintain, R.id.btSetting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btBeginCopy:
@@ -178,9 +178,32 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
 //                startActivity(mIntent);
                 break;
             case R.id.btShowAllBook:
-                mIntent = new Intent(getContext(), CtShowBookListActivity.class);
-                mIntent.putExtra("CollectorNo", collectorNo);
-                startActivity(mIntent);
+                //弹窗
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("选择查看表具类型");
+                //    指定下拉列表的显示数据
+                final String[] cities = {"纯无线", "IC无线"};
+                //    设置一个下拉的列表选择项
+                builder.setItems(cities, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            mIntent = new Intent(getContext(), CtShowBookListCopyDataActivity.class);
+                            mIntent.putExtra("CollectorNo", collectorNo);
+                            mIntent.putExtra("type", "05");
+                            startActivity(mIntent);
+                        } else {
+                            mIntent = new Intent(getContext(), CtShowBookListCopyDataICRFActivity.class);
+                            mIntent.putExtra("CollectorNo", collectorNo);
+                            mIntent.putExtra("type", "04");
+                            startActivity(mIntent);
+                        }
+//                        Toast.makeText(MainActivity.this, "选择的城市为：" + cities[which], Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+
+
                 break;
             case R.id.layoutNetworking:
                 //实抄组网

@@ -255,13 +255,14 @@
         <!--集中器抄表-->
         <activity android:name="com.pl.concentrator.activity.CtConcentratorListActivity"/>
         <activity android:name="com.pl.concentrator.activity.CtCopySituationActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtShowBookListActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataActivity"/>
         <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity"/>
         <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity"/>
         <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity"/>
         <activity android:name="com.pl.concentrator.activity.copy.CtCopyingActivity"/>
         <activity android:name="com.pl.concentrator.activity.CtCopyBookChooseActivity"/>
         <activity android:name="com.pl.concentrator.activity.CtCopyBookActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity"/>
 
     </application>
 </manifest>

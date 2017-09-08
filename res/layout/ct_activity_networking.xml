@@ -16,6 +16,7 @@
         android:orientation="horizontal">
 
         <EditText
+            android:layout_marginRight="10dp"
             android:id="@+id/etSearch"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -25,14 +26,7 @@
             android:hint="搜索表号/表名"
             android:textSize="14sp" />
 
-        <ImageView
-            android:id="@+id/ivSearch"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/icon_search" />
+
     </LinearLayout>
 
     <RelativeLayout

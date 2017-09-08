@@ -22,6 +22,7 @@ import com.pl.concentrator.AppUrl;
 import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.adapter.RvNetworkingListAdapter;
 import com.pl.concentrator.bean.gson.GetCollectorNetWorking;
+import com.pl.concentrator.bean.gson.MoveCommunicates;
 import com.pl.concentrator.bean.model.CtBookInfo;
 import com.pl.gassystem.R;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -35,6 +36,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.zhy.http.okhttp.OkHttpUtils.post;
+
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
  * 实抄组网界面
@@ -45,8 +48,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
 
     @BindView(R.id.etSearch)
     EditText etSearch;
-    @BindView(R.id.ivSearch)
-    ImageView ivSearch;
+
     @BindView(R.id.mRecyclerView)
     LRecyclerView mRecyclerView;
     @BindView(R.id.ivTurnLeft)
@@ -106,6 +108,9 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
         mRecyclerView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
+                isChooseAll=false;
+                ivChooseAll.setImageResource(R.mipmap.choose_02);
+                etSearch.setText("");
                 mRecyclerView.scrollToPosition(0);
                 getListInfo(nowPageNum);
             }
@@ -116,7 +121,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
         setTitleOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mRecyclerView.scrollToPosition(0);
+                mRecyclerView.smoothScrollToPosition(0);
             }
         });
 
@@ -247,6 +252,30 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
     }
 
     private void copyBooks(String message) {
+
+                OkHttpUtils
+                .post()
+                .url(AppUrl.METER_READING)
+                .addParams("CollectorNo", collectorNo)
+                .addParams("Communicates", message )
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("集中器抄表", e.toString());
+                        mRecyclerView.refreshComplete(1);
+                        showToast("服务器异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("集中器抄表", response);
+                        Gson gson = new Gson();
+                        MoveCommunicates info = gson.fromJson(response, MoveCommunicates.class);
+                        showToast(info.getMsg());
+                    }
+                });
+
     }
 
     /**
@@ -255,8 +284,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
      * PageNo
      */
     private void getListInfo(int nowPageNum) {
-        OkHttpUtils
-                .post()
+        post()
                 .url(AppUrl.GET_COLLECTOR_NET_WORKING)
                 .addParams("CollectorNo", collectorNo)
                 .addParams("PageNo", nowPageNum + "")
@@ -336,33 +364,4 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
                 break;
         }
     }
-
-    @OnClick(R.id.ivSearch)
-    public void onViewClicked() {
-        String searchText = etSearch.getText().toString().trim();
-        KeyBoardUtils.closeKeybord(etSearch, getContext());
-        if (searchText.equals("")) {
-            mList.clear();
-            mList.addAll(trueList);
-            mAdapter.notifyDataSetChanged();
-        } else {
-            mList.clear();
-            mAdapter.notifyDataSetChanged();
-
-            for (int i = 0; i < trueList.size(); i++) {
-                String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
-                if (trueList.get(i).getMeterTypeNo().equals("04")) {
-                    myText = myText + "纯无线";
-                } else {
-                    myText = myText + "IC无线";
-                }
-                if (myText.contains(searchText)) {
-                    mList.add(trueList.get(i));
-                }
-            }
-            mAdapter.notifyDataSetChanged();
-        }
-    }
-
-
 }

@@ -1,6 +1,8 @@
 package com.pl.entity;
 
-public class CopyDataICRF {
+import java.io.Serializable;
+
+public class CopyDataICRF  implements Serializable{
 
     public int getId() {
         return Id;

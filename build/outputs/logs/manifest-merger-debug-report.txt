@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:2:1-267:12
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:2:1-268:12
 	package
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:4:5-31
 	android:versionName
@@ -126,7 +126,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:49:5-53:38
 	android:anyDensity
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:50:9-34
 application
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:55:5-266:19
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:55:5-267:19
 MERGED from [org.litepal.android:core:1.6.0] C:\Users\PVer\.android\build-cache\36b93d3a9260a65dd1231e99355a064635bb7763\output\AndroidManifest.xml:11:5-14:19
 MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\PVer\.android\build-cache\569592fa8096f3a4976b502fe566f4387d026c4e\output\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:29:5-20
@@ -532,10 +532,10 @@ activity#com.pl.concentrator.activity.CtCopySituationActivity
 ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:9-88
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:19-86
-activity#com.pl.concentrator.activity.CtShowBookListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:9-87
+activity#com.pl.concentrator.activity.CtShowBookListCopyDataActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:9-95
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:19-85
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:19-93
 activity#com.pl.concentrator.activity.CtCopyDataBookDetailActivity
 ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:9-93
 	android:name
@@ -560,6 +560,10 @@ activity#com.pl.concentrator.activity.CtCopyBookActivity
 ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:9-83
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:19-81
+activity#com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:9-99
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:19-97
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:25:5-27:34

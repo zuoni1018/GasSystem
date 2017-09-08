@@ -49,7 +49,7 @@ public class RvConcentratorListAdapter extends RecyclerView.Adapter<RvConcentrat
             @Override
             public void onClick(View v) {
                 Intent mIntent = new Intent(mContext, CtCopySituationActivity.class);
-                mIntent.putExtra("CollectorNo", mList.get(position).getCollectorNo());
+                mIntent.putExtra("CollectorNo", mList.get(position).getCollectorNo());//¼¯ÖÐÆ÷±àºÅ
                 mContext.startActivity(mIntent);
             }
         });

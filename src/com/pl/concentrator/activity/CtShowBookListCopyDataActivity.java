@@ -37,7 +37,7 @@ import okhttp3.Call;
  * 纯无线和IC无线所使用的Adapter不一样
  */
 
-public class CtShowBookListActivity extends CtBaseTitleActivity {
+public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
     @BindView(R.id.tvBookNum)
     TextView tvBookNum;
     @BindView(R.id.etSearch)
@@ -46,6 +46,8 @@ public class CtShowBookListActivity extends CtBaseTitleActivity {
     LRecyclerView rvBookList;
     @BindView(R.id.btBeginCopy)
     Button btBeginCopy;
+
+    private String type="";
 
     private String CollectorNo;//集中器编号
 
@@ -67,7 +69,8 @@ public class CtShowBookListActivity extends CtBaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setTitle("显示全部");
+        setTitle("显示全部(纯无线)");
+        type=getIntent().getStringExtra("type");
         CollectorNo = getIntent().getStringExtra("CollectorNo");
         if (CollectorNo != null && !"".equals(CollectorNo)) {
 //            ctBookInfoDao = new CtBookInfoDao(getContext());

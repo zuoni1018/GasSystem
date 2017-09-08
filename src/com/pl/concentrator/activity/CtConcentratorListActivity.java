@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.common.utils.LogUtil;
@@ -39,8 +38,6 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
 
     @BindView(R.id.etSearchConcentrator)
     EditText etSearchConcentrator;
-    @BindView(R.id.ivSearchConcentrator)
-    ImageView ivSearchConcentrator;
     @BindView(R.id.RvConcentratorList)
     LRecyclerView RvConcentratorList;
     @BindView(R.id.tvAllNum)
@@ -120,10 +117,12 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
         RvConcentratorList.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
+                etSearchConcentrator.setText("");
                 getInfo();
             }
         });
     }
+
 
     private void initSearchEditText() {
         etSearchConcentrator.addTextChangedListener(new TextWatcher() {
