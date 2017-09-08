@@ -66,7 +66,6 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
         initSearchEditText();
         initList();
         RvConcentratorList.refresh();
-
     }
 
     private void getInfo() {

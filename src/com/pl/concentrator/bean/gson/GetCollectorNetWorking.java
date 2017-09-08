@@ -1,6 +1,6 @@
 package com.pl.concentrator.bean.gson;
 
-import com.pl.concentrator.bean.model.BookInfo;
+import com.pl.concentrator.bean.model.CtBookInfo;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class GetCollectorNetWorking {
 
     private int PageNo;
     private int TotleNum;
-    private List<BookInfo> CollectorNetWorking;
+    private List<CtBookInfo> CollectorNetWorking;
 
     public int getPageNo() {
         return PageNo;
@@ -36,11 +36,11 @@ public class GetCollectorNetWorking {
         this.TotleNum = TotleNum;
     }
 
-    public List<BookInfo> getCollectorNetWorking() {
+    public List<CtBookInfo> getCollectorNetWorking() {
         return CollectorNetWorking;
     }
 
-    public void setCollectorNetWorking(List<BookInfo> CollectorNetWorking) {
+    public void setCollectorNetWorking(List<CtBookInfo> CollectorNetWorking) {
         this.CollectorNetWorking = CollectorNetWorking;
     }
 

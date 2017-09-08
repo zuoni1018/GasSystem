@@ -1,4 +1,4 @@
-package com.pl.concentrator.bean;
+package com.pl.concentrator.bean.model;
 
 /**
  * 集中器抄表
@@ -21,6 +21,8 @@ public class CtCopyDataPhoto {
     private String OcrTime;// 识别时间
     private String CreateTime;// 命令生成时间
     private String meterName;
+
+
 
     public int getId() {
         return Id;

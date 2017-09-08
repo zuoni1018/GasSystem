@@ -68,13 +68,13 @@
             android:background="#b7b7b7" />
 
         <LinearLayout
+            android:background="@color/color_white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="0.5dp"
             android:layout_marginLeft="0.5dp"
             android:layout_marginRight="0.5dp"
             android:layout_marginTop="0.5dp"
-            android:background="#ffd443"
             android:orientation="horizontal">
 
             <LinearLayout

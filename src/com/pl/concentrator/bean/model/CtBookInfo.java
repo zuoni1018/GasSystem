@@ -4,7 +4,7 @@ package com.pl.concentrator.bean.model;
  * Created by zangyi_shuai_ge on 2017/9/5
  */
 
-public class BookInfo {
+public class CtBookInfo {
     /**
      * CommunicateNo : 1505040233
      * address : Ä¬ÈÏÐ¡Çø150´±
@@ -18,6 +18,8 @@ public class BookInfo {
     private String DevState;
     private boolean isChoose;
     private String  meterTypeNo;
+    private  String MeterNo;
+    private String CollectorNo;
 
     public String getCommunicateNo() {
         return CommunicateNo;
@@ -65,5 +67,21 @@ public class BookInfo {
 
     public void setMeterTypeNo(String meterTypeNo) {
         this.meterTypeNo = meterTypeNo;
+    }
+
+    public String getMeterNo() {
+        return MeterNo;
+    }
+
+    public void setMeterNo(String meterNo) {
+        MeterNo = meterNo;
+    }
+
+    public String getCollectorNo() {
+        return CollectorNo;
+    }
+
+    public void setCollectorNo(String collectorNo) {
+        CollectorNo = collectorNo;
     }
 }

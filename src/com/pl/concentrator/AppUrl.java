@@ -13,5 +13,6 @@ public class AppUrl {
     public static final String GET_COLLECTOR_INFO_BY_COLLECTOR_NO = BASE_URL + "GetCollectorInfoByCollectorNo";//集中器号 查询集中器信息
     public static final String MOVE_COMMUNICATES = BASE_URL + "MoveCommunicates";//移动表
 
+    public static final String MOVE_COMMUNICATES_CTRL_CMD = BASE_URL + "MoveCommunicatesCtrlCmd";//移动表
 
 }

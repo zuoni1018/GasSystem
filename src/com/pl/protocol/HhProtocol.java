@@ -115,7 +115,7 @@ public class HhProtocol {
 			all += "a110a1e1";
 			all += data.getTargetAddr(); // 加入目标地址-->5BCD通讯号
 		}
-		if (data.isSet() == true) {
+		if (data.isSet()) {
 			all += getDataLength1(cmd); // 数据域长度(设置)
 		} else {
 			if (cmd.equals("23")) {
@@ -129,7 +129,7 @@ public class HhProtocol {
 		}
 		all += syncSymbol; // 同步符
 		String cmdData = "";
-		if (data.isSet() == true) {
+		if (data.isSet()) {
 			if (cmd.isEmpty()) {
 				return "noSet"; // 不是设置参数
 			} else {

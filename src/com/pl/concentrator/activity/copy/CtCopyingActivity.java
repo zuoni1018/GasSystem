@@ -21,8 +21,10 @@ import com.pl.bll.PreferenceBiz;
 import com.pl.bll.SetBiz;
 import com.pl.bluetooth.BluetoothChatService;
 import com.pl.concentrator.activity.base.CtBaseTitleActivity;
+import com.pl.concentrator.bean.model.CtCopyData;
+import com.pl.concentrator.bean.model.CtCopyDataICRF;
+import com.pl.concentrator.dao.CtCopyDataDao;
 import com.pl.entity.CopyData;
-import com.pl.entity.CopyDataICRF;
 import com.pl.gassystem.CopyResultActivity;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.R;
@@ -141,6 +143,11 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
     private static boolean isWakeUp = false; //重复唤醒标识
 
 
+
+    private CtCopyDataDao ctCopyDataDao;
+
+    private  String collectorNo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,7 +155,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         setTitle("蓝牙抄表");
         addOnTouchListener();
         addListener();
-
+        ctCopyDataDao=new CtCopyDataDao(getContext());
         // 获取本地蓝牙适配器
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         // 如果适配器是null,那么不支持蓝牙
@@ -177,6 +184,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         // finish();
         // }
         meterNos = getIntent().getStringArrayListExtra("meterNos"); // 表号组（单抄也传组）
+        collectorNo=getIntent().getStringExtra("collectorNo");
         AllMeterNo = meterNos;
         unCopyMeterNos = new ArrayList<String>();
         copyType = getIntent().getIntExtra("copyType", 1); // 抄表方式（1单抄，2群抄）
@@ -309,7 +317,6 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 tvCopyingBackMsg.setText("修改密码中");
             }
         }
-
 
 
         //拼接蓝牙命令
@@ -486,10 +493,6 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 data.setTargetAddr(commNumber);
 
 
-
-
-
-
                 if (meterTypeNo.equals("05")) {
                     if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州模式
                         message = cchmp.encodeHuiZhou(data);
@@ -525,7 +528,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 isCopy = false;
                 // if (meterTypeNo.equals("05")) {
                 if (copyType == GlobalConsts.COPY_TYPE_BATCH) {// 批抄
-                    if (loadingcount == 0 || isWakeUp ) {
+                    if (loadingcount == 0 || isWakeUp) {
                         isWakeUp = false;
                         new Thread() {
                             @Override
@@ -706,12 +709,22 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         mChatService.connect(device);
     }
 
+
     /**
      * 解析IC卡无线抄表数据
      */
-    private CopyDataICRF getCopyDataICRF(String meterNo, String dataString) {
-        CopyDataICRF copyDataICRF = new CopyDataICRF();
+    private CtCopyDataICRF getCopyDataICRF(String meterNo, String dataString) {
+
+
+        //集中器IC无线
+        CtCopyDataICRF copyDataICRF = new CtCopyDataICRF();
+
+
+        //设置表号
         copyDataICRF.setMeterNo(meterNo);
+
+
+        //设置累计量
         String[] strarray = dataString.split(";");
         String Cumulant = Integer.toString(Integer.parseInt(strarray[0], 10));
         if (Cumulant.length() > 2) {
@@ -719,34 +732,54 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         } else {
             Cumulant = "0." + Cumulant;
         }
-        copyDataICRF.setCumulant(Cumulant);// 累计量
+        copyDataICRF.setCumulant(Cumulant);
+
+
+        // 剩余金额
         String SurplusMoney = Integer.toString(Integer.parseInt(strarray[1], 10));
         if (SurplusMoney.length() > 2) {
             SurplusMoney = SurplusMoney.substring(0, SurplusMoney.length() - 2) + "." + SurplusMoney.substring(SurplusMoney.length() - 2);
         } else {
             SurplusMoney = "0." + SurplusMoney;
         }
-        copyDataICRF.setSurplusMoney(SurplusMoney);// 剩余金额
+        copyDataICRF.setSurplusMoney(SurplusMoney);
+
+        // 过零金额
         String OverZeroMoney = Integer.toString(Integer.parseInt(strarray[2], 10));
         if (OverZeroMoney.length() > 2) {
             OverZeroMoney = OverZeroMoney.substring(0, OverZeroMoney.length() - 2) + "." + OverZeroMoney.substring(OverZeroMoney.length() - 2);
         } else {
             OverZeroMoney = "0." + OverZeroMoney;
         }
-        copyDataICRF.setOverZeroMoney(OverZeroMoney);// 过零金额
-        int BuyTimes = Integer.parseInt(strarray[3], 10);// 购买次数
+        copyDataICRF.setOverZeroMoney(OverZeroMoney);
+
+        // 购买次数
+        int BuyTimes = Integer.parseInt(strarray[3], 10);
         copyDataICRF.setBuyTimes(BuyTimes);
-        int OverFlowTimes = Integer.parseInt(strarray[4], 10);// 购买次数
+
+        // 过流次数
+        int OverFlowTimes = Integer.parseInt(strarray[4], 10);
         copyDataICRF.setOverFlowTimes(OverFlowTimes);
-        int MagAttTimes = Integer.parseInt(strarray[5], 10);// 磁攻击次数
+
+        // 磁攻击次数
+        int MagAttTimes = Integer.parseInt(strarray[5], 10);
         copyDataICRF.setMagAttTimes(MagAttTimes);
-        int CardAttTimes = Integer.parseInt(strarray[6], 10);// 卡攻击次数
+
+        // 卡攻击次数
+        int CardAttTimes = Integer.parseInt(strarray[6], 10);
         copyDataICRF.setCardAttTimes(CardAttTimes);
-        copyDataICRF.setMeterState(Integer.parseInt(strarray[7], 16)); // 表具状态转换成16进制INT存入数据库
-        copyDataICRF.setCurrMonthTotal(Integer.toString(Integer.parseInt(strarray[8], 10)));// 当月累计量
-        copyDataICRF.setLast1MonthTotal(Integer.toString(Integer.parseInt(strarray[9], 10)));// 上月累计量
+
+        // 表具状态转换成16进制INT存入数据库
+        copyDataICRF.setMeterState(Integer.parseInt(strarray[7], 16));
+        // 当月累计量
+        copyDataICRF.setCurrMonthTotal(Integer.toString(Integer.parseInt(strarray[8], 10)));
+        // 上月累计量
+        copyDataICRF.setLast1MonthTotal(Integer.toString(Integer.parseInt(strarray[9], 10)));
+
         if (strarray.length > 10) {
-            String unitPrice = strarray[10].substring(1);// 当前单价（去除帧间分隔符"|"）
+
+            // 当前单价（去除帧间分隔符"|"）
+            String unitPrice = strarray[10].substring(1);
             unitPrice = Integer.toString(Integer.parseInt(unitPrice, 10));
             if (unitPrice.length() > 2) {
                 unitPrice = unitPrice.substring(0, unitPrice.length() - 2) + "." + unitPrice.substring(unitPrice.length() - 2);
@@ -754,7 +787,9 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 unitPrice = "0." + unitPrice;
             }
             copyDataICRF.setUnitPrice(unitPrice);
-            String accMoney = strarray[11].substring(0, 8);// 累计用气金额
+
+            // 累计用气金额
+            String accMoney = strarray[11].substring(0, 8);
             accMoney = Integer.toString(Integer.parseInt(accMoney, 10));
             if (accMoney.length() > 2) {
                 accMoney = accMoney.substring(0, accMoney.length() - 2) + "." + accMoney.substring(accMoney.length() - 2);
@@ -762,7 +797,9 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 accMoney = "0." + accMoney;
             }
             copyDataICRF.setAccMoney(accMoney);
-            String accBuyMoney = strarray[12].substring(0, 8);// 累计充值金额
+
+            // 累计充值金额
+            String accBuyMoney = strarray[12].substring(0, 8);
             accBuyMoney = Integer.toString(Integer.parseInt(accBuyMoney, 10));
             if (accBuyMoney.length() > 2) {
                 accBuyMoney = accBuyMoney.substring(0, accBuyMoney.length() - 2) + "." + accBuyMoney.substring(accBuyMoney.length() - 2);
@@ -770,12 +807,16 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 accBuyMoney = "0." + accBuyMoney;
             }
             copyDataICRF.setAccBuyMoney(accBuyMoney);
+
+            // 本周期使用量
             String currentShow = Integer.toString(Integer.parseInt(strarray[13], 10));
             copyDataICRF.setCurrentShow(currentShow);
         }
-
+        //抄表时间
         copyDataICRF.setCopyTime(df.format(new Date()));
+        //表具名称
         copyDataICRF.setMeterName(tvLoadingName.getText().toString());
+
         return copyDataICRF;
     }
 
@@ -802,8 +843,8 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
     /**
      * 解析无线表抄表数据
      */
-    private CopyData getCopyData(String meterNo, String dataString) {
-        CopyData copyData = new CopyData();
+    private CtCopyData getCopyData(String meterNo, String dataString) {
+        CtCopyData copyData = new CtCopyData();
         copyData.setMeterNo(meterNo);
         String[] strarray = dataString.split(";");
         String CurrentShow = Integer
@@ -825,28 +866,10 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
             copyData.setElec(elec);
         }
         copyData.setMeterName(tvLoadingName.getText().toString());
-        CopyData copyDataLast = copyBiz.getLastCopyDataByMeterNo(meterNo); // 查询上一次抄表记录
-        if (copyDataLast != null) {
-            String lastShow = copyDataLast.getCurrentShow();
-            lastShow = getPrettyNumber(lastShow);
-            if (lastShow == null) {
-                copyData.setLastShow("0.00");
-                copyData.setLastDosage("0");
-                copyData.setCurrentDosage(CurrentShow);
-            } else {
-                copyData.setLastShow(lastShow);
-                copyData.setLastDosage(copyDataLast.getCurrentDosage());
-                BigDecimal c1 = new BigDecimal(CurrentShow);
-                BigDecimal c2 = new BigDecimal(lastShow);
-                copyData.setCurrentDosage(c1.subtract(c2).toString());
-                // copyData.setUnitPrice(copyDataLast.getUnitPrice());
-            }
-        } else { // 初始值
-            copyData.setLastShow("0.00");
-            copyData.setLastDosage("0");
-            copyData.setCurrentDosage(CurrentShow);
-            copyData.setUnitPrice("2.5");
-        }
+        copyData.setLastShow("0.00");
+        copyData.setLastDosage("0");
+        copyData.setCurrentDosage(CurrentShow);
+        copyData.setUnitPrice("2.5");
         copyData.setPrintFlag(0);
         copyData.setCopyWay("S");
         copyData.setCopyTime(df.format(new Date()));
@@ -855,6 +878,9 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         copyData.setOperateTime(df.format(new Date()));
         copyData.setIsBalance(0);
         copyData.setRemark("");
+        copyData.setCollectorNo(collectorNo);//设置集中器编号
+        copyData.setCommunicateNo(meterNo);
+//        copyData.setMeterNo(meterNo);
         return copyData;
     }
 
@@ -990,15 +1016,18 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                             switch (cmdtype) {
                                 case "01": // 无线表抄表数据
                                     if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
-                                        CopyData copyData;
+                                        CtCopyData copyData;
                                         if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州模式
-                                            copyData = getCopyDataHuiZhou(loadingComNum, msgDecode);
+//                                            copyData = getCopyDataHuiZhou(loadingComNum, msgDecode);
                                         } else {
-                                            copyData = getCopyData(loadingComNum, dataString);
+//                                            copyData = getCopyData(loadingComNum, dataString);
                                         }
-                                        copyBiz.addCopyData(copyData);
-                                        // 修改抄表状态
-                                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, meterTypeNo);
+                                        copyData = getCopyData(loadingComNum, dataString);
+                                        //把抄表结果保存到数据库中去
+                                        ctCopyDataDao.putCtCopyData(copyData);
+//                                        copyBiz.addCopyData(copyData);
+//                                        // 修改抄表状态
+//                                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, meterTypeNo);
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");
@@ -1030,23 +1059,28 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                                 unCopyMeterNos = new ArrayList<String>();
                                                 query();
                                             } else {
+                                                //抄表结束
                                                 finish();
-                                                Intent intent = new Intent(CtCopyingActivity.this, CopyResultActivity.class);
-                                                intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_COPY);
-                                                intent.putExtra("meterNos", AllMeterNo);
-                                                intent.putExtra("meterTypeNo", meterTypeNo);
-                                                startActivity(intent);
+//                                                Intent intent = new Intent(CtCopyingActivity.this, CopyResultActivity.class);
+//                                                intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_COPY);
+//                                                intent.putExtra("meterNos", AllMeterNo);
+//                                                intent.putExtra("meterTypeNo", meterTypeNo);
+//                                                startActivity(intent);
                                             }
                                         }
                                     }
                                     break;
                                 case "06": // IC卡无线抄表数据
                                     if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
-                                        CopyDataICRF copyDataICRF;
+                                        CtCopyDataICRF copyDataICRF;
                                         copyDataICRF = getCopyDataICRF(loadingComNum, dataString);
-                                        copyBiz.addCopyDataICRF(copyDataICRF);
-                                        // 修改抄表状态
-                                        copyBiz.ChangeCopyState(copyDataICRF.getMeterNo(), 1, meterTypeNo);
+
+                                        //插入数据库
+//                                        copyBiz.addCopyDataICRF(copyDataICRF);
+//                                        // 修改抄表状态
+//                                        copyBiz.ChangeCopyState(copyDataICRF.getMeterNo(), 1, meterTypeNo);
+
+
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");

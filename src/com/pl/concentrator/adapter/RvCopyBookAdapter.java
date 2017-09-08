@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pl.concentrator.bean.model.BookInfo;
+import com.pl.concentrator.bean.model.CtBookInfo;
 import com.pl.gassystem.R;
 
 import java.util.ArrayList;
@@ -22,10 +22,10 @@ import java.util.List;
 public class RvCopyBookAdapter extends RecyclerView.Adapter<RvCopyBookAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<BookInfo> mList;
+    private List<CtBookInfo> mList;
     private LayoutInflater mInflater;
 
-    public RvCopyBookAdapter(Context mContext, List<BookInfo> mList) {
+    public RvCopyBookAdapter(Context mContext, List<CtBookInfo> mList) {
         this.mContext = mContext;
         if (mList != null) {
             this.mList = mList;

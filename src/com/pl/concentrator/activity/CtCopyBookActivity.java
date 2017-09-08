@@ -1,5 +1,6 @@
 package com.pl.concentrator.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +24,8 @@ import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.activity.copy.CtCopyingActivity;
 import com.pl.concentrator.adapter.RvCopyBookAdapter;
 import com.pl.concentrator.bean.gson.GetCollectorNetWorking;
-import com.pl.concentrator.bean.model.BookInfo;
+import com.pl.concentrator.bean.model.CtBookInfo;
+import com.pl.concentrator.dao.CtCopyDataDao;
 import com.pl.gassystem.R;
 import com.pl.utils.GlobalConsts;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -84,9 +86,15 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
     private int pageSize = 1;
     private String collectorNo;
 
-    private List<BookInfo> mList;
-    private List<BookInfo> trueList;
+    private List<CtBookInfo> mList;
+    private List<CtBookInfo> trueList;
     private LRecyclerViewAdapter mAdapter;
+
+
+
+
+    private CtCopyDataDao ctCopyDataDao;
+    private ProgressDialog progressDialog;
 
     @Override
     protected int setLayout() {
@@ -104,6 +112,9 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
 //        meterNos.add("1");
         mList = new ArrayList<>();
         trueList = new ArrayList<>();
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setMessage("载入中...");
+        progressDialog.setCancelable(false);
         RvCopyBookAdapter mRvNetworkingListAdapter = new RvCopyBookAdapter(getContext(), mList);
         mAdapter = new LRecyclerViewAdapter(mRvNetworkingListAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -160,9 +171,9 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
         layoutChooseAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (trueList != null) {
-                    for (int i = 0; i < trueList.size(); i++) {
-                        trueList.get(i).setChoose(!isChooseAll);
+                if (mList != null) {
+                    for (int i = 0; i < mList.size(); i++) {
+                        mList.get(i).setChoose(!isChooseAll);
                     }
                     isChooseAll = !isChooseAll;
                     if (isChooseAll) {
@@ -176,26 +187,42 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
             }
         });
 
+
         btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                meterNos.clear();
+                progressDialog.show();
+                btCopy.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        meterNos.clear();
+                        ctCopyDataDao=new CtCopyDataDao(getContext());
 
-                for (int i = 0; i < mList.size(); i++) {
-                    if (mList.get(i).isChoose()) {
-                        meterNos.add(mList.get(i).getCommunicateNo());
+                        for (int i = 0; i < mList.size(); i++) {
+                            if (mList.get(i).isChoose()) {
+                                meterNos.add(mList.get(i).getCommunicateNo());
+                                //存起来
+                                ctCopyDataDao.putCtCopyDataOtherInfo(mList.get(i));
+                            }
+                        }
+                        progressDialog.dismiss();
+//                        meterNos.add("2017090602");
+//                        meterNos.add("2017090605");
+                        if (meterNos.size() > 0) {
+                            Intent intent = new Intent(CtCopyBookActivity.this, CtCopyingActivity.class);
+                            intent.putExtra("meterNos", meterNos);//表号集合
+//                    intent.putExtra("meterTypeNo", trueList.get(0).getMeterTypeNo());//表类型
+                            intent.putExtra("meterTypeNo", "05");//表类型
+                            intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);//群抄
+                            intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);//抄表
+                            intent.putExtra("collectorNo",collectorNo);
+                            startActivity(intent);
+                        } else {
+                            showToast("您未选择任何一张表");
+                        }
                     }
-                }
-                if (meterNos.size() > 0) {
-                    Intent intent = new Intent(CtCopyBookActivity.this, CtCopyingActivity.class);
-                    intent.putExtra("meterNos", meterNos);//表号集合
-                    intent.putExtra("meterTypeNo", trueList.get(0).getMeterTypeNo());//表类型
-                    intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);//群抄
-                    intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);//抄表
-                    startActivity(intent);
-                } else {
-                    showToast("您未选择任何一张表");
-                }
+                },100);
+
             }
         });
 

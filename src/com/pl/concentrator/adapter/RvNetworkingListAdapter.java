@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pl.concentrator.bean.model.BookInfo;
+import com.pl.concentrator.bean.model.CtBookInfo;
 import com.pl.gassystem.R;
 
 import java.util.ArrayList;
@@ -22,10 +22,10 @@ import java.util.List;
 public class RvNetworkingListAdapter extends RecyclerView.Adapter<RvNetworkingListAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<BookInfo> mList;
+    private List<CtBookInfo> mList;
     private LayoutInflater mInflater;
 
-    public RvNetworkingListAdapter(Context mContext, List<BookInfo> mList) {
+    public RvNetworkingListAdapter(Context mContext, List<CtBookInfo> mList) {
         this.mContext = mContext;
         if (mList != null) {
             this.mList = mList;
@@ -51,8 +51,28 @@ public class RvNetworkingListAdapter extends RecyclerView.Adapter<RvNetworkingLi
 //                mContext.startActivity(mIntent);
 //            }
 //        });
-        holder.tvAddress.setText(mList.get(position).getAddress());
+
+        //设置地址
+        String address=mList.get(position).getAddress();
+        if(address.length()>7){
+            holder.tvAddress.setTextSize(10);
+        }else if(address.length()>14){
+            holder.tvAddress.setTextSize(8);
+        }else {
+            holder.tvAddress.setTextSize(14);
+        }
+        holder.tvAddress.setText(address);
+
+        //设置表号
+        String communicateNo=mList.get(position).getCommunicateNo();
+        if(communicateNo.length()>10){
+            holder.tvCommunicateNo.setTextSize(12);
+        }else {
+            holder.tvCommunicateNo.setTextSize(14);
+        }
         holder.tvCommunicateNo.setText(mList.get(position).getCommunicateNo());
+
+
         String state=mList.get(position).getReadState();
         if(state.equals("0")){
             holder.tvReadState.setText("抄表中");
@@ -82,6 +102,13 @@ public class RvNetworkingListAdapter extends RecyclerView.Adapter<RvNetworkingLi
                 }
             }
         });
+
+        if(mList.get(position).getMeterTypeNo().equals("04")){
+            holder.tvCommunicateNo.setTextColor(mContext.getResources().getColor(R.color.color_book_04));
+        }else {
+            holder.tvCommunicateNo.setTextColor(mContext.getResources().getColor(R.color.color_book_05));
+        }
+
     }
 
     @Override

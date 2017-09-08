@@ -17,11 +17,18 @@ import com.pl.concentrator.AppUrl;
 import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.activity.copy.CtCopyingActivity;
 import com.pl.concentrator.bean.gson.GetCollectorInfoByCollectorNo;
+import com.pl.concentrator.bean.gson.GetCollectorNetWorking;
+import com.pl.concentrator.bean.gson.MoveCommunicatesCtrlCmd;
+import com.pl.concentrator.bean.model.CtBookInfo;
 import com.pl.concentrator.bean.model.Concentrator;
 import com.pl.gassystem.R;
 import com.pl.utils.DensityUtils;
+import com.pl.utils.GlobalConsts;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,6 +60,8 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     LinearLayout layoutNetworking;
     @BindView(R.id.mSwipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.layoutUpData)
+    LinearLayout layoutUpData;
     private ProgressDialog progressDialog;
     private Intent mIntent;
 
@@ -67,13 +76,13 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setTitle("XX的抄表详情");
+        collectorNo = getIntent().getStringExtra("CollectorNo");
+        setTitle(collectorNo+"的抄表详情");
 //        progressDialog = new ProgressDialog(getContext());
 //        progressDialog.setMessage("载入中...");
 //        progressDialog.setCancelable(false);
 //        progressDialog.show();
 
-        collectorNo = getIntent().getStringExtra("CollectorNo");
         if (collectorNo == null) {
             showToast("集中器不存在");
             progressDialog.dismiss();
@@ -119,12 +128,8 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                         GetCollectorInfoByCollectorNo mGetCollectorInfoByCollectorNo = gson.fromJson(response, GetCollectorInfoByCollectorNo.class);
                         mSwipeRefreshLayout.setRefreshing(false);
                         setChart(mGetCollectorInfoByCollectorNo.getCollectorInfoByCollectorNo().get(0));
-
-
                     }
                 });
-
-
     }
 
     //设置图表
@@ -135,7 +140,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
         //设置柱状图高度
         int height = DensityUtils.dp2px(this, 103);
         double c = (concentrator.getTrueNotReadNum() * 1.000 / (concentrator.getTrueAllNum()));
-        double c2=(concentrator.getTrueReadNum() * 1.000 / (concentrator.getTrueAllNum()));
+        double c2 = (concentrator.getTrueReadNum() * 1.000 / (concentrator.getTrueAllNum()));
         int noCopyHeight = (int) (c * height);
         int CopyHeight = (int) (c2 * height);
         ViewGroup.LayoutParams para1;
@@ -149,7 +154,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     }
 
 
-    @OnClick({R.id.btBeginCopy, R.id.btCopyAllBook, R.id.btShowAllBook, R.id.layoutNetworking})
+    @OnClick({R.id.btBeginCopy, R.id.btCopyAllBook, R.id.btShowAllBook, R.id.layoutNetworking, R.id.layoutUpData})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btBeginCopy:
@@ -159,12 +164,14 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                 startActivity(mIntent);
                 break;
             case R.id.btCopyAllBook:
-                mIntent = new Intent(getContext(), CtCopyingActivity.class);
-                startActivity(mIntent);
+                //抄取全部表
+                getAllBook();
+//                mIntent = new Intent(getContext(), CtCopyingActivity.class);
+//                startActivity(mIntent);
                 break;
             case R.id.btShowAllBook:
-
                 mIntent = new Intent(getContext(), CtShowBookListActivity.class);
+                mIntent.putExtra("CollectorNo", collectorNo);
                 startActivity(mIntent);
                 break;
             case R.id.layoutNetworking:
@@ -173,7 +180,89 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                 mIntent.putExtra("CollectorNo", collectorNo);
                 startActivity(mIntent);
                 break;
+            case R.id.layoutUpData:
+                //实抄组网
+                upDataConcentrator();
+//                showToast("更新集中器");
+//                mIntent = new Intent(getContext(), CtNetworkingActivity.class);
+//                mIntent.putExtra("CollectorNo", collectorNo);
+//                startActivity(mIntent);
+                break;
         }
+    }
+
+    /**
+     * 更新集中器
+     */
+    private void upDataConcentrator() {
+
+        OkHttpUtils
+                .post()
+                .url(AppUrl.MOVE_COMMUNICATES_CTRL_CMD)
+                .addParams("CollectorNo", collectorNo)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("更新集中器", e.toString());
+                        showToast("服务器异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("更新集中器", response);
+                        Gson gson = new Gson();
+                        MoveCommunicatesCtrlCmd mMoveCommunicatesCtrlCmd = gson.fromJson(response, MoveCommunicatesCtrlCmd.class);
+                        showToast(mMoveCommunicatesCtrlCmd.getMsg());
+                        getInfo();
+
+                    }
+                });
+
+    }
+
+    /**
+     * 获取表列表
+     */
+    private void getAllBook() {
+
+        OkHttpUtils
+                .post()
+                .url(AppUrl.GET_COLLECTOR_NET_WORKING)
+                .addParams("CollectorNo", collectorNo)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("表列表", e.toString());
+                        showToast("服务器异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("表列表", response);
+                        Gson gson = new Gson();
+                        GetCollectorNetWorking mGetCollectorNetWorking = gson.fromJson(response, GetCollectorNetWorking.class);
+                        if (mGetCollectorNetWorking.getCollectorNetWorking() != null && mGetCollectorNetWorking.getCollectorNetWorking().size() != 0) {
+                            ArrayList<String> meterNos = new ArrayList<>();
+                            List<CtBookInfo> mBooks = mGetCollectorNetWorking.getCollectorNetWorking();
+                            for (int i = 0; i < mBooks.size(); i++) {
+                                meterNos.add(mBooks.get(i).getCommunicateNo());
+                            }
+                            Intent intent = new Intent(getContext(), CtCopyingActivity.class);
+                            intent.putExtra("meterNos", meterNos);//表号集合
+                            intent.putExtra("meterTypeNo", mBooks.get(0).getMeterTypeNo());//表类型
+                            intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);//群抄
+                            intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);//抄表
+                            intent.putExtra("collectorNo",collectorNo);//集中器编号
+                            startActivity(intent);
+                        } else {
+                            showToast("没有查到数据");
+                        }
+
+                    }
+                });
+
     }
 }
 

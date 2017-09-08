@@ -22,7 +22,7 @@ import com.pl.concentrator.AppUrl;
 import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.adapter.RvNetworkingListAdapter;
 import com.pl.concentrator.bean.gson.GetCollectorNetWorking;
-import com.pl.concentrator.bean.model.BookInfo;
+import com.pl.concentrator.bean.model.CtBookInfo;
 import com.pl.gassystem.R;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -81,8 +81,8 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
     private int pageSize = 1;
     private String collectorNo;
 
-    private List<BookInfo> mList;
-    private List<BookInfo> trueList;
+    private List<CtBookInfo> mList;
+    private List<CtBookInfo> trueList;
     private LRecyclerViewAdapter mAdapter;
 
     @Override
@@ -123,23 +123,22 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
         btMove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<BookInfo> chooseBookInfoList = new ArrayList<>();
-
+                List<CtBookInfo> chooseCtBookInfoList = new ArrayList<>();
                 for (int i = 0; i < trueList.size(); i++) {
                     if (trueList.get(i).isChoose()) {
-                        chooseBookInfoList.add(trueList.get(i));
+                        chooseCtBookInfoList.add(trueList.get(i));
                     }
                 }
-                if (chooseBookInfoList.size() == 0) {
+                if (chooseCtBookInfoList.size() == 0) {
                     showToast("您尚未选择表");
                 } else {
                     Intent mIntent = new Intent(getContext(), CtMoveBookActivity.class);
-                    ArrayList<String> mCommunicateNoList=new ArrayList<>();
-                    for (int i = 0; i <chooseBookInfoList.size() ; i++) {
-                        mCommunicateNoList.add(chooseBookInfoList.get(i).getCommunicateNo());
+                    ArrayList<String> mCommunicateNoList = new ArrayList<>();
+                    for (int i = 0; i < chooseCtBookInfoList.size(); i++) {
+                        mCommunicateNoList.add(chooseCtBookInfoList.get(i).getCommunicateNo());
                     }
                     mIntent.putExtra("CommunicateNo", "10086");
-                    mIntent.putStringArrayListExtra("mCommunicateNoList",mCommunicateNoList);
+                    mIntent.putStringArrayListExtra("mCommunicateNoList", mCommunicateNoList);
                     getContext().startActivity(mIntent);
                 }
             }
@@ -168,6 +167,11 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
 
                     for (int i = 0; i < trueList.size(); i++) {
                         String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
+                        if (trueList.get(i).getMeterTypeNo().equals("04")) {
+                            myText = myText + "纯无线";
+                        } else {
+                            myText = myText + "IC无线";
+                        }
                         if (myText.contains(s)) {
                             mList.add(trueList.get(i));
                         }
@@ -180,9 +184,9 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
         layoutChooseAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (trueList != null) {
-                    for (int i = 0; i < trueList.size(); i++) {
-                        trueList.get(i).setChoose(!isChooseAll);
+                if (mList != null) {
+                    for (int i = 0; i < mList.size(); i++) {
+                        mList.get(i).setChoose(!isChooseAll);
                     }
                     isChooseAll = !isChooseAll;
                     if (isChooseAll) {
@@ -199,7 +203,24 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
         btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<CtBookInfo> chooseCtBookInfoList = new ArrayList<>();
+                for (int i = 0; i < trueList.size(); i++) {
+                    if (trueList.get(i).isChoose()) {
+                        chooseCtBookInfoList.add(trueList.get(i));
+                    }
+                }
+                if (chooseCtBookInfoList.size() == 0) {
+                    showToast("您尚未选择表");
+                } else {
+                    //拼接字符串
+                    String message="";
+                    for (int i = 0; i < chooseCtBookInfoList.size() ; i++) {
+                        message=message+ chooseCtBookInfoList.get(i).getCommunicateNo()+"|"+ chooseCtBookInfoList.get(i).getMeterTypeNo()+"&";
+                    }
+                    LogUtil.i("拼接字符串",message);
+                    copyBooks(message);
 
+                }
             }
         });
 
@@ -223,6 +244,9 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
             }
         });
 
+    }
+
+    private void copyBooks(String message) {
     }
 
     /**
@@ -327,6 +351,11 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
 
             for (int i = 0; i < trueList.size(); i++) {
                 String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
+                if (trueList.get(i).getMeterTypeNo().equals("04")) {
+                    myText = myText + "纯无线";
+                } else {
+                    myText = myText + "IC无线";
+                }
                 if (myText.contains(searchText)) {
                     mList.add(trueList.get(i));
                 }

@@ -1,4 +1,4 @@
-package com.pl.concentrator.bean;
+package com.pl.concentrator.bean.model;
 
 /**
  * 集中器抄表
@@ -33,6 +33,17 @@ public class CtCopyDataICRF {
     private String dBm;// 信号强度
     private String elec;// 电量
     private boolean isChoose = false;//默认为不选中
+
+    private  String CommunicateNo="";//集中器编号
+    private String CollectorNo="";//集中器编号
+
+    public String getCommunicateNo() {
+        return CommunicateNo;
+    }
+
+    public void setCommunicateNo(String communicateNo) {
+        CommunicateNo = communicateNo;
+    }
 
     public int getId() {
         return Id;
@@ -256,5 +267,13 @@ public class CtCopyDataICRF {
 
     public void setChoose(boolean choose) {
         isChoose = choose;
+    }
+
+    public String getCollectorNo() {
+        return CollectorNo;
+    }
+
+    public void setCollectorNo(String collectorNo) {
+        CollectorNo = collectorNo;
     }
 }
