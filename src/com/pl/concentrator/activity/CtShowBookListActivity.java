@@ -13,11 +13,15 @@ import com.github.jdsjlzx.ItemDecoration.DividerDecoration;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
+import com.pl.concentrator.AppUrl;
 import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.adapter.RvBookCopyDataListAdapter;
+import com.pl.concentrator.bean.gson.MoveCommunicates;
 import com.pl.concentrator.bean.model.CtCopyData;
 import com.pl.concentrator.dao.CtCopyDataDao;
 import com.pl.gassystem.R;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
@@ -119,7 +124,7 @@ public class CtShowBookListActivity extends CtBaseTitleActivity {
     public void onViewClicked() {
         List<CtCopyData> mList = new ArrayList<>();
         for (int i = 0; i < mCCtCopyDataList.size(); i++) {
-            if (mCCtCopyDataList.get(i).isChoose()) {
+            if (mCCtCopyDataList.get(i).isChoose()&&mCCtCopyDataList.get(i).getCopyState()==1) {
                 mList.add(mCCtCopyDataList.get(i));
             }
         }
@@ -128,6 +133,37 @@ public class CtShowBookListActivity extends CtBaseTitleActivity {
         } else {
             String json = new Gson().toJson(mList);
             LogUtil.i("上传数据" + json);
+            upData(json);
         }
+    }
+
+    private void upData(String json) {
+        OkHttpUtils
+                .post()
+                .url(AppUrl.UPDATE_COMMUNICATES)
+                .addParams("Communicates",json)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("上传抄表数据", e.toString());
+                        showToast("服务器异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("上传抄表数据", response);
+                        Gson gson = new Gson();
+                        MoveCommunicates info = gson.fromJson(response, MoveCommunicates.class);
+                        if(info.getMsg().trim().equals("更新抄表数据成功")){
+                            showToast("更新抄表数据成功");
+                            finishActivity();
+                        }else {
+                            showToast("更新抄表数据失败");
+                        }
+                    }
+                });
+
+
     }
 }

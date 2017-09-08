@@ -49,6 +49,7 @@ public class RvBookCopyDataListAdapter extends RecyclerView.Adapter<RvBookCopyDa
             @Override
             public void onClick(View v) {
                 Intent mIntent=new Intent( mContext, CtCopyDataBookDetailActivity.class);
+                mIntent.putExtra("info",mList.get(position));
                 mContext.startActivity(mIntent);
             }
         });

@@ -14,5 +14,7 @@ public class AppUrl {
     public static final String MOVE_COMMUNICATES = BASE_URL + "MoveCommunicates";//移动表
 
     public static final String MOVE_COMMUNICATES_CTRL_CMD = BASE_URL + "MoveCommunicatesCtrlCmd";//移动表
+    public static final String UPDATE_COMMUNICATES = BASE_URL + "UpdateCommunicates";//上传抄表数据
+
 
 }

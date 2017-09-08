@@ -7,7 +7,7 @@ import com.pl.entity.CopyData;
  * 集中器抄表
  * 纯无线类
  */
-public class CtCopyData extends CopyData {
+public class CtCopyData extends CopyData  {
 
     private String CommunicateNo = "";//后台对应的表号
     private String CollectorNo = "";//所在集中器编号

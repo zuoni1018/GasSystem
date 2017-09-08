@@ -24,7 +24,6 @@ import com.pl.concentrator.activity.base.CtBaseTitleActivity;
 import com.pl.concentrator.bean.model.CtCopyData;
 import com.pl.concentrator.bean.model.CtCopyDataICRF;
 import com.pl.concentrator.dao.CtCopyDataDao;
-import com.pl.entity.CopyData;
 import com.pl.gassystem.CopyResultActivity;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.R;
@@ -41,6 +40,8 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+//import com.pl.entity.CopyData;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
@@ -824,14 +825,16 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
     /**
      * 解析上海纯无线抄表数据
      */
-    private CopyData getCopyDataShangHai(String meterNo, String dataString) {
-        CopyData copyData = new CopyData();
+    private CtCopyData getCopyDataShangHai(String meterNo, String dataString) {
+        CtCopyData copyData = new CtCopyData();
         copyData.setMeterNo(meterNo);
         copyData.setElec(dataString.substring(0, 2));
         String CurrentShow = dataString.substring(2, 8);
         CurrentShow = CurrentShow.substring(1);// 去掉F
         copyData.setCurrentShow(CurrentShow); // 累计量
         copyData.setMeterState(Integer.parseInt(dataString.substring(8, 10), 16));
+        copyData.setCollectorNo(collectorNo);//设置集中器编号
+        copyData.setCommunicateNo(meterNo);
         // 使用量计算
         return copyData;
     }
@@ -887,34 +890,34 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
     /**
      * 解析惠州无线表抄表数据
      */
-    private CopyData getCopyDataHuiZhou(String meterNo, CqueueData data) {
-        CopyData copyData = new CopyData();
+    private CtCopyData getCopyDataHuiZhou(String meterNo, CqueueData data) {
+        CtCopyData copyData = new CtCopyData();
         copyData.setMeterNo(meterNo);
         String CurrentShow = Double.toString(data.getSumUseGas());
         copyData.setCurrentShow(CurrentShow); // 累计量
         copyData.setMeterState(Integer.parseInt(data.getMeterState(), 16)); // 表具状态转换成16进制INT存入数据库
         copyData.setMeterName(tvLoadingName.getText().toString());
-        CopyData copyDataLast = copyBiz.getLastCopyDataByMeterNo(meterNo); // 查询上一次抄表记录
-        if (copyDataLast != null) {
-            String lastShow = copyDataLast.getCurrentShow();
-            if (lastShow == null) {
-                copyData.setLastShow("0.00");
-                copyData.setLastDosage("0");
-                copyData.setCurrentDosage(CurrentShow);
-            } else {
-                copyData.setLastShow(lastShow);
-                copyData.setLastDosage(copyDataLast.getCurrentDosage());
-                BigDecimal c1 = new BigDecimal(CurrentShow);
-                BigDecimal c2 = new BigDecimal(lastShow);
-                copyData.setCurrentDosage(c1.subtract(c2).toString());
-            }
-            // copyData.setUnitPrice(copyDataLast.getUnitPrice());
-        } else { // 初始值
+//        CopyData copyDataLast = copyBiz.getLastCopyDataByMeterNo(meterNo); // 查询上一次抄表记录
+//        if (copyDataLast != null) {
+//            String lastShow = copyDataLast.getCurrentShow();
+//            if (lastShow == null) {
+//                copyData.setLastShow("0.00");
+//                copyData.setLastDosage("0");
+//                copyData.setCurrentDosage(CurrentShow);
+//            } else {
+//                copyData.setLastShow(lastShow);
+//                copyData.setLastDosage(copyDataLast.getCurrentDosage());
+//                BigDecimal c1 = new BigDecimal(CurrentShow);
+//                BigDecimal c2 = new BigDecimal(lastShow);
+//                copyData.setCurrentDosage(c1.subtract(c2).toString());
+//            }
+//            // copyData.setUnitPrice(copyDataLast.getUnitPrice());
+//        } else { // 初始值
             copyData.setLastShow("0.00");
             copyData.setLastDosage("0");
             copyData.setCurrentDosage(CurrentShow);
             // copyData.setUnitPrice("2.5");
-        }
+//        }
         // copyData.setPrintFlag(0);
         copyData.setCopyWay("S");
         copyData.setCopyTime(df.format(new Date()));
@@ -923,6 +926,8 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         copyData.setOperateTime(df.format(new Date()));
         // copyData.setIsBalance(0);
         copyData.setRemark("");
+        copyData.setCollectorNo(collectorNo);//设置集中器编号
+        copyData.setCommunicateNo(meterNo);
         return copyData;
     }
 
@@ -1018,11 +1023,10 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                     if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
                                         CtCopyData copyData;
                                         if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州模式
-//                                            copyData = getCopyDataHuiZhou(loadingComNum, msgDecode);
+                                            copyData = getCopyDataHuiZhou(loadingComNum, msgDecode);
                                         } else {
-//                                            copyData = getCopyData(loadingComNum, dataString);
+                                            copyData = getCopyData(loadingComNum, dataString);
                                         }
-                                        copyData = getCopyData(loadingComNum, dataString);
                                         //把抄表结果保存到数据库中去
                                         ctCopyDataDao.putCtCopyData(copyData);
 //                                        copyBiz.addCopyData(copyData);
@@ -1042,7 +1046,6 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                             try {
                                                 Thread.sleep(300);
                                             } catch (InterruptedException e) {
-                                                // TODO 自动生成的 catch 块
                                                 e.printStackTrace();
                                             }
                                             //判断是否需要循环抄第二轮
@@ -1173,10 +1176,11 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                     break;
                                 case "0785": // 上海表抄表数据
                                     if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
-                                        CopyData copyData = getCopyDataShangHai(loadingComNum, dataString);
-                                        copyBiz.addCopyData(copyData);
-                                        // 修改抄表状态
-                                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, meterTypeNo);
+                                        CtCopyData copyData = getCopyDataShangHai(loadingComNum, dataString);
+//                                        copyBiz.addCopyData(copyData);
+//                                        // 修改抄表状态
+//                                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, meterTypeNo);
+                                        ctCopyDataDao.putCtCopyData(copyData);
                                         // 进度更新
                                         loadingcount++;
                                         tvLoadingCount.setText(loadingcount + "");
@@ -1335,9 +1339,8 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                             isWakeUp = true;//重新唤醒
                             query();
                         } else { // 继续
-                            String loadingComNum = tvLoadingComNum.getText()
-                                    .toString();
-                            copyBiz.ChangeCopyState(loadingComNum, 0, meterTypeNo);// 修改状态为未抄到
+                            String loadingComNum = tvLoadingComNum.getText().toString();
+//                            copyBiz.ChangeCopyState(loadingComNum, 0, meterTypeNo);// 修改状态为未抄到
                             loadingcount++;
                             tvLoadingCount.setText(loadingcount + "");
                             pgbCopying.incrementProgressBy(1);
@@ -1369,13 +1372,13 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                     query();
                                 } else {
                                     finish();
-                                    Intent intent = new Intent(CtCopyingActivity.this,
-                                            CopyResultActivity.class);
-                                    intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE,
-                                            GlobalConsts.RE_TYPE_COPY);
-                                    intent.putExtra("meterNos", AllMeterNo);
-                                    intent.putExtra("meterTypeNo", meterTypeNo);
-                                    startActivity(intent);
+//                                    Intent intent = new Intent(CtCopyingActivity.this,
+//                                            CopyResultActivity.class);
+//                                    intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE,
+//                                            GlobalConsts.RE_TYPE_COPY);
+//                                    intent.putExtra("meterNos", AllMeterNo);
+//                                    intent.putExtra("meterTypeNo", meterTypeNo);
+//                                    startActivity(intent);
                                 }
                             }
                         }
@@ -1400,11 +1403,11 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                 e.printStackTrace();
                             }
                             finish();
-                            Intent intent = new Intent(CtCopyingActivity.this, CopyResultActivity.class);
-                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_COPY);
-                            intent.putExtra("meterNos", AllMeterNo);
-                            intent.putExtra("meterTypeNo", meterTypeNo);
-                            startActivity(intent);
+//                            Intent intent = new Intent(CtCopyingActivity.this, CopyResultActivity.class);
+//                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_COPY);
+//                            intent.putExtra("meterNos", AllMeterNo);
+//                            intent.putExtra("meterTypeNo", meterTypeNo);
+//                            startActivity(intent);
                         }
                     }
                     break;

@@ -1,6 +1,8 @@
 package com.pl.entity;
 
-public class CopyData {
+import java.io.Serializable;
+
+public class CopyData implements Serializable {
 
     public int getId() {
         return Id;

@@ -19,9 +19,11 @@ import com.pl.concentrator.activity.copy.CtCopyingActivity;
 import com.pl.concentrator.bean.gson.GetCollectorInfoByCollectorNo;
 import com.pl.concentrator.bean.gson.GetCollectorNetWorking;
 import com.pl.concentrator.bean.gson.MoveCommunicatesCtrlCmd;
-import com.pl.concentrator.bean.model.CtBookInfo;
 import com.pl.concentrator.bean.model.Concentrator;
+import com.pl.concentrator.bean.model.CtBookInfo;
+import com.pl.gassystem.MaintenanceActivity;
 import com.pl.gassystem.R;
+import com.pl.gassystem.SettingActivity;
 import com.pl.utils.DensityUtils;
 import com.pl.utils.GlobalConsts;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -62,6 +64,10 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.layoutUpData)
     LinearLayout layoutUpData;
+    @BindView(R.id.btMaintain)
+    Button btMaintain;
+    @BindView(R.id.btSetting)
+    Button btSetting;
     private ProgressDialog progressDialog;
     private Intent mIntent;
 
@@ -77,11 +83,13 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         collectorNo = getIntent().getStringExtra("CollectorNo");
-        setTitle(collectorNo+"的抄表详情");
+        setTitle(collectorNo + "的抄表详情");
 //        progressDialog = new ProgressDialog(getContext());
 //        progressDialog.setMessage("载入中...");
 //        progressDialog.setCancelable(false);
 //        progressDialog.show();
+
+
 
         if (collectorNo == null) {
             showToast("集中器不存在");
@@ -154,7 +162,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     }
 
 
-    @OnClick({R.id.btBeginCopy, R.id.btCopyAllBook, R.id.btShowAllBook, R.id.layoutNetworking, R.id.layoutUpData})
+    @OnClick({R.id.btBeginCopy, R.id.btCopyAllBook, R.id.btShowAllBook, R.id.layoutNetworking, R.id.layoutUpData,R.id.btMaintain,R.id.btSetting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btBeginCopy:
@@ -188,6 +196,13 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
 //                mIntent.putExtra("CollectorNo", collectorNo);
 //                startActivity(mIntent);
                 break;
+            case R.id.btMaintain://表具维护
+                mIntent = new Intent(getContext(), MaintenanceActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.btSetting://系统设置
+                mIntent = new Intent(getContext(), SettingActivity.class);
+                startActivity(mIntent);
         }
     }
 
@@ -254,7 +269,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                             intent.putExtra("meterTypeNo", mBooks.get(0).getMeterTypeNo());//表类型
                             intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);//群抄
                             intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);//抄表
-                            intent.putExtra("collectorNo",collectorNo);//集中器编号
+                            intent.putExtra("collectorNo", collectorNo);//集中器编号
                             startActivity(intent);
                         } else {
                             showToast("没有查到数据");

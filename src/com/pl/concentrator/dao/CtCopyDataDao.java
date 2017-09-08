@@ -49,7 +49,7 @@ public class CtCopyDataDao {
         values.put("operateTime", ctCopyData.getOperateTime());
         values.put("isBalance", ctCopyData.getIsBalance());
         values.put("Remark", ctCopyData.getRemark());
-        values.put("meterName", ctCopyData.getMeterName());
+//        values.put("meterName", ctCopyData.getMeterName());
         values.put("dBm", ctCopyData.getdBm());
         values.put("elec", ctCopyData.getElec());
 

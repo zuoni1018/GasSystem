@@ -3,6 +3,8 @@ package com.pl.concentrator.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -41,7 +43,7 @@ import okhttp3.Call;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
- * 实抄组网界面
+ * 开始抄表界面 选择表具
  */
 
 public class CtCopyBookActivity extends CtBaseTitleActivity {
@@ -86,21 +88,43 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
     private int pageSize = 1;
     private String collectorNo;
 
-    private List<CtBookInfo> mList;
+    //RecyclerView
+    private List<CtBookInfo> showList;
     private List<CtBookInfo> trueList;
     private LRecyclerViewAdapter mAdapter;
-
-
 
 
     private CtCopyDataDao ctCopyDataDao;
     private ProgressDialog progressDialog;
 
-    @Override
-    protected int setLayout() {
-        return R.layout.ct_activity_copy_book;
-    }
+    private final int INSERT_OK = 1;//插入数据库成功
+    private final int INSERT_ERROR = 2;//插入数据库失败
 
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case INSERT_OK:
+                    btCopy.setClickable(true);
+                    progressDialog.dismiss();
+                    if (meterNos.size() > 0) {
+                        Intent intent = new Intent(CtCopyBookActivity.this, CtCopyingActivity.class);
+                        intent.putExtra("meterNos", meterNos);//表号集合
+//                    intent.putExtra("meterTypeNo", trueList.get(0).getMeterTypeNo());//表类型
+                        intent.putExtra("meterTypeNo", "05");//表类型
+                        intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);//群抄
+                        intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);//抄表
+                        intent.putExtra("collectorNo", collectorNo);
+                        startActivity(intent);
+                    } else {
+                        showToast("您未选择任何一张表");
+                    }
+
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,12 +134,12 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
         collectorNo = getIntent().getStringExtra("CollectorNo");
         meterNos = new ArrayList<>();
 //        meterNos.add("1");
-        mList = new ArrayList<>();
+        showList = new ArrayList<>();
         trueList = new ArrayList<>();
-        progressDialog=new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("载入中...");
         progressDialog.setCancelable(false);
-        RvCopyBookAdapter mRvNetworkingListAdapter = new RvCopyBookAdapter(getContext(), mList);
+        RvCopyBookAdapter mRvNetworkingListAdapter = new RvCopyBookAdapter(getContext(), showList);
         mAdapter = new LRecyclerViewAdapter(mRvNetworkingListAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
@@ -150,30 +174,17 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.equals("")) {
-                    mList.clear();
-                    mList.addAll(trueList);
-                    mAdapter.notifyDataSetChanged();
-                } else {
-                    mList.clear();
-                    mAdapter.notifyDataSetChanged();
-                    for (int i = 0; i < trueList.size(); i++) {
-                        String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
-                        if (myText.contains(s)) {
-                            mList.add(trueList.get(i));
-                        }
-                    }
-                    mAdapter.notifyDataSetChanged();
-                }
+                searchText(s.toString().trim());
             }
         });
 
         layoutChooseAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mList != null) {
-                    for (int i = 0; i < mList.size(); i++) {
-                        mList.get(i).setChoose(!isChooseAll);
+                if (showList != null) {
+                    //所有选项取反
+                    for (int i = 0; i < showList.size(); i++) {
+                        showList.get(i).setChoose(!isChooseAll);
                     }
                     isChooseAll = !isChooseAll;
                     if (isChooseAll) {
@@ -191,43 +202,37 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
         btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btCopy.setClickable(false);
                 progressDialog.show();
-                btCopy.postDelayed(new Runnable() {
+                meterNos.clear();
+                ctCopyDataDao = new CtCopyDataDao(getContext());
+                //开启一个线程去插入数据库
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        meterNos.clear();
-                        ctCopyDataDao=new CtCopyDataDao(getContext());
-
-                        for (int i = 0; i < mList.size(); i++) {
-                            if (mList.get(i).isChoose()) {
-                                meterNos.add(mList.get(i).getCommunicateNo());
+                        for (int i = 0; i < showList.size(); i++) {
+                            if (showList.get(i).isChoose()) {
+                                meterNos.add(showList.get(i).getCommunicateNo());
                                 //存起来
-                                ctCopyDataDao.putCtCopyDataOtherInfo(mList.get(i));
+                                ctCopyDataDao.putCtCopyDataOtherInfo(showList.get(i));
                             }
                         }
-                        progressDialog.dismiss();
-//                        meterNos.add("2017090602");
-//                        meterNos.add("2017090605");
-                        if (meterNos.size() > 0) {
-                            Intent intent = new Intent(CtCopyBookActivity.this, CtCopyingActivity.class);
-                            intent.putExtra("meterNos", meterNos);//表号集合
-//                    intent.putExtra("meterTypeNo", trueList.get(0).getMeterTypeNo());//表类型
-                            intent.putExtra("meterTypeNo", "05");//表类型
-                            intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);//群抄
-                            intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);//抄表
-                            intent.putExtra("collectorNo",collectorNo);
-                            startActivity(intent);
-                        } else {
-                            showToast("您未选择任何一张表");
-                        }
+//                        meterNos.add("2017090603");
+//                        meterNos.add("2017090601");
+                        Message message = Message.obtain();
+                        message.what = INSERT_OK;
+                        mHandler.sendMessage(message);
                     }
-                },100);
-
+                }).start();
             }
         });
-
-
     }
+
+    @Override
+    protected int setLayout() {
+        return R.layout.ct_activity_copy_book;
+    }
+
 
     /**
      * 获取表列表
@@ -255,8 +260,8 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
                         Gson gson = new Gson();
                         GetCollectorNetWorking mGetCollectorNetWorking = gson.fromJson(response, GetCollectorNetWorking.class);
                         if (mGetCollectorNetWorking.getCollectorNetWorking() != null) {
-                            mList.clear();
-                            mList.addAll(mGetCollectorNetWorking.getCollectorNetWorking());
+                            showList.clear();
+                            showList.addAll(mGetCollectorNetWorking.getCollectorNetWorking());
                             trueList.clear();
                             trueList.addAll(mGetCollectorNetWorking.getCollectorNetWorking());
                             mAdapter.notifyDataSetChanged();
@@ -321,18 +326,25 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
     public void onViewClicked() {
         String searchText = etSearch.getText().toString().trim();
         KeyBoardUtils.closeKeybord(etSearch, getContext());
-        if (searchText.equals("")) {
-            mList.clear();
-            mList.addAll(trueList);
+        searchText(searchText);
+    }
+
+
+    /**
+     * 搜索功能
+     */
+    private void searchText(String text) {
+        if (text.equals("")) {
+            showList.clear();
+            showList.addAll(trueList);
             mAdapter.notifyDataSetChanged();
         } else {
-            mList.clear();
+            showList.clear();
             mAdapter.notifyDataSetChanged();
-
             for (int i = 0; i < trueList.size(); i++) {
                 String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
-                if (myText.contains(searchText)) {
-                    mList.add(trueList.get(i));
+                if (myText.contains(text)) {
+                    showList.add(trueList.get(i));
                 }
             }
             mAdapter.notifyDataSetChanged();
