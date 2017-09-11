@@ -132,7 +132,7 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
             }
         }
         if (mList.size() == 0) {
-            showToast("您尚未选择一张表");
+            showToast("您尚未选择任何一个已抄的表");
         } else {
             String json = new Gson().toJson(mList);
             LogUtil.i("上传数据" + json);
@@ -143,7 +143,7 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
     private void upData(String json) {
         OkHttpUtils
                 .post()
-                .url(AppUrl.UPDATE_COMMUNICATES)
+                .url(setBiz.getBookInfoUrl()+AppUrl.UPDATE_COMMUNICATES)
                 .addParams("Communicates",json)
                 .build()
                 .execute(new StringCallback() {

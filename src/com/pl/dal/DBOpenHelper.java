@@ -10,7 +10,7 @@ import com.pl.utils.LogUtil;
 public class DBOpenHelper extends SQLiteOpenHelper {
 
     public DBOpenHelper(Context context) {
-        super(context, "gasSystem.db", null, 6);
+        super(context, "gasSystem.db", null, 7);
     }
 
     @Override
@@ -176,6 +176,48 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             System.out.println("数据库更新成功");
         }
 
+        if (oldVersion < 7) {
+            //创建用户信息表
+            db.execSQL("drop table if exists CtBookInfo");//删除原来的表
+            //新建这张表
+            String sql = "CREATE TABLE CtBookInfo ("
+                    + "_id integer primary key autoincrement ,"
+                    + "MeterNo TEXT, CommunicateNo TEXT, "
+                    + "meterTypeNo TEXT, address TEXT, CollectorNo TEXT)";
+            db.execSQL(sql);
+
+            db.execSQL("drop table if exists CtCopyData");//删除原来的表
+            //新建这张表
+            sql = "CREATE TABLE CtCopyData ("
+                    + "_id integer primary key autoincrement ,"
+                    + "meterNo TEXT NOT NULL, lastShow TEXT,"
+                    + "lastDosage TEXT, currentShow TEXT,"
+                    + "currentDosage TEXT,unitPrice TEXT,"
+                    + "printFlag integer,meterState integer,"
+                    + "copyWay TEXT, copyState integer,"
+                    + "copyTime TEXT, copyMan TEXT,"
+                    + "Operator TEXT, operateTime TEXT,"
+                    + "isBalance integer, Remark TEXT, meterName TEXT,"
+                    + "dBm TEXT, elec TEXT ,CommunicateNo TEXT, CollectorNo TEXT)";
+            db.execSQL(sql);
+
+            db.execSQL("drop table if exists CtCopyDataICRF");//删除原来的表
+            //新建这张表
+            sql = "CREATE TABLE CtCopyDataICRF ("
+                    + "_id integer primary key autoincrement ,"
+                    + "meterNo TEXT NOT NULL, Cumulant TEXT,"
+                    + "No01 TEXT, No02 TEXT, name TEXT,"
+                    + "SurplusMoney TEXT, OverZeroMoney TEXT,"
+                    + "BuyTimes integer, OverFlowTimes integer,"
+                    + "MagAttTimes integer,CardAttTimes integer,"
+                    + "MeterState integer, StateMessage TEXT,"
+                    + "CurrMonthTotal TEXT, Last1MonthTotal TEXT,"
+                    + "Last2MonthTotal TEXT, Last3MonthTotal TEXT,"
+                    + "copyWay TEXT, copyTime TEXT,"
+                    + "copyMan TEXT,copyState integer,meterName TEXT,"
+                    + "dBm TEXT, elec TEXT, unitPrice TEXT, accMoney TEXT, accBuyMoney TEXT, currentShow TEXT ,CommunicateNo TEXT, CollectorNo TEXT)";
+            db.execSQL(sql);
+        }
     }
 
 }

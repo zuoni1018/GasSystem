@@ -90,7 +90,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="总数(100)"
+                android:text="总数(0)"
                 android:textColor="#000"
                 android:textSize="14sp" />
             <View
@@ -105,7 +105,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="已抄(20)"
+                android:text="已抄(0)"
                 android:textColor="#000"
                 android:textSize="14sp" />
             <View
@@ -120,7 +120,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="未抄(80)"
+                android:text="未抄(0)"
                 android:textColor="#000"
                 android:textSize="14sp" />
         </LinearLayout>

@@ -102,6 +102,14 @@
                         android:text="八位表"
                         android:textColor="@color/item_text"
                         android:textSize="20dp" />
+                    <RadioButton
+                        android:id="@+id/rdoNine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="九位表"
+                        android:textColor="@color/item_text"
+                        android:textSize="20sp" />
                 </RadioGroup>
             </LinearLayout>
 

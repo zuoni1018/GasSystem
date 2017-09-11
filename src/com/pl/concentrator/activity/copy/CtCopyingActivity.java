@@ -820,7 +820,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         copyDataICRF.setCopyTime(df.format(new Date()));
         //表具名称
         copyDataICRF.setMeterName(tvLoadingName.getText().toString());
-        copyDataICRF.setCommunicateNo("meterNo");
+        copyDataICRF.setCommunicateNo(meterNo);
         copyDataICRF.setCollectorNo(collectorNo);//集中器
 
         return copyDataICRF;

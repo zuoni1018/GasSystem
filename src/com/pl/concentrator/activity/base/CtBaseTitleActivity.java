@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.pl.bll.SetBiz;
 import com.pl.gassystem.R;
 
 /**
@@ -25,12 +26,14 @@ public abstract class CtBaseTitleActivity extends CtBaseActivity {
     private  Animation anim_btn_begin;
     private  Animation anim_btn_end;
 
+    public SetBiz setBiz;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(setLayout());
-
+        setBiz=new SetBiz(getContext());
         anim_btn_begin = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_begin);
         anim_btn_end = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_end);
 

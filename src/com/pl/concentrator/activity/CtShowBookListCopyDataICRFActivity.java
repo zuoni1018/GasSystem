@@ -144,7 +144,7 @@ public class CtShowBookListCopyDataICRFActivity extends CtBaseTitleActivity {
     private void upData(String json) {
         OkHttpUtils
                 .post()
-                .url(AppUrl.UPDATE_COMMUNICATES)
+                .url(setBiz.getBookInfoUrl()+AppUrl.UPDATE_COMMUNICATES)
                 .addParams("Communicates",json)
                 .build()
                 .execute(new StringCallback() {

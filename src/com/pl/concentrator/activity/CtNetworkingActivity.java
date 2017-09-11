@@ -172,7 +172,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
 
                     for (int i = 0; i < trueList.size(); i++) {
                         String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
-                        if (trueList.get(i).getMeterTypeNo().equals("04")) {
+                        if (trueList.get(i).getMeterTypeNo().equals("05")) {
                             myText = myText + "纯无线";
                         } else {
                             myText = myText + "IC无线";
@@ -255,7 +255,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
 
                 OkHttpUtils
                 .post()
-                .url(AppUrl.METER_READING)
+                .url(setBiz.getBookInfoUrl()+AppUrl.METER_READING)
                 .addParams("CollectorNo", collectorNo)
                 .addParams("Communicates", message )
                 .build()
@@ -285,7 +285,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
      */
     private void getListInfo(int nowPageNum) {
         post()
-                .url(AppUrl.GET_COLLECTOR_NET_WORKING)
+                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_NET_WORKING)
                 .addParams("CollectorNo", collectorNo)
                 .addParams("PageNo", nowPageNum + "")
                 .build()

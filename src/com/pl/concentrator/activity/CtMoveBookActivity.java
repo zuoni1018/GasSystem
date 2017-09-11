@@ -90,7 +90,7 @@ public class CtMoveBookActivity extends CtBaseTitleActivity {
 
     private void getListInfo() {
         post()
-                .url(AppUrl.GET_COLLECTOR_INFO)
+                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_INFO)
                 .addParams("zangyi", "666")
                 .build()
                 .execute(new StringCallback() {
@@ -166,7 +166,7 @@ public class CtMoveBookActivity extends CtBaseTitleActivity {
         }
         OkHttpUtils
                 .post()
-                .url(AppUrl.MOVE_COMMUNICATES)
+                .url(setBiz.getBookInfoUrl()+AppUrl.MOVE_COMMUNICATES)
                 .addParams("Communicates", books)
                 .addParams("CollectorNo", myCollectorNo)
                 .build()

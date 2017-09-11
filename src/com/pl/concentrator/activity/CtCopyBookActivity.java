@@ -67,16 +67,16 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
     EditText etGoPageNum;
     @BindView(R.id.btGoPageNum)
     Button btGoPageNum;
-
     @BindView(R.id.layoutChooseAll)
     LinearLayout layoutChooseAll;
     @BindView(R.id.ivChooseAll)
     ImageView ivChooseAll;
     @BindView(R.id.btCopy)
     Button btCopy;
+
+
     private ArrayList<String> meterNos;
     private boolean isChooseAll = false;
-
     private int nowPageNum = 1;//µ±Ç°µÄÒ³Âë
     private int pageSize = 1;
     private String collectorNo;
@@ -254,7 +254,7 @@ public class CtCopyBookActivity extends CtBaseTitleActivity {
     private void getListInfo(int nowPageNum) {
         OkHttpUtils
                 .post()
-                .url(AppUrl.GET_COLLECTOR_NET_WORKING)
+                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_NET_WORKING)
                 .addParams("CollectorNo", collectorNo)
                 .addParams("PageNo", nowPageNum + "")
                 .build()

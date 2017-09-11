@@ -118,7 +118,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
 
         OkHttpUtils
                 .post()
-                .url(AppUrl.GET_COLLECTOR_INFO_BY_COLLECTOR_NO)
+                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_INFO_BY_COLLECTOR_NO)
                 .addParams("CollectorNo", collectorNo)
                 .build()
                 .execute(new StringCallback() {
@@ -230,13 +230,13 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
     }
 
     /**
-     * 更新集中器
+     * 更新集中器按钮
      */
     private void upDataConcentrator() {
 
         OkHttpUtils
                 .post()
-                .url(AppUrl.MOVE_COMMUNICATES_CTRL_CMD)
+                .url(setBiz.getBookInfoUrl()+AppUrl.MOVE_COMMUNICATES_CTRL_CMD)
                 .addParams("CollectorNo", collectorNo)
                 .build()
                 .execute(new StringCallback() {
@@ -266,7 +266,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
 
         OkHttpUtils
                 .post()
-                .url(AppUrl.GET_COLLECTOR_NET_WORKING)
+                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_NET_WORKING)
                 .addParams("CollectorNo", collectorNo)
                 .build()
                 .execute(new StringCallback() {

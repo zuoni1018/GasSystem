@@ -1,11 +1,18 @@
 package com.pl.gassystem;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import org.apache.http.Header;
-import org.xmlpull.v1.XmlPullParserException;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -17,19 +24,12 @@ import com.pl.entity.HrCustomerInfo;
 import com.pl.utils.GlobalConsts;
 import com.zxing.activity.CaptureActivity;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import org.apache.http.Header;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class InputPhotoComNumActivity extends Activity {
 
@@ -93,6 +93,8 @@ public class InputPhotoComNumActivity extends Activity {
 					meterTypeNo = "7";
 				} else if (rgInputPhotoMeterType.getCheckedRadioButtonId() == R.id.rdoEight) {
 					meterTypeNo = "8";
+				}else {
+					meterTypeNo = "9";
 				}
 				String baseType = "1";
 				if (rgInputPhotoBaseType.getCheckedRadioButtonId() == R.id.rdoBaseType1) {

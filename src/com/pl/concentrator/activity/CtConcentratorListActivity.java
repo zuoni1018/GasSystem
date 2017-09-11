@@ -47,8 +47,10 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
     @BindView(R.id.tvNoReadNum)
     TextView tvNoReadNum;
     private LRecyclerViewAdapter mAdapter;
-    private List<Concentrator> mList;
+    private List<Concentrator> showList;
     private List<Concentrator> trueList;
+
+
 
     @Override
     protected int setLayout() {
@@ -68,7 +70,7 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
     private void getInfo() {
         OkHttpUtils
                 .post()
-                .url(AppUrl.GET_COLLECTOR_INFO)
+                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_INFO)
                 .addParams("zangyi", "666")
                 .build()
                 .execute(new StringCallback() {
@@ -85,18 +87,18 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
                         Gson gson = new Gson();
                         GetCollectorInfo mGetCollectorInfo = gson.fromJson(response, GetCollectorInfo.class);
                         if (mGetCollectorInfo.getCollectorInfo() != null) {
-                            mList.clear();
+                            showList.clear();
                             trueList.clear();
-                            mList.addAll(mGetCollectorInfo.getCollectorInfo());
+                            showList.addAll(mGetCollectorInfo.getCollectorInfo());
                             trueList.addAll(mGetCollectorInfo.getCollectorInfo());
                             mAdapter.notifyDataSetChanged();
                             int allNum = 0;
                             int readNum = 0;
                             int noReadNum = 0;
-                            for (int i = 0; i < mList.size(); i++) {
-                                allNum = allNum + mList.get(i).getTrueAllNum();
-                                readNum = readNum + mList.get(i).getTrueReadNum();
-                                noReadNum = noReadNum + mList.get(i).getTrueNotReadNum();
+                            for (int i = 0; i < showList.size(); i++) {
+                                allNum = allNum + showList.get(i).getTrueAllNum();
+                                readNum = readNum + showList.get(i).getTrueReadNum();
+                                noReadNum = noReadNum + showList.get(i).getTrueNotReadNum();
                             }
                             tvAllNum.setText("×ÜÊý(" + allNum + ")");
                             tvReadNum.setText("ÒÑ³­(" + readNum + ")");
@@ -109,8 +111,8 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
 
     private void initList() {
         trueList = new ArrayList<>();
-        mList = new ArrayList<>();
-        RvConcentratorListAdapter mRvConcentratorListAdapter = new RvConcentratorListAdapter(getContext(), mList);
+        showList = new ArrayList<>();
+        RvConcentratorListAdapter mRvConcentratorListAdapter = new RvConcentratorListAdapter(getContext(), showList);
         RvConcentratorList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mAdapter = new LRecyclerViewAdapter(mRvConcentratorListAdapter);
         RvConcentratorList.setAdapter(mAdapter);
@@ -140,14 +142,14 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
             public void afterTextChanged(Editable s) {
                 String searchText = etSearchConcentrator.getText().toString().trim();
                 if ("".equals(searchText)) {
-                    mList.clear();
-                    mList.addAll(trueList);
+                    showList.clear();
+                    showList.addAll(trueList);
                 } else {
-                    mList.clear();
+                    showList.clear();
                     for (int i = 0; i < trueList.size(); i++) {
                         String myText = trueList.get(i).getCollectorNo();
                         if (myText.contains(searchText)) {
-                            mList.add(trueList.get(i));
+                            showList.add(trueList.get(i));
                         }
                     }
                 }

@@ -8,20 +8,20 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copydata_book_detail.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copydata_book_detail.xml"
-    },
-    {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\listview_item_group_info_statistic.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\listview_item_group_info_statistic.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_search_view.xml"
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\listview_item_group_info_statistic.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\listview_item_group_info_statistic.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copydata_book_detail.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copydata_book_detail.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_shcmd.xml",
@@ -40,12 +40,12 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copying.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copying.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_concentrator_list.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_concentrator_list.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copying.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copying.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",

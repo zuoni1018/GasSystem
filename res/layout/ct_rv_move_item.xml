@@ -34,7 +34,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="0.5dp"
         android:layout_marginTop="0.5dp"
-        android:background="#ffd443"
+        android:background="@color/color_white"
         android:orientation="horizontal">
         <View
             android:layout_width="0.5dp"
