@@ -73,6 +73,7 @@
             android:background="#b7b7b7" />
 
         <TextView
+            android:id="@+id/tvCollectorName"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_width="0dp"

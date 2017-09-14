@@ -116,7 +116,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:47:5-70
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:47:19-67
 supports-screens
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:49:5-53:38
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:49:5-53:39
 	android:largeScreens
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:51:9-36
 	android:smallScreens
@@ -153,7 +153,7 @@ MERGED from [com.android.support:support-compat:25.3.0] C:\Users\PVer\.android\b
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:57:9-44
 activity#com.pl.gassystem.MainActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:62:9-66:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:62:9-66:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:65:13-49
 	android:label
@@ -197,7 +197,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:81:9-57
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:81:19-54
 activity#com.pl.gassystem.BookInfoActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:82:9-86:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:82:9-86:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:85:13-49
 	android:label
@@ -207,7 +207,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:82:9-86:50
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:83:13-45
 activity#com.pl.gassystem.BookInfoUpdateActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:87:9-91:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:87:9-91:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:90:13-49
 	android:label
@@ -217,7 +217,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:87:9-91:50
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:88:13-51
 activity#com.pl.gassystem.GroupInfoActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:92:9-95:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:92:9-95:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:94:13-49
 	android:theme
@@ -225,7 +225,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:92:9-95:50
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:93:13-46
 activity#com.pl.gassystem.GroupInfoUpdateActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:96:9-100:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:96:9-100:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:99:13-49
 	android:label
@@ -235,7 +235,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:96:9-100:50
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:97:13-52
 activity#com.pl.gassystem.CopyGroupActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:101:9-105:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:101:9-105:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:104:13-49
 	android:label
@@ -245,7 +245,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:101:9-105:50
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:102:13-46
 activity#com.pl.gassystem.CopyOneActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:106:9-110:50
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:106:9-110:51
 	android:screenOrientation
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:109:13-49
 	android:label
@@ -515,55 +515,67 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:9-75
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:19-72
 activity#com.pl.gassystem.CopyResultActivityWarnBig
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:248:9-252:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:243:9-247:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:246:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:247:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:249:13-54
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:13-54
 activity#com.pl.concentrator.activity.CtConcentratorListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:256:9-91
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:9-92
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:256:19-89
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:19-89
 activity#com.pl.concentrator.activity.CtCopySituationActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:9-89
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:19-86
+activity#com.pl.concentrator.activity.CtShowBookListCopyDataActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:253:9-96
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:253:19-93
+activity#com.pl.concentrator.activity.CtCopyDataBookDetailActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:254:9-94
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:254:19-91
+activity#com.pl.concentrator.activity.CtNetworkingActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:255:9-86
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:255:19-83
+activity#com.pl.concentrator.activity.CtMoveBookActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:256:9-84
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:256:19-81
+activity#com.pl.concentrator.activity.copy.CtCopyingActivity
 ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:9-88
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:19-86
-activity#com.pl.concentrator.activity.CtShowBookListCopyDataActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:9-95
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:19-93
-activity#com.pl.concentrator.activity.CtCopyDataBookDetailActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:9-93
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:19-91
-activity#com.pl.concentrator.activity.CtNetworkingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:260:9-85
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:260:19-83
-activity#com.pl.concentrator.activity.CtMoveBookActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:261:9-83
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:261:19-81
-activity#com.pl.concentrator.activity.copy.CtCopyingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:262:9-87
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:262:19-85
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:19-85
 activity#com.pl.concentrator.activity.CtCopyBookChooseActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:263:9-89
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:9-90
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:263:19-87
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:19-87
 activity#com.pl.concentrator.activity.CtCopyBookActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:9-83
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:9-84
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:19-81
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:19-81
 activity#com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:9-99
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:260:9-100
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:19-97
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:260:19-97
+activity#com.pl.gassystem.activity.ht.HtFunctionTestActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:263:9-72
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:263:19-69
+activity#com.pl.gassystem.activity.ht.HtCopyingActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:9-66
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:19-64
+activity#com.pl.gassystem.activity.ht.HtBookListActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:9-67
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:19-65
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:25:5-27:34

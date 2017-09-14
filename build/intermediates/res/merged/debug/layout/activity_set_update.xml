@@ -7,6 +7,7 @@
 
 
     <EditText
+        android:hint="http://61.164.45.102:423/"
         android:id="@+id/etSetUpdate1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

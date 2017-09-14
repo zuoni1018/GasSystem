@@ -8,12 +8,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\ct_icon_02.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\detail03.png",
-        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\detail03.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\ct_icon_05.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\ct_icon_05.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\detail03.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\detail03.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\excel_import02.png",

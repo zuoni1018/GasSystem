@@ -6,7 +6,7 @@ import android.util.Log;
 
 /**
  * Created by zangyi_shuai_ge on 2017/4/21
- * Activity »ùÀà
+ * Activity ????
  */
 
 public class BaseActivity extends Activity {

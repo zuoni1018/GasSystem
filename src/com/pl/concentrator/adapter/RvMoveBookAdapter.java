@@ -64,7 +64,7 @@ public class RvMoveBookAdapter extends RecyclerView.Adapter<RvMoveBookAdapter.My
         });
 
         holder.tvCollectorNo.setText(mList.get(position).getCollectorNo());
-
+        holder.tvCollectorName.setText(mList.get(position).getCollectorName());
 
     }
 
@@ -75,7 +75,7 @@ public class RvMoveBookAdapter extends RecyclerView.Adapter<RvMoveBookAdapter.My
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout layoutMain;
-        TextView tvCollectorNo;
+        TextView tvCollectorNo, tvCollectorName;
         ImageView ivChoose;
 
         MyViewHolder(View itemView) {
@@ -83,6 +83,7 @@ public class RvMoveBookAdapter extends RecyclerView.Adapter<RvMoveBookAdapter.My
             layoutMain = (RelativeLayout) itemView.findViewById(R.id.layoutMain);
             ivChoose = (ImageView) itemView.findViewById(R.id.ivChoose);
             tvCollectorNo = (TextView) itemView.findViewById(R.id.tvCollectorNo);
+            tvCollectorName = (TextView) itemView.findViewById(R.id.tvCollectorName);
         }
     }
 }

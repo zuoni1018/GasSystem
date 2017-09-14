@@ -1,5 +1,7 @@
 package com.pl.concentrator.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
@@ -47,7 +49,7 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
     @BindView(R.id.btBeginCopy)
     Button btBeginCopy;
 
-    private String type="";
+    private String type = "";
 
     private String CollectorNo;//集中器编号
 
@@ -70,7 +72,7 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         setTitle("显示全部(纯无线)");
-        type=getIntent().getStringExtra("type");
+        type = getIntent().getStringExtra("type");
         CollectorNo = getIntent().getStringExtra("CollectorNo");
         if (CollectorNo != null && !"".equals(CollectorNo)) {
 //            ctBookInfoDao = new CtBookInfoDao(getContext());
@@ -123,28 +125,44 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
         }
     }
 
+    private AlertDialog alertDialog;
+
     @OnClick(R.id.btBeginCopy)
     public void onViewClicked() {
         List<CtCopyData> mList = new ArrayList<>();
         for (int i = 0; i < mCCtCopyDataList.size(); i++) {
-            if (mCCtCopyDataList.get(i).isChoose()&&mCCtCopyDataList.get(i).getCopyState()==1) {
+            if (mCCtCopyDataList.get(i).isChoose() && mCCtCopyDataList.get(i).getCopyState() == 1) {
                 mList.add(mCCtCopyDataList.get(i));
             }
         }
         if (mList.size() == 0) {
-            showToast("您尚未选择任何一个已抄的表");
+            showToast("您尚未选择任何一个 已抄 的表");
         } else {
-            String json = new Gson().toJson(mList);
+            final String json = new Gson().toJson(mList);
             LogUtil.i("上传数据" + json);
-            upData(json);
+            AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
+            builder2.setTitle("提示");
+            builder2.setMessage("是否抄提交同步所勾选的表?"+"\n备注: 若勾选表中存在未抄状态的表,该表则不提交更新");
+            builder2.setPositiveButton("是的", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    upData(json);
+                    alertDialog.dismiss();
+                }
+            });
+            builder2.setNegativeButton("取消", null);
+            alertDialog = builder2.create();
+            alertDialog.show();
+
         }
+
     }
 
     private void upData(String json) {
         OkHttpUtils
                 .post()
-                .url(setBiz.getBookInfoUrl()+AppUrl.UPDATE_COMMUNICATES)
-                .addParams("Communicates",json)
+                .url(setBiz.getBookInfoUrl() + AppUrl.UPDATE_COMMUNICATES)
+                .addParams("Communicates", json)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -158,10 +176,10 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
                         LogUtil.i("上传抄表数据", response);
                         Gson gson = new Gson();
                         MoveCommunicates info = gson.fromJson(response, MoveCommunicates.class);
-                        if(info.getMsg().trim().equals("更新抄表数据成功")){
+                        if (info.getMsg().trim().equals("更新抄表数据成功")) {
                             showToast("更新抄表数据成功");
                             finishActivity();
-                        }else {
+                        } else {
                             showToast("更新抄表数据失败");
                         }
                     }

@@ -64,4 +64,6 @@ public class GlobalConsts {
 	public static final String RUNMODE_PHOTO = "6";
 	public static final String RUNMODE_ZHGT = "7";
 
+	public static final String RUNMODE_HANG_TIAN = "8";
+
 }

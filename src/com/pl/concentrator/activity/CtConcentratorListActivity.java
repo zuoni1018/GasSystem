@@ -120,7 +120,11 @@ public class CtConcentratorListActivity extends CtBaseTitleActivity {
             @Override
             public void onRefresh() {
                 etSearchConcentrator.setText("");
-                getInfo();
+
+
+                    getInfo();
+
+
             }
         });
     }

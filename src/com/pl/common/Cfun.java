@@ -238,9 +238,6 @@ public class Cfun {
 
 	/**
 	 * （异或和）BCC 校验算法 (java)
-	 * 
-	 * @param data
-	 * @return
 	 */
 	public static String getBCC(byte[] data) {
 

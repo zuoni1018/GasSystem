@@ -27,6 +27,7 @@ public class Concentrator {
     private String ReadNum;
     private String NotReadNum;
     private String AllNum;
+    private String CollectorName;
 
     private int trueAllNum;
     private int trueReadNum;
@@ -142,5 +143,13 @@ public class Concentrator {
 
     public void setChoose(boolean choose) {
         isChoose = choose;
+    }
+
+    public String getCollectorName() {
+        return CollectorName;
+    }
+
+    public void setCollectorName(String collectorName) {
+        CollectorName = collectorName;
     }
 }

@@ -255,6 +255,11 @@
         <activity android:name="com.pl.concentrator.activity.CtCopyBookChooseActivity" />
         <activity android:name="com.pl.concentrator.activity.CtCopyBookActivity" />
         <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity" />
+
+        <!-- 杭天抄表 -->
+        <activity android:name="com.pl.gassystem.activity.ht.HtFunctionTestActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtCopyingActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtBookListActivity" />
     </application>
 
 </manifest>

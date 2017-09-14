@@ -50,7 +50,7 @@
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
-        android:smallScreens="true"/>
+        android:smallScreens="true" />
 
     <application
 
@@ -63,7 +63,7 @@
             android:name=".MainActivity"
             android:label="主菜单"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
@@ -83,31 +83,31 @@
             android:name=".BookInfoActivity"
             android:label="@string/title_activity_book_info"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".BookInfoUpdateActivity"
             android:label="@string/title_activity_book_info_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".GroupInfoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".GroupInfoUpdateActivity"
             android:label="@string/title_activity_group_info_update"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyGroupActivity"
             android:label="@string/title_activity_copy_group"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyOneActivity"
             android:label="@string/title_activity_copy_one"
             android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar"/>
+            android:theme="@style/mainTitleBar" />
         <activity
             android:name=".CopyingActivity"
             android:label="@string/title_activity_copying"
@@ -240,11 +240,6 @@
         <activity android:name=".userinfo.XiNingUserInfoImportActivity" />
 
 
-
-
-
-
-
         <activity
             android:name=".CopyResultActivityWarnBig"
             android:label="@string/title_activity_copy_result"
@@ -253,16 +248,21 @@
 
 
         <!--集中器抄表-->
-        <activity android:name="com.pl.concentrator.activity.CtConcentratorListActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtCopySituationActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity"/>
-        <activity android:name="com.pl.concentrator.activity.copy.CtCopyingActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtCopyBookChooseActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtCopyBookActivity"/>
-        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity"/>
+        <activity android:name="com.pl.concentrator.activity.CtConcentratorListActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopySituationActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity" />
+        <activity android:name="com.pl.concentrator.activity.copy.CtCopyingActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyBookChooseActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtCopyBookActivity" />
+        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity" />
+
+        <!--杭天抄表-->
+        <activity android:name=".activity.ht.HtFunctionTestActivity" />
+        <activity android:name=".activity.ht.HtCopyingActivity"/>
+        <activity android:name=".activity.ht.HtBookListActivity"/>
 
     </application>
 </manifest>

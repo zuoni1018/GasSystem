@@ -129,8 +129,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
 
         values.clear();
-        values.put("BookInfoUrl", "http://app.hh-ic.com/");
-        values.put("CopyPhotoUrl", "http://app.hh-ic.com/");
+        values.put("BookInfoUrl", "http://61.164.45.102:423/");
+        values.put("CopyPhotoUrl", "http://61.164.45.102:423/");
         values.put("RunMode", "1");
         values.put("intervalTime", 200);
         values.put("wakeupTime", "30");
