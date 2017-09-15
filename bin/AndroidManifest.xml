@@ -190,25 +190,25 @@
             android:theme="@style/mainTitleBar" >
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".activity.AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
             android:theme="@style/mainTitleBar" >
         </activity>
         <activity
-            android:name=".LogActivity"
+            android:name=".activity.LogActivity"
             android:label="@string/title_activity_log"
             android:screenOrientation="portrait"
             android:theme="@style/mainTitleBar" >
         </activity>
         <activity
-            android:name=".DataManageActivity"
+            android:name=".activity.DataManageActivity"
             android:label="@string/title_activity_data_manage"
             android:screenOrientation="portrait"
             android:theme="@style/mainTitleBar" >
         </activity>
         <activity
-            android:name=".SettingActivity"
+            android:name=".activity.SettingActivity"
             android:label="@string/title_activity_setting"
             android:screenOrientation="portrait"
             android:theme="@style/mainTitleBar" >

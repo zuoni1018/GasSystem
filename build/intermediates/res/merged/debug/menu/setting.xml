@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.pl.gassystem.SettingActivity" >
+    tools:context="com.pl.gassystem.activity.SettingActivity" >
 
     <item
         android:id="@+id/action_settings"

@@ -10,7 +10,7 @@ public class HtGetMessage {
     public static String COMMAND_TYPE_DOOR_STATE = "82";//查看阀门状态
     public static String COMMAND_TYPE_OPEN_DOOR = "84";//打开阀门
     public static String COMMAND_TYPE_CLOSE_DOOR = "83";//关闭阀门
-    public static String COMMAND_TYPE_COPY_COPYFROZEN = "81";//抄取冻结量
+    public static String COMMAND_TYPE_COPY_FROZEN = "81";//抄取冻结量
     public static String COMMAND_TYPE_COPY_NORMAL = "89";//抄取实时量
 
     //阀门开关状态
@@ -48,7 +48,8 @@ public class HtGetMessage {
 
     public String getValveState() {
 
-        if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)) {
+        if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)
+                |commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             String valve = hexString2binaryString(valveState);
             if(valve.length()==8){
                 char [] a = valve.toCharArray();
@@ -113,7 +114,9 @@ public class HtGetMessage {
         } else if (commandType.equals(COMMAND_TYPE_CLOSE_DOOR)) {
             return "关闭阀门";
         } else if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)) {
-            return "单抄";
+            return "普通抄表";
+        } else if (commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
+            return "抄取冻结量";
         } else {
             return "未开发";
         }
@@ -155,7 +158,8 @@ public class HtGetMessage {
 
     public String getResult() {
 
-        if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)) {
+        if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)
+                |commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             return "杭天"
                     + "解析结果:\n"
                     + " 命令类型:" + this.getCommandType()

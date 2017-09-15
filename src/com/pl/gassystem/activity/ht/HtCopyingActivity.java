@@ -123,7 +123,10 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                 | commandType.equals(HtSendMessage.COMMAND_TYPE_OPEN_DOOR)
                 | commandType.equals(HtSendMessage.COMMAND_TYPE_CLOSE_DOOR)) {
             bookNo = getIntent().getStringExtra("bookNo");
-        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+            tvLoadingAll.setText("1");
+        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)
+                |commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
+
             copyType = getIntent().getStringExtra("copyType");
             if (copyType.equals(HtSendMessage.COPY_TYPE_SINGLE)) {
                 //单抄
@@ -271,50 +274,6 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     }
 
 
-    /**
-     * 设置按钮点击事件
-     */
-//    private void addListener() {
-//        btnCopyScan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                if (tvCopyingBackMsg.getText().toString().substring(0, 2).equals("开始")) {
-////                    Toast.makeText(getApplicationContext(), "正在抄表中，请勿改变蓝牙连接！", Toast.LENGTH_SHORT).show();
-////                } else {
-////                    // 启动DeviceListActivity看到设备和做扫描
-////                    Intent intent = new Intent(HtCopyingActivity.this, DeviceListActivity.class);
-////                    startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
-////                }
-//            }
-//        });
-//
-//        btnCopyingRead.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-////                if (tvCopyingBackMsg.getText().toString().substring(0, 2).equals("开始")) {
-////                    Toast.makeText(getApplicationContext(), "正在抄表中，请勿重复操作！", Toast.LENGTH_SHORT).show();
-////                } else if (tvBtInfo.getText().toString().equals("蓝牙设备未连接") || tvBtInfo.getText().toString().equals("正在连接蓝牙设备")) {
-////                    Toast.makeText(getApplicationContext(), "请先连接蓝牙设备！", Toast.LENGTH_SHORT).show();
-////                } else {
-////
-////
-//////                    query();
-////                }
-//            }
-//        });
-//
-//        btnCopyingStop.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-////
-////                finish();
-//            }
-//        });
-//
-//    }
-
 
     // 从BluetoothChatService处理程序获得信息返回
     @SuppressLint("HandlerLeak")
@@ -332,7 +291,6 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                         case BluetoothChatService.STATE_CONNECTED:
                             LogUtil.i("蓝牙设备", "蓝牙链接上了");
                             setBluetoothState(DEVICE_STATE_CONNECTED);
-
                             createCommand();
                             break;
 

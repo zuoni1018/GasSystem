@@ -17,7 +17,10 @@ import android.widget.TextView;
 
 import com.pl.bll.PreferenceBiz;
 import com.pl.common.MyApplication;
-import com.pl.concentrator.activity.CtConcentratorListActivity;
+import com.pl.gassystem.activity.ct.CtConcentratorListActivity;
+import com.pl.gassystem.activity.AboutActivity;
+import com.pl.gassystem.activity.DataManageActivity;
+import com.pl.gassystem.activity.SettingActivity;
 import com.pl.gassystem.activity.ht.HtBookListActivity;
 import com.pl.utils.GlobalConsts;
 

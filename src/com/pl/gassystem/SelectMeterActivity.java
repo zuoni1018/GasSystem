@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pl.adapter.GroupBindAdapter;
+import com.pl.gassystem.adapter.main.GroupBindAdapter;
 import com.pl.bll.GroupBindBiz;
 import com.pl.bll.GroupInfoBiz;
 import com.pl.entity.GroupBind;

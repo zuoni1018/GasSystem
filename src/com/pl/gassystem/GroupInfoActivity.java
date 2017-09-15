@@ -20,7 +20,7 @@ import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pl.adapter.GroupInfoAdapter;
+import com.pl.gassystem.adapter.main.GroupInfoAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
 import com.pl.entity.GroupInfo;

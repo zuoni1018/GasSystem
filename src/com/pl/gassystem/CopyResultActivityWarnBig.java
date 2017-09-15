@@ -19,8 +19,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pl.adapter.CopyDataAdapter;
-import com.pl.adapter.CopyDataICRFAdapter;
+import com.pl.gassystem.adapter.main.CopyDataAdapter;
+import com.pl.gassystem.adapter.main.CopyDataICRFAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;

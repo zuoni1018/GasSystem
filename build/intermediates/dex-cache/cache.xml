@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="6e11090833b25cc96728b722548b96dd9ec82a1e">
+        sha1="ba5e7defb08f2bb771a923de4b2cea619fb68582">
         <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_29afea97ffb414318314a21f19d26c069c5acaf1\classes.dex" />
     </item>
     <item
@@ -75,21 +75,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\zzz\GasSystem\libs\zxing.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
-        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\zxing_9e7a8fc763139cb5eda7df283b114addea353eca\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\zzz\GasSystem\libs\jaxen-1.1.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
         <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jaxen-1.1.1_e72f32ae9135e83d1a4769d94c6565bc899adc2a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\zzz\GasSystem\libs\zxing.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="D:\zzz\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\zxing_9e7a8fc763139cb5eda7df283b114addea353eca\classes.dex" />
     </item>
 
 </items>

@@ -4,8 +4,9 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical"
-    tools:context="com.pl.gassystem.DataManageActivity">
+    tools:context="com.pl.gassystem.activity.DataManageActivity">
 
+    <include layout="@layout/title_bar_style"/>
 
     <LinearLayout
         android:id="@+id/linDataDownload"

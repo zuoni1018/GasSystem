@@ -32,9 +32,7 @@ public class HtCommand {
         return parseByte2HexStr(encrypt(data, HT_PASSWORD));
     }
 
-
     public static String encodeHangTian(HtSendMessage htSendMessage) {
-
 
         if (htSendMessage.getCopyType().equals(HtSendMessage.COPY_TYPE_GROUP)) {
             //群抄命令
@@ -74,8 +72,6 @@ public class HtCommand {
                     }
                 }
             }
-
-
 
             LogUtil.i("杭天", "群抄明文 " + seeMessage);
 
@@ -195,7 +191,8 @@ public class HtCommand {
                 //获取信号强度
                 String signal = seeMessage.substring(14, 16);
                 htGetMessage.setSignal(signal);
-            } else if (commandType.equals(HtGetMessage.COMMAND_TYPE_COPY_NORMAL)) {
+            } else if (commandType.equals(HtGetMessage.COMMAND_TYPE_COPY_NORMAL)
+                    |commandType.equals(HtGetMessage.COMMAND_TYPE_COPY_FROZEN)) {
                 //抄表命令为普通抄表(区别冻结抄表)
 
                 //冻结日期
@@ -208,6 +205,7 @@ public class HtCommand {
                 //获取阀门状态
                 String valveState = seeMessage.substring(22, 24);
                 htGetMessage.setValveState(valveState);
+
 
                 //获取电压值
                 String voltage = seeMessage.substring(24, 26);
@@ -233,7 +231,7 @@ public class HtCommand {
     /**
      * 将16进制转换为10进制
      */
-    public static byte[] parseHexStr2Byte(String hexStr) {
+    private static byte[] parseHexStr2Byte(String hexStr) {
         if (hexStr.length() < 1)
             return null;
         byte[] result = new byte[hexStr.length() / 2];

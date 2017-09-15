@@ -4,6 +4,7 @@
     android:background="@color/color_white"
     android:orientation="vertical">
 
+    <include layout="@layout/title_bar_style"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -31,7 +32,7 @@
             android:layout_marginTop="15dp"
             android:text="版本号"
             android:textColor="#8b8989"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvLog"
@@ -40,7 +41,7 @@
             android:layout_marginTop="15dp"
             android:text="点击查看更新日志"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
@@ -62,7 +63,7 @@
             android:layout_marginTop="15dp"
             android:text="杭州鸿鹄电子有限公司 Tel：0571-88260200"
             android:textColor="#8b8989"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +71,7 @@
             android:layout_marginTop="15dp"
             android:text="Copyright© 2015 Honghu All Rights Reserved"
             android:textColor="#8b8989"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,7 +79,7 @@
             android:layout_marginTop="15dp"
             android:text="为保证最佳效果 请使用分辨率为800*1280的设备运行本软件"
             android:textColor="#8b8989"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:visibility="gone" />
     </LinearLayout>
 

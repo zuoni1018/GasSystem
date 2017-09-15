@@ -26,7 +26,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.pl.adapter.BookInfoAdapter;
+import com.pl.gassystem.adapter.main.BookInfoAdapter;
 import com.pl.bll.BookInfoBiz;
 import com.pl.bll.GroupBindBiz;
 import com.pl.bll.GroupInfoBiz;

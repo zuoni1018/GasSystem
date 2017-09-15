@@ -141,11 +141,8 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                 } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_OPEN_DOOR)) {
                     mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
 
-                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
-                    showToast("未开发");
-                    return;
-
-                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+                }  else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)
+                        |nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
                     if (BookNoList.size() > 1) {
                         mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
                         mIntent.putStringArrayListExtra("bookNos", BookNoList);

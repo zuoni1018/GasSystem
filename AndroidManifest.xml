@@ -53,8 +53,7 @@
         android:smallScreens="true" />
 
     <application
-
-        android:name="com.pl.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/main_icon"
         android:label="@string/app_name"
@@ -178,26 +177,8 @@
             android:label="@string/title_activity_input_photo_com_num"
             android:screenOrientation="portrait"
             android:theme="@style/mainTitleBar" />
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/title_activity_about"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" />
-        <activity
-            android:name=".LogActivity"
-            android:label="@string/title_activity_log"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" />
-        <activity
-            android:name=".DataManageActivity"
-            android:label="@string/title_activity_data_manage"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" />
-        <activity
-            android:name=".SettingActivity"
-            android:label="@string/title_activity_setting"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" />
+
+
         <activity
             android:name=".SetUpdateActivity"
             android:label="@string/title_activity_set_update"
@@ -248,21 +229,27 @@
 
 
         <!--集中器抄表-->
-        <activity android:name="com.pl.concentrator.activity.CtConcentratorListActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtCopySituationActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtCopyDataBookDetailActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtNetworkingActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtMoveBookActivity" />
-        <activity android:name="com.pl.concentrator.activity.copy.CtCopyingActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtCopyBookChooseActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtCopyBookActivity" />
-        <activity android:name="com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity" />
+        <activity android:name=".activity.ct.CtConcentratorListActivity" />
+        <activity android:name=".activity.ct.CtCopySituationActivity" />
+        <activity android:name=".activity.ct.CtShowBookListCopyDataActivity" />
+        <activity android:name=".activity.ct.CtCopyDataBookDetailActivity" />
+        <activity android:name=".activity.ct.CtNetworkingActivity" />
+        <activity android:name=".activity.ct.CtMoveBookActivity" />
+        <activity android:name=".activity.ct.CtCopyingActivity" />
+        <activity android:name=".activity.ct.CtCopyBookChooseActivity" />
+        <activity android:name=".activity.ct.CtCopyBookActivity" />
+        <activity android:name=".activity.ct.CtShowBookListCopyDataICRFActivity" />
 
         <!--杭天抄表-->
-        <activity android:name=".activity.ht.HtFunctionTestActivity" />
-        <activity android:name=".activity.ht.HtCopyingActivity"/>
-        <activity android:name=".activity.ht.HtBookListActivity"/>
+        <activity android:name=".activity.ht.HtCopyingActivity" />
+        <activity android:name=".activity.ht.HtBookListActivity" />
+
+        <!--界面重构-->
+        <activity android:name=".activity.LogActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.DataManageActivity" />
+
 
     </application>
 </manifest>

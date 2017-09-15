@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pl.bll.SetBiz;
-import com.pl.concentrator.AppUrl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

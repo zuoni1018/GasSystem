@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/ct_title_bar_style" />
+    <include layout="@layout/title_bar_style" />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:2:1-268:12
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:2:1-255:12
 	package
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:4:5-31
 	android:versionName
@@ -126,7 +126,7 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:49:5-53:39
 	android:anyDensity
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:50:9-34
 application
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:55:5-267:19
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:55:5-254:19
 MERGED from [org.litepal.android:core:1.6.0] C:\Users\PVer\.android\build-cache\36b93d3a9260a65dd1231e99355a064635bb7763\output\AndroidManifest.xml:11:5-14:19
 MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\PVer\.android\build-cache\569592fa8096f3a4976b502fe566f4387d026c4e\output\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:29:5-20
@@ -141,441 +141,413 @@ MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\PVer\.android\
 MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\PVer\.android\build-cache\90b148499fcea71053299d2fc5d014bea7395829\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.0] C:\Users\PVer\.android\build-cache\21986f603033e2e366c753926bdf784d25e165ce\output\AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:60:9-41
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:59:9-41
 	android:supportsRtl
 		ADDED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\PVer\.android\build-cache\569592fa8096f3a4976b502fe566f4387d026c4e\output\AndroidManifest.xml:14:9-35
 	android:allowBackup
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:58:9-35
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:57:9-35
 	android:icon
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:59:9-43
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:58:9-43
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:61:9-40
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:60:9-40
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:57:9-44
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:56:9-38
 activity#com.pl.gassystem.MainActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:62:9-66:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:61:9-65:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:65:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:64:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:64:13-32
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:63:13-32
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:66:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:65:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:63:13-41
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:62:13-41
 activity#com.pl.gassystem.LoginActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:67:9-76:20
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:66:9-75:20
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:69:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:68:13-49
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:70:13-60
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:69:13-60
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:68:13-42
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:67:13-42
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:71:13-75:29
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:70:13-74:29
 action#android.intent.action.MAIN
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:72:17-69
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:71:17-69
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:72:25-66
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:71:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:74:17-77
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:73:17-77
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:74:27-74
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:73:27-74
 activity#com.pl.gassystem.GroupInfoStatisticActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:78:9-64
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:77:9-64
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:78:19-61
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:77:19-61
 activity#com.pl.gassystem.CopyDetailsActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:78:9-57
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:78:19-54
+activity#com.pl.gassystem.ExportExcelActivity
 ADDED from D:\zzz\GasSystem\AndroidManifest.xml:79:9-57
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:79:19-54
-activity#com.pl.gassystem.ExportExcelActivity
+activity#com.pl.gassystem.ImportExcelActivity
 ADDED from D:\zzz\GasSystem\AndroidManifest.xml:80:9-57
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:80:19-54
-activity#com.pl.gassystem.ImportExcelActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:81:9-57
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:81:19-54
 activity#com.pl.gassystem.BookInfoActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:82:9-86:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:81:9-85:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:85:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:84:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:84:13-61
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:83:13-61
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:86:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:85:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:83:13-45
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:82:13-45
 activity#com.pl.gassystem.BookInfoUpdateActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:87:9-91:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:86:9-90:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:90:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:89:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:89:13-68
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:88:13-68
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:91:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:90:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:88:13-51
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:87:13-51
 activity#com.pl.gassystem.GroupInfoActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:92:9-95:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:91:9-94:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:94:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:93:13-49
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:95:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:94:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:93:13-46
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:92:13-46
 activity#com.pl.gassystem.GroupInfoUpdateActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:96:9-100:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:95:9-99:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:99:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:98:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:98:13-69
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:97:13-69
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:100:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:99:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:97:13-52
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:96:13-52
 activity#com.pl.gassystem.CopyGroupActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:101:9-105:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:100:9-104:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:104:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:103:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:103:13-62
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:102:13-62
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:105:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:104:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:102:13-46
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:101:13-46
 activity#com.pl.gassystem.CopyOneActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:106:9-110:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:105:9-109:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:109:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:108:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:108:13-60
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:107:13-60
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:110:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:109:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:107:13-44
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:106:13-44
 activity#com.pl.gassystem.CopyingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:111:9-115:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:110:9-114:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:114:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:113:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:113:13-59
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:112:13-59
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:115:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:114:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:112:13-44
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:111:13-44
 activity#com.pl.gassystem.CopyResultActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:116:9-120:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:115:9-119:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:119:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:118:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:118:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:117:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:120:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:119:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:117:13-47
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:116:13-47
 activity#com.pl.gassystem.CopyDataDetailActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:121:9-125:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:120:9-124:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:124:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:123:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:123:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:122:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:125:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:124:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:122:13-51
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:121:13-51
 activity#com.pl.gassystem.CopyDataICRFDetailActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:126:9-130:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:125:9-129:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:129:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:128:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:128:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:127:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:130:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:129:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:127:13-55
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:126:13-55
 activity#com.pl.bluetooth.BluetoothChat
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:131:9-133:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:130:9-132:51
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:133:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:132:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:132:13-58
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:131:13-58
 activity#com.pl.gassystem.DeviceListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:134:9-138:70
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:133:9-137:70
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:137:13-63
-	android:configChanges
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:136:13-63
+	android:configChanges
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:135:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:138:13-67
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:137:13-67
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:135:13-47
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:134:13-47
 activity#com.pl.bluetooth.FullScreen
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:139:9-146:20
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:138:9-145:20
 	android:parentActivityName
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:141:13-72
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:140:13-72
 	android:windowSoftInputMode
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:142:13-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:141:13-65
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:140:13-55
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:139:13-55
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:143:13-145:66
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:142:13-144:66
 	android:value
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:145:17-63
-	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:144:17-63
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:143:17-63
 activity#com.pl.gassystem.GroupBindActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:147:9-150:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:146:9-149:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:149:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:148:13-49
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:150:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:149:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:148:13-46
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:147:13-46
 activity#com.pl.gassystem.MaintenanceActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:151:9-155:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:150:9-154:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:154:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:153:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:153:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:152:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:155:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:154:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:152:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:151:13-48
 activity#com.pl.gassystem.SelectMeterActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:156:9-160:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:155:9-159:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:159:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:158:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:158:13-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:157:13-64
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:160:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:159:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:157:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:156:13-48
 activity#com.pl.gassystem.InputComNumActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:161:9-165:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:160:9-164:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:164:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:163:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:163:13-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:162:13-65
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:165:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:164:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:162:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:161:13-48
 activity#com.pl.gassystem.DataDownloadActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:166:9-170:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:165:9-169:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:169:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:168:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:168:13-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:167:13-65
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:170:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:169:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:167:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:166:13-49
 activity#com.pl.gassystem.CopyPhotoActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:171:9-175:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:170:9-174:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:174:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:173:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:173:13-62
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:172:13-62
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:175:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:174:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:172:13-46
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:171:13-46
 activity#com.pl.gassystem.InputPhotoComNumActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:176:9-180:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:175:9-179:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:179:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:178:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:178:13-71
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:177:13-71
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:180:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:179:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:177:13-53
-activity#com.pl.gassystem.AboutActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:181:9-185:51
-	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:184:13-49
-	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:183:13-57
-	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:185:13-48
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:182:13-42
-activity#com.pl.gassystem.LogActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:186:9-190:51
-	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:189:13-49
-	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:188:13-55
-	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:190:13-48
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:187:13-40
-activity#com.pl.gassystem.DataManageActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:191:9-195:51
-	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:194:13-49
-	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:193:13-63
-	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:195:13-48
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:192:13-47
-activity#com.pl.gassystem.SettingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:196:9-200:51
-	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:199:13-49
-	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:198:13-59
-	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:200:13-48
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:197:13-44
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:176:13-53
 activity#com.pl.gassystem.SetUpdateActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:201:9-205:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:182:9-186:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:204:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:185:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:203:13-62
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:184:13-62
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:205:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:186:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:202:13-46
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:183:13-46
 activity#com.pl.qu.QRActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:206:9-211:63
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:187:9-192:63
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:210:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:191:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:209:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:190:13-48
 	android:windowSoftInputMode
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:211:13-60
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:192:13-60
 	android:configChanges
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:208:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:189:13-63
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:207:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:188:13-48
 activity#com.pl.gassystem.SetRunModeActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:212:9-216:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:193:9-197:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:215:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:196:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:214:13-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:195:13-64
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:216:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:197:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:213:13-47
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:194:13-47
 activity#com.pl.gassystem.SetCopyTimeActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:217:9-221:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:198:9-202:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:220:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:201:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:219:13-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:200:13-65
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:221:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:202:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:218:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:199:13-48
 activity#com.pl.gassystem.SHCmdActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:222:9-226:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:203:9-207:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:225:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:206:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:224:13-57
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:205:13-57
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:226:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:207:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:223:13-42
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:204:13-42
 activity#com.zxing.activity.CaptureActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:227:9-232:63
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:208:9-213:63
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:230:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:211:13-49
 	android:windowSoftInputMode
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:13-60
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:213:13-60
 	android:configChanges
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:229:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:210:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:231:13-71
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:212:13-71
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:228:13-62
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:209:13-62
 activity#com.pl.gassystem.CopySetMjcActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:9-237:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:214:9-218:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:217:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:13-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:216:13-64
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:218:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:13-47
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:215:13-47
 activity#com.pl.gassystem.OtherFunctionActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:239:9-59
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:220:9-59
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:239:19-56
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:220:19-56
 activity#com.pl.gassystem.userinfo.XiNingUserInfoImportActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:9-75
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:221:9-75
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:19-72
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:221:19-72
 activity#com.pl.gassystem.CopyResultActivityWarnBig
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:243:9-247:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:224:9-228:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:246:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:227:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:226:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:247:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:228:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:13-54
-activity#com.pl.concentrator.activity.CtConcentratorListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:9-92
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:225:13-54
+activity#com.pl.gassystem.activity.ct.CtConcentratorListActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:9-76
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:19-89
-activity#com.pl.concentrator.activity.CtCopySituationActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:9-89
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:19-73
+activity#com.pl.gassystem.activity.ct.CtCopySituationActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:9-73
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:19-86
-activity#com.pl.concentrator.activity.CtShowBookListCopyDataActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:253:9-96
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:19-70
+activity#com.pl.gassystem.activity.ct.CtShowBookListCopyDataActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:9-80
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:253:19-93
-activity#com.pl.concentrator.activity.CtCopyDataBookDetailActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:254:9-94
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:19-77
+activity#com.pl.gassystem.activity.ct.CtCopyDataBookDetailActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:9-78
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:254:19-91
-activity#com.pl.concentrator.activity.CtNetworkingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:255:9-86
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:19-75
+activity#com.pl.gassystem.activity.ct.CtNetworkingActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:9-70
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:255:19-83
-activity#com.pl.concentrator.activity.CtMoveBookActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:256:9-84
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:19-67
+activity#com.pl.gassystem.activity.ct.CtMoveBookActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:9-68
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:256:19-81
-activity#com.pl.concentrator.activity.copy.CtCopyingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:9-88
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:19-65
+activity#com.pl.gassystem.activity.ct.CtCopyingActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:238:9-67
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:257:19-85
-activity#com.pl.concentrator.activity.CtCopyBookChooseActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:9-90
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:238:19-64
+activity#com.pl.gassystem.activity.ct.CtCopyBookChooseActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:239:9-74
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:258:19-87
-activity#com.pl.concentrator.activity.CtCopyBookActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:9-84
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:239:19-71
+activity#com.pl.gassystem.activity.ct.CtCopyBookActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:9-68
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:259:19-81
-activity#com.pl.concentrator.activity.CtShowBookListCopyDataICRFActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:260:9-100
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:19-65
+activity#com.pl.gassystem.activity.ct.CtShowBookListCopyDataICRFActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:241:9-84
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:260:19-97
-activity#com.pl.gassystem.activity.ht.HtFunctionTestActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:263:9-72
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:263:19-69
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:241:19-81
 activity#com.pl.gassystem.activity.ht.HtCopyingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:9-66
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:9-67
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:264:19-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:19-64
 activity#com.pl.gassystem.activity.ht.HtBookListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:9-67
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:9-68
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:265:19-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:19-65
+activity#com.pl.gassystem.activity.LogActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:248:9-58
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:248:19-55
+activity#com.pl.gassystem.activity.AboutActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:249:9-60
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:249:19-57
+activity#com.pl.gassystem.activity.SettingActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:9-62
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:19-59
+activity#com.pl.gassystem.activity.DataManageActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:9-65
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:19-62
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:25:5-27:34

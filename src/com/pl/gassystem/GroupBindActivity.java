@@ -24,7 +24,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pl.adapter.GroupBindAdapter;
+import com.pl.gassystem.adapter.main.GroupBindAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupBindBiz;
 import com.pl.common.CustomProgressDialog;
