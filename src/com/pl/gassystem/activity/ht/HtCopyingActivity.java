@@ -17,11 +17,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.utils.LogUtil;
+import com.common.utils.SPUtils;
 import com.pl.bluetooth.BluetoothChatService;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.R;
+import com.pl.gassystem.bean.ht.HtGetMessage;
 import com.pl.gassystem.bean.ht.HtSendMessage;
 import com.pl.gassystem.command.HtCommand;
+import com.pl.gassystem.utils.CalendarUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,6 +61,8 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     ImageButton btnCopyingStop;
     @BindView(R.id.tvDeviceState)
     TextView tvDeviceState;
+    @BindView(R.id.tvMessage)
+    TextView tvMessage;
 
     //蓝牙
     private BluetoothAdapter mBluetoothAdapter;// 本地蓝牙适配器
@@ -82,6 +89,15 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     public static final String DEVICE_NAME = "device_name";
 
 
+    private String commandType;//命令类型
+    private String bookNo;//单抄 表号
+
+    private String copyType = "";//抄表方式为群抄还是单抄
+    private ArrayList<String> bookNos;//一大堆表号
+
+    private int num = 0;//当前返回的数据
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,15 +114,40 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             finish();//退出当前界面并不执行下面代码
             return;
         }
+        //获取Intent传过来的信息
+        commandType = getIntent().getStringExtra("commandType");
+        bookNos = new ArrayList<>();
+
+        //一下三种命令下 只接收燃气表号 和 抄表命令类型 就可以了
+        if (commandType.equals(HtSendMessage.COMMAND_TYPE_DOOR_STATE)
+                | commandType.equals(HtSendMessage.COMMAND_TYPE_OPEN_DOOR)
+                | commandType.equals(HtSendMessage.COMMAND_TYPE_CLOSE_DOOR)) {
+            bookNo = getIntent().getStringExtra("bookNo");
+        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+            copyType = getIntent().getStringExtra("copyType");
+            if (copyType.equals(HtSendMessage.COPY_TYPE_SINGLE)) {
+                //单抄
+                bookNo = getIntent().getStringExtra("bookNo");
+                tvLoadingAll.setText("1");
+            } else {
+                //群抄
+                bookNos = getIntent().getStringArrayListExtra("bookNos");
+                tvLoadingAll.setText(bookNos.size() + "");
+            }
+
+
+        }
+
 
         mChatService = new BluetoothChatService(this, mHandler);//蓝牙可用则开启一个蓝牙服务
 
 
         // 检测是否能自动连接蓝牙
-//        String address = preferenceBiz.getDeviceAddress();
-//        if (address != null) {
-//            connectDevice(address, true);
-//        }
+        String address = (String) SPUtils.get(getContext(), "htDevice", "");
+        assert address != null;
+        if (!address.trim().equals("")) {
+            connectDevice(address, true);
+        }
 
     }
 
@@ -174,36 +215,59 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                 }
                 break;
             case R.id.btnCopyingRead:
-//                if (nowConnectState == DEVICE_STATE_CONNECTED) {
-                //向蓝牙发送一条命令
-                createCommand();
-//                } else {
-//                    showToast("请先连接蓝牙");
-//                }
 
-               break;
+                if (nowConnectState == DEVICE_STATE_CONNECTED) {
+
+                    num = 0;
+                    tvLoadingCount.setText(num + "");
+
+                    //向蓝牙发送一条命令
+                    createCommand();
+                } else {
+                    showToast("请先连接蓝牙");
+                }
+
+                break;
             case R.id.btnCopyingStop:
-                HtCommand.readMessage("");
+
                 break;
         }
     }
 
     private void createCommand() {
-
         HtSendMessage htSendMessage = new HtSendMessage();
 
-        htSendMessage.setCommandType(HtSendMessage.COMMAND_TYPE_DOOR_STATE);//设置命令类型
+        htSendMessage.setCommandType(commandType);//设置命令类型
 
-        htSendMessage.setBookNo("04000015");//设置表号
 
-        htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
+        if (copyType.equals(HtSendMessage.COPY_TYPE_GROUP)) {
+            //群抄
+            htSendMessage.setBookNo("FFFFFFFF");//设置表号
 
-        htSendMessage.setWakeUpTime(3000);
+            htSendMessage.setBookNos(bookNos);//设置一大堆表号
 
+            htSendMessage.setSetTime(CalendarUtils.getHtTime()); // 17 09 15 14 10 00
+
+            htSendMessage.setWakeUpTime(6000);
+
+            htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_GROUP);
+
+            htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
+
+
+        } else {
+            // 单抄 查看阀门状态 开关阀门 都只用执行以下代码即可
+
+            htSendMessage.setBookNo(bookNo);//设置表号
+
+            htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
+
+            htSendMessage.setWakeUpTime(6000);
+
+            htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_SINGLE);
+        }
         String message = HtCommand.encodeHangTian(htSendMessage);
-
         sendMessage(message);
-
     }
 
 
@@ -268,6 +332,8 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                         case BluetoothChatService.STATE_CONNECTED:
                             LogUtil.i("蓝牙设备", "蓝牙链接上了");
                             setBluetoothState(DEVICE_STATE_CONNECTED);
+
+                            createCommand();
                             break;
 
                         //正在连接
@@ -289,9 +355,11 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     byte[] readBuf = (byte[]) msg.obj;
                     // 构建一个字符串有效字节的缓冲区
                     String readMessage = new String(readBuf, 0, msg.arg1);
-                    LogUtil.i("蓝牙得到结果",readMessage);
+                    LogUtil.i("蓝牙得到结果", readMessage);
+                    readMessage(readMessage);
 
                     break;
+
                 case MESSAGE_DEVICE_NAME:
                     // 保存连接设备的名字
                     mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
@@ -303,6 +371,19 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             }
         }
     };
+
+    private void readMessage(String readMessage) {
+        if (readMessage.length() > 25) {
+            HtGetMessage htGetMessage = HtCommand.readMessage(readMessage);
+            if (htGetMessage != null) {
+                LogUtil.i("抄表结果", htGetMessage.getResult());
+                num++;
+                tvLoadingCount.setText(num + "");
+                tvMessage.setText(tvMessage.getText().toString().trim() + "\n" + htGetMessage.getResult());
+            }
+        }
+
+    }
 
     /**
      * 根据蓝牙链接状态设置对应的UI
@@ -326,6 +407,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
      * 连接设备
      */
     private void connectDevice(String address, boolean secure) {
+        SPUtils.put(getContext(), "htDevice", address);
         BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
         mChatService.connect(device);
     }
@@ -341,6 +423,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     String address = data.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
                     connectDevice(address, true);//连接蓝牙设备
+
                 }
                 break;
             case REQUEST_ENABLE_BT:

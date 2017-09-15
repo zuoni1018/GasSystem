@@ -432,7 +432,7 @@ public class CopyingActivity extends Activity {
                 } else if (operationType == GlobalConsts.COPY_OPERATION_COMNUMBER) {// 设置通讯号
                     if(runMode.equals(GlobalConsts.RUNMODE_ZHGT)){
                         //港泰
-                        data.setCmdType("87");
+                        data.setCmdType("87");//87
                     }else {
                         //普通
                         data.setCmdType("05");
@@ -576,6 +576,7 @@ public class CopyingActivity extends Activity {
 
     // 发送蓝牙消息
     private void sendMessage(String message) {
+        LogUtil.i("嗷嗷啊",message);
 
         // 检查连接
         if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {

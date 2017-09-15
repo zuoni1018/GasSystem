@@ -44,6 +44,9 @@ public class HhProtocol {
 		if (cmd.isEmpty()) {
 			return dataLength = "00";
 		}
+		if(cmd.equals("87")){
+			cmd="05";
+		}
 		int cmdInt = Cfun.parseToInt(cmd, 0, 16);
 		switch (cmdInt) {
 		case 0x04:
@@ -96,7 +99,6 @@ public class HhProtocol {
 	 * 组包
 	 * 
 	 * @param data
-	 * @param x
 	 * @return
 	 */
 	public String encode(CqueueData data) {
@@ -624,6 +626,10 @@ public class HhProtocol {
 		if(cmdType.equals("83")){
 			cmdType = "03";
 		}
+//		if(cmdType.equals("87")){
+//			cmdType="87";
+//		}
+
 		datas.setCmdType(cmdType);
 		String data1 = "";
 		if (cmdType.equals("ff") || cmdType.equals("01")) {// 抄表数据

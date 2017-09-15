@@ -34,55 +34,125 @@ public class HtCommand {
 
 
     public static String encodeHangTian(HtSendMessage htSendMessage) {
-        String htCommand = "";
 
-        //获得明文 命令吗+表号s+异或吗+80补全
-        String seeMessage = htSendMessage.getCommandType() + htSendMessage.getBookNo()
-                + Cfun.getBCC(Cfun.x16Str2Byte(htSendMessage.getCommandType() + htSendMessage.getBookNo()));
-        //明文补全80 00
-        if (seeMessage.length() < 32) {
-            int addLength = 32 - seeMessage.length();
-            seeMessage = seeMessage + "80";
-            if (addLength > 2) {
-                //判断需要加几个 00
-                int add0Num = addLength / 2 - 1;
-                for (int i = 0; i < add0Num; i++) {
-                    seeMessage = seeMessage + "00";
+
+        if (htSendMessage.getCopyType().equals(HtSendMessage.COPY_TYPE_GROUP)) {
+            //群抄命令
+            //获取明文
+            String seeMessage=htSendMessage.getCommandType()+htSendMessage.getBookNo();
+            //群抄表数量
+            if(htSendMessage.getBookNos().size()<10){
+                seeMessage+="0"+htSendMessage.getBookNos().size();
+            }else {
+                seeMessage+=htSendMessage.getBookNos().size();
+            }
+
+            //拼接表号
+            for (int i = 0; i <htSendMessage.getBookNos().size() ; i++) {
+                seeMessage+=htSendMessage.getBookNos().get(i);
+            }
+            //拼接日期
+            seeMessage+=htSendMessage.getSetTime();
+            //异或
+            seeMessage=seeMessage+Cfun.getBCC(Cfun.x16Str2Byte(seeMessage));
+            //补全32位的倍数
+            int l=seeMessage.length();
+            int a=l/32;//整数倍
+            int b=l%32;//余数
+
+            if(b!=0){
+                //说明明文不是32的整数倍
+                if (seeMessage.length() < 32*(a+1)) {
+                    int addLength = 32*(a+1) - seeMessage.length();
+                    seeMessage = seeMessage + "80";
+                    if (addLength > 2) {
+                        //判断需要加几个 00
+                        int add0Num = addLength / 2 - 1;
+                        for (int i = 0; i < add0Num; i++) {
+                            seeMessage = seeMessage + "00";
+                        }
+                    }
                 }
             }
-        }
-        LogUtil.i("杭天", "明文 " + seeMessage);
 
-        //明文AES加密
-        String cipherMessage = HtCommand.encodeHangTian(seeMessage);//密文
-        //密文 68+"密文长度"(16进制)+密文+"16"
-        cipherMessage = "68" + Integer.toHexString(cipherMessage.length() / 2) + cipherMessage + "16";//密文设置起始符号
 
-        LogUtil.i("杭天", "明文加密 " + cipherMessage);
 
-        //唤醒时间 ms*100 转16进制
-        int time = htSendMessage.getWakeUpTime() / 100;
-        String weekUpTime;
-        if (time < 16) {
-            //说明生成的唤醒时间就只有一位
-            weekUpTime = "0" + Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+            LogUtil.i("杭天", "群抄明文 " + seeMessage);
+
+            //明文AES加密
+            String cipherMessage =parseByte2HexStr(encrypt(seeMessage, HT_PASSWORD));//密文
+            LogUtil.i("杭天", "明文加密1 " + cipherMessage);
+            //密文 68+"密文长度"(16进制)+密文+"16"
+            cipherMessage = "68" + Integer.toHexString(cipherMessage.length() / 2) + cipherMessage + "16";//密文设置起始符号
+            LogUtil.i("杭天", "明文加密2 " + cipherMessage);
+            //唤醒时间 ms*100 转16进制
+            int time = htSendMessage.getWakeUpTime() / 100;
+            String weekUpTime;
+            if (time < 16) {
+                //说明生成的唤醒时间就只有一位
+                weekUpTime = "0" + Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+            } else {
+                weekUpTime = Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+            }
+
+            LogUtil.i("杭天", "唤醒时间 " + weekUpTime);
+            //组合成命令 "68" +厂商编号 +密文长度+2(数据长度) +工作模式(06)+唤醒标志+唤醒时间+信道+扩频因子+加密明文+"16"
+            String commandMessage = "6808" + Integer.toHexString(cipherMessage.length() / 2 + 2) + "06" + htSendMessage.getWakeUpMark() + weekUpTime + "0E09"
+                    + cipherMessage + "16";
+
+            LogUtil.i("杭天", "发送密文 " + commandMessage);
+
+            return commandMessage;
         } else {
-            weekUpTime = Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+
+            //获得明文 命令吗+表号s+异或吗+80补全
+            String seeMessage = htSendMessage.getCommandType() + htSendMessage.getBookNo()
+                    + Cfun.getBCC(Cfun.x16Str2Byte(htSendMessage.getCommandType() + htSendMessage.getBookNo()));
+            //明文补全80 00
+            if (seeMessage.length() < 32) {
+                int addLength = 32 - seeMessage.length();
+                seeMessage = seeMessage + "80";
+                if (addLength > 2) {
+                    //判断需要加几个 00
+                    int add0Num = addLength / 2 - 1;
+                    for (int i = 0; i < add0Num; i++) {
+                        seeMessage = seeMessage + "00";
+                    }
+                }
+            }
+            LogUtil.i("杭天", "明文 " + seeMessage);
+
+            //明文AES加密
+            String cipherMessage =parseByte2HexStr(encrypt(seeMessage, HT_PASSWORD));//密文
+            //密文 68+"密文长度"(16进制)+密文+"16"
+            cipherMessage = "68" + Integer.toHexString(cipherMessage.length() / 2) + cipherMessage + "16";//密文设置起始符号
+
+            LogUtil.i("杭天", "明文加密 " + cipherMessage);
+
+            //唤醒时间 ms*100 转16进制
+            int time = htSendMessage.getWakeUpTime() / 100;
+            String weekUpTime;
+            if (time < 16) {
+                //说明生成的唤醒时间就只有一位
+                weekUpTime = "0" + Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+            } else {
+                weekUpTime = Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+            }
+
+            LogUtil.i("杭天", "唤醒时间 " + weekUpTime);
+            //组合成命令 "68" +厂商编号 +密文长度+2(数据长度) +工作模式(06)+唤醒标志+唤醒时间+信道+扩频因子+加密明文+"16"
+            String commandMessage = "6808" + Integer.toHexString(cipherMessage.length() / 2 + 2) + "06" + htSendMessage.getWakeUpMark() + weekUpTime + "0E09"
+                    + cipherMessage + "16";
+
+            LogUtil.i("杭天", "发送密文 " + commandMessage);
+
+            return commandMessage;
         }
 
-        LogUtil.i("杭天", "唤醒时间 " + weekUpTime);
-        //组合成命令 "68" +厂商编号 +密文长度+2(数据长度) +工作模式(06)+唤醒标志+唤醒时间+信道+扩频因子+加密明文+"16"
-        String commandMessage = "6808" + Integer.toHexString(cipherMessage.length() / 2 + 2) + "06" + htSendMessage.getWakeUpMark() + weekUpTime + "0E09"
-                + cipherMessage + "16";
-
-        LogUtil.i("杭天", "发送密文 " + commandMessage);
-
-
-        return commandMessage;
     }
 
-    public static void readMessage(String result) {
-        result = "68081306011e68102e0a2999a7e0e7a018a222645c6adf821616";
+    public static HtGetMessage readMessage(String result) {
+//        result = "68081306011e68102e0a2999a7e0e7a018a222645c6adf821616";
         //表 04 00 00 15 查看阀门状态
         //68 08 13 06 01 1e 68 10| 2e 0a 29 99 a7 e0 e7 a0 18 a2 22 64 5c 6a df 82 |16 16
         //取中间的模块
@@ -98,51 +168,78 @@ public class HtCommand {
             String seeMessage = parseByte2HexStr(decrypt(parseHexStr2Byte(cipherMessage), HT_PASSWORD));
             LogUtil.i("杭天", "获得明文" + seeMessage);
             //8204000015C32474 8000000000000000
+            //8404000015C32472 8000000000000000
+            //8304000015C22474 8000000000000000
+            HtGetMessage htGetMessage = new HtGetMessage();
 
-            HtGetMessage htGetMessage=new HtGetMessage();
 
             //前2位为命令类型
-            String commandType=seeMessage.substring(0,2);
+            String commandType = seeMessage.substring(0, 2);
+            htGetMessage.setCommandType(commandType);
+            LogUtil.i("杭天", "命令类型" + commandType);
 
-            if(commandType.equals(HtGetMessage.COMMAND_TYPE_DOOR_STATE)){
-                //当前命令为查看阀门状态
-                htGetMessage.setCommandType(HtGetMessage.COMMAND_TYPE_DOOR_STATE);
+
+            if (commandType.equals(HtGetMessage.COMMAND_TYPE_DOOR_STATE)
+                    | commandType.equals(HtGetMessage.COMMAND_TYPE_CLOSE_DOOR)
+                    | commandType.equals(HtGetMessage.COMMAND_TYPE_OPEN_DOOR)) {
+                //这3种命令类型 只会获取 阀门状态 电压值 信号强度
+
                 //阀门状态
-                String valveState=seeMessage.substring(10,12);
+                String valveState = seeMessage.substring(10, 12);
+
                 htGetMessage.setValveState(valveState);
                 LogUtil.i("杭天", "阀门状态" + valveState);
                 //获取电压值
-                String voltage=seeMessage.substring(12,14);
+                String voltage = seeMessage.substring(12, 14);
                 htGetMessage.setVoltage(voltage);
                 //获取信号强度
-                String signal=seeMessage.substring(14,16);
+                String signal = seeMessage.substring(14, 16);
+                htGetMessage.setSignal(signal);
+            } else if (commandType.equals(HtGetMessage.COMMAND_TYPE_COPY_NORMAL)) {
+                //抄表命令为普通抄表(区别冻结抄表)
+
+                //冻结日期
+                String frozenTime = seeMessage.substring(10, 14);
+                htGetMessage.setFrozenTime(frozenTime);
+                //获取读数
+                String copyValue = seeMessage.substring(14, 22);
+                htGetMessage.setCopyValue(copyValue);
+
+                //获取阀门状态
+                String valveState = seeMessage.substring(22, 24);
+                htGetMessage.setValveState(valveState);
+
+                //获取电压值
+                String voltage = seeMessage.substring(24, 26);
+                htGetMessage.setVoltage(voltage);
+
+                //获取信号强度
+                String signal = seeMessage.substring(26, 28);
                 htGetMessage.setSignal(signal);
             }
 
-            String bookNo=seeMessage.substring(3,10);
+            String bookNo = seeMessage.substring(3, 10);
             htGetMessage.setBookNo(bookNo);
 
-            LogUtil.i("杭天", "解析结果:\n"+" 命令类型:"+htGetMessage.getCommandType()
-                    +" 表号:"+htGetMessage.getBookNo()
-                    +" 阀门状态:"+htGetMessage.getValveState()+" 电池电压:"+htGetMessage.getVoltage()
-                    +" 信号强度:"+htGetMessage.getSignal() );
-
+//            LogUtil.i("杭天", "解析结果:\n" + " 命令类型:" + htGetMessage.getCommandType()
+//                    + " 表号:" + htGetMessage.getBookNo()
+//                    + " 阀门状态:" + htGetMessage.getValveState() + " 电池电压:" + htGetMessage.getVoltage()
+//                    + " 信号强度:" + htGetMessage.getSignal());
+            return htGetMessage;
         }
-
-
+        return null;
     }
 
     /**
-     * 将16进制转换为二进制
+     * 将16进制转换为10进制
      */
-    private static byte[] parseHexStr2Byte(String hexStr) {
+    public static byte[] parseHexStr2Byte(String hexStr) {
         if (hexStr.length() < 1)
             return null;
         byte[] result = new byte[hexStr.length() / 2];
         for (int i = 0; i < hexStr.length() / 2; i++) {
             int high = Integer.parseInt(hexStr.substring(i * 2, i * 2 + 1), 16);
-            int low = Integer.parseInt(hexStr.substring(i * 2 + 1, i * 2 + 2),
-                    16);
+            int low = Integer.parseInt(hexStr.substring(i * 2 + 1, i * 2 + 2), 16);
             result[i] = (byte) (high * 16 + low);
         }
         return result;

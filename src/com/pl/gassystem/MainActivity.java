@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.pl.bll.PreferenceBiz;
 import com.pl.common.MyApplication;
 import com.pl.concentrator.activity.CtConcentratorListActivity;
-import com.pl.gassystem.activity.ht.HtFunctionTestActivity;
+import com.pl.gassystem.activity.ht.HtBookListActivity;
 import com.pl.utils.GlobalConsts;
 
 /**
@@ -131,7 +131,7 @@ public class MainActivity extends Activity implements OnTouchListener {
             @Override
             public void onClick(View v) {
 
-                Intent mIntent=new Intent(MainActivity.this, HtFunctionTestActivity.class);
+                Intent mIntent=new Intent(MainActivity.this, HtBookListActivity.class);
                 startActivity(mIntent);
             }
         });

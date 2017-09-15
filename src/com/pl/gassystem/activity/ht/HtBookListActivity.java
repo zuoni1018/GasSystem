@@ -2,14 +2,19 @@ package com.pl.gassystem.activity.ht;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.pl.gassystem.R;
 import com.pl.gassystem.adapter.ht.RvHtBookChooseAdapter;
 import com.pl.gassystem.bean.ht.HtBook;
+import com.pl.gassystem.bean.ht.HtSendMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +32,17 @@ public class HtBookListActivity extends HtBaseTitleActivity {
     LRecyclerView mRecyclerView;
     @BindView(R.id.btGoCopy)
     Button btGoCopy;
+    @BindView(R.id.mRadioGroup)
+    RadioGroup mRadioGroup;
+    @BindView(R.id.etAddBook)
+    EditText etAddBook;
+    @BindView(R.id.tvAddBook)
+    Button tvAddBook;
 
     private List<HtBook> mList;
     private LRecyclerViewAdapter mAdapter;
+
+    private String nowCommandType = "";//当前操作类型
 
     @Override
     protected int setLayout() {
@@ -40,7 +53,7 @@ public class HtBookListActivity extends HtBaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setTitle("杭天表列表");
+        setTitle("杭天燃气表测试");
         mList = new ArrayList<>();
         mList.add(getHtBook("04000015"));
         mList.add(getHtBook("05170016"));
@@ -48,6 +61,48 @@ public class HtBookListActivity extends HtBaseTitleActivity {
         mAdapter = new LRecyclerViewAdapter(new RvHtBookChooseAdapter(getContext(), mList));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
+
+
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switch (checkedId) {
+                    case R.id.rbValveState:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_DOOR_STATE;
+                        break;
+                    case R.id.rbOpenValve:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_OPEN_DOOR;
+                        break;
+                    case R.id.rbCloseValve:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_CLOSE_DOOR;
+                        break;
+                    case R.id.rbCopyFrozen:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_COPY_FROZEN;
+                        break;
+                    case R.id.rbCopy:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_COPY_NORMAL;
+                        break;
+                }
+            }
+        });
+
+        tvAddBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String addbook=etAddBook.getText().toString().trim();
+                if(addbook.length()!=8){
+                    showToast("杭天表号为8位 请重新输入");
+                }else {
+                    HtBook htBook=new HtBook();
+                    htBook.setBookNum(addbook);
+                    htBook.setChoose(false);
+                    mList.add(htBook);
+                    mAdapter.notifyDataSetChanged();
+                    etAddBook.setText("");
+                }
+
+            }
+        });
     }
 
     private HtBook getHtBook(String bookNum) {
@@ -60,18 +115,51 @@ public class HtBookListActivity extends HtBaseTitleActivity {
 
     @OnClick(R.id.btGoCopy)
     public void onViewClicked() {
-        ArrayList<String> BookNoList = new ArrayList<>();
-        for (int i = 0; i <mList.size() ; i++) {
-            if(mList.get(i).isChoose()){
-                BookNoList.add(mList.get(i).getBookNum());
+
+
+        if (nowCommandType.equals("")) {
+            showToast("请先选择命令类型");
+        } else {
+            ArrayList<String> BookNoList = new ArrayList<>();
+            for (int i = 0; i < mList.size(); i++) {
+                if (mList.get(i).isChoose()) {
+                    BookNoList.add(mList.get(i).getBookNum());
+                }
             }
+            if (BookNoList.size() == 0) {
+                showToast("您还未选择燃气表");
+            } else {
+                Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
+                mIntent.putExtra("commandType", nowCommandType);//输入命令指令
+                if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_DOOR_STATE)) {
+                    //查询阀门状态
+                    mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
+
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_CLOSE_DOOR)) {
+                    mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
+
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_OPEN_DOOR)) {
+                    mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
+
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
+                    showToast("未开发");
+                    return;
+
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+                    if (BookNoList.size() > 1) {
+                        mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
+                        mIntent.putStringArrayListExtra("bookNos", BookNoList);
+                    } else {
+                        mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_SINGLE);//单抄
+                        mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
+                    }
+                }
+                startActivity(mIntent);
+            }
+
+
         }
-        if(BookNoList.size()==0){
-            showToast("您还未选择燃气表");
-        }else {
-            Intent mIntent=new Intent(getContext(),HtCopyingActivity.class);
-            mIntent.putStringArrayListExtra("books",BookNoList);
-            startActivity(mIntent);
-        }
+
+
     }
 }
