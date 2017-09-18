@@ -15,6 +15,11 @@ public class HtSendMessage {
     public static final String COMMAND_TYPE_CLOSE_DOOR = "03";//关闭阀门
     public static final String COMMAND_TYPE_COPY_FROZEN = "01";//抄取冻结量
     public static final String COMMAND_TYPE_COPY_NORMAL = "09";//抄取实时量
+    public static final String COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT = "91";//设置表号或者累计量
+    public static final String COMMAND_TYPE_QUERY_PARAMETER = "bc";//查询参数
+    public static final String COMMAND_TYPE_SET_PARAMETER = "06";//设置参数
+
+
 
     //唤醒模式
     public static final String WAKE_UP_MARK_00 = "00";//不唤醒
@@ -25,12 +30,33 @@ public class HtSendMessage {
     public static final String COPY_TYPE_SINGLE = "01";//单抄
     public static final String COPY_TYPE_GROUP = "02";//群抄
 
+
+    private String kuoPinYinZi = "";//扩频因子
+    private String kuoPinXinDao = "";//扩频信道
     private String commandType;//操作类型
     private String bookNo;//操作表号
-    private List<String > bookNos;//操作的一群表号
+    private List<String> bookNos;//操作的一群表号
     private String wakeUpMark;//唤醒标志
     private int wakeUpTime;//唤醒时间 传入ms 转成16进制
     private String setTime;//设置抄表时间
+    private String copyType;//如果是抄表  分为单抄和群抄
+
+
+    public String getKuoPinYinZi() {
+        return kuoPinYinZi;
+    }
+
+    public void setKuoPinYinZi(String kuoPinYinZi) {
+        this.kuoPinYinZi = kuoPinYinZi;
+    }
+
+    public String getKuoPinXinDao() {
+        return kuoPinXinDao;
+    }
+
+    public void setKuoPinXinDao(String kuoPinXinDao) {
+        this.kuoPinXinDao = kuoPinXinDao;
+    }
 
     public String getCopyType() {
         return copyType;
@@ -39,10 +65,6 @@ public class HtSendMessage {
     public void setCopyType(String copyType) {
         this.copyType = copyType;
     }
-
-    private String copyType;//如果是抄表  分为单抄和群抄
-
-
 
 
     public String getSetTime() {
@@ -53,8 +75,6 @@ public class HtSendMessage {
         this.setTime = setTime;
     }
 
-
-
     public List<String> getBookNos() {
         return bookNos;
     }
@@ -62,8 +82,6 @@ public class HtSendMessage {
     public void setBookNos(List<String> bookNos) {
         this.bookNos = bookNos;
     }
-
-
 
     public String getCommandType() {
         return commandType;
@@ -80,7 +98,6 @@ public class HtSendMessage {
     public void setBookNo(String bookNo) {
         this.bookNo = bookNo;
     }
-
 
 
     public String getWakeUpMark() {

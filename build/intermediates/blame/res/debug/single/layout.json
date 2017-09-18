@@ -40,12 +40,12 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_concentrator_list.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_concentrator_list.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_copying.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_copying.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_concentrator_list.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ct_activity_concentrator_list.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
@@ -420,6 +420,10 @@
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_book_info.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_set_book_parameter.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ht_activity_set_book_parameter.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_one.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\activity_copy_one.xml"
     },
@@ -458,6 +462,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\date_item.xml",
         "source": "D:\\zzz\\GasSystem\\res\\layout\\date_item.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_set_book_no.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ht_activity_set_book_no.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_input_photo_com_num.xml",
@@ -542,6 +550,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_maintenance.xml",
+        "source": "D:\\zzz\\GasSystem\\res\\layout\\ht_activity_maintenance.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_groupbind_info.xml",

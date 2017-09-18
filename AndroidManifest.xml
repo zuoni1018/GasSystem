@@ -243,6 +243,8 @@
         <!--杭天抄表-->
         <activity android:name=".activity.ht.HtCopyingActivity" />
         <activity android:name=".activity.ht.HtBookListActivity" />
+        <activity android:name=".activity.ht.HtChangeBookNoOrCumulantActivity"/>
+        <activity android:name=".activity.ht.HtSetBookParameterActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />

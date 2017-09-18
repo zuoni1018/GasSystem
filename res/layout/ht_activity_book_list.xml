@@ -7,103 +7,132 @@
 
     <include layout="@layout/title_bar_style" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="选取指令:"
-        android:textColor="@color/color_black"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        />
-    <RadioGroup
-        android:id="@+id/mRadioGroup"
-        android:layout_marginTop="5dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!--<LinearLayout-->
-           <!--android:gravity="center"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/rbValveState"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="阀门状态" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="选取指令:"
+                android:textColor="@color/color_black"
+                android:textSize="14sp" />
 
-            <RadioButton
-                android:id="@+id/rbOpenValve"
+            <RadioGroup
+                android:id="@+id/mRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <!--<LinearLayout-->
+                <!--android:gravity="center"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+
+                <RadioButton
+                    android:id="@+id/rbValveState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="阀门状态" />
+
+                <RadioButton
+                    android:id="@+id/rbOpenValve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开阀" />
+
+                <RadioButton
+                    android:id="@+id/rbCloseValve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关阀" />
+
+
+                <RadioButton
+                    android:id="@+id/rbCopyFrozen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抄取冻结量" />
+
+                <RadioButton
+                    android:id="@+id/rbCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抄表" />
+
+                <RadioButton
+                    android:id="@+id/rbSetBookNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设置表号/累计量" />
+
+                <RadioButton
+                    android:id="@+id/rbQueryParameter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查询参数" />
+
+                <RadioButton
+                    android:id="@+id/rbSetParameter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设置参数" />
+            </RadioGroup>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="开阀" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="选择要操作的表:"
+                android:textColor="@color/color_black"
+                android:textSize="14sp" />
 
-            <RadioButton
-                android:id="@+id/rbCloseValve"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="关阀" />
-
-
-        <!--</LinearLayout>-->
-        <!--<LinearLayout-->
-            <!--android:gravity="center"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <RadioButton
-                android:id="@+id/rbCopyFrozen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="抄取冻结量" />
-
-            <RadioButton
-                android:id="@+id/rbCopy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="抄表" />
-
-        <!--</LinearLayout>-->
-
-    </RadioGroup>
+            <com.github.jdsjlzx.recyclerview.LRecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
 
-    <com.github.jdsjlzx.recyclerview.LRecyclerView
-        android:id="@+id/mRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:hint="请输入8位表号"
+                    android:id="@+id/etAddBook"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/tvAddBook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="添加一张表"
+                    android:textColor="@color/color_black"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btGoCopy"
+                style="@style/ht_test_button_style"
+                android:text="开始查询" />
+        </LinearLayout>
+
+    </ScrollView>
 
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        >
-        <EditText
-            android:inputType="number"
-            android:id="@+id/etAddBook"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
-        <Button
-            android:textSize="10sp"
-            android:textColor="@color/color_black"
-            android:text="添加一张表"
-            android:id="@+id/tvAddBook"
-            android:layout_width="70dp"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-    <Button
-        android:id="@+id/btGoCopy"
-        style="@style/ht_test_button_style"
-        android:text="开始查询" />
 </LinearLayout>

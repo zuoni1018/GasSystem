@@ -7,19 +7,20 @@ package com.pl.gassystem.bean.ht;
 
 public class HtGetMessage {
     //命令类型
-    public static String COMMAND_TYPE_DOOR_STATE = "82";//查看阀门状态
-    public static String COMMAND_TYPE_OPEN_DOOR = "84";//打开阀门
-    public static String COMMAND_TYPE_CLOSE_DOOR = "83";//关闭阀门
-    public static String COMMAND_TYPE_COPY_FROZEN = "81";//抄取冻结量
-    public static String COMMAND_TYPE_COPY_NORMAL = "89";//抄取实时量
+    public static final String COMMAND_TYPE_DOOR_STATE = "82";//查看阀门状态
+    public static final String COMMAND_TYPE_OPEN_DOOR = "84";//打开阀门
+    public static final String COMMAND_TYPE_CLOSE_DOOR = "83";//关闭阀门
+    public static final String COMMAND_TYPE_COPY_FROZEN = "81";//抄取冻结量
+    public static final String COMMAND_TYPE_COPY_NORMAL = "89";//抄取实时量
+    public static final String COMMAND_TYPE_QUERY_PARAMETER = "bc";//查询参数
+    public static final String COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT = "91";//设置表号或者累计量
+    public static final String COMMAND_TYPE_SET_PARAMETER = "86";//设置表具参数
 
     //阀门开关状态
     private static String VALVE_OPEN = "C3";//阀门关闭
     private static String VALVE_CLOSE = "C2";//阀门打开
 
     //阀门状态
-
-
     private String valveState = "";//阀门开关状态
     private String commandType = "";//操作类型
     private String bookNo;//操作表号
@@ -27,6 +28,7 @@ public class HtGetMessage {
     private String voltage = "00";//电压
     private String signal = "00";//信号
     private String frozenTime = "";//冻结日期
+
 
     public String getCopyValue() {
         return copyValue;
@@ -49,44 +51,44 @@ public class HtGetMessage {
     public String getValveState() {
 
         if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)
-                |commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
+                | commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             String valve = hexString2binaryString(valveState);
-            if(valve.length()==8){
-                char [] a = valve.toCharArray();
-                String message="";
+            if (valve.length() == 8) {
+                char[] a = valve.toCharArray();
+                String message = "";
                 //第7位 保留字段 0
 
                 //第6位 量传状态返回数据 0故障 1正常 1
-                if((a[1]+"").equals("0")){
-                    message+=" 阀门故障";
-                }else {
-                    message+=" 阀门正常";
+                if ((a[1] + "").equals("0")) {
+                    message += " 阀门故障";
+                } else {
+                    message += " 阀门正常";
                 }
 
                 //第 5 4 为模块数据类型 00 光电数据  01摄像 10 脉冲 2 3
-                String s54=(a[2]+""+a[3]);
-                if(s54.equals("00")){
-                    message+=" 模块数据类型: 光电数据";
-                }else  if(s54.equals("01")){
-                    message+=" 模块数据类型: 摄像";
-                }else {
-                    message+=" 模块数据类型: 脉冲";
+                String s54 = (a[2] + "" + a[3]);
+                if (s54.equals("00")) {
+                    message += " 模块数据类型: 光电数据";
+                } else if (s54.equals("01")) {
+                    message += " 模块数据类型: 摄像";
+                } else {
+                    message += " 模块数据类型: 脉冲";
                 }
 
                 //3 2为保留字段 4 5
 
                 //1 0 为阀门状态 6 7
-                String s67=(a[6]+""+a[7]);
-                if(s67.equals("00")){
-                    message+=" 阀门状态: 故障";
-                }else  if(s54.equals("10")){
-                    message+=" 阀门状态: 关闭";
-                }else {
-                    message+=" 阀门状态: 打开";
+                String s67 = (a[6] + "" + a[7]);
+                if (s67.equals("00")) {
+                    message += " 阀门状态: 故障";
+                } else if (s54.equals("10")) {
+                    message += " 阀门状态: 关闭";
+                } else {
+                    message += " 阀门状态: 打开";
                 }
 
-                return "\n[---  "+message+"  ---]\n";
-            }else {
+                return "\n[---  " + message + "  ---]\n";
+            } else {
                 return "阀门状态解析失败";
             }
 
@@ -117,6 +119,12 @@ public class HtGetMessage {
             return "普通抄表";
         } else if (commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             return "抄取冻结量";
+        } else if (commandType.equals(COMMAND_TYPE_QUERY_PARAMETER)) {
+            return "查询参数";
+        } else if (commandType.equals(COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)) {
+            return "修改表号或累计量";
+        } else if (commandType.equals(COMMAND_TYPE_SET_PARAMETER)) {
+            return "设置表具参数";
         } else {
             return "未开发";
         }
@@ -159,7 +167,7 @@ public class HtGetMessage {
     public String getResult() {
 
         if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)
-                |commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
+                | commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             return "杭天"
                     + "解析结果:\n"
                     + " 命令类型:" + this.getCommandType()

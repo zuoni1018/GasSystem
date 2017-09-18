@@ -239,6 +239,8 @@
         <!-- 杭天抄表 -->
         <activity android:name="com.pl.gassystem.activity.ht.HtCopyingActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtBookListActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtChangeBookNoOrCumulantActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtSetBookParameterActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />

@@ -82,6 +82,16 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                     case R.id.rbCopy:
                         nowCommandType = HtSendMessage.COMMAND_TYPE_COPY_NORMAL;
                         break;
+                    case R.id.rbSetBookNo:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT;
+                        break;
+                    case R.id.rbQueryParameter:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER;
+                        break;
+                    case R.id.rbSetParameter:
+                        nowCommandType = HtSendMessage.COMMAND_TYPE_SET_PARAMETER;
+                        break;
+
                 }
             }
         });
@@ -134,14 +144,16 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                 if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_DOOR_STATE)) {
                     //查询阀门状态
                     mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
-
                 } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_CLOSE_DOOR)) {
+                    //关闭阀门
                     mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
-
                 } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_OPEN_DOOR)) {
+                    //打开阀门
                     mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
-
-                }  else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER)) {
+                    //查询参数
+                    mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)
                         |nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
                     if (BookNoList.size() > 1) {
                         mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
@@ -150,6 +162,16 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                         mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_SINGLE);//单抄
                         mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
                     }
+                }else if(nowCommandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)){
+                    //设置表号需要跳转到另外一个界面
+                    mIntent = new Intent(getContext(), HtChangeBookNoOrCumulantActivity.class);
+//                    mIntent.putExtra("commandType", nowCommandType);//输入命令指令
+//                    mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_SINGLE);//单抄
+                    mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
+                }else if(nowCommandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)){
+                    //设置表号需要跳转到另外一个界面
+                    mIntent = new Intent(getContext(), HtSetBookParameterActivity.class);
+                    mIntent.putExtra("bookNos", BookNoList);
                 }
                 startActivity(mIntent);
             }
