@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.pl.gassystem"
-    android:versionCode="4"
-    android:versionName="1.6">
-
-    <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="19" />
-
+    package="com.pl.gassystem">
 
     <!--往sdcard中写入数据的权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -243,6 +235,9 @@
         <activity android:name=".activity.ht.HtSetBookParameterActivity" />
         <activity android:name=".activity.ht.HtMaintenanceActivity"/>
         <activity android:name=".activity.ht.HtChooseBooksActivity"/>
+        <activity android:name=".activity.ht.HtSingleCopyTestActivity"/>
+        <activity android:name=".activity.ht.HtValveMaintainActivity"/>
+        <activity android:name=".activity.ht.HtQueryParameterActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />

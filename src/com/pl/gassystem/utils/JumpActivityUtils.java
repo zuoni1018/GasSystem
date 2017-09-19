@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.pl.bll.SetBiz;
+import com.pl.gassystem.InputComNumActivity;
 import com.pl.gassystem.MaintenanceActivity;
 import com.pl.gassystem.activity.ht.HtMaintenanceActivity;
+import com.pl.gassystem.activity.ht.HtSingleCopyTestActivity;
 import com.pl.utils.GlobalConsts;
 
 /**
@@ -32,5 +34,19 @@ public class JumpActivityUtils {
         context.startActivity(mIntent);
     }
 
+    /**
+     * 跳转到单抄测试界面
+     */
+    public static void jumpSingleCopyTestActivity(Context context) {
+        SetBiz setBiz = new SetBiz(context);
+        Intent mIntent;
+        if (setBiz.getRunMode().equals(GlobalConsts.RUN_MODE_HANG_TIAN)) {
+            mIntent = new Intent(context, HtSingleCopyTestActivity.class);
+        } else {
+            mIntent = new Intent(context, InputComNumActivity.class);
+            mIntent.putExtra("operationType", 1);
+        }
+        context.startActivity(mIntent);
+    }
 
 }

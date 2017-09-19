@@ -100,11 +100,12 @@
             android:textSize="14sp" />
 
         <Button
+            android:textColor="@color/color_white"
+            android:theme="@style/button_style"
             android:id="@+id/btSure"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#18c2ff"
             android:gravity="center"
             android:text="开始抄表"
             android:textSize="14sp" />

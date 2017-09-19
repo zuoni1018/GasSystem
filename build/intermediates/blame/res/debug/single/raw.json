@@ -1,10 +1,10 @@
 [
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
-        "source": "D:\\zzz\\GasSystem\\res\\raw\\beep.ogg"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "D:\\workSpace\\GasSystem\\res\\raw\\beep.ogg"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\raw\\scan.wav",
-        "source": "D:\\zzz\\GasSystem\\res\\raw\\scan.wav"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\raw\\scan.wav",
+        "source": "D:\\workSpace\\GasSystem\\res\\raw\\scan.wav"
     }
 ]

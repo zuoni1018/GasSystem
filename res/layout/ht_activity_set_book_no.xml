@@ -18,13 +18,14 @@
 
     <EditText
         android:id="@+id/etNowBookNo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:hint="请输入当前表号"
         android:inputType="number"
+        android:maxLength="8"
         android:textColor="@color/color_black"
         android:textSize="14sp" />
 
@@ -40,13 +41,14 @@
 
     <EditText
         android:id="@+id/etNewBookNo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:hint="请输入新表号"
         android:inputType="number"
+        android:maxLength="8"
         android:textColor="@color/color_black"
         android:textSize="14sp" />
 
@@ -62,12 +64,13 @@
 
     <EditText
         android:id="@+id/etCumulant"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:inputType="number"
+        android:maxLength="8"
         android:text="00000000"
         android:textColor="@color/color_black"
         android:textSize="14sp" />
@@ -76,25 +79,33 @@
         android:id="@+id/mRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rbChangeBookNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="修改表号" />
+            android:text="修改表号"
+            android:textColor="@color/color_blue"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rbChangeCumulant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="修改累计量" />
+            android:text="修改累计量"
+            android:textColor="@color/color_blue"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rbChangeAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="全部" />
+            android:text="全部"
+            android:textColor="@color/color_blue"
+            android:textSize="14sp" />
 
     </RadioGroup>
 
@@ -106,8 +117,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
-        android:background="#3d7aff"
         android:text="确定"
-        android:textColor="@color/color_black"
-        android:textSize="14sp" />
+        android:textColor="@color/color_white"
+        android:textSize="14sp"
+        android:theme="@style/button_style" />
 </LinearLayout>

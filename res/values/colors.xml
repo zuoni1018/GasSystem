@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="colorPrimary">#003f97</color>
+    <color name="colorPrimaryDark">#003f97</color>
+    <color name="colorAccent">#003f97</color>
+
+
+    
     <color name="background_holo_light">#f3f3f3</color>
     <color name="holo_light_primary">#d65d5d</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
-
     <color name="color_book_04">#00ddff</color>
     <color name="color_book_05">#84baff</color>
 

@@ -1,4 +1,4 @@
-#Tue Sep 19 13:23:34 CST 2017
-base.0=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2
+#Tue Sep 19 17:17:37 CST 2017
+base.0=D\:\\workSpace\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2
 renamed.0=classes.dex
-file.0=D\:\\zzz\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2\\classes.dex
+file.0=D\:\\workSpace\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2\\classes.dex

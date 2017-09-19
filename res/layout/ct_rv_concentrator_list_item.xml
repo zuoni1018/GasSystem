@@ -36,6 +36,32 @@
             android:background="#b7b7b7" />
 
         <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#b7b7b7" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvReadNum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <TextView
             android:id="@+id/tvAllNum"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -51,21 +77,7 @@
             android:background="#b7b7b7" />
 
         <TextView
-            android:id="@+id/tvReadNum"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#000"
-            android:textSize="14sp" />
-
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="#b7b7b7" />
-
-        <TextView
+            android:visibility="gone"
             android:id="@+id/tvNoReadNum"
             android:layout_width="0dp"
             android:layout_height="match_parent"

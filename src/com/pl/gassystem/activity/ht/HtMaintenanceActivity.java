@@ -3,10 +3,11 @@ package com.pl.gassystem.activity.ht;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.pl.gassystem.R;
-import com.pl.gassystem.bean.ht.HtSendMessage;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -17,6 +18,14 @@ import butterknife.OnClick;
  */
 
 public class HtMaintenanceActivity extends HtBaseTitleActivity {
+    @BindView(R.id.layoutValveMaintain)
+    LinearLayout layoutValveMaintain;
+    @BindView(R.id.layoutQueryParameter)
+    LinearLayout layoutQueryParameter;
+    @BindView(R.id.layoutSetParameter)
+    LinearLayout layoutSetParameter;
+    @BindView(R.id.layoutChangeBookNoOrCumulant)
+    LinearLayout layoutChangeBookNoOrCumulant;
     private String commandType = "";//√¸¡Ó¿‡–Õ
 
     @Override
@@ -33,37 +42,26 @@ public class HtMaintenanceActivity extends HtBaseTitleActivity {
 
     }
 
-    @OnClick({R.id.layoutOpenValve, R.id.layoutCloseValve, R.id.layoutSeeValveState,
-            R.id.layoutQueryParameter, R.id.layoutSetParameter, R.id.layoutCopyNormal,
-            R.id.layoutCopyFrozen, R.id.layoutChangeBookNoOrCumulant})
+
+    @OnClick({R.id.layoutValveMaintain, R.id.layoutQueryParameter, R.id.layoutChangeBookNoOrCumulant, R.id.layoutSetParameter})
     public void onViewClicked(View view) {
-        Intent mIntent = new Intent(getContext(), HtChooseBooksActivity.class);
+        Intent mIntent;
         switch (view.getId()) {
-            case R.id.layoutOpenValve:
-                commandType = HtSendMessage.COMMAND_TYPE_OPEN_DOOR;
-                break;
-            case R.id.layoutCloseValve:
-                commandType = HtSendMessage.COMMAND_TYPE_CLOSE_DOOR;
-                break;
-            case R.id.layoutSeeValveState:
-                commandType = HtSendMessage.COMMAND_TYPE_DOOR_STATE;
+            case R.id.layoutValveMaintain:
+                mIntent = new Intent(getContext(), HtValveMaintainActivity.class);
+                startActivity(mIntent);
                 break;
             case R.id.layoutQueryParameter:
-                commandType = HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER;
+                mIntent = new Intent(getContext(), HtQueryParameterActivity.class);
+                startActivity(mIntent);
                 break;
             case R.id.layoutSetParameter:
-                commandType = HtSendMessage.COMMAND_TYPE_SET_PARAMETER;
                 break;
-            case R.id.layoutCopyNormal:
-                commandType = HtSendMessage.COMMAND_TYPE_COPY_NORMAL;
-                break;
-            case R.id.layoutCopyFrozen:
-                commandType = HtSendMessage.COMMAND_TYPE_COPY_FROZEN;
-                break;
+
             case R.id.layoutChangeBookNoOrCumulant:
-                commandType = HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT;
+                mIntent = new Intent(getContext(), HtChangeBookNoOrCumulantActivity.class);
+                startActivity(mIntent);
                 break;
         }
-        startActivity(mIntent);
     }
 }

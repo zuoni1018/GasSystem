@@ -35,9 +35,9 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#003f97</color>
+    <color name="colorPrimary">#003f97</color>
+    <color name="colorPrimaryDark">#003f97</color>
     <color name="color_background">#F5DEE8</color>
     <color name="color_black">#000000</color>
     <color name="color_blue">#003f97</color>
@@ -826,16 +826,10 @@
         <item name="android:windowEnterAnimation">@anim/design_bottom_sheet_slide_in</item>
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
     </style>
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-        <item name="android:colorBackground">@color/background_holo_light</item>
-    </style>
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -1870,7 +1864,7 @@
         <item name="android:windowNoTitle">true</item>
     </style>
     <style name="MyPopupMenu">
-        <item name="android:popupBackground">@color/item_text</item>   
+        <item name="android:popupBackground">@color/item_text</item>
     </style>
     <style name="MyPopupMenuLargeText">
         <item name="android:textSize">22sp</item>
@@ -2364,31 +2358,35 @@
         <item name="passwordToggleContentDescription">@string/password_toggle_content_description</item>
     </style>
     <style name="biglisttext">
-    <item name="android:textSize">22sp</item>
-    <item name="android:textColor">#003f97</item>
-</style>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#003f97</item>
+    </style>
+    <style name="button_style" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/color_book_04</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
     <style name="ht_test_button_style">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textColor">@color/color_white</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_marginBottom">4dp</item>
         <item name="android:layout_marginTop">4dp</item>
-        <item name="android:background">#1aff00</item>
+
     </style>
     <style name="largetext">
-    <item name="android:textSize">30sp</item>
-    <item name="android:textColor">#003f97</item>
-</style>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#003f97</item>
+    </style>
     <style name="mainTitleBackground">
         <item name="android:background">#003f97</item>
-        </style>
+    </style>
     <style name="mainTitleBar" parent="android:Theme">
-            <item name="android:windowTitleSize">50dp</item>
-            <item name="android:windowTitleBackgroundStyle">@style/mainTitleBackground</item>  
-            <item name="android:popupMenuStyle">@style/MyPopupMenu</item>
-             <item name="android:textAppearanceLargePopupMenu">@style/MyPopupMenuLargeText</item>
-            </style>
+        <item name="android:windowTitleSize">50dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/mainTitleBackground</item>
+        <item name="android:popupMenuStyle">@style/MyPopupMenu</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/MyPopupMenuLargeText</item>
+    </style>
     <style name="maintenance_layout_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
@@ -2397,9 +2395,9 @@
         <item name="android:orientation">horizontal</item>
     </style>
     <style name="midtext">
-    <item name="android:textSize">20dp</item>
-    <item name="android:textColor">#003f97</item>
-</style>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#003f97</item>
+    </style>
     <style name="mode_choose_gou_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -2425,7 +2423,7 @@
         <item name="android:textSize">20sp</item>
     </style>
     <style name="smalltext">
-    <item name="android:textSize">15dp</item>
-    <item name="android:textColor">#003f97</item>
-</style>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#003f97</item>
+    </style>
 </resources>

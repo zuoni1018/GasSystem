@@ -58,6 +58,7 @@ public class RvConcentratorListAdapter extends RecyclerView.Adapter<RvConcentrat
         holder.tvAllNum.setText(mList.get(position).getTrueAllNum() + "");
         holder.tvNoReadNum.setText(mList.get(position).getTrueNotReadNum() + "");
         holder.tvReadNum.setText(mList.get(position).getTrueReadNum() + "");
+        holder.tvName.setText(mList.get(position).getCollectorName());
 
     }
 
@@ -68,7 +69,7 @@ public class RvConcentratorListAdapter extends RecyclerView.Adapter<RvConcentrat
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout layoutMain;
-        TextView tvCollectorNo, tvNoReadNum, tvReadNum, tvAllNum;
+        TextView tvCollectorNo, tvNoReadNum, tvReadNum, tvAllNum,tvName;
 
         MyViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +80,7 @@ public class RvConcentratorListAdapter extends RecyclerView.Adapter<RvConcentrat
             tvNoReadNum = (TextView) itemView.findViewById(R.id.tvNoReadNum);
             tvReadNum = (TextView) itemView.findViewById(R.id.tvReadNum);
             tvAllNum = (TextView) itemView.findViewById(R.id.tvAllNum);
+            tvName = (TextView) itemView.findViewById(R.id.tvName);
         }
     }
 }

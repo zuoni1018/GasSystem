@@ -1,106 +1,106 @@
 [
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\shcmd.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\shcmd.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\data_download.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\data_download.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_set_mjc.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\copy_set_mjc.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\group_info_update.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\group_info_update.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\book_info_update.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\book_info_update.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\option_menu.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\option_menu.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\main.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\set_copy_time.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\set_copy_time.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\group_info_update.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\group_info_update.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\input_com_num.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\input_com_num.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\group_info.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\group_info.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\login.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\login.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\login.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\login.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\setting.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\setting.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\book_info.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\book_info.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\set_update.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\set_update.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\select_meter.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\select_meter.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\shcmd.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\shcmd.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\group_bind.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\group_bind.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\maintenance.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\maintenance.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\maintenance.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\maintenance.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\select_meter.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\select_meter.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_result.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\copy_result.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_set_mjc.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\copy_set_mjc.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_group.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\copy_group.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\set_run_mode.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\set_run_mode.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copying.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\copying.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\group_bind.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\group_bind.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\set_run_mode.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\set_run_mode.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\data_manage.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\data_manage.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\data_manage.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\data_manage.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\book_info_update.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\book_info_update.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\input_com_num.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\input_com_num.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copying.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\copying.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_one.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\copy_one.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\log.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\log.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\set_copy_time.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\set_copy_time.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\about.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\about.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\data_download.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\data_download.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_one.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\copy_one.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\about.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\about.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\book_info.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\book_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\set_update.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\set_update.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_result.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\copy_result.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\option_menu.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\option_menu.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\group_info.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\group_info.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\setting.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\setting.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\main.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\log.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\log.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_group.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\copy_group.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_detail.xml",
-        "source": "D:\\zzz\\GasSystem\\res\\menu\\copy_detail.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\copy_detail.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\copy_detail.xml"
     }
 ]

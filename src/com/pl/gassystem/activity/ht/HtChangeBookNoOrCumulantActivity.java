@@ -46,8 +46,10 @@ public class HtChangeBookNoOrCumulantActivity extends HtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         String bookNo = getIntent().getStringExtra("bookNo");
-        etNowBookNo.setText(bookNo);
-        etNewBookNo.setText(bookNo);
+        if(bookNo!=null){
+            etNowBookNo.setText(bookNo);
+            etNewBookNo.setText(bookNo);
+        }
         setTitle("设置表号、累计量");
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -132,10 +134,6 @@ public class HtChangeBookNoOrCumulantActivity extends HtBaseTitleActivity {
                     showToast("杭天表号必须为8位");
                 }
             }
-
-
         }
-
-
     }
 }

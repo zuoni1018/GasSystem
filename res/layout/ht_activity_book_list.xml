@@ -117,16 +117,18 @@
                     android:inputType="number" />
 
                 <Button
+                    android:theme="@style/button_style"
                     android:id="@+id/tvAddBook"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="添加一张表"
-                    android:textColor="@color/color_black"
+                    android:textColor="@color/color_white"
                     android:textSize="10sp" />
 
             </LinearLayout>
 
             <Button
+                android:theme="@style/button_style"
                 android:id="@+id/btGoCopy"
                 style="@style/ht_test_button_style"
                 android:text="开始查询" />

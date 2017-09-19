@@ -5,8 +5,8 @@
     android:versionName="1.6" >
 
     <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="25" />
 
     <!-- 往sdcard中写入数据的权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -238,6 +238,9 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtSetBookParameterActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtMaintenanceActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtChooseBooksActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtSingleCopyTestActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtValveMaintainActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtQueryParameterActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />

@@ -186,9 +186,8 @@ public class MainActivity extends Activity implements OnTouchListener {
 
             @Override
             public void onClick(View v) { // µ•≥≠≤‚ ‘
-                Intent intent = new Intent(MainActivity.this, InputComNumActivity.class);
-                intent.putExtra("operationType", 1);
-                startActivity(intent);
+
+                JumpActivityUtils.jumpSingleCopyTestActivity(MainActivity.this);
             }
         });
 
