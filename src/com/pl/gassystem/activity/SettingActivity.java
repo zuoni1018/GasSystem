@@ -11,7 +11,6 @@ import com.pl.gassystem.CopySetMjcActivity;
 import com.pl.gassystem.LoginActivity;
 import com.pl.gassystem.R;
 import com.pl.gassystem.SetCopyTimeActivity;
-import com.pl.gassystem.SetRunModeActivity;
 import com.pl.gassystem.SetUpdateActivity;
 import com.pl.gassystem.activity.base.BaseTitleActivity;
 

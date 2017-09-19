@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:2:1-257:12
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:2:1-256:12
 	package
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:4:5-31
 	android:versionName
@@ -22,16 +22,17 @@ MERGED from [org.litepal.android:core:1.6.0] C:\Users\PVer\.android\build-cache\
 MERGED from [com.jakewharton:butterknife:8.8.0] C:\Users\PVer\.android\build-cache\1f7381df92553116925caf4e8b7ce4223be67290\output\AndroidManifest.xml:5:5-43
 MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\PVer\.android\build-cache\569592fa8096f3a4976b502fe566f4387d026c4e\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:25.3.0] C:\Users\PVer\.android\build-cache\bea9d5607d521360e8e55834956fa8b59ccef52f\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.3.0] C:\Users\PVer\.android\build-cache\5dec36c7a618e125920b26df12d96fb29071e83b\output\AndroidManifest.xml:20:5-44
+MERGED from [GasSystem:zuoni-common:unspecified] D:\zzz\GasSystem\zuoni-common\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.3.0] C:\Users\PVer\.android\build-cache\9880bf994a1d9ac9e0ea7aaeeeed3ee1bf796536\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\PVer\.android\build-cache\919343c3eab103fcfd8420a739fcfa978f673891\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\PVer\.android\build-cache\8110a873c36bd2cd27f6a7cc48734abf1f31b14f\output\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\PVer\.android\build-cache\258087b5d5565c62994fbeb604b39adb41c90be1\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\PVer\.android\build-cache\90b148499fcea71053299d2fc5d014bea7395829\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-compat:25.3.0] C:\Users\PVer\.android\build-cache\21986f603033e2e366c753926bdf784d25e165ce\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:23:9-59
@@ -126,19 +127,20 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:49:5-53:39
 	android:anyDensity
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:50:9-34
 application
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:55:5-256:19
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:55:5-255:19
 MERGED from [org.litepal.android:core:1.6.0] C:\Users\PVer\.android\build-cache\36b93d3a9260a65dd1231e99355a064635bb7763\output\AndroidManifest.xml:11:5-14:19
 MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\PVer\.android\build-cache\569592fa8096f3a4976b502fe566f4387d026c4e\output\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:transition:25.3.0] C:\Users\PVer\.android\build-cache\5dec36c7a618e125920b26df12d96fb29071e83b\output\AndroidManifest.xml:26:5-20
+MERGED from [GasSystem:zuoni-common:unspecified] D:\zzz\GasSystem\zuoni-common\build\intermediates\bundles\default\AndroidManifest.xml:11:5-14:38
+MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.0] C:\Users\PVer\.android\build-cache\9880bf994a1d9ac9e0ea7aaeeeed3ee1bf796536\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\PVer\.android\build-cache\919343c3eab103fcfd8420a739fcfa978f673891\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\PVer\.android\build-cache\8110a873c36bd2cd27f6a7cc48734abf1f31b14f\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\PVer\.android\build-cache\258087b5d5565c62994fbeb604b39adb41c90be1\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\PVer\.android\build-cache\90b148499fcea71053299d2fc5d014bea7395829\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-compat:25.3.0] C:\Users\PVer\.android\build-cache\21986f603033e2e366c753926bdf784d25e165ce\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:59:9-41
@@ -414,160 +416,162 @@ ADDED from D:\zzz\GasSystem\AndroidManifest.xml:187:9-192:63
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:189:13-63
 	android:name
 		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:188:13-48
-activity#com.pl.gassystem.SetRunModeActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:193:9-197:51
-	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:196:13-49
-	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:195:13-64
-	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:197:13-48
-	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:194:13-47
 activity#com.pl.gassystem.SetCopyTimeActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:198:9-202:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:194:9-198:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:201:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:197:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:200:13-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:196:13-65
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:202:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:198:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:199:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:195:13-48
 activity#com.pl.gassystem.SHCmdActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:203:9-207:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:199:9-203:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:206:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:202:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:205:13-57
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:201:13-57
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:207:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:203:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:204:13-42
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:200:13-42
 activity#com.zxing.activity.CaptureActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:208:9-213:63
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:204:9-209:63
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:211:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:207:13-49
 	android:windowSoftInputMode
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:213:13-60
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:209:13-60
 	android:configChanges
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:210:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:206:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:212:13-71
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:208:13-71
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:209:13-62
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:205:13-62
 activity#com.pl.gassystem.CopySetMjcActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:214:9-218:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:210:9-214:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:217:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:213:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:216:13-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:212:13-64
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:218:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:214:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:215:13-47
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:211:13-47
 activity#com.pl.gassystem.OtherFunctionActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:220:9-59
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:216:9-59
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:220:19-56
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:216:19-56
 activity#com.pl.gassystem.userinfo.XiNingUserInfoImportActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:221:9-75
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:217:9-75
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:221:19-72
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:217:19-72
 activity#com.pl.gassystem.CopyResultActivityWarnBig
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:224:9-228:51
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:220:9-224:51
 	android:screenOrientation
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:227:13-49
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:223:13-49
 	android:label
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:226:13-63
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:222:13-63
 	android:theme
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:228:13-48
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:224:13-48
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:225:13-54
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:221:13-54
 activity#com.pl.gassystem.activity.ct.CtConcentratorListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:9-76
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:228:9-76
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:19-73
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:228:19-73
 activity#com.pl.gassystem.activity.ct.CtCopySituationActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:9-73
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:229:9-73
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:19-70
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:229:19-70
 activity#com.pl.gassystem.activity.ct.CtShowBookListCopyDataActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:9-80
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:230:9-80
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:19-77
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:230:19-77
 activity#com.pl.gassystem.activity.ct.CtCopyDataBookDetailActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:9-78
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:231:9-78
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:19-75
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:231:19-75
 activity#com.pl.gassystem.activity.ct.CtNetworkingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:9-70
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:9-70
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:19-67
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:232:19-67
 activity#com.pl.gassystem.activity.ct.CtMoveBookActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:9-68
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:9-68
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:19-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:233:19-65
 activity#com.pl.gassystem.activity.ct.CtCopyingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:238:9-67
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:9-67
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:238:19-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:234:19-64
 activity#com.pl.gassystem.activity.ct.CtCopyBookChooseActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:239:9-74
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:9-74
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:239:19-71
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:235:19-71
 activity#com.pl.gassystem.activity.ct.CtCopyBookActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:9-68
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:9-68
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:19-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:236:19-65
 activity#com.pl.gassystem.activity.ct.CtShowBookListCopyDataICRFActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:241:9-84
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:9-84
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:241:19-81
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:237:19-81
 activity#com.pl.gassystem.activity.ht.HtCopyingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:9-67
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:9-67
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:19-64
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:240:19-64
 activity#com.pl.gassystem.activity.ht.HtBookListActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:9-68
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:241:9-68
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:19-65
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:241:19-65
 activity#com.pl.gassystem.activity.ht.HtChangeBookNoOrCumulantActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:246:9-81
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:242:9-82
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:246:19-79
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:242:19-79
 activity#com.pl.gassystem.activity.ht.HtSetBookParameterActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:247:9-75
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:243:9-76
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:247:19-73
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:243:19-73
+activity#com.pl.gassystem.activity.ht.HtMaintenanceActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:9-70
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:244:19-68
+activity#com.pl.gassystem.activity.ht.HtChooseBooksActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:9-70
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:245:19-68
 activity#com.pl.gassystem.activity.LogActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:9-58
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:248:9-58
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:19-55
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:248:19-55
 activity#com.pl.gassystem.activity.AboutActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:9-60
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:249:9-60
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:19-57
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:249:19-57
 activity#com.pl.gassystem.activity.SettingActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:9-62
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:9-62
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:19-59
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:250:19-59
 activity#com.pl.gassystem.activity.DataManageActivity
-ADDED from D:\zzz\GasSystem\AndroidManifest.xml:253:9-65
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:9-65
 	android:name
-		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:253:19-62
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:251:19-62
+activity#com.pl.gassystem.activity.SetRunModeActivity
+ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:9-65
+	android:name
+		ADDED from D:\zzz\GasSystem\AndroidManifest.xml:252:19-62
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:recyclerview-v7:25.3.0] C:\Users\PVer\.android\build-cache\bea9d5607d521360e8e55834956fa8b59ccef52f\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:transition:25.3.0] C:\Users\PVer\.android\build-cache\5dec36c7a618e125920b26df12d96fb29071e83b\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\PVer\.android\build-cache\8e7c2d5b428035619426ffc446fda00e98611f1a\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-v4:25.3.0] C:\Users\PVer\.android\build-cache\9880bf994a1d9ac9e0ea7aaeeeed3ee1bf796536\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\PVer\.android\build-cache\919343c3eab103fcfd8420a739fcfa978f673891\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\PVer\.android\build-cache\8110a873c36bd2cd27f6a7cc48734abf1f31b14f\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\PVer\.android\build-cache\258087b5d5565c62994fbeb604b39adb41c90be1\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\PVer\.android\build-cache\90b148499fcea71053299d2fc5d014bea7395829\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-compat:25.3.0] C:\Users\PVer\.android\build-cache\21986f603033e2e366c753926bdf784d25e165ce\output\AndroidManifest.xml:25:5-27:34
 	android:value
 		ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:27:9-31

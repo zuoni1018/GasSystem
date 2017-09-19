@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.common.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
 import com.google.gson.Gson;
 import com.pl.gassystem.AppUrl;
 import com.pl.gassystem.bean.gson.GetCollectorInfoByCollectorNo;
@@ -24,7 +24,7 @@ import com.pl.gassystem.bean.ct.CtBookInfo;
 import com.pl.gassystem.MaintenanceActivity;
 import com.pl.gassystem.R;
 import com.pl.gassystem.activity.SettingActivity;
-import com.pl.utils.DensityUtils;
+import com.pl.gassystem.utils.DensityUtils;
 import com.pl.utils.GlobalConsts;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.common.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
 import com.pl.gassystem.bean.ct.CtBookInfo;
 import com.pl.gassystem.bean.ct.CtCopyData;
 import com.pl.dal.DBOpenHelper;

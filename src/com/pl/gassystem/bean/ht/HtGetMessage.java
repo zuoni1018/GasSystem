@@ -169,20 +169,20 @@ public class HtGetMessage {
         if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)
                 | commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             return "杭天"
-                    + "解析结果:\n"
+                    + "\n\n解析结果:\n"
                     + " 命令类型:" + this.getCommandType()
                     + " 表号:" + this.getBookNo()
-                    + " 阀门状态:" + this.getValveState()
+                    + " \n阀门状态:" + this.getValveState()
                     + " 电池电压:" + this.getVoltage()
                     + " 信号强度:" + this.getSignal()
                     + " 冻结日期:" + this.getFrozenTime()
                     + " 抄表值:" + this.getCopyValue();
         } else {
-            return "杭天"
+            return "\n\n杭天"
                     + "解析结果:\n"
                     + " 命令类型:" + this.getCommandType()
                     + " 表号:" + this.getBookNo()
-                    + " 阀门状态:" + this.getValveState()
+                    + " \n阀门状态:" + this.getValveState()
                     + " 电池电压:" + this.getVoltage()
                     + " 信号强度:" + this.getSignal();
         }

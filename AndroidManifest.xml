@@ -190,11 +190,7 @@
             android:label="@string/qr_activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name=".SetRunModeActivity"
-            android:label="@string/title_activity_set_run_mode"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" />
+
         <activity
             android:name=".SetCopyTimeActivity"
             android:label="@string/title_activity_set_copy_time"
@@ -243,14 +239,17 @@
         <!--杭天抄表-->
         <activity android:name=".activity.ht.HtCopyingActivity" />
         <activity android:name=".activity.ht.HtBookListActivity" />
-        <activity android:name=".activity.ht.HtChangeBookNoOrCumulantActivity"/>
-        <activity android:name=".activity.ht.HtSetBookParameterActivity"/>
+        <activity android:name=".activity.ht.HtChangeBookNoOrCumulantActivity" />
+        <activity android:name=".activity.ht.HtSetBookParameterActivity" />
+        <activity android:name=".activity.ht.HtMaintenanceActivity"/>
+        <activity android:name=".activity.ht.HtChooseBooksActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />
         <activity android:name=".activity.AboutActivity" />
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.DataManageActivity" />
+        <activity android:name=".activity.SetRunModeActivity" />
 
 
     </application>

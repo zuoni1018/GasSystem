@@ -16,12 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pl.bll.PreferenceBiz;
+import com.pl.bll.SetBiz;
 import com.pl.common.MyApplication;
-import com.pl.gassystem.activity.ct.CtConcentratorListActivity;
 import com.pl.gassystem.activity.AboutActivity;
 import com.pl.gassystem.activity.DataManageActivity;
 import com.pl.gassystem.activity.SettingActivity;
+import com.pl.gassystem.activity.ct.CtConcentratorListActivity;
 import com.pl.gassystem.activity.ht.HtBookListActivity;
+import com.pl.gassystem.utils.JumpActivityUtils;
 import com.pl.utils.GlobalConsts;
 
 /**
@@ -33,7 +35,7 @@ public class MainActivity extends Activity implements OnTouchListener {
     private ImageButton ivCopy;//抄表按钮
     private ImageButton ivOneCopy;//单抄测试
     private ImageButton ivPhotoCopy;//摄像抄表
-//    private ImageButton ivQuery;//统计查询
+    //    private ImageButton ivQuery;//统计查询
     private ImageButton ivMaintain;//表具维护
     private ImageButton ivDataManger;//数据传输
     private ImageButton ivAbout;//关于
@@ -50,8 +52,10 @@ public class MainActivity extends Activity implements OnTouchListener {
 
 //    private LinearLayout layoutOther;
 
-        private LinearLayout layoutHangTian;
+    private LinearLayout layoutHangTian;
     private ImageView ivMainConcentrator;
+
+    private SetBiz setBiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class MainActivity extends Activity implements OnTouchListener {
         // 自定义标题栏
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_main);
+        setBiz = new SetBiz(MainActivity.this);
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_main);
         MyApplication.getInstance().addActivity(this);
         anim_btn_begin = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_begin);
@@ -129,12 +134,12 @@ public class MainActivity extends Activity implements OnTouchListener {
         preferenceBiz = new PreferenceBiz(this);
         tvUserName.setText(preferenceBiz.getUserName());//设置用户名
 
-        layoutHangTian= (LinearLayout) findViewById(R.id.layoutHangTian);
+        layoutHangTian = (LinearLayout) findViewById(R.id.layoutHangTian);
         layoutHangTian.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent mIntent=new Intent(MainActivity.this, HtBookListActivity.class);
+                Intent mIntent = new Intent(MainActivity.this, HtBookListActivity.class);
                 startActivity(mIntent);
             }
         });
@@ -200,8 +205,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 
             @Override
             public void onClick(View v) {// 表具维护
-                Intent intent = new Intent(MainActivity.this, MaintenanceActivity.class);
-                startActivity(intent);
+                JumpActivityUtils.jumpToMaintenanceActivity(MainActivity.this);
             }
         });
 

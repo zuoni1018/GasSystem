@@ -191,11 +191,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.pl.gassystem.SetRunModeActivity"
-            android:label="@string/title_activity_set_run_mode"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainTitleBar" />
-        <activity
             android:name="com.pl.gassystem.SetCopyTimeActivity"
             android:label="@string/title_activity_set_copy_time"
             android:screenOrientation="portrait"
@@ -241,12 +236,15 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtBookListActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtChangeBookNoOrCumulantActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtSetBookParameterActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtMaintenanceActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtChooseBooksActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />
         <activity android:name="com.pl.gassystem.activity.AboutActivity" />
         <activity android:name="com.pl.gassystem.activity.SettingActivity" />
         <activity android:name="com.pl.gassystem.activity.DataManageActivity" />
+        <activity android:name="com.pl.gassystem.activity.SetRunModeActivity" />
     </application>
 
 </manifest>

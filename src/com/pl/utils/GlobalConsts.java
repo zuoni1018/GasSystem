@@ -56,14 +56,14 @@ public class GlobalConsts {
 	public static final int BOOKINFO_TYPE_SELECT = 4;// 查询
 
 	// 抄表运行模式
-	public static final String RUNMODE_STANDARD = "1";
-	public static final String RUNMODE_LORA = "2";
-	public static final String RUNMODE_FSK = "3";
-	public static final String RUNMODE_HUIZHOU = "4";
-	public static final String RUNMODE_SHANGHAI = "5";
-	public static final String RUNMODE_PHOTO = "6";
-	public static final String RUNMODE_ZHGT = "7";
+	public static final String RUN_MODE_STANDARD = "1";
+	public static final String RUN_MODE_LORA = "2";
+	public static final String RUN_MODE_FSK = "3";
+	public static final String RUN_MODE_HUI_ZHOU = "4";
+	public static final String RUN_MODE_SHANGHAI = "5";
+	public static final String RUN_MODE_PHOTO = "6";
+	public static final String RUN_MODE_ZHGT = "7";
 
-	public static final String RUNMODE_HANG_TIAN = "8";
+	public static final String RUN_MODE_HANG_TIAN = "8";//杭天运行模式
 
 }

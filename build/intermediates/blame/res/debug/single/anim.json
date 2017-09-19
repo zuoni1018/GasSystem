@@ -8,6 +8,14 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_bottom.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\anim\\slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_bottom.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\anim\\slide_in_bottom.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\anim\\design_snackbar_out.xml"
     },

@@ -6,92 +6,270 @@
 
     <include layout="@layout/title_bar_style" />
 
-    <LinearLayout
-        android:id="@+id/layoutOpenValve"
-        style="@style/maintenance_layout_style">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.3"
-            android:src="@drawable/ivmaintenopenvalve" />
-
-        <TextView
-            style="@style/biglisttext"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.7"
-            android:text="打开阀门"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-
-    <TextView
+    <ScrollView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/item_line" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/layoutCloseValve"
-        style="@style/maintenance_layout_style">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.3"
-            android:src="@drawable/ivmaintenclosevalve" />
-
-        <TextView
-            style="@style/biglisttext"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.7"
-            android:text="关闭阀门"
-            android:textSize="20sp" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutOpenValve"
+                style="@style/maintenance_layout_style">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/item_line" />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ivmaintenopenvalve" />
 
-    <LinearLayout
-
-        android:id="@+id/layoutSeeValveState"
-        style="@style/maintenance_layout_style">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.3"
-            android:src="@mipmap/see_valve_state" />
-
-        <TextView
-            style="@style/biglisttext"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.7"
-            android:text="查看阀门状态"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/item_line" />
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="打开阀门"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutCloseValve"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ivmaintenclosevalve" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="关闭阀门"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+
+                android:id="@+id/layoutSeeValveState"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="查看阀门状态"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutQueryParameter"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="查询参数"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutSetParameter"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="批量设置参数"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutCopyNormal"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="抄表"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutCopyFrozen"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="抄取冻结量"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutChangeBookNoOrCumulant"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="修改表号、累计量"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+
+            <LinearLayout
+
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@mipmap/see_valve_state" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="密钥更新(未开发)"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

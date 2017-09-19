@@ -94,7 +94,7 @@
         android:textColor="@color/color_black"
         android:textSize="14sp" />
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/rbNeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

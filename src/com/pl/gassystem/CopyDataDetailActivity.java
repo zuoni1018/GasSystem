@@ -113,7 +113,7 @@ public class CopyDataDetailActivity extends Activity {
         tvCopyDataDetailRemark.setText(copyData.getRemark());
         // 表具状态
         String state = "";
-        if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州FSK
+        if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州FSK
             state = MeterType.GetHuiZhouWIMeterStateMsg(copyData
                     .getMeterState());
         } else {

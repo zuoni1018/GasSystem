@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.common.utils.SPUtils;
+import com.pl.gassystem.utils.SPUtils;
 import com.pl.bean.UserInfo;
 import com.pl.dal.userinfo.UserInfoDao;
 import com.pl.gassystem.R;

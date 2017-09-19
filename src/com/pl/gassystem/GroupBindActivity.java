@@ -24,6 +24,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pl.bll.SetBiz;
 import com.pl.gassystem.adapter.main.GroupBindAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupBindBiz;
@@ -326,8 +327,15 @@ public class GroupBindActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String meterNo = etGroupBindMeterNo.getText().toString();
-                if (meterNo.length() < 10) {
-                    Toast.makeText(getApplicationContext(), "通讯编号必须大于等于10位!", Toast.LENGTH_SHORT).show();
+                int  needSize;
+                SetBiz setBiz=new SetBiz(GroupBindActivity.this);
+                if(setBiz.getRunMode().equals(GlobalConsts.RUN_MODE_HANG_TIAN)){
+                    needSize=8;
+                }else {
+                    needSize=10;
+                }
+                if (meterNo.length() < needSize) {
+                    Toast.makeText(getApplicationContext(), "通讯编号必须大于等于"+needSize+"位!", Toast.LENGTH_SHORT).show();
                 } else {
                     GroupBind groupBind = new GroupBind();
                     groupBind.setGroupNo(groupNo);

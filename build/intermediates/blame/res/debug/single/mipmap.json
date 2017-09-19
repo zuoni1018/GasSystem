@@ -84,12 +84,12 @@
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\ct_icon_07.png"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\other.png",
-        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\other.png"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\see_valve_state.png",
         "source": "D:\\zzz\\GasSystem\\res\\mipmap\\see_valve_state.png"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\other.png",
+        "source": "D:\\zzz\\GasSystem\\res\\mipmap\\other.png"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_14.png",

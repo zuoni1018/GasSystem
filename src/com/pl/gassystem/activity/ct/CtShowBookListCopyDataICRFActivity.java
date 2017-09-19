@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.common.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;

@@ -227,7 +227,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
-            android:name=".SetRunModeActivity"
+            android:name=".activity.SetRunModeActivity"
             android:label="@string/title_activity_set_run_mode"
             android:screenOrientation="portrait"
             android:theme="@style/mainTitleBar" >

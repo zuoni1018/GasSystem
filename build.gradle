@@ -53,6 +53,7 @@ dependencies {
     //LRecyclerView
     compile 'com.github.jdsjlzx:LRecyclerView:1.4.3'
     compile 'com.google.code.gson:gson:2.8.1'
+    compile project(':zuoni-common')
 }
 
 configurations.all {

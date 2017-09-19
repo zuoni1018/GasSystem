@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.jauker.widget.BadgeView;
 import com.pl.entity.CopyDataICRF;
 import com.pl.gassystem.R;
-import com.pl.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
 import com.pl.utils.MeterType;
 
 import java.util.ArrayList;

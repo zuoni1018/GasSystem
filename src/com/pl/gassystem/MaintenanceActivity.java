@@ -93,7 +93,7 @@ public class MaintenanceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 SetBiz setBiz = new SetBiz(MaintenanceActivity.this); // 上海专用命令
-                if (setBiz.getRunMode().equals(GlobalConsts.RUNMODE_SHANGHAI)) {
+                if (setBiz.getRunMode().equals(GlobalConsts.RUN_MODE_SHANGHAI)) {
                     Intent intent = new Intent(MaintenanceActivity.this, SHCmdActivity.class);
                     startActivity(intent);
                 } else {
@@ -107,7 +107,7 @@ public class MaintenanceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 SetBiz setBiz = new SetBiz(MaintenanceActivity.this); // 惠州专用命令
-                if (setBiz.getRunMode().equals(GlobalConsts.RUNMODE_HUIZHOU)) {
+                if (setBiz.getRunMode().equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) {
                     Intent intent = new Intent(MaintenanceActivity.this,
                             SelectMeterActivity.class);
                     intent.putExtra("operationType",
@@ -125,7 +125,7 @@ public class MaintenanceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 SetBiz setBiz = new SetBiz(MaintenanceActivity.this); // 惠州专用命令
-                if (setBiz.getRunMode().equals(GlobalConsts.RUNMODE_HUIZHOU)) {
+                if (setBiz.getRunMode().equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) {
                     Intent intent = new Intent(MaintenanceActivity.this,
                             SelectMeterActivity.class);
                     intent.putExtra("operationType",

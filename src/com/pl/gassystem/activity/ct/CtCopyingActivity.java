@@ -30,7 +30,7 @@ import com.pl.gassystem.R;
 import com.pl.protocol.CqueueData;
 import com.pl.protocol.HhProtocol;
 import com.pl.utils.GlobalConsts;
-import com.pl.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -40,8 +40,6 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-//import com.pl.entity.CopyData;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
@@ -331,12 +329,12 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
             // 判断各类工作模式
             if (meterTypeNo.equals("05")) { // 纯无线表
                 // 判断长度
-                if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州FSK
+                if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州FSK
                     headMessage += "14";
                 } else {
                     headMessage += "19";
                 }
-                if (runMode.equals(GlobalConsts.RUNMODE_STANDARD)) { // 混合模式
+                if (runMode.equals(GlobalConsts.RUN_MODE_STANDARD)) { // 混合模式
                     String meterWIType = copyBiz.getMeterWITypeByNo(commNumber);
                     if (meterWIType == null || meterWIType.equals("") || meterWIType.equals("2")) { // LORA以及默认
                         headMessage += "02";
@@ -347,17 +345,17 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                     } else if (meterWIType.equals("4")) { // 上海FSK
                         headMessage += "04";
                     }
-                } else if (runMode.equals(GlobalConsts.RUNMODE_LORA) || runMode.equals(GlobalConsts.RUNMODE_ZHGT)) { // LORA模式、港泰模式
+                } else if (runMode.equals(GlobalConsts.RUN_MODE_LORA) || runMode.equals(GlobalConsts.RUN_MODE_ZHGT)) { // LORA模式、港泰模式
                     headMessage += "02";
-                } else if (runMode.equals(GlobalConsts.RUNMODE_FSK)) { // FSK
+                } else if (runMode.equals(GlobalConsts.RUN_MODE_FSK)) { // FSK
                     headMessage += "01";
-                } else if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州FSK
+                } else if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州FSK
                     headMessage += "03";
-                } else if (runMode.equals(GlobalConsts.RUNMODE_SHANGHAI)) { // 上海FSK
+                } else if (runMode.equals(GlobalConsts.RUN_MODE_SHANGHAI)) { // 上海FSK
                     // headMessage += "04";
                 }
             } else if (meterTypeNo.equals("04")) { // IC卡无线
-                if (runMode.equals(GlobalConsts.RUNMODE_FSK)) { // FSK
+                if (runMode.equals(GlobalConsts.RUN_MODE_FSK)) { // FSK
                     headMessage += "1731";
                 } else {
                     headMessage += "1732"; // 除了选定FSK模式外，其余不管选什么都按LORA发，上海惠州没有IC卡无线表
@@ -385,7 +383,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
             String message = "";
             HhProtocol cchmp = new HhProtocol();
 
-            if (runMode.equals(GlobalConsts.RUNMODE_SHANGHAI)) { // 上海模式专用
+            if (runMode.equals(GlobalConsts.RUN_MODE_SHANGHAI)) { // 上海模式专用
                 headMessage = ""; // 不发唤醒
                 ArrayList<String> params = new ArrayList<>();
                 if (operationType == GlobalConsts.COPY_OPERATION_COPY) { // 抄表
@@ -449,7 +447,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 if (operationType == GlobalConsts.COPY_OPERATION_COPY) {
                     if (meterTypeNo.equals("05")) { // 纯无线表
                         data.setCmdType("01"); // 抄表命令
-                        if (runMode.equals(GlobalConsts.RUNMODE_ZHGT)) {
+                        if (runMode.equals(GlobalConsts.RUN_MODE_ZHGT)) {
                             data.setCmdType("81");
                         }
                         timeString += ";01030713";
@@ -463,14 +461,14 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                 //执行开阀操作
                 else if (operationType == GlobalConsts.COPY_OPERATION_OPENVALVE) {
                     data.setCmdType("02");
-                    if (runMode.equals(GlobalConsts.RUNMODE_ZHGT)) {
+                    if (runMode.equals(GlobalConsts.RUN_MODE_ZHGT)) {
                         data.setCmdType("82");
                     }
                 }
                 //执行关阀操作
                 else if (operationType == GlobalConsts.COPY_OPERATION_CLOSEVALVE) {
                     data.setCmdType("03");
-                    if (runMode.equals(GlobalConsts.RUNMODE_ZHGT)) {
+                    if (runMode.equals(GlobalConsts.RUN_MODE_ZHGT)) {
                         data.setCmdType("83");
                     }
                 }
@@ -497,7 +495,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
 
 
                 if (meterTypeNo.equals("05")) {
-                    if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州模式
+                    if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州模式
                         message = cchmp.encodeHuiZhou(data);
                     } else {
                         message = cchmp.encode(data);
@@ -917,10 +915,10 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
 //            }
 //            // copyData.setUnitPrice(copyDataLast.getUnitPrice());
 //        } else { // 初始值
-            copyData.setLastShow("0.00");
-            copyData.setLastDosage("0");
-            copyData.setCurrentDosage(CurrentShow);
-            // copyData.setUnitPrice("2.5");
+        copyData.setLastShow("0.00");
+        copyData.setLastDosage("0");
+        copyData.setCurrentDosage(CurrentShow);
+        // copyData.setUnitPrice("2.5");
 //        }
         // copyData.setPrintFlag(0);
         copyData.setCopyWay("S");
@@ -993,10 +991,10 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                         HhProtocol hhP = new HhProtocol();
                         CqueueData msgDecode = new CqueueData(); // 协议类
                         if (meterTypeNo.equals("05")) { // 纯无线表
-                            if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州模式
+                            if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州模式
                                 msgDecode = hhP.decodeHuiZhou(readMessage);
                                 cmdtype = msgDecode.getCmdType();
-                            } else if (runMode.equals(GlobalConsts.RUNMODE_SHANGHAI)) { // 上海模式
+                            } else if (runMode.equals(GlobalConsts.RUN_MODE_SHANGHAI)) { // 上海模式
                                 msgDecode = hhP.decodeShangHai(readMessage);
                                 cmdtype = msgDecode.getCmdType();
                             } else {
@@ -1026,7 +1024,7 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                                 case "01": // 无线表抄表数据
                                     if (msgDecode.getSourceAddr().equals(loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
                                         CtCopyData copyData;
-                                        if (runMode.equals(GlobalConsts.RUNMODE_HUIZHOU)) { // 惠州模式
+                                        if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州模式
                                             copyData = getCopyDataHuiZhou(loadingComNum, msgDecode);
                                         } else {
                                             copyData = getCopyData(loadingComNum, dataString);

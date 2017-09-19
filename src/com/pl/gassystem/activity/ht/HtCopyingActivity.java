@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.common.utils.LogUtil;
-import com.common.utils.SPUtils;
+import com.pl.gassystem.utils.LogUtil;
+import com.pl.gassystem.utils.SPUtils;
 import com.pl.bluetooth.BluetoothChatService;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.R;

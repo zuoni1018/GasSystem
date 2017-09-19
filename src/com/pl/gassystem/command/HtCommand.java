@@ -1,6 +1,6 @@
 package com.pl.gassystem.command;
 
-import com.common.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
 import com.pl.common.Cfun;
 import com.pl.gassystem.bean.ht.HtGetMessage;
 import com.pl.gassystem.bean.ht.HtGetMessageChangeBookNoOrCumulant;

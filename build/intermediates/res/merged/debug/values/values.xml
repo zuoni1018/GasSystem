@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
+    <string-array name="pnw_date_time_range">
+        <item>今天</item>
+        <item>明天</item>
+        <item>后天</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -21,6 +26,7 @@
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
     <color name="bg_color">#EDEDED</color>
+    <color name="black">#000000</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -32,16 +38,28 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="color_background">#F5DEE8</color>
     <color name="color_black">#000000</color>
     <color name="color_blue">#003f97</color>
     <color name="color_book_04">#00ddff</color>
     <color name="color_book_05">#84baff</color>
+    <color name="color_calendar_state_01">#FF97B8</color>
+    <color name="color_calendar_state_02">#FFAB32</color>
+    <color name="color_calendar_state_03">#7F67EF</color>
+    <color name="color_calendar_state_04">#7DC301</color>
+    <color name="color_calendar_text_no_state">#999999</color>
+    <color name="color_calendar_text_select">#FFFFFF</color>
     <color name="color_gray">#686868</color>
     <color name="color_green">#37ff00</color>
     <color name="color_line">#999999</color>
     <color name="color_red">#ffff0000</color>
+    <color name="color_tab_normal">#FFFFFF</color>
+    <color name="color_tab_text_select_pink">#8A2053</color>
+    <color name="color_title_background">#F991C4</color>
     <color name="color_white">#ffffff</color>
     <color name="contents_text">#ff000000</color>
+    <color name="dashBoard_normal">#FEFEFE</color>
+    <color name="dashBoard_pink">#EBC2D4</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
@@ -72,6 +90,7 @@
     <color name="item_pressed">#e0e0e0</color>
     <color name="item_text">#003f97</color>
     <color name="item_unpressed">#ffffff</color>
+    <color name="line_chart_normal_color">#A6A6A6</color>
     <color name="main_back">#efedee</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
@@ -115,6 +134,7 @@
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
+    <color name="settings_text_color">#000000</color>
     <color name="share_text">#ff000000</color>
     <color name="share_view">#ffffffff</color>
     <color name="status_text">#ffffffff</color>
@@ -123,6 +143,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="tab02">#A2A2A2</color>
     <color name="titlebar_btn_pressed">#013072</color>
     <color name="titlebar_btn_unpressed">#003f97</color>
     <color name="transparent">#00000000</color>
@@ -360,6 +381,7 @@
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="itemTextAppearance"/><attr format="reference" name="headerLayout"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/><attr name="android:popupAnimationStyle"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
+    <declare-styleable name="ProgressWheel"><attr format="boolean" name="matProg_progressIndeterminate"/><attr format="color" name="matProg_barColor"/><attr format="color" name="matProg_rimColor"/><attr format="dimension" name="matProg_rimWidth"/><attr format="float" name="matProg_spinSpeed"/><attr format="integer" name="matProg_barSpinCycleTime"/><attr format="dimension" name="matProg_circleRadius"/><attr format="boolean" name="matProg_fillRadius"/><attr format="dimension" name="matProg_barWidth"/><attr format="boolean" name="matProg_linearProgress"/></declare-styleable>
     <declare-styleable name="RecycleListView"><attr format="dimension" name="paddingBottomNoButtons"/><attr format="dimension" name="paddingTopNoTitle"/></declare-styleable>
     <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr name="android:descendantFocusability"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/></declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
@@ -368,6 +390,7 @@
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwipeMenuLayout"><attr format="reference" name="leftViewId"/><attr format="reference" name="rightViewId"/><attr format="reference" name="contentViewId"/></declare-styleable>
+    <declare-styleable name="SwipeMenuView"><attr format="boolean" name="swipeEnable"/><attr format="boolean" name="ios"/><attr format="boolean" name="leftSwipe"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="color" name="thumbTint"/><attr name="thumbTintMode">
             
             <enum name="src_over" value="3"/>
@@ -436,6 +459,7 @@
             <enum name="screen" value="15"/>
         </attr></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <declare-styleable name="viewpagergallery"><attr format="boolean" name="isShadow"/></declare-styleable>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -631,6 +655,7 @@
     <integer name="hide_password_duration">320</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="Irregular">不规律</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -677,17 +702,20 @@
     <string name="button_return">返回</string>
     <string name="button_save">保存</string>
     <string name="button_scan">扫描设备</string>
+    <string name="cancel">取消</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="checkBox_line_feed">换行输出</string>
     <string name="checkBox_out">HEX输出</string>
     <string name="checkBox_sixteen">HEX显示</string>
     <string name="clenr">退出</string>
     <string name="ct_activity_concentrator_list_title">选择集中器</string>
+    <string name="default_progressbar">Default Progressbar:</string>
     <string name="discoverable">设置蓝牙可见</string>
     <string name="hello_world">Hello world!</string>
     <string name="input_hexstring">输入需要发送的Hex字符串</string>
     <string name="input_string">输入需要发送的字符串</string>
     <string name="insecure_connect">设置</string>
+    <string name="law">规律</string>
     <string name="list_footer_end">已全部加载完</string>
     <string name="list_footer_loading">正在加载中…</string>
     <string name="list_footer_network_error">点击重新加载</string>
@@ -716,6 +744,9 @@
     <string name="select_device">选择一个设备连接</string>
     <string name="send">发送</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="sure">确定</string>
+    <string name="text_0111">最短天数</string>
+    <string name="text_0222">最长天数</string>
     <string name="text_day_ago">天前</string>
     <string name="text_hour_ago">小时前</string>
     <string name="text_just">刚刚</string>
@@ -723,6 +754,14 @@
     <string name="text_month_ago">月前</string>
     <string name="text_seconds_ago">秒前</string>
     <string name="text_year_ago">年前</string>
+    <string name="timepicker_day">日</string>
+    <string name="timepicker_finish">完成</string>
+    <string name="timepicker_hour">时</string>
+    <string name="timepicker_min">分</string>
+    <string name="timepicker_month">月</string>
+    <string name="timepicker_title">选择起止时间</string>
+    <string name="timepicker_title_default">设置</string>
+    <string name="timepicker_year">年</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_book_info">选择账册</string>
     <string name="title_activity_book_info_update">修改账册</string>
@@ -779,6 +818,10 @@
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
+    <style name="Animation.Bottom.Rising" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
     <style name="Animation.Design.BottomSheetDialog" parent="Animation.AppCompat.Dialog">
         <item name="android:windowEnterAnimation">@anim/design_bottom_sheet_slide_in</item>
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
@@ -2148,6 +2191,15 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="Theme.Light.NoTitle.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+    <style name="Theme.Light.NoTitle.NoShadow.Dialog" parent="Theme.Light.NoTitle.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
@@ -2339,7 +2391,7 @@
             </style>
     <style name="maintenance_layout_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">55dp</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@drawable/bg_listview_item</item>
         <item name="android:orientation">horizontal</item>
@@ -2348,6 +2400,30 @@
     <item name="android:textSize">20dp</item>
     <item name="android:textColor">#003f97</item>
 </style>
+    <style name="mode_choose_gou_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    <style name="mode_choose_layout_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/bg_listview_item</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="mode_choose_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
     <style name="smalltext">
     <item name="android:textSize">15dp</item>
     <item name="android:textColor">#003f97</item>

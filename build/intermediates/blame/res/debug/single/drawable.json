@@ -16,16 +16,20 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
-        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\test_bitmap.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\test_bitmap.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_listview_item.xml",
@@ -34,6 +38,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_right_2.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg_right_2.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
@@ -56,8 +64,16 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\drawable\\design_bottom_navigation_item_background.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_launcher.png",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\ic_launcher.png"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_right_1.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg_right_1.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
@@ -72,12 +88,24 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_left_01.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg_left_01.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\test_selector_color.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\test_selector_color.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\loading_progress_bar_bg.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\loading_progress_bar_bg.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
@@ -100,6 +128,14 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\test_layer_list.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\test_layer_list.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg01.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg01.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
@@ -114,6 +150,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\test_selector_drawable.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\test_selector_drawable.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
@@ -152,8 +192,16 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_vector_test.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\test_shape.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\test_shape.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\loading_dialog_bg.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\loading_dialog_bg.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
@@ -176,6 +224,10 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\dialog_bg.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\dialog_bg.xml"
+    },
+    {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
@@ -194,6 +246,10 @@
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_left_02.xml",
+        "source": "D:\\zzz\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg_left_02.xml"
     },
     {
         "merged": "D:\\zzz\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\progressbar_indeterminate.xml",

@@ -1,364 +1,279 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pl.gassystem.SetRunModeActivity" 
-   android:orientation="vertical"  android:background="#ffffff">
+    android:background="@color/color_white"
+    android:orientation="vertical">
 
-    
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-    android:id="@+id/linRunModeStandard"
-  >
-    
-          <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
+    <include layout="@layout/title_bar_style" />
 
-    <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.8"
-        android:text="混合模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√" 
-                android:textColor="#000000"
-        android:id="@+id/tvRunModeTipStandard"
-      />
-        
-    
-</LinearLayout>
-
- <TextView
-        android:background="@color/item_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
-
-  
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-    android:id="@+id/linRunModeLORA"
-   >
-
-                      <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
-
-    <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.80"
-        android:text="LORA模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√" 
-                android:textColor="#000000"
-        android:id="@+id/tvRunModeTipLORA"
-      />
-   
-</LinearLayout>
-  <TextView
-        android:background="@color/item_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
-  
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-    android:id="@+id/linRunModeFSK"
-   >
+        android:id="@+id/linRunModeStandard"
+        style="@style/mode_choose_layout_style">
 
-                      <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
-
-    <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.80"
-        android:text="FSK模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√" 
-                android:textColor="#000000"
-        android:id="@+id/tvRunModeTipFSK"
-      />
-   
-</LinearLayout>
-  <TextView
-        android:background="@color/item_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
-  
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-     android:id="@+id/linRunModeHuiZhou"
-  >
-              
-                <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
-
-    <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.8"
-        android:text="惠州模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√"
-                android:textColor="#000000"
-                android:id="@+id/tvRunModeTipHuiZhou"
-      />
-
-</LinearLayout>
-  <TextView
-        android:background="@color/item_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
-  
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-     android:id="@+id/linRunModeShangHai"
-  >
-              
-                <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
-
-    <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.8"
-        android:text="上海模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√"
-                android:textColor="#000000"
-                android:id="@+id/tvRunModeTipShangHai"
-      />
-
-</LinearLayout>
-  <TextView
-        android:background="@color/item_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
-  
-      <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-     android:id="@+id/linRunModePhoto"
-  >
-              
-                <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
-
-    <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.8"
-        android:text="摄像表模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√"
-                android:textColor="#000000"
-                android:id="@+id/tvRunModeTipPhoto"
-      />
-
-</LinearLayout>
 
         <TextView
-        android:background="@color/item_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
-  
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="0.1"
-    android:orientation="horizontal"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-     android:id="@+id/linRunModeZHGT"
-  >
-                       <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:text="" 
-      />
-        
+            style="@style/mode_choose_text_style"
+            android:text="混合模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipStandard"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+
+    </LinearLayout>
 
     <TextView
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.8"
-        android:text="港泰新模式" 
-      />
-    
-              <TextView
-                   android:textSize="30sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15"
-        android:text="√"
-                android:textColor="#000000"
-                android:id="@+id/tvRunModeTipZHGT"
-      />
-
-</LinearLayout>
-        <TextView
-        android:background="@color/item_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.28"
-    android:orientation="horizontal"
-    android:layout_gravity="center"
-    android:background="@drawable/bg_listview_item" 
-    android:clickable="true"
-    android:focusable="true"
-  >
-    
-    
-    
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linRunModeLORA"
+        style="@style/mode_choose_layout_style">
+
+
+        <TextView
+
+            style="@style/mode_choose_text_style"
+            android:text="LORA模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipLORA"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+
+    <LinearLayout
+        android:id="@+id/linRunModeFSK"
+        style="@style/mode_choose_layout_style">
+
+
+        <TextView
+
+            style="@style/mode_choose_text_style"
+            android:text="FSK模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipFSK"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+
+    <LinearLayout
+        android:id="@+id/linRunModeHuiZhou"
+        style="@style/mode_choose_layout_style">
+
+
+        <TextView
+
+            style="@style/mode_choose_text_style"
+            android:text="惠州模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipHuiZhou"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+
+    <LinearLayout
+        android:id="@+id/linRunModeShangHai"
+        style="@style/mode_choose_layout_style">
+
+
+        <TextView
+
+            style="@style/mode_choose_text_style"
+            android:text="上海模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipShangHai"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+
+    <LinearLayout
+        android:id="@+id/linRunModePhoto"
+        style="@style/mode_choose_layout_style">
+
+
+        <TextView
+
+            style="@style/mode_choose_text_style"
+            android:text="摄像表模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipPhoto"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+
+    <LinearLayout
+        android:id="@+id/linRunModeZHGT"
+        style="@style/mode_choose_layout_style">
+
+        <TextView
+            style="@style/mode_choose_text_style"
+            android:text="港泰新模式" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvRunModeTipZHGT"
+
+
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
+
+    <LinearLayout
+        android:id="@+id/layoutModeChooseHt"
+        style="@style/mode_choose_layout_style">
+
+        <TextView
+            style="@style/mode_choose_text_style"
+            android:text="杭天模式" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="扩频因子:"
+            android:textColor="@color/color_black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvYinZi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="09"
+            android:textColor="@color/color_blue"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="扩频信道:"
+            android:textColor="@color/color_black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvXinDao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="14"
+            android:textColor="@color/color_blue"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvModeChooseHt"
+            style="@style/mode_choose_gou_style"
+            android:text="√" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/item_line" />
 
 
 </LinearLayout>

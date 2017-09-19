@@ -17,8 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.common.utils.KeyBoardUtils;
-import com.common.utils.LogUtil;
+import com.pl.gassystem.utils.KeyBoardUtils;
+import com.pl.gassystem.utils.LogUtil;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;

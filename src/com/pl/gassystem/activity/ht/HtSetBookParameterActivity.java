@@ -3,8 +3,8 @@ package com.pl.gassystem.activity.ht;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 
 import com.pl.gassystem.R;
 import com.pl.gassystem.bean.ht.HtSendMessage;
@@ -30,7 +30,7 @@ public class HtSetBookParameterActivity extends HtBaseTitleActivity {
     @BindView(R.id.etKaiChuangShiJian)
     EditText etKaiChuangShiJian;
     @BindView(R.id.rbNeed)
-    RadioButton rbNeed;
+    CheckBox rbNeed;
     @BindView(R.id.btSure)
     Button btSure;
 

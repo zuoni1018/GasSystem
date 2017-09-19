@@ -17,10 +17,11 @@ import com.pl.entity.CopyDataICRF;
 import com.pl.entity.GroupInfo;
 import com.pl.gassystem.activity.SettingActivity;
 import com.pl.gassystem.base.BaseTitleActivity;
-import com.pl.utils.DensityUtils;
+import com.pl.gassystem.utils.DensityUtils;
+import com.pl.gassystem.utils.JumpActivityUtils;
 import com.pl.utils.GlobalConsts;
-import com.pl.utils.LogUtil;
-import com.pl.utils.ScreenUtils;
+import com.pl.gassystem.utils.LogUtil;
+import com.pl.gassystem.utils.ScreenUtils;
 
 import java.util.ArrayList;
 
@@ -377,8 +378,7 @@ public class CopyDetailsActivity extends BaseTitleActivity {
                 break;
 
             case R.id.btMaintain://表具维护
-                intent = new Intent(CopyDetailsActivity.this, MaintenanceActivity.class);
-                startActivity(intent);
+                JumpActivityUtils.jumpToMaintenanceActivity(CopyDetailsActivity.this);
                 break;
             case R.id.btSetting://系统设置
                 intent = new Intent(CopyDetailsActivity.this, SettingActivity.class);

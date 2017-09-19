@@ -5,7 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.pl.utils.LogUtil;
+import com.pl.gassystem.utils.LogUtil;
+
 
 public class DBOpenHelper extends SQLiteOpenHelper {
 
