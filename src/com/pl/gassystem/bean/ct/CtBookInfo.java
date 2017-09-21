@@ -38,6 +38,18 @@ public class CtBookInfo {
     }
 
     public String getReadState() {
+
+        //摄像表抄表反了 垃圾
+//        if(meterTypeNo.equals("10")){
+//            switch (ReadState) {
+//                case "0":
+//                    return "2";//抄表中
+//                case "2":
+//                    return "0";
+//                default:
+//                    return ReadState;
+//            }
+//        }
         return ReadState;
     }
 

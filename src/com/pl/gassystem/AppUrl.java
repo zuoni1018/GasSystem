@@ -19,5 +19,5 @@ public class AppUrl {
     public static final String UPDATE_COMMUNICATES = BASE_URL + "UpdateCommunicates";//上传抄表数据
     public static final String METER_READING = BASE_URL + "MeterReading";//集中器抄表
 
-
+    public static final String GETCOLLETOR_METER = BASE_URL + "GetColletor_Meter";//集中器抄表
 }

@@ -4,8 +4,6 @@ package com.pl.gassystem.bean.ht;
  * Created by zangyi_shuai_ge on 2017/9/18
  * 批量设置表具参数
  */
-
-
 public class HtSendMessageSetParameter extends HtSendMessage {
 
     private boolean needKuoPinYinZi = false;
@@ -14,10 +12,10 @@ public class HtSendMessageSetParameter extends HtSendMessage {
     private String dong_jie_ri = "0000";
     private String kai_chuang_qi_zhi_shi_jian = "0000";
 
-    public String  isNeedKuoPinYinZi() {
-        if(needKuoPinYinZi){
+    public String isNeedKuoPinYinZi() {
+        if (needKuoPinYinZi) {
             return "01";
-        }else {
+        } else {
             return "00";
         }
     }

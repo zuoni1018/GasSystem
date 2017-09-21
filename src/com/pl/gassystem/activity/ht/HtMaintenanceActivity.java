@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.pl.gassystem.R;
+import com.pl.gassystem.bean.ht.HtSendMessage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,25 +44,39 @@ public class HtMaintenanceActivity extends HtBaseTitleActivity {
     }
 
 
-    @OnClick({R.id.layoutValveMaintain, R.id.layoutQueryParameter, R.id.layoutChangeBookNoOrCumulant, R.id.layoutSetParameter})
+    @OnClick({R.id.layoutValveMaintain, R.id.layoutQueryParameter
+            , R.id.layoutChangeBookNoOrCumulant, R.id.layoutSetParameter,R.id.layoutUpdateKey,R.id.layoutSetCopKey})
     public void onViewClicked(View view) {
         Intent mIntent;
         switch (view.getId()) {
             case R.id.layoutValveMaintain:
                 mIntent = new Intent(getContext(), HtValveMaintainActivity.class);
-                startActivity(mIntent);
                 break;
             case R.id.layoutQueryParameter:
                 mIntent = new Intent(getContext(), HtQueryParameterActivity.class);
-                startActivity(mIntent);
                 break;
             case R.id.layoutSetParameter:
+                mIntent = new Intent(getContext(), HtChooseBooksActivity.class);
+                mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_SET_PARAMETER);
                 break;
-
             case R.id.layoutChangeBookNoOrCumulant:
                 mIntent = new Intent(getContext(), HtChangeBookNoOrCumulantActivity.class);
-                startActivity(mIntent);
                 break;
+            case R.id.layoutUpdateKey:
+                mIntent = new Intent(getContext(), HtChooseBooksActivity.class);
+                mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_SET_KEY);
+                break;
+            case R.id.layoutSetCopKey:
+                mIntent = new Intent(getContext(), HtSetNewCopyKeyActivity.class);
+                break;
+            default:
+                mIntent = null;
+                break;
+        }
+        if(mIntent!=null){
+            startActivity(mIntent);
+        }else {
+            showToast("Î´¿ª·¢");
         }
     }
 }

@@ -13,7 +13,7 @@ public class HtSendMessageChange extends HtSendMessage {
 
     private String newBookNo = "00000000";//表号
     private String cumulant = "00000000";//累计量
-    private String changeType = "";//修改类型
+    private String changeType = "01";//修改类型
 
     public String getChangeType() {
         return changeType;

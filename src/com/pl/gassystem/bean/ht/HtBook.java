@@ -5,15 +5,25 @@ package com.pl.gassystem.bean.ht;
  */
 
 public class HtBook {
-    private String BookNum;
+    private String bookNum;
+    private String bookName="";
     private boolean isChoose;
 
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
     public String getBookNum() {
-        return BookNum;
+        return bookNum;
     }
 
     public void setBookNum(String bookNum) {
-        BookNum = bookNum;
+        this.bookNum = bookNum;
     }
 
     public boolean isChoose() {

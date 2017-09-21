@@ -238,6 +238,8 @@
         <activity android:name=".activity.ht.HtSingleCopyTestActivity"/>
         <activity android:name=".activity.ht.HtValveMaintainActivity"/>
         <activity android:name=".activity.ht.HtQueryParameterActivity"/>
+        <activity android:name=".activity.ht.HtSetKeyActivity"/>
+        <activity android:name=".activity.ht.HtSetNewCopyKeyActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />
@@ -245,6 +247,7 @@
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.DataManageActivity" />
         <activity android:name=".activity.SetRunModeActivity" />
+        <activity android:name=".activity.GroupingDetailsActivity"/>
 
 
     </application>

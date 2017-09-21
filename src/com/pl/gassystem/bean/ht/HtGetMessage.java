@@ -15,6 +15,7 @@ public class HtGetMessage {
     public static final String COMMAND_TYPE_QUERY_PARAMETER = "bc";//查询参数
     public static final String COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT = "91";//设置表号或者累计量
     public static final String COMMAND_TYPE_SET_PARAMETER = "86";//设置表具参数
+    public static final String COMMAND_TYPE_SET_KEY = "8b";//设置Key
 
     //阀门开关状态
     private static String VALVE_OPEN = "C3";//阀门关闭
@@ -74,9 +75,7 @@ public class HtGetMessage {
                 } else {
                     message += " 模块数据类型: 脉冲";
                 }
-
-                //3 2为保留字段 4 5
-
+                //3 2 为保留字段 4 5
                 //1 0 为阀门状态 6 7
                 String s67 = (a[6] + "" + a[7]);
                 if (s67.equals("00")) {
@@ -86,7 +85,6 @@ public class HtGetMessage {
                 } else {
                     message += " 阀门状态: 打开";
                 }
-
                 return "\n[---  " + message + "  ---]\n";
             } else {
                 return "阀门状态解析失败";
@@ -119,12 +117,14 @@ public class HtGetMessage {
             return "普通抄表";
         } else if (commandType.equals(COMMAND_TYPE_COPY_FROZEN)) {
             return "抄取冻结量";
-        } else if (commandType.equals(COMMAND_TYPE_QUERY_PARAMETER)) {
+        } else if (commandType.toLowerCase().equals(COMMAND_TYPE_QUERY_PARAMETER)) {
             return "查询参数";
         } else if (commandType.equals(COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)) {
             return "修改表号或累计量";
         } else if (commandType.equals(COMMAND_TYPE_SET_PARAMETER)) {
             return "设置表具参数";
+        } else if (commandType.toLowerCase().equals(COMMAND_TYPE_SET_KEY)) {
+            return "修改密钥";
         } else {
             return "未开发";
         }

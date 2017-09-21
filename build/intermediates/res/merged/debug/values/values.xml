@@ -43,6 +43,7 @@
     <color name="color_blue">#003f97</color>
     <color name="color_book_04">#00ddff</color>
     <color name="color_book_05">#84baff</color>
+    <color name="color_book_10">#fd14ea</color>
     <color name="color_calendar_state_01">#FF97B8</color>
     <color name="color_calendar_state_02">#FFAB32</color>
     <color name="color_calendar_state_03">#7F67EF</color>
@@ -57,6 +58,7 @@
     <color name="color_tab_text_select_pink">#8A2053</color>
     <color name="color_title_background">#F991C4</color>
     <color name="color_white">#ffffff</color>
+    <color name="color_xixi">#BEC8D1</color>
     <color name="contents_text">#ff000000</color>
     <color name="dashBoard_normal">#FEFEFE</color>
     <color name="dashBoard_pink">#EBC2D4</color>
@@ -2364,6 +2366,17 @@
     <style name="button_style" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/color_book_04</item>
         <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+    <style name="ct_copy_situation_click_imageview_style">
+        <item name="android:layout_width">@dimen/button_height</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+    </style>
+    <style name="ct_copy_situation_click_layout_style">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:background">@drawable/bg_item02</item>
     </style>
     <style name="ht_test_button_style">
         <item name="android:textSize">16sp</item>

@@ -45,6 +45,7 @@ public class RvHtBookChooseAdapter extends RecyclerView.Adapter<RvHtBookChooseAd
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.tvBookNo.setText(mList.get(position).getBookNum());
+        holder.tvBookName.setText(mList.get(position).getBookName());
         if(mList.get(position).isChoose()){
             holder.ivChoose.setImageResource(R.mipmap.choose_01);
         }else {
@@ -73,13 +74,14 @@ public class RvHtBookChooseAdapter extends RecyclerView.Adapter<RvHtBookChooseAd
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout layoutMain;
-        TextView tvBookNo;
+        TextView tvBookNo,tvBookName;
         ImageView ivChoose;
 
         MyViewHolder(View itemView) {
             super(itemView);
             layoutMain = (RelativeLayout) itemView.findViewById(R.id.layoutMain);
             tvBookNo= (TextView) itemView.findViewById(R.id.tvBookNo);
+            tvBookName= (TextView) itemView.findViewById(R.id.tvBookName);
             ivChoose= (ImageView) itemView.findViewById(R.id.ivChoose);
         }
     }

@@ -36,6 +36,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\menu\\shcmd.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\grouping_details_menu.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\menu\\grouping_details_menu.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\menu\\maintenance.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\menu\\maintenance.xml"
     },

@@ -1,7 +1,6 @@
 package com.pl.gassystem.activity.ct;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
@@ -10,17 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.pl.gassystem.utils.LogUtil;
-import com.github.jdsjlzx.ItemDecoration.DividerDecoration;
+import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
 import com.pl.gassystem.AppUrl;
-import com.pl.gassystem.adapter.ct.RvBookCopyDataListAdapter;
-import com.pl.gassystem.bean.gson.MoveCommunicates;
-import com.pl.gassystem.bean.ct.CtCopyData;
-import com.pl.gassystem.dao.CtCopyDataDao;
 import com.pl.gassystem.R;
+import com.pl.gassystem.adapter.ct.RvBookCopyDataListAdapter;
+import com.pl.gassystem.bean.ct.ColletorMeterBean;
+import com.pl.gassystem.bean.gson.GetColletorMeter;
+import com.pl.gassystem.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -29,7 +27,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import okhttp3.Call;
 
 /**
@@ -48,18 +45,16 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
     @BindView(R.id.btBeginCopy)
     Button btBeginCopy;
 
-    private String type = "";
 
     private String CollectorNo;//集中器编号
 
-    private List<String> mList;
     private LRecyclerViewAdapter mAdapter;
 
+    private List<ColletorMeterBean> showList;//显示的列表
+    private List<ColletorMeterBean> trueList;
 
-    private CtCopyDataDao ctCopyDataDao;
 
-    private List<CtCopyData> mCCtCopyDataList;
-    private List<CtCopyData> trueList;
+    private String readState="-1";
 
     @Override
     protected int setLayout() {
@@ -70,27 +65,32 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setTitle("显示全部(纯无线)");
-        type = getIntent().getStringExtra("type");
+        readState=getIntent().getStringExtra("readState");
+        if(readState.equals("-1")){
+            setTitle("显示全部");
+        }else {
+            setTitle("显示未抄");
+        }
         CollectorNo = getIntent().getStringExtra("CollectorNo");
         if (CollectorNo != null && !"".equals(CollectorNo)) {
-//            ctBookInfoDao = new CtBookInfoDao(getContext());
-            ctCopyDataDao = new CtCopyDataDao(getContext());
 
             //通过集中器编号去查询表信息
-            mCCtCopyDataList = new ArrayList<>();
+            showList = new ArrayList<>();
             trueList = new ArrayList<>();
-            trueList = ctCopyDataDao.getCtCopyDataListByCollectorNo(CollectorNo);
-            mCCtCopyDataList.addAll(trueList);
-            RvBookCopyDataListAdapter mRvBookCopyDataListAdapter = new RvBookCopyDataListAdapter(getContext(), mCCtCopyDataList);
+
+            RvBookCopyDataListAdapter mRvBookCopyDataListAdapter = new RvBookCopyDataListAdapter(getContext(), showList);
             mAdapter = new LRecyclerViewAdapter(mRvBookCopyDataListAdapter);
             rvBookList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-            DividerDecoration divider = new DividerDecoration.Builder(this).setColorResource(R.color.color_blue).build();
-            rvBookList.addItemDecoration(divider);
             rvBookList.setAdapter(mAdapter);
-            rvBookList.setPullRefreshEnabled(false);
 
-            tvBookNum.setText("共" + mCCtCopyDataList.size() + "表");
+            rvBookList.setOnRefreshListener(new OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    getCopyInfo();
+                }
+            });
+
+            rvBookList.refresh();//刷新一下
 
             etSearch.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -106,15 +106,15 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
                 @Override
                 public void afterTextChanged(Editable s) {
                     if (s.toString().trim().equals("")) {
-                        mCCtCopyDataList.clear();
-                        mCCtCopyDataList.addAll(trueList);
+                        showList.clear();
+                        showList.addAll(trueList);
                         mAdapter.notifyDataSetChanged();
                     } else {
-                        mCCtCopyDataList.clear();
+                        showList.clear();
                         for (int i = 0; i < trueList.size(); i++) {
-                            String myText = trueList.get(i).getCommunicateNo() + trueList.get(i).getMeterName();
+                            String myText = trueList.get(i).getCommunicateNo() + trueList.get(i).getAddress();
                             if (myText.contains(s.toString().trim())) {
-                                mCCtCopyDataList.add(trueList.get(i));
+                                showList.add(trueList.get(i));
                             }
                         }
                         mAdapter.notifyDataSetChanged();
@@ -126,61 +126,40 @@ public class CtShowBookListCopyDataActivity extends CtBaseTitleActivity {
 
     private AlertDialog alertDialog;
 
-    @OnClick(R.id.btBeginCopy)
-    public void onViewClicked() {
-        List<CtCopyData> mList = new ArrayList<>();
-        for (int i = 0; i < mCCtCopyDataList.size(); i++) {
-            if (mCCtCopyDataList.get(i).isChoose() && mCCtCopyDataList.get(i).getCopyState() == 1) {
-                mList.add(mCCtCopyDataList.get(i));
-            }
-        }
-        if (mList.size() == 0) {
-            showToast("您尚未选择任何一个 已抄 的表");
-        } else {
-            final String json = new Gson().toJson(mList);
-            LogUtil.i("上传数据" + json);
-            AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
-            builder2.setTitle("提示");
-            builder2.setMessage("是否抄提交同步所勾选的表?"+"\n备注: 若勾选表中存在未抄状态的表,该表则不提交更新");
-            builder2.setPositiveButton("是的", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    upData(json);
-                    alertDialog.dismiss();
-                }
-            });
-            builder2.setNegativeButton("取消", null);
-            alertDialog = builder2.create();
-            alertDialog.show();
-
-        }
-
-    }
-
-    private void upData(String json) {
+    private void getCopyInfo() {
         OkHttpUtils
                 .post()
-                .url(setBiz.getBookInfoUrl() + AppUrl.UPDATE_COMMUNICATES)
-                .addParams("Communicates", json)
+                .url(setBiz.getBookInfoUrl() + AppUrl.GETCOLLETOR_METER)
+                .addParams("CollectorNo", CollectorNo)//集中器
+                .addParams("readState",readState)//查询内容
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        LogUtil.i("上传抄表数据", e.toString());
+                        LogUtil.i("查询抄表内容", e.toString());
                         showToast("服务器异常");
+                        rvBookList.refreshComplete(1);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-                        LogUtil.i("上传抄表数据", response);
+                        LogUtil.i("查询抄表内容", response);
                         Gson gson = new Gson();
-                        MoveCommunicates info = gson.fromJson(response, MoveCommunicates.class);
-                        if (info.getMsg().trim().equals("更新抄表数据成功")) {
-                            showToast("更新抄表数据成功");
-                            finishActivity();
-                        } else {
-                            showToast("更新抄表数据失败");
+                        GetColletorMeter info = gson.fromJson(response, GetColletorMeter.class);
+                        List<ColletorMeterBean> mList=info.getColletor_Meter();
+                        if(mList!=null&&mList.size()!=0){
+                            trueList.clear();
+                            trueList.addAll(mList);
+
+                            showList.clear();
+                            showList.addAll(trueList);
+
+                            mAdapter.notifyDataSetChanged();
+
+                            etSearch.setText("");
+                            tvBookNum.setText("共" + showList.size() + "表");
                         }
+                        rvBookList.refreshComplete(1);
                     }
                 });
 

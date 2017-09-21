@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pl.gassystem.bean.ht.HtSendMessageSetNewKey;
 import com.pl.gassystem.utils.LogUtil;
 import com.pl.gassystem.utils.SPUtils;
 import com.pl.bluetooth.BluetoothChatService;
@@ -107,6 +108,16 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     private String newBookNo;//新号
     private String cumulant;//累计量
 
+    //批量设置参数所需要的参数
+    private String setYinZi = "";
+    private String setXinDao = "";
+    private String setDongJieRi = "";
+    private String setKaiChuangShiJian = "";
+    private boolean isSetYinZi;
+
+    //设置密钥所需要的参数
+    private String newKey = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +168,17 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             changeType = getIntent().getStringExtra("changeType");//修改类型
         } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
             bookNos = getIntent().getStringArrayListExtra("bookNos");
+
+            setYinZi = getIntent().getStringExtra("yinzi");
+            setXinDao = getIntent().getStringExtra("xindao");
+            setDongJieRi = getIntent().getStringExtra("dongjieri");
+            setKaiChuangShiJian = getIntent().getStringExtra("kaichuangshijian");
+            isSetYinZi = getIntent().getBooleanExtra("isSetYinZi", false);
+            LogUtil.i("批量设置参数" + setYinZi + "===" + setXinDao + "===" + setDongJieRi + "===" + setKaiChuangShiJian + "===" + isSetYinZi);
             tvLoadingAll.setText(bookNos.size() + "");
+        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)) {
+            bookNos = getIntent().getStringArrayListExtra("bookNos");
+            newKey = getIntent().getStringExtra("newKey");
         }
 
         mChatService = new BluetoothChatService(this, mHandler);//蓝牙可用则开启一个蓝牙服务
@@ -270,51 +291,79 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
     private void createCommand() {
 
-        if (commandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)) {
-            createChangeBookNoOrCumulantCommand();
-        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
-            createSetParameterCommand();
-        } else {
-            HtSendMessage htSendMessage = new HtSendMessage();
-            htSendMessage.setCommandType(commandType);//设置命令类型
-            if (copyType.equals(HtSendMessage.COPY_TYPE_GROUP)) {
-                //群抄
-                htSendMessage.setBookNo("FFFFFFFF");//设置表号
+        switch (commandType) {
+            case HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT:
+                createChangeBookNoOrCumulantCommand();
+                break;
+            case HtSendMessage.COMMAND_TYPE_SET_PARAMETER:
+                createSetParameterCommand();
+                break;
+            case HtSendMessage.COMMAND_TYPE_SET_KEY:
+                createSetKeyCommand();
+                break;
+            default:
+                HtSendMessage htSendMessage = new HtSendMessage();
+                htSendMessage.setCommandType(commandType);//设置命令类型
 
-                htSendMessage.setBookNos(bookNos);//设置一大堆表号
+                if (copyType.equals(HtSendMessage.COPY_TYPE_GROUP)) {
+                    //群抄
+                    htSendMessage.setBookNo("FFFFFFFF");//设置表号
 
-                htSendMessage.setSetTime(CalendarUtils.getHtTime()); // 17 09 15 14 10 00
+                    htSendMessage.setBookNos(bookNos);//设置一大堆表号
 
-                htSendMessage.setWakeUpTime(6000);
+                    htSendMessage.setSetTime(CalendarUtils.getHtTime()); // 17 09 15 14 10 00
 
-                htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_GROUP);
+                    htSendMessage.setWakeUpTime(6000);
 
-                htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-                htSendMessage.setKuoPinYinZi("09");//如果是查询参数 那么信道号固定为00
-                htSendMessage.setKuoPinXinDao("0E");
+                    htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_GROUP);
 
-            } else {
-                // 单抄 查看阀门状态 开关阀门 都只用执行以下代码即可
-
-                htSendMessage.setBookNo(bookNo);//设置表号
-
-                htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-
-                htSendMessage.setWakeUpTime(6000);
-
-                htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_SINGLE);
-
-                //设置扩频因子和信道
-                htSendMessage.setKuoPinYinZi("09");
-                if (commandType.equals(HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER)) {
-                    htSendMessage.setKuoPinXinDao("00");//如果是查询参数 那么信道号固定为00
-                } else {
+                    htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
+                    htSendMessage.setKuoPinYinZi("09");//如果是查询参数 那么信道号固定为00
                     htSendMessage.setKuoPinXinDao("0E");
+
+                } else {
+                    // 单抄 查看阀门状态 开关阀门 都只用执行以下代码即可
+
+                    htSendMessage.setBookNo(bookNo);//设置表号
+
+                    htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
+
+                    htSendMessage.setWakeUpTime(6000);
+
+                    htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_SINGLE);
+
+                    //设置扩频因子和信道
+                    htSendMessage.setKuoPinYinZi("09");
+                    if (commandType.equals(HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER)) {
+                        htSendMessage.setKuoPinXinDao("00");//如果是查询参数 那么信道号固定为00
+                    } else {
+                        htSendMessage.setKuoPinXinDao("0E");
+                    }
                 }
-            }
-            String message = HtCommand.encodeHangTian(htSendMessage);
-            sendMessage(message);
+                String message = HtCommand.encodeHangTian(htSendMessage);
+                sendMessage(message);
+                break;
         }
+    }
+
+    /**
+     * 创建一条批量修改密钥的命令
+     */
+    private void createSetKeyCommand() {
+        HtSendMessageSetNewKey htSendMessageSetNewKey = new HtSendMessageSetNewKey();
+        htSendMessageSetNewKey.setCommandType(commandType);//设置命令类型
+        htSendMessageSetNewKey.setBookNo("FFFFFFFF");
+        htSendMessageSetNewKey.setBookNos(bookNos);
+        htSendMessageSetNewKey.setWakeUpTime(6000);
+        htSendMessageSetNewKey.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
+        htSendMessageSetNewKey.setKuoPinYinZi("09");
+        htSendMessageSetNewKey.setKuoPinXinDao("0E");
+
+        //设置新的密钥
+        htSendMessageSetNewKey.setNewKey(newKey);
+
+        String message = HtCommand.encodeHangTianSetKey(htSendMessageSetNewKey);
+        sendMessage(message);
     }
 
     /**
@@ -325,24 +374,33 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 //        List<String> bookNos=new ArrayList<>();
 //        bookNos.add(bookNo);
 
-        HtSendMessageSetParameter htSendMessageSetParameter=new HtSendMessageSetParameter();
+        HtSendMessageSetParameter htSendMessageSetParameter = new HtSendMessageSetParameter();
         htSendMessageSetParameter.setCommandType(commandType);//设置命令类型
         htSendMessageSetParameter.setBookNo("FFFFFFFF");
         htSendMessageSetParameter.setBookNos(bookNos);
         htSendMessageSetParameter.setWakeUpTime(6000);
         htSendMessageSetParameter.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-        htSendMessageSetParameter.setKuoPinYinZi("09");//如果是查询参数 那么信道号固定为00
+        htSendMessageSetParameter.setKuoPinYinZi("09");
         htSendMessageSetParameter.setKuoPinXinDao("0E");
+
         //修改的参数
-        htSendMessageSetParameter.setNeedKuoPinYinZi(true);
-        htSendMessageSetParameter.setKuo_pin_yin_zi("09");
-        htSendMessageSetParameter.setKuo_pin_xin_dao("0E");
-        htSendMessageSetParameter.setDong_jie_ri("1111");
-        htSendMessageSetParameter.setKai_chuang_qi_zhi_shi_jian("0023");
-
-        String message=HtCommand.encodeHangTianSetParameter(htSendMessageSetParameter);
+        htSendMessageSetParameter.setNeedKuoPinYinZi(isSetYinZi);
+        String mySetYinZi = Integer.toHexString(Integer.parseInt(setYinZi));
+        if (mySetYinZi.length() == 1) {
+            htSendMessageSetParameter.setKuo_pin_yin_zi("0" + mySetYinZi);
+        } else {
+            htSendMessageSetParameter.setKuo_pin_yin_zi(mySetYinZi);
+        }
+        String mySetXinDao = Integer.toHexString(Integer.parseInt(setXinDao));
+        if (mySetXinDao.length() == 1) {
+            htSendMessageSetParameter.setKuo_pin_xin_dao("0" + mySetXinDao);
+        } else {
+            htSendMessageSetParameter.setKuo_pin_xin_dao(mySetXinDao);
+        }
+        htSendMessageSetParameter.setDong_jie_ri(setDongJieRi);
+        htSendMessageSetParameter.setKai_chuang_qi_zhi_shi_jian(setKaiChuangShiJian);
+        String message = HtCommand.encodeHangTianSetParameter(htSendMessageSetParameter);
         sendMessage(message);
-
     }
 
     // 从BluetoothChatService处理程序获得信息返回
@@ -409,9 +467,12 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             num++;
             tvLoadingCount.setText(num + "");
             tvMessage.setText(tvMessage.getText().toString().trim() + "\n" + htGetMessageQueryParameter.getResult());
-        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)
-                |commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
-            //修改表号 或者累计量
+        } else if (
+                commandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)
+                        | commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)
+                        | commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)
+                ) {
+            //修改表号 或者累计量 修改密钥
             HtGetMessageChangeBookNoOrCumulant htGetMessageQueryParameter = HtCommand.readChangeBookNoOrCumulantMessage(readMessage);
             assert htGetMessageQueryParameter != null;
             LogUtil.i("抄表结果", htGetMessageQueryParameter.getResult());

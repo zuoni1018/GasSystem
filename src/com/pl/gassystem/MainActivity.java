@@ -23,8 +23,12 @@ import com.pl.gassystem.activity.DataManageActivity;
 import com.pl.gassystem.activity.SettingActivity;
 import com.pl.gassystem.activity.ct.CtConcentratorListActivity;
 import com.pl.gassystem.activity.ht.HtBookListActivity;
+import com.pl.gassystem.command.HtCommand;
 import com.pl.gassystem.utils.JumpActivityUtils;
+import com.pl.gassystem.utils.SPUtils;
 import com.pl.utils.GlobalConsts;
+import com.zuoni.zuoni_common.utils.common.NetUtils;
+import com.zuoni.zuoni_common.utils.common.ToastUtils;
 
 /**
  * 主菜单界面
@@ -74,8 +78,14 @@ public class MainActivity extends Activity implements OnTouchListener {
         ivMainConcentrator.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(MainActivity.this, CtConcentratorListActivity.class);
-                startActivity(mIntent);
+                //判断当前有无网络
+                if(NetUtils.isConnected(MainActivity.this)){
+                    Intent mIntent = new Intent(MainActivity.this, CtConcentratorListActivity.class);
+                    startActivity(mIntent);
+                }else {
+                    ToastUtils.showToast(MainActivity.this,"该功能需要联网");
+                }
+
             }
         });
 
@@ -93,6 +103,12 @@ public class MainActivity extends Activity implements OnTouchListener {
 //
 //            }
 //        });
+
+
+        //第一次进来的时候初始化一下杭天密钥
+        String htCopyKey= (String) SPUtils.get(MainActivity.this,"HtCopyKey","0102030405060708");
+        HtCommand.HT_PASSWORD=htCopyKey+"0000000000000000";
+
 
     }
 

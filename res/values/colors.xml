@@ -11,7 +11,7 @@
     <color name="holo_light_primary">#d65d5d</color>
     <color name="color_book_04">#00ddff</color>
     <color name="color_book_05">#84baff</color>
-
+    <color name="color_book_10">#fd14ea</color>
     <color name="item_pressed">#e0e0e0</color>
     <color name="item_unpressed">#ffffff</color>
     <color name="item_text">#003f97</color>
@@ -60,4 +60,6 @@
     <color name="color_red">#ffff0000</color>
     <color name="color_green">#37ff00</color>
     <color name="color_gray">#686868</color>
+
+    <color name="color_xixi">#BEC8D1</color>
 </resources>

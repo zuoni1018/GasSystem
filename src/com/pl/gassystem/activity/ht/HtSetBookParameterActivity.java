@@ -2,14 +2,21 @@ package com.pl.gassystem.activity.ht;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.pl.bll.SetBiz;
 import com.pl.gassystem.R;
 import com.pl.gassystem.bean.ht.HtSendMessage;
+import com.pl.gassystem.utils.SPUtils;
+import com.pl.utils.GlobalConsts;
+import com.zuoni.zuoni_common.dialog.other.DataPickerHtChooseDialog;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,10 +28,14 @@ import butterknife.OnClick;
  */
 
 public class HtSetBookParameterActivity extends HtBaseTitleActivity {
-    @BindView(R.id.etKuoPinXinDao)
-    EditText etKuoPinXinDao;
-    @BindView(R.id.etKuoPinYinZi)
-    EditText etKuoPinYinZi;
+
+
+    @BindView(R.id.tvChoose)
+    TextView tvChoose;
+    @BindView(R.id.tvKuoPinYinZi)
+    TextView tvKuoPinYinZi;
+    @BindView(R.id.tvKuoPinXinDao)
+    TextView tvKuoPinXinDao;
     @BindView(R.id.etSheZhiDongJieRi)
     EditText etSheZhiDongJieRi;
     @BindView(R.id.etKaiChuangShiJian)
@@ -33,8 +44,11 @@ public class HtSetBookParameterActivity extends HtBaseTitleActivity {
     CheckBox rbNeed;
     @BindView(R.id.btSure)
     Button btSure;
-
-    private ArrayList<String > bookNos;
+    @BindView(R.id.tvNum)
+    TextView tvNum;
+    private ArrayList<String> bookNos;
+    private DataPickerHtChooseDialog dataPickerHtChooseDialog;
+    private SetBiz setBiz;
 
     @Override
     protected int setLayout() {
@@ -46,15 +60,74 @@ public class HtSetBookParameterActivity extends HtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         setTitle("批量设置参数");
-        bookNos=getIntent().getStringArrayListExtra("bookNos");
+        setBiz = new SetBiz(getContext());
+        bookNos = getIntent().getStringArrayListExtra("bookNos");
+        if(bookNos!=null){
+            tvNum.setText("您选择了"+bookNos.size()+"张燃气表");
+        }
 
     }
 
-    @OnClick(R.id.btSure)
-    public void onViewClicked() {
-        Intent mIntent =new Intent(getContext(),HtCopyingActivity.class);
-        mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_SET_PARAMETER);
-        mIntent.putExtra("bookNos", bookNos);
-        startActivity(mIntent);
+
+    @OnClick({R.id.tvChoose, R.id.btSure})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tvChoose:
+                //默认设置成 14 09
+                DataPickerHtChooseDialog.Builder builder = new DataPickerHtChooseDialog.Builder(getContext());
+
+                List<String> right = new ArrayList<>();
+                for (int i = 0; i < 28; i++) {
+                    if (i < 10) {
+                        right.add("0" + i);
+                    } else {
+                        right.add("" + i);
+                    }
+                }
+
+                builder.setData2(right);
+                builder.setSelection2(14);
+                List<String> left = new ArrayList<>();
+                for (int i = 7; i < 13; i++) {
+                    if (i < 10) {
+                        left.add("0" + i);
+                    } else {
+                        left.add("" + i);
+                    }
+                }
+                builder.setData(left);
+                builder.setSelection(2);
+
+                builder.setOnDataSelectedListener(new DataPickerHtChooseDialog.OnDataSelectedListener() {
+                    @Override
+                    public void onDataSelected(String itemValue) {
+                        setBiz.updateRunMode(GlobalConsts.RUN_MODE_HANG_TIAN);
+                        tvKuoPinYinZi.setText(itemValue);
+                        SPUtils.put(getContext(), "HtKuoPinYinZi", itemValue);
+                    }
+
+                    @Override
+                    public void onDataSelected2(String itemValue) {
+                        tvKuoPinXinDao.setText(itemValue);
+                        SPUtils.put(getContext(), "HtKuoPinXinDao", itemValue);
+                    }
+                });
+
+                dataPickerHtChooseDialog = builder.create();
+                dataPickerHtChooseDialog.show();
+                break;
+            case R.id.btSure:
+
+                Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
+                mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_SET_PARAMETER);//命令类型
+                mIntent.putStringArrayListExtra("bookNos", bookNos);//操作表
+                mIntent.putExtra("yinzi","09");//扩频因子
+                mIntent.putExtra("xindao","14");//扩频信道
+                mIntent.putExtra("dongjieri","0000");//设置冻结日
+                mIntent.putExtra("kaichuangshijian","0023");//开窗起止时间
+                mIntent.putExtra("isSetYinZi",false);
+                startActivity(mIntent);
+                break;
+        }
     }
 }

@@ -328,6 +328,7 @@
             android:layout_height="match_parent"
             android:background="#eeeeee" />
         <LinearLayout
+            android:visibility="invisible"
             android:id="@+id/layoutHangTian"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -336,6 +337,7 @@
             android:gravity="center">
 
             <TextView
+
                 android:text="杭天抄表测试入口"
                 android:textColor="@color/color_black"
                 android:textSize="16sp"

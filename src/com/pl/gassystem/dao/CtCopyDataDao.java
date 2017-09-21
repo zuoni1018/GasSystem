@@ -1,17 +1,24 @@
 package com.pl.gassystem.dao;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.pl.gassystem.utils.LogUtil;
+import com.google.gson.Gson;
+import com.pl.bll.SetBiz;
+import com.pl.dal.DBOpenHelper;
+import com.pl.gassystem.AppUrl;
 import com.pl.gassystem.bean.ct.CtBookInfo;
 import com.pl.gassystem.bean.ct.CtCopyData;
-import com.pl.dal.DBOpenHelper;
+import com.pl.gassystem.utils.LogUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+import com.zuoni.zuoni_common.utils.common.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/7
@@ -21,9 +28,11 @@ import java.util.List;
 public class CtCopyDataDao {
 
     private DBOpenHelper helper;
+    private  Context context;
 
     public CtCopyDataDao(Context context) {
         helper = new DBOpenHelper(context);
+        this.context=context;
     }
 
     /**
@@ -31,40 +40,69 @@ public class CtCopyDataDao {
      * 存在则更新 不存在则插入
      */
     public void putCtCopyData(CtCopyData ctCopyData) {
-        SQLiteDatabase db = helper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("meterNo", ctCopyData.getMeterNo());
-        values.put("lastShow", ctCopyData.getLastDosage());
-        values.put("lastDosage", ctCopyData.getLastDosage());
-        values.put("currentShow", ctCopyData.getCurrentShow());
-        values.put("currentDosage", ctCopyData.getCurrentDosage());
-        values.put("unitPrice", ctCopyData.getUnitPrice());
-        values.put("printFlag", ctCopyData.getPrintFlag());
-        values.put("meterState", ctCopyData.getMeterState());
-        values.put("copyWay", ctCopyData.getCopyWay());
-        values.put("copyState", ctCopyData.getCopyState());
-        values.put("copyTime", ctCopyData.getCopyTime());
-        values.put("copyMan", ctCopyData.getCopyMan());
-        values.put("Operator", ctCopyData.getOperator());
-        values.put("operateTime", ctCopyData.getOperateTime());
-        values.put("isBalance", ctCopyData.getIsBalance());
-        values.put("Remark", ctCopyData.getRemark());
-//        values.put("meterName", ctCopyData.getMeterName());
-        values.put("dBm", ctCopyData.getdBm());
-        values.put("elec", ctCopyData.getElec());
+//        SQLiteDatabase db = helper.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put("meterNo", ctCopyData.getMeterNo());
+//        values.put("lastShow", ctCopyData.getLastDosage());
+//        values.put("lastDosage", ctCopyData.getLastDosage());
+//        values.put("currentShow", ctCopyData.getCurrentShow());
+//        values.put("currentDosage", ctCopyData.getCurrentDosage());
+//        values.put("unitPrice", ctCopyData.getUnitPrice());
+//        values.put("printFlag", ctCopyData.getPrintFlag());
+//        values.put("meterState", ctCopyData.getMeterState());
+//        values.put("copyWay", ctCopyData.getCopyWay());
+//        values.put("copyState", ctCopyData.getCopyState());
+//        values.put("copyTime", ctCopyData.getCopyTime());
+//        values.put("copyMan", ctCopyData.getCopyMan());
+//        values.put("Operator", ctCopyData.getOperator());
+//        values.put("operateTime", ctCopyData.getOperateTime());
+//        values.put("isBalance", ctCopyData.getIsBalance());
+//        values.put("Remark", ctCopyData.getRemark());
+////        values.put("meterName", ctCopyData.getMeterName());
+//        values.put("dBm", ctCopyData.getdBm());
+//        values.put("elec", ctCopyData.getElec());
+//
+//        values.put("CommunicateNo", ctCopyData.getCommunicateNo());//表编号
+//        values.put("CollectorNo", ctCopyData.getCollectorNo());//所在集中器编号
+//
+//        //判断数据库原来是否存在该条数据
+//        Cursor cursor = db.rawQuery("select * from CtCopyData where CommunicateNo = ?", new String[]{ctCopyData.getCommunicateNo()});
+//        if (cursor != null && cursor.moveToNext()) {
+//            db.update("CtCopyData", values, "CommunicateNo = ?", new String[]{ctCopyData.getCommunicateNo()});
+//            cursor.close();
+//        } else {
+//            db.insert("CtCopyData", null, values);
+//        }
+//        db.close();
 
-        values.put("CommunicateNo", ctCopyData.getCommunicateNo());//表编号
-        values.put("CollectorNo", ctCopyData.getCollectorNo());//所在集中器编号
+        //原来是存储到数据库 现在直接提交
+        List<CtCopyData> mList=new ArrayList<>();
+        mList.add(ctCopyData);
+        upData(new SetBiz(context),new Gson().toJson(mList),context);
 
-        //判断数据库原来是否存在该条数据
-        Cursor cursor = db.rawQuery("select * from CtCopyData where CommunicateNo = ?", new String[]{ctCopyData.getCommunicateNo()});
-        if (cursor != null && cursor.moveToNext()) {
-            db.update("CtCopyData", values, "CommunicateNo = ?", new String[]{ctCopyData.getCommunicateNo()});
-            cursor.close();
-        } else {
-            db.insert("CtCopyData", null, values);
-        }
-        db.close();
+    }
+
+    private void upData(SetBiz setBiz, String json, final Context context) {
+
+        OkHttpUtils
+                .post()
+                .url(setBiz.getBookInfoUrl() + AppUrl.UPDATE_COMMUNICATES)
+                .addParams("Communicates", json)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("上传抄表数据", e.toString());
+                        ToastUtils.showToast(context,"服务器异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("上传抄表数据", response);
+                    }
+                });
+
+
     }
 
     /**
@@ -72,27 +110,27 @@ public class CtCopyDataDao {
      * 存在则更新 不存在则插入
      */
     public void putCtCopyDataOtherInfo(CtBookInfo ctBookInfo) {
-        SQLiteDatabase db = helper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        //后面加的
-        values.put("CommunicateNo", ctBookInfo.getCommunicateNo());//表编号
-        values.put("CollectorNo", ctBookInfo.getCollectorNo());//所在集中器编号
-        values.put("meterNo", ctBookInfo.getCommunicateNo());
-        values.put("meterName",ctBookInfo.getAddress());
-        //插入数据库
-        //判断数据库原来是否存在该条数据
-        Cursor cursor = db.rawQuery("select * from CtCopyData where CommunicateNo = ?", new String[]{ctBookInfo.getCommunicateNo()});
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                //能移动下去说明有数据执行更新操作
-                db.update("CtCopyData", values, "CommunicateNo = ?", new String[]{ctBookInfo.getCommunicateNo()});
-                cursor.close();
-            } else {
-                db.insert("CtCopyData", null, values);
-                cursor.close();
-            }
-        }
-        db.close();
+//        SQLiteDatabase db = helper.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        //后面加的
+//        values.put("CommunicateNo", ctBookInfo.getCommunicateNo());//表编号
+//        values.put("CollectorNo", ctBookInfo.getCollectorNo());//所在集中器编号
+//        values.put("meterNo", ctBookInfo.getCommunicateNo());
+//        values.put("meterName",ctBookInfo.getAddress());
+//        //插入数据库
+//        //判断数据库原来是否存在该条数据
+//        Cursor cursor = db.rawQuery("select * from CtCopyData where CommunicateNo = ?", new String[]{ctBookInfo.getCommunicateNo()});
+//        if (cursor != null) {
+//            if (cursor.moveToFirst()) {
+//                //能移动下去说明有数据执行更新操作
+//                db.update("CtCopyData", values, "CommunicateNo = ?", new String[]{ctBookInfo.getCommunicateNo()});
+//                cursor.close();
+//            } else {
+//                db.insert("CtCopyData", null, values);
+//                cursor.close();
+//            }
+//        }
+//        db.close();
     }
 
 

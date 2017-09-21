@@ -110,7 +110,6 @@ public class HtChangeBookNoOrCumulantActivity extends HtBaseTitleActivity {
                         mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT);
                         mIntent.putExtra("changeType", changeType);
                         startActivity(mIntent);
-
                     } else {
                         showToast("杭天表号必须为8位");
                     }

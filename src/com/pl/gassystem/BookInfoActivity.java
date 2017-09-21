@@ -1,4 +1,5 @@
 package com.pl.gassystem;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -26,7 +27,6 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.pl.gassystem.adapter.main.BookInfoAdapter;
 import com.pl.bll.BookInfoBiz;
 import com.pl.bll.GroupBindBiz;
 import com.pl.bll.GroupInfoBiz;
@@ -35,6 +35,7 @@ import com.pl.bll.XmlParser;
 import com.pl.common.NetWorkManager;
 import com.pl.entity.BookInfo;
 import com.pl.entity.GroupInfo;
+import com.pl.gassystem.adapter.main.BookInfoAdapter;
 import com.pl.utils.GlobalConsts;
 
 import org.apache.http.Header;
@@ -223,6 +224,7 @@ public class BookInfoActivity extends Activity {
                     //如果是从抄表按钮点进来的
 //                    Intent intent = new Intent(BookInfoActivity.this, GroupInfoActivity.class);
                     Intent intent = new Intent(BookInfoActivity.this, GroupInfoStatisticActivity.class);
+//                    Intent intent = new Intent(BookInfoActivity.this, GroupingDetailsActivity.class);
                     BookInfo bkinfo = adapter.getItem(position);
                     intent.putExtra("BookNo", bkinfo.getBookNo());
                     intent.putExtra("BookName", bkinfo.getBookName());

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="共4表"
+            android:text="共0表"
             android:textColor="#000"
             android:textSize="16sp" />
 
@@ -42,6 +42,9 @@
         android:id="@+id/rvBookList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="1" />
 
     <Button
@@ -51,5 +54,6 @@
         android:background="#0351be"
         android:text="提交同步"
         android:textColor="@color/color_white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:visibility="gone" />
 </LinearLayout>

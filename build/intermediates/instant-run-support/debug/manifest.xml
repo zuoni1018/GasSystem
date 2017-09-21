@@ -241,6 +241,8 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtSingleCopyTestActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtValveMaintainActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtQueryParameterActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtSetKeyActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtSetNewCopyKeyActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />
@@ -248,6 +250,7 @@
         <activity android:name="com.pl.gassystem.activity.SettingActivity" />
         <activity android:name="com.pl.gassystem.activity.DataManageActivity" />
         <activity android:name="com.pl.gassystem.activity.SetRunModeActivity" />
+        <activity android:name="com.pl.gassystem.activity.GroupingDetailsActivity" />
 
         <provider
             android:name="com.android.tools.fd.runtime.InstantRunContentProvider"

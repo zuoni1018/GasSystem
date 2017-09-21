@@ -44,6 +44,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\item_copydata_info.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_set_key.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_set_key.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bluetooth_communication.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_bluetooth_communication.xml"
     },
@@ -52,12 +56,12 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_situation_chart.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ct_situation_chart.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_book_info_update.xml",
@@ -186,6 +190,14 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_copy_time.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_set_copy_time.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\lv_menu_item.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\lv_menu_item.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\rv_grouping_details_item.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\rv_grouping_details_item.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
@@ -344,6 +356,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ct_activity_copydata_book_detail.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_set_copy_key.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_set_copy_key.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_activity_show_book_list.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ct_activity_show_book_list.xml"
     },
@@ -458,6 +474,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_run_mode.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_set_run_mode.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_grouping_details.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_grouping_details.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_indicator_view.xml",
@@ -582,6 +602,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_onlyback.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\titlebar_onlyback.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_create_book.xml",
+        "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\layout\\dialog_create_book.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_concentrator_list_item.xml",

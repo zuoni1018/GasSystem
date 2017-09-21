@@ -7,48 +7,74 @@
     <include layout="@layout/title_bar_style" />
 
     <TextView
+        android:id="@+id/tvNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
-        android:text="扩频信道(00~27):"
-        android:textColor="@color/color_black"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/etKuoPinXinDao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:inputType="number"
-        android:text="10"
-        android:textColor="@color/color_black"
+        android:textColor="@color/black"
         android:textSize="14sp" />
 
     <TextView
+        android:id="@+id/tvChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:text="扩频因子(07~12):"
+        android:layout_marginTop="10dp"
+        android:text=" 》》》点击选择扩频因子、扩频信道《《《"
         android:textColor="@color/color_black"
         android:textSize="14sp" />
 
-    <EditText
-        android:id="@+id/etKuoPinYinZi"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:inputType="number"
-        android:text="09"
-        android:textColor="@color/color_black"
-        android:textSize="14sp" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="扩频因子(07~12):"
+            android:textColor="@color/color_black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvKuoPinYinZi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="09"
+            android:textColor="@color/color_red"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="扩频信道(00~27):"
+            android:textColor="@color/color_black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvKuoPinXinDao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="14"
+            android:textColor="@color/color_red"
+            android:textSize="14sp" />
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,17 +88,19 @@
 
     <EditText
         android:id="@+id/etSheZhiDongJieRi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:inputType="number"
+        android:maxLength="4"
         android:text="0000"
         android:textColor="@color/color_black"
         android:textSize="14sp" />
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -84,13 +112,14 @@
 
     <EditText
         android:id="@+id/etKaiChuangShiJian"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:inputType="number"
-        android:text="0000"
+        android:maxLength="4"
+        android:text="0023"
         android:textColor="@color/color_black"
         android:textSize="14sp" />
 
@@ -104,7 +133,6 @@
         android:textSize="14sp" />
 
     <Button
-        android:theme="@style/button_style"
         android:id="@+id/btSure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,5 +142,6 @@
         android:layout_marginTop="5dp"
         android:text="确定"
         android:textColor="@color/color_white"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:theme="@style/button_style" />
 </LinearLayout>

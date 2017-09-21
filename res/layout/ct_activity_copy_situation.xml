@@ -31,131 +31,105 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1">
+                        android:id="@+id/btBeginCopy"
+                        style="@style/ct_copy_situation_click_layout_style">
 
-                        <Button
-                            android:id="@+id/btBeginCopy"
-                            android:layout_width="@dimen/button_height"
-                            android:layout_height="@dimen/button_height"
-                            android:background="@mipmap/ct_icon_04" />
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_04" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1">
+                        android:id="@+id/btCopyAllBook"
+                        style="@style/ct_copy_situation_click_layout_style">
 
-                        <Button
-                            android:id="@+id/btCopyAllBook"
-                            android:layout_width="@dimen/button_height"
-                            android:layout_height="@dimen/button_height"
-
-                            android:background="@mipmap/ct_icon_02" />
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_02" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1">
+                        android:id="@+id/layoutShowCopy"
+                        style="@style/ct_copy_situation_click_layout_style">
 
-                        <Button
-                            android:id="@+id/btShowAllBook"
-                            android:layout_width="@dimen/button_height"
-                            android:layout_height="@dimen/button_height"
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_08" />
+                    </LinearLayout>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/btMaintain"
+                        style="@style/ct_copy_situation_click_layout_style"
+                        android:visibility="gone">
+
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:background="@mipmap/ct_icon_01" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btShowAllBook"
+                        style="@style/ct_copy_situation_click_layout_style">
+
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
                             android:background="@mipmap/ct_icon_07" />
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/layoutShowNoCopy"
+                        style="@style/ct_copy_situation_click_layout_style">
 
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_09" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/layoutNetworking"
+                        style="@style/ct_copy_situation_click_layout_style">
+
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_05" />
+                    </LinearLayout>
                 </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/button_height"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center">
-
-                    <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1"
-                        android:visibility="gone">
-
-                        <Button
-                            android:id="@+id/btMaintain"
-                            android:layout_width="@dimen/button_height"
-                            android:layout_height="@dimen/button_height"
-                            android:background="@mipmap/ct_icon_01" />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/layoutNetworking"
-                        android:layout_width="@dimen/button_height"
-                        android:layout_height="@dimen/button_height"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="8dp"
-                            android:src="@mipmap/ct_icon_05" />
-                    </LinearLayout>
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/layoutUpData"
-                        android:layout_width="@dimen/button_height"
-                        android:layout_height="@dimen/button_height"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        style="@style/ct_copy_situation_click_layout_style">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="8dp"
+                            android:id="@+id/imageView2"
+                            style="@style/ct_copy_situation_click_imageview_style"
                             android:src="@mipmap/ct_icon_03" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="#BEC8D1">
+                        android:id="@+id/btSetting"
+                        style="@style/ct_copy_situation_click_layout_style">
 
-                        <Button
-                            android:id="@+id/btSetting"
-                            android:layout_width="@dimen/button_height"
-                            android:layout_height="@dimen/button_height"
-                            android:background="@mipmap/ct_icon_06" />
+                        <ImageView
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_06" />
                     </LinearLayout>
                 </LinearLayout>
-
-
             </LinearLayout>
         </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>

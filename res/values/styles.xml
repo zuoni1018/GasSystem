@@ -111,4 +111,17 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <style name="ct_copy_situation_click_layout_style">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:background">@drawable/bg_item02</item>
+    </style>
+
+    <style name="ct_copy_situation_click_imageview_style">
+        <item name="android:layout_width">@dimen/button_height</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+    </style>
+
 </resources>

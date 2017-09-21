@@ -87,7 +87,8 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
     private List<CtBookInfo> mList;
     private List<CtBookInfo> trueList;
     private LRecyclerViewAdapter mAdapter;
-private AlertDialog alertDialog;
+    private AlertDialog alertDialog;
+
     @Override
     protected int setLayout() {
         return R.layout.ct_activity_networking;
@@ -109,7 +110,7 @@ private AlertDialog alertDialog;
         mRecyclerView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
-                isChooseAll=false;
+                isChooseAll = false;
                 ivChooseAll.setImageResource(R.mipmap.choose_02);
                 etSearch.setText("");
                 mRecyclerView.scrollToPosition(0);
@@ -175,8 +176,17 @@ private AlertDialog alertDialog;
                         String myText = trueList.get(i).getAddress() + trueList.get(i).getCommunicateNo();
                         if (trueList.get(i).getMeterTypeNo().equals("05")) {
                             myText = myText + "纯无线";
+                        } else if (trueList.get(i).getMeterTypeNo().equals("10")) {
+                            myText = myText + "摄像表";
                         } else {
                             myText = myText + "IC无线";
+                        }
+                        if (trueList.get(i).getReadState().equals("0")) {
+                            myText = myText + "抄表中";
+                        } else if (trueList.get(i).getReadState().equals("2")) {
+                            myText = myText + "未抄";
+                        } else {
+                            myText = myText + "已抄";
                         }
                         if (myText.contains(s)) {
                             mList.add(trueList.get(i));
@@ -219,14 +229,14 @@ private AlertDialog alertDialog;
                     showToast("您尚未选择表");
                 } else {
                     //拼接字符串
-                    String message="";
-                    for (int i = 0; i < chooseCtBookInfoList.size() ; i++) {
-                        message=message+ chooseCtBookInfoList.get(i).getCommunicateNo()+"|"+ chooseCtBookInfoList.get(i).getMeterTypeNo()+"&";
+                    String message = "";
+                    for (int i = 0; i < chooseCtBookInfoList.size(); i++) {
+                        message = message + chooseCtBookInfoList.get(i).getCommunicateNo() + "|" + chooseCtBookInfoList.get(i).getMeterTypeNo() + "&";
                     }
-                    LogUtil.i("拼接字符串",message);
-                    AlertDialog.Builder builder2=new AlertDialog.Builder(getContext());
+                    LogUtil.i("拼接字符串", message);
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
                     builder2.setTitle("提示");
-                    builder2.setMessage("是否抄取选中的"+chooseCtBookInfoList.size()+"张表?"+"\n下发后,可下拉刷新列表获得最新数据!");
+                    builder2.setMessage("是否抄取选中的" + chooseCtBookInfoList.size() + "张表?" + "\n下发后,可下拉刷新列表获得最新数据!");
                     final String finalMessage = message;
                     builder2.setPositiveButton("是的", new DialogInterface.OnClickListener() {
                         @Override
@@ -235,8 +245,8 @@ private AlertDialog alertDialog;
                             alertDialog.dismiss();
                         }
                     });
-                    builder2.setNegativeButton("取消",null);
-                    alertDialog=builder2.create();
+                    builder2.setNegativeButton("取消", null);
+                    alertDialog = builder2.create();
                     alertDialog.show();
                 }
             }
@@ -266,11 +276,11 @@ private AlertDialog alertDialog;
 
     private void copyBooks(String message) {
 
-                OkHttpUtils
+        OkHttpUtils
                 .post()
-                .url(setBiz.getBookInfoUrl()+AppUrl.METER_READING)
+                .url(setBiz.getBookInfoUrl() + AppUrl.METER_READING)
                 .addParams("CollectorNo", collectorNo)
-                .addParams("Communicates", message )
+                .addParams("Communicates", message)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -298,7 +308,7 @@ private AlertDialog alertDialog;
      */
     private void getListInfo(int nowPageNum) {
         post()
-                .url(setBiz.getBookInfoUrl()+AppUrl.GET_COLLECTOR_NET_WORKING)
+                .url(setBiz.getBookInfoUrl() + AppUrl.GET_COLLECTOR_NET_WORKING)
                 .addParams("CollectorNo", collectorNo)
                 .addParams("PageNo", nowPageNum + "")
                 .build()

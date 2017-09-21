@@ -20,17 +20,21 @@
 
         <ImageView
             android:id="@+id/ivChoose"
-            android:layout_width="24dp"
+            android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
             android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:src="@mipmap/choose_02"
             android:textColor="#000"
             android:textSize="14sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_line" />
 
         <TextView
             android:id="@+id/tvBookNo"
@@ -39,11 +43,31 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_weight="1.2"
+            android:layout_weight="4.5"
             android:gravity="center"
             android:textColor="#000"
             android:textSize="14sp" />
 
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_line" />
+
+        <TextView
+            android:id="@+id/tvBookName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="4.5"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="14sp" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_line" />
     </LinearLayout>
 
     <View

@@ -1,5 +1,6 @@
 package com.pl.gassystem.command;
 
+import com.pl.gassystem.bean.ht.HtSendMessageSetNewKey;
 import com.pl.gassystem.utils.LogUtil;
 import com.pl.common.Cfun;
 import com.pl.gassystem.bean.ht.HtGetMessage;
@@ -27,11 +28,13 @@ import static com.pl.protocol.HhProtocol.hexStr2ByteArray;
 
 public class HtCommand {
 
-    private final static String HT_PASSWORD = "01020304050607080000000000000000";//杭天AES key
+    public static String HT_PASSWORD = "01020304050607080000000000000000";//杭天AES key
 
 
-
-    public static String encodeHangTianSetParameter(HtSendMessageSetParameter htSendMessage) {
+    /**
+     * 批量设置表号参数
+     */
+    public static String encodeHangTianSetKey(HtSendMessageSetNewKey htSendMessage) {
         String seeMessage = htSendMessage.getCommandType() + htSendMessage.getBookNo();
         //群抄表数量
         if (htSendMessage.getBookNos().size() < 10) {
@@ -43,16 +46,9 @@ public class HtCommand {
         for (int i = 0; i < htSendMessage.getBookNos().size(); i++) {
             seeMessage += htSendMessage.getBookNos().get(i);
         }
-        //参数设置控制位
-        seeMessage+=htSendMessage.isNeedKuoPinYinZi();
-        //扩频信道
-        seeMessage+=htSendMessage.getKuo_pin_xin_dao();
-        //扩频因子
-        seeMessage+=htSendMessage.getKuo_pin_yin_zi();
-        //设置冻结日期
-        seeMessage+=htSendMessage.getDong_jie_ri();
-        //设置开窗起止时间
-        seeMessage+=htSendMessage.getKai_chuang_qi_zhi_shi_jian();
+        //设置新密钥
+        seeMessage+=htSendMessage.getNewKey();
+
         //异或
         seeMessage = seeMessage + Cfun.getBCC(Cfun.x16Str2Byte(seeMessage));
         //补全32位的倍数
@@ -102,8 +98,79 @@ public class HtCommand {
         return commandMessage;
     }
 
+    /**
+     * 批量设置表号参数
+     */
+    public static String encodeHangTianSetParameter(HtSendMessageSetParameter htSendMessage) {
+        String seeMessage = htSendMessage.getCommandType() + htSendMessage.getBookNo();
+        //群抄表数量
+        if (htSendMessage.getBookNos().size() < 10) {
+            seeMessage += "0" + htSendMessage.getBookNos().size();
+        } else {
+            seeMessage += htSendMessage.getBookNos().size();
+        }
+        //拼接表号
+        for (int i = 0; i < htSendMessage.getBookNos().size(); i++) {
+            seeMessage += htSendMessage.getBookNos().get(i);
+        }
+        //参数设置控制位
+        seeMessage += htSendMessage.isNeedKuoPinYinZi();
+        //扩频信道
+        seeMessage += htSendMessage.getKuo_pin_xin_dao();
+        //扩频因子
+        seeMessage += htSendMessage.getKuo_pin_yin_zi();
+        //设置冻结日期
+        seeMessage += htSendMessage.getDong_jie_ri();
+        //设置开窗起止时间
+        seeMessage += htSendMessage.getKai_chuang_qi_zhi_shi_jian();
+        //异或
+        seeMessage = seeMessage + Cfun.getBCC(Cfun.x16Str2Byte(seeMessage));
+        //补全32位的倍数
+        int l = seeMessage.length();
+        int a = l / 32;//整数倍
+        int b = l % 32;//余数
 
+        if (b != 0) {
+            //说明明文不是32的整数倍
+            if (seeMessage.length() < 32 * (a + 1)) {
+                int addLength = 32 * (a + 1) - seeMessage.length();
+                seeMessage = seeMessage + "80";
+                if (addLength > 2) {
+                    //判断需要加几个 00
+                    int add0Num = addLength / 2 - 1;
+                    for (int i = 0; i < add0Num; i++) {
+                        seeMessage = seeMessage + "00";
+                    }
+                }
+            }
+        }
+        LogUtil.i("杭天", "群抄明文 " + seeMessage);
 
+        //明文AES加密
+        String cipherMessage = parseByte2HexStr(encrypt(seeMessage, HT_PASSWORD));//密文
+        LogUtil.i("杭天", "明文加密1 " + cipherMessage);
+        //密文 68+"密文长度"(16进制)+密文+"16"
+        cipherMessage = "68" + Integer.toHexString(cipherMessage.length() / 2) + cipherMessage + "16";//密文设置起始符号
+        LogUtil.i("杭天", "明文加密2 " + cipherMessage);
+        //唤醒时间 ms*100 转16进制
+        int time = htSendMessage.getWakeUpTime() / 100;
+        String weekUpTime;
+        if (time < 16) {
+            //说明生成的唤醒时间就只有一位
+            weekUpTime = "0" + Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+        } else {
+            weekUpTime = Integer.toHexString(htSendMessage.getWakeUpTime() / 100);
+        }
+
+        LogUtil.i("杭天", "唤醒时间 " + weekUpTime);
+        //组合成命令 "68" +厂商编号 +密文长度+2(数据长度) +工作模式(06)+唤醒标志+唤醒时间+信道+扩频因子+加密明文+"16"
+        String commandMessage = "6808" + Integer.toHexString(cipherMessage.length() / 2 + 2) + "06" + htSendMessage.getWakeUpMark() + weekUpTime
+                + htSendMessage.getKuoPinXinDao() + htSendMessage.getKuoPinYinZi()
+                + cipherMessage + "16";
+
+        LogUtil.i("杭天", "发送密文 " + commandMessage);
+        return commandMessage;
+    }
 
     /**
      * 修改表号 累计量编码
@@ -111,7 +178,7 @@ public class HtCommand {
     public static String encodeHangTianChangeBookNoOrCumulant(HtSendMessageChange htSendMessageChange) {
 
         String seeMessage;
-        //抄全部
+
         if (htSendMessageChange.getChangeType().equals(HtSendMessageChange.CHANGE_TYPE_ALL)) {
             //获得明文 命令吗+表号+参数设置控制位+新表地址+累计量+异或吗+80补全
             seeMessage = htSendMessageChange.getCommandType() + htSendMessageChange.getBookNo() + htSendMessageChange.getChangeType()
@@ -171,7 +238,9 @@ public class HtCommand {
         return commandMessage;
     }
 
-
+    /**
+     * 其他
+     */
     public static String encodeHangTian(HtSendMessage htSendMessage) {
 
         if (htSendMessage.getCopyType().equals(HtSendMessage.COPY_TYPE_GROUP)) {
@@ -373,7 +442,6 @@ public class HtCommand {
         return null;
     }
 
-
     public static HtGetMessageChangeBookNoOrCumulant readChangeBookNoOrCumulantMessage(String result) {
         HtGetMessageChangeBookNoOrCumulant htGetMessageQueryParameter = new HtGetMessageChangeBookNoOrCumulant();
         //简单判断下 可以不要
@@ -395,7 +463,6 @@ public class HtCommand {
         }
         return htGetMessageQueryParameter;
     }
-
 
     /**
      * 读取查询参数

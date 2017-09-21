@@ -18,7 +18,7 @@ public class HtSendMessage {
     public static final String COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT = "91";//设置表号或者累计量
     public static final String COMMAND_TYPE_QUERY_PARAMETER = "bc";//查询参数
     public static final String COMMAND_TYPE_SET_PARAMETER = "06";//设置参数
-
+    public static final String COMMAND_TYPE_SET_KEY = "0b";//设置参数
 
 
     //唤醒模式
@@ -34,7 +34,7 @@ public class HtSendMessage {
     private String kuoPinYinZi = "";//扩频因子
     private String kuoPinXinDao = "";//扩频信道
     private String commandType;//操作类型
-    private String bookNo;//操作表号
+    private String bookNo;//操作表号 多表操作改变量赋值为 FFFFFFFF
     private List<String> bookNos;//操作的一群表号
     private String wakeUpMark;//唤醒标志
     private int wakeUpTime;//唤醒时间 传入ms 转成16进制
@@ -115,6 +115,4 @@ public class HtSendMessage {
     public void setWakeUpTime(int wakeUpTime) {
         this.wakeUpTime = wakeUpTime;
     }
-
-
 }

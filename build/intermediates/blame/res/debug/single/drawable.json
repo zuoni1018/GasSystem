@@ -228,6 +228,10 @@
         "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\test_layer_list.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_item02.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\drawable\\bg_item02.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg01.xml",
         "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg01.xml"
     },

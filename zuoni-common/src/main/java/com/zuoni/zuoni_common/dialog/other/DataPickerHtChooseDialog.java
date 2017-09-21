@@ -15,9 +15,14 @@ import com.zuoni.zuoni_common.dialog.picker.view.LoopView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by zangyi_shuai_ge on 2017/7/24
+ * 杭天表选择扩频因子 和扩频信道
+ */
 public class DataPickerHtChooseDialog extends Dialog {
 
     private Params params;
+
     public DataPickerHtChooseDialog(Context context, int themeResId) {
         super(context, themeResId);
     }
@@ -76,11 +81,13 @@ public class DataPickerHtChooseDialog extends Dialog {
             params.dataList.addAll(dataList);
             return this;
         }
+
         public Builder setData2(List<String> dataList2) {
             params.dataList2.clear();
             params.dataList2.addAll(dataList2);
             return this;
         }
+
         public Builder setTitle(String title) {
             params.title = title;
 
@@ -91,10 +98,12 @@ public class DataPickerHtChooseDialog extends Dialog {
             params.initSelection = selection;
             return this;
         }
+
         public Builder setSelection2(int selection) {
             params.initSelection2 = selection;
             return this;
         }
+
         public Builder setOnDataSelectedListener(OnDataSelectedListener onDataSelectedListener) {
             params.callback = onDataSelectedListener;
             return this;
@@ -107,7 +116,7 @@ public class DataPickerHtChooseDialog extends Dialog {
             //获得UI
             View view = LayoutInflater.from(context).inflate(R.layout.data_picker_hang_tian_choose, null);
 
-            TextView tvCancel=(TextView)view.findViewById(R.id.tvCancel);
+            TextView tvCancel = (TextView) view.findViewById(R.id.tvCancel);
             tvCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

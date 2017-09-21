@@ -74,6 +74,7 @@ public class RvNetworkingListAdapter extends RecyclerView.Adapter<RvNetworkingLi
 
 
         String state=mList.get(position).getReadState();
+
         if(state.equals("0")){
             holder.tvReadState.setText("³­±íÖÐ");
         }else if(state.equals("1")){
@@ -105,7 +106,10 @@ public class RvNetworkingListAdapter extends RecyclerView.Adapter<RvNetworkingLi
 
         if(mList.get(position).getMeterTypeNo().equals("04")){
             holder.tvCommunicateNo.setTextColor(mContext.getResources().getColor(R.color.color_book_04));
-        }else {
+        }else if(mList.get(position).getMeterTypeNo().equals("10")){
+            holder.tvCommunicateNo.setTextColor(mContext.getResources().getColor(R.color.color_book_10));
+        }
+        else  {
             holder.tvCommunicateNo.setTextColor(mContext.getResources().getColor(R.color.color_book_05));
         }
 

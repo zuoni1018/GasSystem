@@ -60,12 +60,24 @@
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\warning_normal.png"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\ct_icon_09.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\ct_icon_09.png"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\menu.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\menu.png"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_14.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\icon_14.png"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\detail03.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\detail03.png"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\key.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\key.png"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_06.png",
@@ -88,6 +100,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\see_valve_state.png"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\ct_icon_08.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\ct_icon_08.png"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_07.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\icon_07.png"
     },
@@ -100,12 +116,20 @@
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\down.png"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\settings.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\settings.png"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_04.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\icon_04.png"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\choose_02.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\choose_02.png"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\update.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\update.png"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\excel_import02.png",

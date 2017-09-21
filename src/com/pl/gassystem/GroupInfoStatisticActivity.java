@@ -131,9 +131,9 @@ public class GroupInfoStatisticActivity extends BaseTitleActivity implements Swi
         copyBiz = new CopyBiz(this);
         groupInfoBiz = new GroupInfoBiz(this);
 
-        bookNo = getIntent().getStringExtra("BookNo").toString();
-        bookName = getIntent().getStringExtra("BookName").toString();
-        meterTypeNo = getIntent().getStringExtra("meterTypeNo").toString();
+        bookNo = getIntent().getStringExtra("BookNo");
+        bookName = getIntent().getStringExtra("BookName");
+        meterTypeNo = getIntent().getStringExtra("meterTypeNo");
         isSelect = getIntent().getBooleanExtra("isSelect", false);
 
         mAdapter = new ListViewAdapter(mGroupInfoStatisticList, GroupInfoStatisticActivity.this);
