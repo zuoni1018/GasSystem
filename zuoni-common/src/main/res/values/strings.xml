@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+    <string name="app_name">dialog-picker</string>
+
+    <string name="timepicker_year">年</string>
+    <string name="timepicker_month">月</string>
+    <string name="timepicker_day">日</string>
+    <string name="timepicker_hour">时</string>
+    <string name="timepicker_min">分</string>
+    <string name="timepicker_title">选择起止时间</string>
+    <string name="timepicker_finish">完成</string>
+    <string name="timepicker_title_default">设置</string>
+
+    <string name="default_progressbar">Default Progressbar:</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="law">规律</string>
+    <string name="Irregular">不规律</string>
+    <string name="text_0111">最短天数</string>
+    <string name="text_0222">最长天数</string>
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivTurnLeft"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:src="@drawable/bg_page_choose_left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前第 "
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvNowPageNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textColor="#ff0000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 页"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:id="@+id/ivTurnRight"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:src="@drawable/bg_page_choose_right" />
+
+    <TextView
+        android:id="@+id/tvAllPageNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="共100页"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  到第"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/etGoPageNum"
+        android:hint="X"
+        android:inputType="number"
+        android:maxLength="3"
+        android:layout_gravity="center|bottom"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_marginRight="2dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="页"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btGoPageNum"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="24dp"
+        android:background="@color/color_blue"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+</LinearLayout>

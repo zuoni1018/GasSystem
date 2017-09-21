@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/assets/litepal.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/jxl.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_02.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_03.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_04.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_05.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_06.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_07.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/mipmap/icon_14.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/common/base/ActivityCollector.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/common/base/BaseActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/bluetooth/BluetoothChat.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/dal/CopyDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/dal/GroupInfoDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/dal/userinfo/UserInfoDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/BookInfoActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/CopyDataDetailActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/CopyOneActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/CopyResultActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/CopyingActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/DataDownloadActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/ExportExcelActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/GroupBindActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/GroupInfoStatisticActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/GroupInfoUpdateActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/ImportExcelActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/LoginActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/MainActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/MaintenanceActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/SelectMeterActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/SetCopyTimeActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/SetRunModeActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtConcentratorListActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtCopyBookActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtCopyBookChooseActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtCopyDataBookDetailActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtCopySituationActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtCopyingActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ct/CtMoveBookActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/activity/ht/HtCopyingActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/adapter/main/BookInfoAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/adapter/main/CopyDataAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/adapter/main/CopyDataICRFAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/adapter/main/GroupBindAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/adapter/main/GroupInfoAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/userinfo/XiNingUserInfoImportActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/gassystem/utils/ToastUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/protocol/HhProtocol.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/pl/utils/GlobalConsts.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/zxing/decoding/CaptureActivityHandler.java" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

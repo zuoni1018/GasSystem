@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar_style" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="当前抄表密钥:"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvNowKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="新抄表密钥:"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etNewCopyKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:hint="请输入新密钥"
+        android:text="0102030405060708"
+        android:inputType="number"
+        android:maxLength="16"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btSure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="确定"
+        android:textColor="@color/color_white"
+        android:textSize="14sp"
+        android:theme="@style/button_style" />
+</LinearLayout>

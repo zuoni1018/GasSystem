@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--ProgressWheel 旋转Progress属性-->
+    <declare-styleable name="ProgressWheel">
+        <!--是否进行不确定旋转 用于loading 和 progress 使用-->
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <!--颜色旋转的颜色-->
+        <attr name="matProg_barColor" format="color" />
+        <!--旋转之外的颜色-->
+        <attr name="matProg_rimColor" format="color" />
+        <!--圆环的宽度-->
+        <attr name="matProg_rimWidth" format="dimension" />
+
+        <attr name="matProg_spinSpeed" format="float" />
+
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+
+        <attr name="matProg_circleRadius" format="dimension" />
+        <!--是否填充父布局-->
+        <attr name="matProg_fillRadius" format="boolean" />
+        <!--圆的宽度-->
+        <attr name="matProg_barWidth" format="dimension" />
+
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="viewpagergallery">
+        <attr name="isShadow" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="SwipeMenuView">
+        <attr name="swipeEnable" format="boolean"/>
+        <attr name="ios" format="boolean"/>
+        <attr name="leftSwipe" format="boolean"/>
+    </declare-styleable>
+
+</resources>
