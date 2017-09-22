@@ -8,6 +8,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -16,10 +17,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pl.gassystem.bean.ht.HtSendMessageSetNewKey;
-import com.pl.gassystem.utils.LogUtil;
-import com.pl.gassystem.utils.SPUtils;
+import com.pl.bll.CopyBiz;
 import com.pl.bluetooth.BluetoothChatService;
+import com.pl.entity.CopyData;
+import com.pl.gassystem.CopyResultActivity;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.R;
 import com.pl.gassystem.bean.ht.HtGetMessage;
@@ -27,11 +28,18 @@ import com.pl.gassystem.bean.ht.HtGetMessageChangeBookNoOrCumulant;
 import com.pl.gassystem.bean.ht.HtGetMessageQueryParameter;
 import com.pl.gassystem.bean.ht.HtSendMessage;
 import com.pl.gassystem.bean.ht.HtSendMessageChange;
+import com.pl.gassystem.bean.ht.HtSendMessageSetNewKey;
 import com.pl.gassystem.bean.ht.HtSendMessageSetParameter;
 import com.pl.gassystem.command.HtCommand;
 import com.pl.gassystem.utils.CalendarUtils;
+import com.pl.gassystem.utils.LogUtil;
+import com.pl.gassystem.utils.SPUtils;
+import com.pl.utils.GlobalConsts;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +76,13 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     TextView tvDeviceState;
     @BindView(R.id.tvMessage)
     TextView tvMessage;
-
+    @BindView(R.id.tvNeedNum)
+    TextView tvNeedNum;
+    @BindView(R.id.tvNowNum)
+    TextView tvNowNum;
+    @BindView(R.id.tvTime)
+    TextView tvTime;
+    CountDownTimer timer;
     //蓝牙
     private BluetoothAdapter mBluetoothAdapter;// 本地蓝牙适配器
     private BluetoothChatService mChatService; // 蓝牙服务
@@ -92,7 +106,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
     // 从BluetoothChatService处理程序接收到的密钥名
     public static final String DEVICE_NAME = "device_name";
-
+    private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private String commandType;//命令类型
     private String bookNo;//单抄 表号
@@ -117,6 +131,23 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
     //设置密钥所需要的参数
     private String newKey = "";
+
+    //群抄参数设置
+    private int needCopyNum = 1;//循环抄表次数
+    private int nowCopyNum = 1;//当前发送命令次数
+    private int waitTime = 0;//每次抄表的等待时间
+    private int copySize = 0;//抄表数量
+
+
+    private int wakeUpTime = 6000;//唤醒时间
+
+
+    private CopyBiz copyBiz;
+
+
+    //扩频因子和信道
+    private String nowYinZi = "09";
+    private String nowXinDao = "14";
 
 
     @Override
@@ -168,7 +199,6 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             changeType = getIntent().getStringExtra("changeType");//修改类型
         } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
             bookNos = getIntent().getStringArrayListExtra("bookNos");
-
             setYinZi = getIntent().getStringExtra("yinzi");
             setXinDao = getIntent().getStringExtra("xindao");
             setDongJieRi = getIntent().getStringExtra("dongjieri");
@@ -180,8 +210,48 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             bookNos = getIntent().getStringArrayListExtra("bookNos");
             newKey = getIntent().getStringExtra("newKey");
         }
+        //计算
+        if (bookNos.size() != 0) {
+            LogUtil.i("杭天抄表", "抄表个数" + bookNos.size());
+            copySize = bookNos.size();
+            //计算抄表次数
+            if (copySize % 20 == 0) {
+                //是20的整数倍
+                needCopyNum = copySize / 20;
+            } else {
+                needCopyNum = copySize / 20 + 1;
+            }
+            LogUtil.i("杭天抄表", "需要下发命令次数" + needCopyNum);
+            tvNeedNum.setText(needCopyNum + "");
+        } else {
+            tvNeedNum.setText("1");
+        }
+
 
         mChatService = new BluetoothChatService(this, mHandler);//蓝牙可用则开启一个蓝牙服务
+
+        copyBiz = new CopyBiz(getContext());
+        //把需要抄表的 都设置为未抄
+        for (int i = 0; i < bookNos.size(); i++) {
+            copyBiz.ChangeCopyState(bookNos.get(i), 0, "05");
+        }
+
+        nowXinDao = (String) SPUtils.get(getContext(), "HtKuoPinXinDao", "14");
+        nowYinZi = (String) SPUtils.get(getContext(), "HtKuoPinYinZi", "09");
+        //10进制转16进制
+        String nowXinDao2 = Integer.toHexString(Integer.parseInt(nowXinDao));
+        if (nowXinDao2.length() == 1) {
+            nowXinDao = "0" + nowXinDao2;
+        } else {
+            nowXinDao = nowXinDao2;
+        }
+        String nowYinZi2 = Integer.toHexString(Integer.parseInt(nowYinZi));
+        if (nowYinZi2.length() == 1) {
+            nowYinZi = "0" + nowYinZi2;
+        } else {
+            nowYinZi = nowYinZi2;
+        }
+        LogUtil.i("当前因子", "nowXinDao=" + nowXinDao + "nowYinZi=" + nowYinZi);
 
         // 检测是否能自动连接蓝牙
         String address = (String) SPUtils.get(getContext(), "htDevice", "");
@@ -226,10 +296,87 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
             return;
         }
-        // 检查实际上发送的东西
         if (message.length() > 0) {
             byte[] send = message.getBytes();
             mChatService.write(send);
+
+            //蓝牙命令发送了我就开始倒计时
+            //计算本次超时时间
+            int countDownTime = 0;
+
+            //间隔上传时间
+            int intervalTime = 800;
+            //唤醒周期
+            int wakeCycle = 6000;
+            //获取扩频因子
+            String yinzi = (String) SPUtils.get(getContext(), "HtKuoPinYinZi", "09");
+            assert yinzi != null;
+            switch (yinzi) {
+                case "07":
+                    intervalTime = 200;
+                    wakeCycle = 3000;
+                    break;
+                case "08":
+                    intervalTime = 400;
+                    wakeCycle = 4000;
+                    break;
+                case "09":
+                    intervalTime = 800;
+                    wakeCycle = 6000;
+                    break;
+                case "10":
+                    intervalTime = 1600;
+                    wakeCycle = 8000;
+                    break;
+                case "11":
+                    intervalTime = 800;
+                    wakeCycle = 10000;
+                    break;
+                case "12":
+                    intervalTime = 6400;
+                    wakeCycle = 12000;
+                    break;
+            }
+
+            if (copySize == 0) {
+                countDownTime = 200; //说明是单抄只传了 bookNo过来
+            } else if (copySize > 20) {
+                countDownTime = 200 + 20 * intervalTime;
+            } else {
+                countDownTime = 200 + 20 * copySize;
+            }
+
+            timer = new CountDownTimer(countDownTime + wakeCycle + 2000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    tvTime.setText((millisUntilFinished / 1000) + "s");
+                }
+
+                @Override
+                public void onFinish() {
+                    //结束了 如果有就进行下一次抄表任务
+                    tvTime.setText("时间到啦");
+                    //发送下一条命令
+                    nowCopyNum++;
+                    if (nowCopyNum <= needCopyNum) {
+                        createCommand(nowCopyNum);
+                        tvNowNum.setText(nowCopyNum + "");
+                    } else {
+                        if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+                            Intent intent = new Intent(getContext(), CopyResultActivity.class);
+                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_SHOWALL);
+                            intent.putExtra("meterNos", bookNos);
+                            intent.putExtra("meterTypeNo", "05");
+                            startActivity(intent);
+                            finish();
+                        }
+
+                        tvTime.setText("抄表结束");
+                    }
+                }
+            };
+            timer.start();
+
         }
     }
 
@@ -254,7 +401,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     tvLoadingCount.setText(num + "");
 
                     //向蓝牙发送一条命令
-                    createCommand();
+                    createCommand(1);
                 } else {
                     showToast("请先连接蓝牙");
                 }
@@ -276,10 +423,11 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         htSendMessage.setCommandType(commandType);//设置命令类型
         htSendMessage.setBookNo(bookNo);
         htSendMessage.setNewBookNo(newBookNo);
-        htSendMessage.setWakeUpTime(6000);
+        htSendMessage.setWakeUpTime(wakeUpTime);
         htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-        htSendMessage.setKuoPinYinZi("09");//如果是查询参数 那么信道号固定为00
-        htSendMessage.setKuoPinXinDao("0E");
+        htSendMessage.setKuoPinYinZi(nowYinZi);//如果是查询参数 那么信道号固定为00
+        htSendMessage.setKuoPinXinDao(nowXinDao);
+        LogUtil.i("修改累计量" + cumulant);
         htSendMessage.setCumulant(cumulant);
         htSendMessage.setChangeType(changeType);
 
@@ -289,17 +437,17 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     }
 
 
-    private void createCommand() {
+    private void createCommand(int nowNum) {
 
         switch (commandType) {
             case HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT:
                 createChangeBookNoOrCumulantCommand();
                 break;
             case HtSendMessage.COMMAND_TYPE_SET_PARAMETER:
-                createSetParameterCommand();
+                createSetParameterCommand(nowNum);
                 break;
             case HtSendMessage.COMMAND_TYPE_SET_KEY:
-                createSetKeyCommand();
+                createSetKeyCommand(nowNum);
                 break;
             default:
                 HtSendMessage htSendMessage = new HtSendMessage();
@@ -309,17 +457,20 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     //群抄
                     htSendMessage.setBookNo("FFFFFFFF");//设置表号
 
-                    htSendMessage.setBookNos(bookNos);//设置一大堆表号
-
                     htSendMessage.setSetTime(CalendarUtils.getHtTime()); // 17 09 15 14 10 00
 
-                    htSendMessage.setWakeUpTime(6000);
+                    htSendMessage.setWakeUpTime(wakeUpTime);
 
                     htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_GROUP);
 
                     htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-                    htSendMessage.setKuoPinYinZi("09");//如果是查询参数 那么信道号固定为00
-                    htSendMessage.setKuoPinXinDao("0E");
+                    htSendMessage.setKuoPinYinZi(nowYinZi);//如果是查询参数 那么信道号固定为00
+                    htSendMessage.setKuoPinXinDao(nowXinDao);
+
+                    List<String> mBookNos = new ArrayList<>();
+                    mBookNos.addAll(bookNos.subList((nowNum - 1) * 20, getLast(nowNum)));
+                    LogUtil.i("截取列表", (nowNum - 1) * 20 + "==>" + getLast(nowNum));
+                    htSendMessage.setBookNos(mBookNos);
 
                 } else {
                     // 单抄 查看阀门状态 开关阀门 都只用执行以下代码即可
@@ -328,16 +479,16 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
                     htSendMessage.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
 
-                    htSendMessage.setWakeUpTime(6000);
+                    htSendMessage.setWakeUpTime(wakeUpTime);
 
                     htSendMessage.setCopyType(HtSendMessage.COPY_TYPE_SINGLE);
 
                     //设置扩频因子和信道
-                    htSendMessage.setKuoPinYinZi("09");
+                    htSendMessage.setKuoPinYinZi(nowYinZi);
                     if (commandType.equals(HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER)) {
                         htSendMessage.setKuoPinXinDao("00");//如果是查询参数 那么信道号固定为00
                     } else {
-                        htSendMessage.setKuoPinXinDao("0E");
+                        htSendMessage.setKuoPinXinDao(nowXinDao);
                     }
                 }
                 String message = HtCommand.encodeHangTian(htSendMessage);
@@ -349,15 +500,18 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     /**
      * 创建一条批量修改密钥的命令
      */
-    private void createSetKeyCommand() {
+    private void createSetKeyCommand(int nowNum) {
         HtSendMessageSetNewKey htSendMessageSetNewKey = new HtSendMessageSetNewKey();
         htSendMessageSetNewKey.setCommandType(commandType);//设置命令类型
         htSendMessageSetNewKey.setBookNo("FFFFFFFF");
-        htSendMessageSetNewKey.setBookNos(bookNos);
-        htSendMessageSetNewKey.setWakeUpTime(6000);
+        htSendMessageSetNewKey.setWakeUpTime(wakeUpTime);
         htSendMessageSetNewKey.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-        htSendMessageSetNewKey.setKuoPinYinZi("09");
-        htSendMessageSetNewKey.setKuoPinXinDao("0E");
+        htSendMessageSetNewKey.setKuoPinYinZi(nowYinZi);
+        htSendMessageSetNewKey.setKuoPinXinDao(nowXinDao);
+
+        List<String> mBookNos = new ArrayList<>();
+        mBookNos.addAll(bookNos.subList((nowNum - 1) * 20, getLast(nowNum)));
+        htSendMessageSetNewKey.setBookNos(mBookNos);
 
         //设置新的密钥
         htSendMessageSetNewKey.setNewKey(newKey);
@@ -369,19 +523,21 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     /**
      * 创建一条批量修改表信息的命令
      */
-    private void createSetParameterCommand() {
-
-//        List<String> bookNos=new ArrayList<>();
-//        bookNos.add(bookNo);
+    private void createSetParameterCommand(int nowNum) {
 
         HtSendMessageSetParameter htSendMessageSetParameter = new HtSendMessageSetParameter();
         htSendMessageSetParameter.setCommandType(commandType);//设置命令类型
         htSendMessageSetParameter.setBookNo("FFFFFFFF");
-        htSendMessageSetParameter.setBookNos(bookNos);
-        htSendMessageSetParameter.setWakeUpTime(6000);
+        htSendMessageSetParameter.setWakeUpTime(wakeUpTime);
         htSendMessageSetParameter.setWakeUpMark(HtSendMessage.WAKE_UP_MARK_01);
-        htSendMessageSetParameter.setKuoPinYinZi("09");
-        htSendMessageSetParameter.setKuoPinXinDao("0E");
+        htSendMessageSetParameter.setKuoPinYinZi(nowYinZi);
+        htSendMessageSetParameter.setKuoPinXinDao(nowXinDao);
+
+        //获得抄表
+        List<String> mBookNos = new ArrayList<>();
+        mBookNos.addAll(bookNos.subList((nowNum - 1) * 20, getLast(nowNum)));
+        htSendMessageSetParameter.setBookNos(mBookNos);
+
 
         //修改的参数
         htSendMessageSetParameter.setNeedKuoPinYinZi(isSetYinZi);
@@ -403,6 +559,15 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         sendMessage(message);
     }
 
+    private int getLast(int nowNum) {
+
+        if (nowNum * 20 < bookNos.size()) {
+            return nowNum * 20;
+        } else {
+            return bookNos.size();
+        }
+    }
+
     // 从BluetoothChatService处理程序获得信息返回
     @SuppressLint("HandlerLeak")
     private final Handler mHandler = new Handler() {
@@ -419,7 +584,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                         case BluetoothChatService.STATE_CONNECTED:
                             LogUtil.i("蓝牙设备", "蓝牙链接上了");
                             setBluetoothState(DEVICE_STATE_CONNECTED);
-                            createCommand();
+                            createCommand(1);
                             break;
 
                         //正在连接
@@ -487,11 +652,38 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     num++;
                     tvLoadingCount.setText(num + "");
                     tvMessage.setText(tvMessage.getText().toString().trim() + "\n" + htGetMessage.getResult());
+                    //
+                    LogUtil.i("嗯呐", commandType);
+
+                    if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
+                        CopyData copyData = getCopyDate(htGetMessage);
+                        copyBiz.addCopyData(copyData);
+                        // 修改抄表状态
+                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, "05");
+                    }
                 }
             }
         }
 
 
+    }
+
+    //把接收到的命令转换为CopyData
+    private CopyData getCopyDate(HtGetMessage htGetMessage) {
+
+        CopyData copyData = new CopyData();
+
+        copyData.setMeterNo(htGetMessage.getBookNo());
+        copyData.setElec(htGetMessage.getVoltage());
+        copyData.setdBm(htGetMessage.getSignal());
+
+        copyData.setRemark(htGetMessage.getCommandType() + "\n" + htGetMessage.getValveState());
+        copyData.setCopyTime(df.format(new Date()));
+
+        String CopyValue = htGetMessage.getCopyValue().substring(0, 4) + "." + htGetMessage.getCopyValue().substring(4, 8);
+        CopyValue = Double.parseDouble(CopyValue) + "";
+        copyData.setCurrentShow(CopyValue);
+        return copyData;
     }
 
     /**

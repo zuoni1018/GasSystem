@@ -17,23 +17,23 @@ import java.lang.Override;
 public class CtCopySituationActivity_ViewBinding implements Unbinder {
   private CtCopySituationActivity target;
 
-  private View view2131689625;
-
   private View view2131689891;
 
-  private View view2131689893;
-
-  private View view2131689630;
+  private View view2131689892;
 
   private View view2131689895;
 
-  private View view2131689896;
-
-  private View view2131689631;
-
   private View view2131689894;
 
-  private View view2131689892;
+  private View view2131689896;
+
+  private View view2131689897;
+
+  private View view2131689899;
+
+  private View view2131689627;
+
+  private View view2131689893;
 
   @UiThread
   public CtCopySituationActivity_ViewBinding(CtCopySituationActivity target) {
@@ -51,14 +51,6 @@ public class CtCopySituationActivity_ViewBinding implements Unbinder {
     target.ivNoCopy = Utils.findRequiredViewAsType(source, R.id.ivNoCopy, "field 'ivNoCopy'", ImageView.class);
     target.mSwipeRefreshLayout = Utils.findRequiredViewAsType(source, R.id.mSwipeRefreshLayout, "field 'mSwipeRefreshLayout'", SwipeRefreshLayout.class);
     view = Utils.findRequiredView(source, R.id.btBeginCopy, "method 'onViewClicked'");
-    view2131689625 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.btCopyAllBook, "method 'onViewClicked'");
     view2131689891 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -66,23 +58,15 @@ public class CtCopySituationActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
+    view = Utils.findRequiredView(source, R.id.btCopyAllBook, "method 'onViewClicked'");
+    view2131689892 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
     view = Utils.findRequiredView(source, R.id.btShowAllBook, "method 'onViewClicked'");
-    view2131689893 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.btMaintain, "method 'onViewClicked'");
-    view2131689630 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.layoutNetworking, "method 'onViewClicked'");
     view2131689895 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -90,23 +74,7 @@ public class CtCopySituationActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.layoutUpData, "method 'onViewClicked'");
-    view2131689896 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.btSetting, "method 'onViewClicked'");
-    view2131689631 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.layoutShowNoCopy, "method 'onViewClicked'");
+    view = Utils.findRequiredView(source, R.id.btMaintain, "method 'onViewClicked'");
     view2131689894 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -114,8 +82,40 @@ public class CtCopySituationActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
+    view = Utils.findRequiredView(source, R.id.layoutNetworking, "method 'onViewClicked'");
+    view2131689896 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.layoutUpData, "method 'onViewClicked'");
+    view2131689897 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.btSetting, "method 'onViewClicked'");
+    view2131689899 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.layoutShowNoCopy, "method 'onViewClicked'");
+    view2131689627 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
     view = Utils.findRequiredView(source, R.id.layoutShowCopy, "method 'onViewClicked'");
-    view2131689892 = view;
+    view2131689893 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -137,23 +137,23 @@ public class CtCopySituationActivity_ViewBinding implements Unbinder {
     target.ivNoCopy = null;
     target.mSwipeRefreshLayout = null;
 
-    view2131689625.setOnClickListener(null);
-    view2131689625 = null;
     view2131689891.setOnClickListener(null);
     view2131689891 = null;
-    view2131689893.setOnClickListener(null);
-    view2131689893 = null;
-    view2131689630.setOnClickListener(null);
-    view2131689630 = null;
-    view2131689895.setOnClickListener(null);
-    view2131689895 = null;
-    view2131689896.setOnClickListener(null);
-    view2131689896 = null;
-    view2131689631.setOnClickListener(null);
-    view2131689631 = null;
-    view2131689894.setOnClickListener(null);
-    view2131689894 = null;
     view2131689892.setOnClickListener(null);
     view2131689892 = null;
+    view2131689895.setOnClickListener(null);
+    view2131689895 = null;
+    view2131689894.setOnClickListener(null);
+    view2131689894 = null;
+    view2131689896.setOnClickListener(null);
+    view2131689896 = null;
+    view2131689897.setOnClickListener(null);
+    view2131689897 = null;
+    view2131689899.setOnClickListener(null);
+    view2131689899 = null;
+    view2131689627.setOnClickListener(null);
+    view2131689627 = null;
+    view2131689893.setOnClickListener(null);
+    view2131689893 = null;
   }
 }

@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtChangeBookNoOrCumulantActivity_ViewBinding implements Unbinder {
   private HtChangeBookNoOrCumulantActivity target;
 
-  private View view2131689989;
+  private View view2131689991;
 
   @UiThread
   public HtChangeBookNoOrCumulantActivity_ViewBinding(HtChangeBookNoOrCumulantActivity target) {
@@ -35,7 +35,7 @@ public class HtChangeBookNoOrCumulantActivity_ViewBinding implements Unbinder {
     target.etCumulant = Utils.findRequiredViewAsType(source, R.id.etCumulant, "field 'etCumulant'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689989 = view;
+    view2131689991 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,7 +58,7 @@ public class HtChangeBookNoOrCumulantActivity_ViewBinding implements Unbinder {
     target.btSure = null;
     target.mRadioGroup = null;
 
-    view2131689989.setOnClickListener(null);
-    view2131689989 = null;
+    view2131689991.setOnClickListener(null);
+    view2131689991 = null;
   }
 }

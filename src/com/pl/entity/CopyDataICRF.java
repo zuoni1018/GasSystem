@@ -1,5 +1,7 @@
 package com.pl.entity;
 
+import com.pl.gassystem.utils.LogUtil;
+
 import java.io.Serializable;
 
 public class CopyDataICRF  implements Serializable{
@@ -210,6 +212,7 @@ public class CopyDataICRF  implements Serializable{
     }
 
     public void setCopyState(int copyState) {
+        LogUtil.i("ºÙºÙºÚ"+copyState);
         this.copyState = copyState;
     }
 

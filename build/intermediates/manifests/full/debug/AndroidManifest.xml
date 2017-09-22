@@ -77,7 +77,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.pl.gassystem.GroupInfoStatisticActivity" />
-        <activity android:name="com.pl.gassystem.CopyDetailsActivity" />
+        <activity android:name="com.pl.gassystem.activity.CopyDetailsActivity" />
         <activity android:name="com.pl.gassystem.ExportExcelActivity" />
         <activity android:name="com.pl.gassystem.ImportExcelActivity" />
         <activity
@@ -243,6 +243,7 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtQueryParameterActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtSetKeyActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtSetNewCopyKeyActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtSetCopyChannelActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />

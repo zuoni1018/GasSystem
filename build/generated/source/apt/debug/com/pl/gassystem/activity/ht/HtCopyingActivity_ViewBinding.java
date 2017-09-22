@@ -68,6 +68,9 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
     });
     target.tvDeviceState = Utils.findRequiredViewAsType(source, R.id.tvDeviceState, "field 'tvDeviceState'", TextView.class);
     target.tvMessage = Utils.findRequiredViewAsType(source, R.id.tvMessage, "field 'tvMessage'", TextView.class);
+    target.tvNeedNum = Utils.findRequiredViewAsType(source, R.id.tvNeedNum, "field 'tvNeedNum'", TextView.class);
+    target.tvNowNum = Utils.findRequiredViewAsType(source, R.id.tvNowNum, "field 'tvNowNum'", TextView.class);
+    target.tvTime = Utils.findRequiredViewAsType(source, R.id.tvTime, "field 'tvTime'", TextView.class);
   }
 
   @Override
@@ -88,6 +91,9 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
     target.btnCopyingStop = null;
     target.tvDeviceState = null;
     target.tvMessage = null;
+    target.tvNeedNum = null;
+    target.tvNowNum = null;
+    target.tvTime = null;
 
     view2131689653.setOnClickListener(null);
     view2131689653 = null;

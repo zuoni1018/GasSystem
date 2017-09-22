@@ -94,6 +94,8 @@ public class CopyDataDetailActivity extends Activity {
         tvCopyDataDetailCopyMan.setText(copyData.getCopyMan());
         //  £”‡µÁ¡ø
         String elec = copyData.getElec();
+        elec=elec.replace(".","");
+        elec=elec.replace("V","");
         if (elec != null &!"".equals(elec)) {
             elec = elec.substring(0, 1) + "." + elec.substring(1) + "V";
             tvCopyDataDetailElec.setText(elec);
@@ -102,11 +104,15 @@ public class CopyDataDetailActivity extends Activity {
         String dBm = copyData.getdBm();
         if (dBm != null&!"".equals(dBm)) {
             if(!"".equals(dBm.trim())){
-                int dbm_1 = Integer.parseInt(dBm) + 25;
-                if (dbm_1 < -100) {
-                    dbm_1 = -100;
+                try {
+                    int dbm_1 = Integer.parseInt(dBm) + 25;
+                    if (dbm_1 < -100) {
+                        dbm_1 = -100;
+                    }
+                    tvCopyDataDetailDbm.setText(100 + dbm_1 + "%");
+                }catch (NumberFormatException e){
+                    tvCopyDataDetailDbm.setText(dBm);
                 }
-                tvCopyDataDetailDbm.setText(100 + dbm_1 + "%");
             }
         }
         // tvCopyDataDetailIsBalance.setText(MeterType.GetIsBalance(copyData.getIsBalance()));

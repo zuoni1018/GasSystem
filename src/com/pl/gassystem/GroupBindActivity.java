@@ -1,6 +1,8 @@
 package com.pl.gassystem;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,16 +26,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pl.bll.SetBiz;
-import com.pl.gassystem.adapter.main.GroupBindAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupBindBiz;
+import com.pl.bll.SetBiz;
 import com.pl.common.CustomProgressDialog;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.CopyDataPhoto;
 import com.pl.entity.GroupBind;
 import com.pl.entity.GroupInfo;
+import com.pl.gassystem.adapter.main.GroupBindAdapter;
+import com.pl.gassystem.bean.ht.HtSendMessage;
+import com.pl.gassystem.utils.JumpActivityUtils;
 import com.pl.utils.GlobalConsts;
 
 import java.util.ArrayList;
@@ -205,19 +209,40 @@ public class GroupBindActivity extends Activity {
                     }
                 }
                 if (meterNos.size() > 0) {
-                    Intent intent = new Intent(GroupBindActivity.this, CopyingActivity.class);
+                    final Intent intent = new Intent(GroupBindActivity.this, JumpActivityUtils.getCopyingActivity(GroupBindActivity.this));
                     intent.putExtra("meterNos", meterNos);
                     intent.putExtra("meterTypeNo", meterTypeNo);
                     intent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);
                     intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);
-                    // intent.putExtra("isCopyUnRead", false);
-                    startActivity(intent);
+
+                    //杭天表需要传的参数(这里没统一好)
+                    intent.putExtra("bookNos",meterNos);
+                    intent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_COPY_NORMAL);//输入命令指令
+                    intent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
+
+                    if(new SetBiz(GroupBindActivity.this).getRunMode().equals(GlobalConsts.RUN_MODE_HANG_TIAN)){
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(GroupBindActivity.this);
+                        builder.setTitle("选择抄取的无线表类型");
+                        final String[] cities = {"实时抄表", "抄取冻结量"};
+                        builder.setItems(cities, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(which==0){
+                                    intent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_COPY_NORMAL);
+                                }else {
+                                    intent.putExtra("commandType",HtSendMessage.COMMAND_TYPE_COPY_FROZEN);
+                                }
+                                startActivity(intent);
+                            }
+                        });
+                        builder.show();
+                    }else {
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(GroupBindActivity.this, "尚未选中任何表具!", Toast.LENGTH_SHORT).show();
                 }
-                // Toast.makeText(getApplicationContext(), "操作"+k+"条数据",
-                // 200).show();
-
             }
         });
         //删除按钮
@@ -384,8 +409,8 @@ public class GroupBindActivity extends Activity {
                         copyBiz.addCopyDataPhoto(copyDataPhoto);
                     }
                     adapter.changeData(groupBindBiz.getGroupBindByGroupNo(groupNo));
-                    etGroupBindMeterNo.setText("");
-                    etGroupBindMeterName.setText("");
+//                    etGroupBindMeterNo.setText("");
+//                    etGroupBindMeterName.setText("");
                 }
             }
         });

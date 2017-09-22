@@ -24,6 +24,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\mian_concentrator.png"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\channel.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\channel.png"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\excel_import01.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\excel_import01.png"
     },
@@ -72,12 +76,12 @@
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\icon_14.png"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\detail03.png",
-        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\detail03.png"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\key.png",
         "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\key.png"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\detail03.png",
+        "source": "D:\\workSpace\\GasSystem\\res\\mipmap\\detail03.png"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\mipmap\\icon_06.png",

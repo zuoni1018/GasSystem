@@ -45,7 +45,8 @@ public class HtMaintenanceActivity extends HtBaseTitleActivity {
 
 
     @OnClick({R.id.layoutValveMaintain, R.id.layoutQueryParameter
-            , R.id.layoutChangeBookNoOrCumulant, R.id.layoutSetParameter,R.id.layoutUpdateKey,R.id.layoutSetCopKey})
+            , R.id.layoutChangeBookNoOrCumulant, R.id.layoutSetParameter,R.id.layoutUpdateKey
+            ,R.id.layoutSetCopKey,R.id.layoutSetChannel})
     public void onViewClicked(View view) {
         Intent mIntent;
         switch (view.getId()) {
@@ -68,6 +69,9 @@ public class HtMaintenanceActivity extends HtBaseTitleActivity {
                 break;
             case R.id.layoutSetCopKey:
                 mIntent = new Intent(getContext(), HtSetNewCopyKeyActivity.class);
+                break;
+            case R.id.layoutSetChannel:
+                mIntent = new Intent(getContext(), HtSetCopyChannelActivity.class);
                 break;
             default:
                 mIntent = null;

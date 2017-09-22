@@ -1,5 +1,7 @@
 package com.pl.entity;
 
+import com.pl.gassystem.utils.LogUtil;
+
 import java.io.Serializable;
 
 public class CopyData implements Serializable {
@@ -89,6 +91,7 @@ public class CopyData implements Serializable {
     }
 
     public void setCopyState(int copyState) {
+        LogUtil.i("ºÙºÙºÚ"+copyState);
         this.copyState = copyState;
     }
 

@@ -6,6 +6,7 @@ import com.pl.dal.CopyDao;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.CopyDataPhoto;
+import com.pl.gassystem.utils.LogUtil;
 
 import java.util.ArrayList;
 
@@ -37,8 +38,7 @@ public class CopyBiz {
         return copyDao.GetCopyMeterNo(groupNo);
     }
 
-    public ArrayList<CopyData> getCopyDataByMeterNos(
-            ArrayList<String> meterNos, int copyState) {
+    public ArrayList<CopyData> getCopyDataByMeterNos(ArrayList<String> meterNos, int copyState) {
         return copyDao.getCopyDataByMeterNos(meterNos, copyState);
     }
 
@@ -56,8 +56,7 @@ public class CopyBiz {
         return copyDao.getCopyDataICRFByMeterNos_N(meterNos, copyState, name);
     }
 
-    public ArrayList<String> GetCopyUnReadMeterNo(String groupNo,
-                                                  String meterTypeNo) {
+    public ArrayList<String> GetCopyUnReadMeterNo(String groupNo, String meterTypeNo) {
         return copyDao.GetCopyUnReadMeterNo(groupNo, meterTypeNo);
     }
 
@@ -67,6 +66,7 @@ public class CopyBiz {
     }
 
     public int ChangeCopyState(String meterNo, int copyState, String meterTypeNo) {
+        LogUtil.i("¸Ä±í×´Ì¬ÁË"+""+meterNo+"=="+copyState);
         return copyDao.ChangeCopyState(meterNo, copyState, meterTypeNo);
     }
 

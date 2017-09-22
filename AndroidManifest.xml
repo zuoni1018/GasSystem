@@ -67,7 +67,7 @@
         </activity>
 
         <activity android:name=".GroupInfoStatisticActivity" />
-        <activity android:name=".CopyDetailsActivity" />
+        <activity android:name=".activity.CopyDetailsActivity" />
         <activity android:name=".ExportExcelActivity" />
         <activity android:name=".ImportExcelActivity" />
         <activity
@@ -240,6 +240,7 @@
         <activity android:name=".activity.ht.HtQueryParameterActivity"/>
         <activity android:name=".activity.ht.HtSetKeyActivity"/>
         <activity android:name=".activity.ht.HtSetNewCopyKeyActivity"/>
+        <activity android:name=".activity.ht.HtSetCopyChannelActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />

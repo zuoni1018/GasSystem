@@ -11,6 +11,8 @@ import android.widget.RadioGroup;
 
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
+import com.pl.bll.GroupBindBiz;
+import com.pl.entity.GroupBind;
 import com.pl.gassystem.R;
 import com.pl.gassystem.adapter.ht.RvHtBookChooseAdapter;
 import com.pl.gassystem.bean.ht.HtBook;
@@ -39,7 +41,7 @@ public class HtBookListActivity extends HtBaseTitleActivity {
     @BindView(R.id.tvAddBook)
     Button tvAddBook;
 
-    private List<HtBook> mList;
+    private List<GroupBind> mList;
     private LRecyclerViewAdapter mAdapter;
 
     private String nowCommandType = "";//当前操作类型
@@ -54,10 +56,10 @@ public class HtBookListActivity extends HtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         setTitle("杭天燃气表测试");
-        mList = new ArrayList<>();
-        mList.add(getHtBook("04000015"));
-        mList.add(getHtBook("05170016"));
-        mList.add(getHtBook("04160105"));
+        mList = new GroupBindBiz(this).getGroupBindAll();
+//        mList.add(getHtBook("04000015"));
+//        mList.add(getHtBook("05170016"));
+//        mList.add(getHtBook("04160105"));
         mAdapter = new LRecyclerViewAdapter(new RvHtBookChooseAdapter(getContext(), mList));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
@@ -103,9 +105,9 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                 if(addbook.length()!=8){
                     showToast("杭天表号为8位 请重新输入");
                 }else {
-                    HtBook htBook=new HtBook();
-                    htBook.setBookNum(addbook);
-                    htBook.setChoose(false);
+                    GroupBind htBook=new GroupBind();
+                    htBook.setGroupNo(addbook);
+                    htBook.setCheck(false);
                     mList.add(htBook);
                     mAdapter.notifyDataSetChanged();
                     etAddBook.setText("");
@@ -132,8 +134,8 @@ public class HtBookListActivity extends HtBaseTitleActivity {
         } else {
             ArrayList<String> BookNoList = new ArrayList<>();
             for (int i = 0; i < mList.size(); i++) {
-                if (mList.get(i).isChoose()) {
-                    BookNoList.add(mList.get(i).getBookNum());
+                if (mList.get(i).isCheck()) {
+                    BookNoList.add(mList.get(i).getMeterNo());
                 }
             }
             if (BookNoList.size() == 0) {

@@ -121,7 +121,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="添加燃气表"
+            android:text="添加燃气表(临时)"
             android:textColor="@color/color_white"
             android:textSize="14sp"
             android:theme="@style/button_style" />

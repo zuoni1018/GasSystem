@@ -18,11 +18,11 @@ import java.lang.Override;
 public class HtChooseBooksActivity_ViewBinding implements Unbinder {
   private HtChooseBooksActivity target;
 
-  private View view2131689988;
-
-  private View view2131689989;
-
   private View view2131689990;
+
+  private View view2131689991;
+
+  private View view2131689992;
 
   @UiThread
   public HtChooseBooksActivity_ViewBinding(HtChooseBooksActivity target) {
@@ -37,7 +37,7 @@ public class HtChooseBooksActivity_ViewBinding implements Unbinder {
     target.etSearch = Utils.findRequiredViewAsType(source, R.id.etSearch, "field 'etSearch'", EditText.class);
     view = Utils.findRequiredView(source, R.id.ivSelectAll, "field 'ivSelectAll' and method 'onViewClicked'");
     target.ivSelectAll = Utils.castView(view, R.id.ivSelectAll, "field 'ivSelectAll'", ImageView.class);
-    view2131689988 = view;
+    view2131689990 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,7 +47,7 @@ public class HtChooseBooksActivity_ViewBinding implements Unbinder {
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689989 = view;
+    view2131689991 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class HtChooseBooksActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btAdd, "method 'onViewClicked'");
-    view2131689990 = view;
+    view2131689992 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -76,11 +76,11 @@ public class HtChooseBooksActivity_ViewBinding implements Unbinder {
     target.mRecyclerView = null;
     target.btSure = null;
 
-    view2131689988.setOnClickListener(null);
-    view2131689988 = null;
-    view2131689989.setOnClickListener(null);
-    view2131689989 = null;
     view2131689990.setOnClickListener(null);
     view2131689990 = null;
+    view2131689991.setOnClickListener(null);
+    view2131689991 = null;
+    view2131689992.setOnClickListener(null);
+    view2131689992 = null;
   }
 }

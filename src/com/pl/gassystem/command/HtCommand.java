@@ -95,6 +95,8 @@ public class HtCommand {
                 + cipherMessage + "16";
 
         LogUtil.i("杭天", "发送密文 " + commandMessage);
+
+
         return commandMessage;
     }
 
@@ -428,7 +430,7 @@ public class HtCommand {
                 htGetMessage.setSignal(signal);
             }
 
-            String bookNo = seeMessage.substring(3, 10);
+            String bookNo = seeMessage.substring(2, 10);
             htGetMessage.setBookNo(bookNo);
 
 //            LogUtil.i("杭天", "解析结果:\n" + " 命令类型:" + htGetMessage.getCommandType()

@@ -20,11 +20,11 @@ import java.lang.Override;
 public class CtCopyBookActivity_ViewBinding implements Unbinder {
   private CtCopyBookActivity target;
 
-  private View view2131689903;
-
   private View view2131689905;
 
-  private View view2131689908;
+  private View view2131689907;
+
+  private View view2131689910;
 
   @UiThread
   public CtCopyBookActivity_ViewBinding(CtCopyBookActivity target) {
@@ -40,7 +40,7 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
     view = Utils.findRequiredView(source, R.id.ivTurnLeft, "field 'ivTurnLeft' and method 'onViewClicked'");
     target.ivTurnLeft = Utils.castView(view, R.id.ivTurnLeft, "field 'ivTurnLeft'", ImageView.class);
-    view2131689903 = view;
+    view2131689905 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     target.tvNowPageNum = Utils.findRequiredViewAsType(source, R.id.tvNowPageNum, "field 'tvNowPageNum'", TextView.class);
     view = Utils.findRequiredView(source, R.id.ivTurnRight, "field 'ivTurnRight' and method 'onViewClicked'");
     target.ivTurnRight = Utils.castView(view, R.id.ivTurnRight, "field 'ivTurnRight'", ImageView.class);
-    view2131689905 = view;
+    view2131689907 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     target.etGoPageNum = Utils.findRequiredViewAsType(source, R.id.etGoPageNum, "field 'etGoPageNum'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btGoPageNum, "field 'btGoPageNum' and method 'onViewClicked'");
     target.btGoPageNum = Utils.castView(view, R.id.btGoPageNum, "field 'btGoPageNum'", Button.class);
-    view2131689908 = view;
+    view2131689910 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,11 +92,11 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     target.ivChooseAll = null;
     target.btCopy = null;
 
-    view2131689903.setOnClickListener(null);
-    view2131689903 = null;
     view2131689905.setOnClickListener(null);
     view2131689905 = null;
-    view2131689908.setOnClickListener(null);
-    view2131689908 = null;
+    view2131689907.setOnClickListener(null);
+    view2131689907 = null;
+    view2131689910.setOnClickListener(null);
+    view2131689910 = null;
   }
 }

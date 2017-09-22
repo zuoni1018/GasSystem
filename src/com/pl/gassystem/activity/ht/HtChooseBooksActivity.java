@@ -3,6 +3,8 @@ package com.pl.gassystem.activity.ht;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +12,8 @@ import android.widget.ImageView;
 
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
+import com.pl.bll.GroupBindBiz;
+import com.pl.entity.GroupBind;
 import com.pl.gassystem.R;
 import com.pl.gassystem.adapter.ht.RvHtBookChooseAdapter;
 import com.pl.gassystem.bean.ht.HtBook;
@@ -42,10 +46,11 @@ public class HtChooseBooksActivity extends HtBaseTitleActivity {
 
     private String commandType = "";//命令类型
 
-    private boolean isChooseAll=false;
+    private boolean isChooseAll = false;
 
     private CreateBookDialog createBookDialog;
-    private List<HtBook> htBookList;
+    private List<GroupBind> htBookList;
+    private List<GroupBind> showList;
     private LRecyclerViewAdapter mAdapter;
 
     @Override
@@ -60,23 +65,51 @@ public class HtChooseBooksActivity extends HtBaseTitleActivity {
         setTitle("燃气表选择");
         commandType = getIntent().getStringExtra("commandType");
 
-        if(commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)){
+        if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
             btSure.setText("批量设置参数");
-        }else if(commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)){
+        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)) {
             btSure.setText("批量设置密钥");
         }
 
 
         mRecyclerView.setPullRefreshEnabled(false);//禁止下拉刷新
 
+        htBookList = new GroupBindBiz(this).getGroupBindAll();
+        showList = new ArrayList<>();
+        showList.addAll(htBookList);
 
-        htBookList = new ArrayList<>();
-        htBookList.add(getHtBook("05170016", "杭天测试表1"));
-        htBookList.add(getHtBook("04000015", "杭天测试表2"));
-        htBookList.add(getHtBook("04160105", "杭天测试表3"));
-        mAdapter = new LRecyclerViewAdapter(new RvHtBookChooseAdapter(getContext(), htBookList));
+//        htBookList = new ArrayList<>();
+//        htBookList.add(getHtBook("05170016", "杭天测试表1"));
+//        htBookList.add(getHtBook("04000015", "杭天测试表2"));
+//        htBookList.add(getHtBook("04160105", "杭天测试表3"));
+        mAdapter = new LRecyclerViewAdapter(new RvHtBookChooseAdapter(getContext(), showList));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                showList.clear();
+                mAdapter.notifyDataSetChanged();
+                for (int i = 0; i < htBookList.size(); i++) {
+                    if (htBookList.get(i).getMeterNo().contains(s.toString())) {
+                        showList.add(htBookList.get(i));
+                    }
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+        });
 
 
     }
@@ -85,50 +118,48 @@ public class HtChooseBooksActivity extends HtBaseTitleActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ivSelectAll:
-                isChooseAll=!isChooseAll;
-                for (int i = 0; i < htBookList.size() ; i++) {
-                    htBookList.get(i).setChoose(isChooseAll);
+                isChooseAll = !isChooseAll;
+                for (int i = 0; i < htBookList.size(); i++) {
+                    htBookList.get(i).setCheck(isChooseAll);
                 }
-                if(!isChooseAll){
+                if (!isChooseAll) {
                     ivSelectAll.setImageResource(R.mipmap.choose_02);
-                }else {
+                } else {
                     ivSelectAll.setImageResource(R.mipmap.choose_01);
                 }
                 mAdapter.notifyDataSetChanged();
                 break;
             case R.id.btSure:
-                Intent mIntent=new Intent();
+                Intent mIntent = new Intent();
                 //把表传过去
                 ArrayList<String> bookNoList = new ArrayList<>();
                 for (int i = 0; i < htBookList.size(); i++) {
-                    if (htBookList.get(i).isChoose()) {
-                        bookNoList.add(htBookList.get(i).getBookNum());
+                    if (htBookList.get(i).isCheck()) {
+                        bookNoList.add(htBookList.get(i).getMeterNo());
                     }
                 }
                 if (bookNoList.size() == 0) {
                     showToast("您还未选择燃气表");
                 } else {
-                    if(commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)){
+                    if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
                         //设置参数
                         mIntent = new Intent(getContext(), HtSetBookParameterActivity.class);
                         mIntent.putStringArrayListExtra("bookNos", bookNoList);
-                    }else  if(commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)){
+                    } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)) {
                         mIntent = new Intent(getContext(), HtSetKeyActivity.class);
                         mIntent.putStringArrayListExtra("bookNos", bookNoList);
                     }
+                    startActivity(mIntent);
                 }
-                startActivity(mIntent);
-
-
                 break;
             case R.id.btAdd:
                 CreateBookDialog.Builder builder = new CreateBookDialog.Builder(getContext());
                 builder.setCreateBookListener(new OnCreateBookListener() {
                     @Override
                     public void getBookInfo(String bookName, String bookNo) {
-                        HtBook htBook = new HtBook();
-                        htBook.setBookName(bookName);
-                        htBook.setBookNum(bookNo);
+                        GroupBind htBook = new GroupBind();
+                        htBook.setMeterName(bookName);
+                        htBook.setMeterNo(bookNo);
                         htBookList.add(htBook);
                         mAdapter.notifyDataSetChanged();
                     }

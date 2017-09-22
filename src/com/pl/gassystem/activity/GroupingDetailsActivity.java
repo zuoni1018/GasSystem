@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -22,7 +24,6 @@ import com.pl.bll.GroupInfoBiz;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.GroupInfo;
-import com.pl.gassystem.CopyDetailsActivity;
 import com.pl.gassystem.ExportExcelActivity;
 import com.pl.gassystem.GroupInfoUpdateActivity;
 import com.pl.gassystem.R;
@@ -67,7 +68,6 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
     private GroupInfoBiz groupInfoBiz;
 
     private List<GroupInfoStatistic> showList;
-    private List<GroupInfoStatistic> trueList;
     private List<GroupInfoStatistic> searchList;
 
     private boolean isRun = true;
@@ -79,26 +79,27 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            trueList.clear();
-            trueList.addAll(searchList);
+            showList.clear();
+            showList.addAll(searchList);
             mAdapter.notifyDataSetChanged();
 
             if (msg.what == 1) {
-                isRefresh=false;
+                etSearch.setEnabled(true);
+                isRefresh = false;
                 mRecyclerView.refreshComplete(1);
                 showToast("数据查询完毕");
                 int all = 0;
                 int copy = 0;
                 int noCopy = 0;
                 //计算总数
-                for (int i = 0; i < trueList.size(); i++) {
-                    all = all + trueList.get(i).getAllNum();
-                    copy = copy + trueList.get(i).getCopyNum();
-                    noCopy = noCopy + trueList.get(i).getNoNum();
+                for (int i = 0; i < showList.size(); i++) {
+                    all = all + showList.get(i).getAllNum();
+                    copy = copy + showList.get(i).getCopyNum();
+                    noCopy = noCopy + showList.get(i).getNoNum();
                 }
-                tvAllNum.setText("总数（" + all + "）");
-                tvCopyNum.setText("已抄（" + copy + "）");
-                tvNoCopyNum.setText("未抄（" + noCopy + "）");
+                tvAllNum.setText("总数(" + all + ")");
+                tvCopyNum.setText("已抄(" + copy + ")");
+                tvNoCopyNum.setText("未抄(" + noCopy + ")");
             }
 
         }
@@ -111,9 +112,8 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
         setTitle("分组详情");
         setViewAnimation(layoutMenu);
 
-        showList=new ArrayList<>();
-        trueList=new ArrayList<>();
-        searchList=new ArrayList<>();
+        showList = new ArrayList<>();
+        searchList = new ArrayList<>();
 
         bookNo = getIntent().getStringExtra("BookNo");
         bookName = getIntent().getStringExtra("BookName");
@@ -121,17 +121,19 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
 
         copyBiz = new CopyBiz(this);
         groupInfoBiz = new GroupInfoBiz(this);
-        RvGroupingDetailsAdapter mRvGroupingDetailsAdapter=new RvGroupingDetailsAdapter(getContext(), trueList);
+
+
+        RvGroupingDetailsAdapter mRvGroupingDetailsAdapter = new RvGroupingDetailsAdapter(getContext(), showList);
         mRvGroupingDetailsAdapter.setRvItemOnClickListener(new RvItemOnClickListener() {
             @Override
             public void onClick(int position) {
                 Intent mIntent = new Intent(getContext(), CopyDetailsActivity.class);
-                mIntent.putExtra("meterNos", trueList.get(position).getMeterNos());
-                mIntent.putExtra("meterTypeNo", meterTypeNo);
-                mIntent.putExtra("name", trueList.get(position).getPoint());
-                mIntent.putExtra("GroupInfo", trueList.get(position).getmGroupInfo());
-                mIntent.putExtra("noCopy", trueList.get(position).getNoNum());
-                mIntent.putExtra("CopyNum", trueList.get(position).getCopyNum());
+                mIntent.putExtra("meterNos", showList.get(position).getMeterNos());//表号们
+                mIntent.putExtra("meterTypeNo", meterTypeNo);//表计类型
+                mIntent.putExtra("name", showList.get(position).getPoint());
+                mIntent.putExtra("GroupInfo", showList.get(position).getmGroupInfo());//分组信息
+                mIntent.putExtra("noCopy", showList.get(position).getNoNum());
+                mIntent.putExtra("CopyNum", showList.get(position).getCopyNum());
                 startActivity(mIntent);
             }
         });
@@ -143,7 +145,8 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
             @Override
             public void onRefresh() {
                 if (!isRefresh) {
-                    LogUtil.i("嘻嘻","开启线程去查数据库");
+                    LogUtil.i("嘻嘻", "开启线程去查数据库");
+                    etSearch.setEnabled(false);
                     //开启一个线程去搜索
                     new SearchThread().start();
                 }
@@ -152,13 +155,42 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
 
         mRecyclerView.refresh();//自动刷新
 
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.toString().trim().equals("")) {
+                    showList.clear();
+                    showList.addAll(searchList);
+                    mAdapter.notifyDataSetChanged();
+                } else {
+                    showList.clear();
+                    for (int i = 0; i < searchList.size(); i++) {
+                        String myText = searchList.get(i).getPoint() + searchList.get(i).getMeterNos();
+                        if (myText.contains(s.toString().trim())) {
+                            showList.add(searchList.get(i));
+                        }
+                    }
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
     }
 
     @Override
     protected int setLayout() {
         return R.layout.activity_grouping_details;
     }
-
 
     @OnClick(R.id.layoutMenu)
     public void onViewClicked() {
@@ -224,17 +256,20 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
     private class SearchThread extends Thread {
         @Override
         public void run() {
-
             searchList.clear();
-            //通过账册号码去查询所有分组信息
+
+            //获得账册下的所有分组编号
             ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
 
             for (int i = 0; i < groupInfos.size() && isRun; i++) {
-                //通过分组编号 去查询所有表
+
+                //获得分组下的所有表编号
                 ArrayList<String> meterNos = copyBiz.GetCopyMeterNo(groupInfos.get(i).getGroupNo());
+
                 int noNum = 0;
                 int copyNum = 0;
                 int allNum = 0;
+
                 if (meterTypeNo.equals("04")) {// IC卡无线
                     ArrayList<CopyDataICRF> copyDataICRFs = copyBiz.getCopyDataICRFByMeterNos(meterNos, 2);
                     if (copyDataICRFs != null) {
@@ -285,7 +320,7 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
 
     @Override
     protected void onDestroy() {
-        isRun=false;
+        isRun = false;
         super.onDestroy();
     }
 }

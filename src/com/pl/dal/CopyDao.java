@@ -9,6 +9,7 @@ import android.util.Log;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.CopyDataPhoto;
+import com.pl.gassystem.utils.LogUtil;
 
 import java.util.ArrayList;
 
@@ -32,13 +33,15 @@ public class CopyDao {
         }
     }
 
-    // 根据分组号查询表号
+    /**
+     * 通过分组编号去查询该分组下的所有表的编号
+     */
     public ArrayList<String> GetCopyMeterNo(String groupNo) {
         ArrayList<String> meterNos = null;
         SQLiteDatabase db = helper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select meterNo from GroupBind where groupNo = ?", new String[]{groupNo});
         if (cursor != null) {
-            meterNos = new ArrayList<String>();
+            meterNos = new ArrayList<>();
             while (cursor.moveToNext()) {
                 meterNos.add(cursor.getString(0));
             }
@@ -52,8 +55,7 @@ public class CopyDao {
     public ArrayList<String> GetCopyUnReadMeterNo(String groupNo, String meterTypeNo) {
         ArrayList<String> meterNos = GetCopyMeterNo(groupNo);
         if (meterTypeNo.equals("04")) {// IC卡无线
-            ArrayList<CopyDataICRF> copyDataICRFs = getCopyDataICRFByMeterNos(
-                    meterNos, 0);
+            ArrayList<CopyDataICRF> copyDataICRFs = getCopyDataICRFByMeterNos(meterNos, 0);
             if (copyDataICRFs != null && copyDataICRFs.size() > 0) {
                 meterNos.clear();
                 for (int i = 0; i < copyDataICRFs.size(); i++) {
@@ -234,46 +236,27 @@ public class CopyDao {
     }
 
     // 根据表号获取摄像表最近一条抄表记录（单表）
-    public CopyDataPhoto getLastCopyDataPhotoByCommunicateNo(
-            String CommunicateNo) {
+    public CopyDataPhoto getLastCopyDataPhotoByCommunicateNo(String CommunicateNo) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db
-                .rawQuery(
-                        "select * from CopyDataPhoto where CommunicateNo = ? order by _id desc  LIMIT 0,1",
-                        new String[]{CommunicateNo});
+        Cursor cursor = db.rawQuery("select * from CopyDataPhoto where CommunicateNo = ? order by _id desc  LIMIT 0,1", new String[]{CommunicateNo});
         if (cursor != null && cursor.moveToNext()) {
             CopyDataPhoto copyDataPhoto = new CopyDataPhoto();
             copyDataPhoto.setId(cursor.getInt(cursor.getColumnIndex("_id")));
-            copyDataPhoto.setCommunicateNo(cursor.getString(cursor
-                    .getColumnIndex("CommunicateNo")));
-            copyDataPhoto.setReadState(cursor.getInt(cursor
-                    .getColumnIndex("ReadState")));
-            copyDataPhoto.setImageName(cursor.getString(cursor
-                    .getColumnIndex("ImageName")));
-            copyDataPhoto.setCollectorNo(cursor.getString(cursor
-                    .getColumnIndex("CollectorNo")));
-            copyDataPhoto.setOperater(cursor.getString(cursor
-                    .getColumnIndex("Operater")));
-            copyDataPhoto.setReadTime(cursor.getString(cursor
-                    .getColumnIndex("ReadTime")));
-            copyDataPhoto.setDevState(cursor.getString(cursor
-                    .getColumnIndex("DevState")));
-            copyDataPhoto.setDevPower(cursor.getString(cursor
-                    .getColumnIndex("DevPower")));
-            copyDataPhoto.setOcrState(cursor.getInt(cursor
-                    .getColumnIndex("OcrState")));
-            copyDataPhoto.setOcrRead(cursor.getString(cursor
-                    .getColumnIndex("OcrRead")));
-            copyDataPhoto.setThisRead(cursor.getString(cursor
-                    .getColumnIndex("ThisRead")));
-            copyDataPhoto.setOcrResult(cursor.getString(cursor
-                    .getColumnIndex("OcrResult")));
-            copyDataPhoto.setOcrTime(cursor.getString(cursor
-                    .getColumnIndex("OcrTime")));
-            copyDataPhoto.setCreateTime(cursor.getString(cursor
-                    .getColumnIndex("CreateTime")));
-            copyDataPhoto.setMeterName(cursor.getString(cursor
-                    .getColumnIndex("meterName")));
+            copyDataPhoto.setCommunicateNo(cursor.getString(cursor.getColumnIndex("CommunicateNo")));
+            copyDataPhoto.setReadState(cursor.getInt(cursor.getColumnIndex("ReadState")));
+            copyDataPhoto.setImageName(cursor.getString(cursor.getColumnIndex("ImageName")));
+            copyDataPhoto.setCollectorNo(cursor.getString(cursor.getColumnIndex("CollectorNo")));
+            copyDataPhoto.setOperater(cursor.getString(cursor.getColumnIndex("Operater")));
+            copyDataPhoto.setReadTime(cursor.getString(cursor.getColumnIndex("ReadTime")));
+            copyDataPhoto.setDevState(cursor.getString(cursor.getColumnIndex("DevState")));
+            copyDataPhoto.setDevPower(cursor.getString(cursor.getColumnIndex("DevPower")));
+            copyDataPhoto.setOcrState(cursor.getInt(cursor.getColumnIndex("OcrState")));
+            copyDataPhoto.setOcrRead(cursor.getString(cursor.getColumnIndex("OcrRead")));
+            copyDataPhoto.setThisRead(cursor.getString(cursor.getColumnIndex("ThisRead")));
+            copyDataPhoto.setOcrResult(cursor.getString(cursor.getColumnIndex("OcrResult")));
+            copyDataPhoto.setOcrTime(cursor.getString(cursor.getColumnIndex("OcrTime")));
+            copyDataPhoto.setCreateTime(cursor.getString(cursor.getColumnIndex("CreateTime")));
+            copyDataPhoto.setMeterName(cursor.getString(cursor.getColumnIndex("meterName")));
             db.close();
             return copyDataPhoto;
         } else {
@@ -281,66 +264,20 @@ public class CopyDao {
         }
     }
 
-    // 根据表号组获取未抄数量
-    public int getCopyNum(ArrayList<String> meterNos, int copyState) {
 
 
-        return 1;
-    }
-
-    // 根据表号组获取无线表抄表数据
+    /**
+     * 根据表号们 获得该表号对应的抄表数据
+     * CopyData 为抄表记录表
+     * sql 语句注释
+     * 把所有meterNo相同的放到一个分组里再将该分组里的数据按时间倒序排序取第一条数据
+     * 也就是说这里查出来的都是最新的抄表记录集合
+     */
     public ArrayList<CopyData> getCopyDataByMeterNos(ArrayList<String> meterNos, int copyState) {
-        ArrayList<CopyData> copyDatas = new ArrayList<CopyData>();
+
+        ArrayList<CopyData> copyDatas = new ArrayList<>();
         if (meterNos.size() > 0) {
-            // if(meterNos.size()<500){
-            // ArrayList<CopyData> copyDatas = null;
-            // String sql = "SELECT * FROM CopyData where (";
-            // for (int i = 0; i < meterNos.size(); i++) {
-            // sql += "meterNo = '" + meterNos.get(i) + "' or ";
-            // }
-            // sql += " 1=2) ";
-            // if(copyState == 2){ //全部
-            // sql += "GROUP BY meterNo ORDER BY copyTime DESC";
-            // }else if(copyState ==1){//已抄
-            // sql +=
-            // "and copyState = 1 GROUP BY meterNo ORDER BY copyTime DESC";
-            // }else if (copyState ==0) {//未抄
-            // sql +=
-            // "and copyState = 0 GROUP BY meterNo ORDER BY copyTime DESC";
-            // }
-            // SQLiteDatabase db = helper.getReadableDatabase();
-            // Cursor cursor = db.rawQuery(sql, null);
-            // if(cursor!=null){
-            // copyDatas = new ArrayList<CopyData>();
-            // while (cursor.moveToNext()) {
-            // CopyData copyData = new CopyData();
-            // copyData.setId(cursor.getInt(cursor.getColumnIndex("_id")));
-            // copyData.setMeterNo(cursor.getString(cursor.getColumnIndex("meterNo")));
-            // copyData.setLastShow(cursor.getString(cursor.getColumnIndex("lastShow")));
-            // copyData.setLastDosage(cursor.getString(cursor.getColumnIndex("lastDosage")));
-            // copyData.setCurrentShow(cursor.getString(cursor.getColumnIndex("currentShow")));
-            // copyData.setCurrentDosage(cursor.getString(cursor.getColumnIndex("currentDosage")));
-            // copyData.setUnitPrice(cursor.getString(cursor.getColumnIndex("unitPrice")));
-            // copyData.setPrintFlag(cursor.getInt(cursor.getColumnIndex("printFlag")));
-            // copyData.setMeterState(cursor.getInt(cursor.getColumnIndex("meterState")));
-            // copyData.setCopyState(cursor.getInt(cursor.getColumnIndex("copyState")));
-            // copyData.setCopyWay(cursor.getString(cursor.getColumnIndex("copyWay")));
-            // copyData.setCopyTime(cursor.getString(cursor.getColumnIndex("copyTime")));
-            // copyData.setCopyMan(cursor.getString(cursor.getColumnIndex("copyMan")));
-            // copyData.setOperator(cursor.getString(cursor.getColumnIndex("Operator")));
-            // copyData.setOperateTime(cursor.getString(cursor.getColumnIndex("operateTime")));
-            // copyData.setRemark(cursor.getString(cursor.getColumnIndex("Remark")));
-            // copyData.setIsBalance(cursor.getInt(cursor.getColumnIndex("isBalance")));
-            // copyData.setMeterName(cursor.getString(cursor.getColumnIndex("meterName")));
-            // copyData.setdBm(cursor.getString(cursor.getColumnIndex("dBm")));
-            // copyData.setElec(cursor.getString(cursor.getColumnIndex("elec")));
-            // copyDatas.add(copyData);
-            // }
-            // cursor.close();
-            // }
-            // db.close();
-            // return copyDatas;
-            // }else {
+
             int sizeNo = meterNos.size();
             int sizeCount = sizeNo / 500;
 
@@ -365,7 +302,9 @@ public class CopyDao {
                 } else if (copyState == 0) {// 未抄
                     sql += "and copyState = 0 GROUP BY meterNo ORDER BY copyTime DESC";
                 }
-                Log.i("sql2", "" + sql);
+
+                LogUtil.i("Sql", "表号查询抄表内容sql=" + sql);
+
                 Cursor cursor = db.rawQuery(sql, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -397,12 +336,11 @@ public class CopyDao {
             }
             db.close();
             return copyDatas;
-            // }
-
         } else {
             return copyDatas;
         }
     }
+
 
     public ArrayList<CopyData> getCopyDataByMeterNos_N(ArrayList<String> meterNos, int copyState, String name) {
         if (meterNos.size() > 0) {
@@ -541,59 +479,35 @@ public class CopyDao {
     // 根据id号获取IC无线表抄表数据（单表）
     public CopyDataICRF getCopyDataICRFById(String Id) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from CopyDataICRF where _id = ?",
-                new String[]{Id});
+        Cursor cursor = db.rawQuery("select * from CopyDataICRF where _id = ?", new String[]{Id});
         if (cursor != null && cursor.moveToNext()) {
             CopyDataICRF copyIcrf = new CopyDataICRF();
             copyIcrf.setId(cursor.getInt(cursor.getColumnIndex("_id")));
-            copyIcrf.setMeterNo(cursor.getString(cursor
-                    .getColumnIndex("meterNo")));
-            copyIcrf.setCumulant(cursor.getString(cursor
-                    .getColumnIndex("Cumulant")));
-            copyIcrf.setSurplusMoney(cursor.getString(cursor
-                    .getColumnIndex("SurplusMoney")));
-            copyIcrf.setOverZeroMoney(cursor.getString(cursor
-                    .getColumnIndex("OverZeroMoney")));
-            copyIcrf.setBuyTimes(cursor.getInt(cursor
-                    .getColumnIndex("BuyTimes")));
-            copyIcrf.setOverFlowTimes(cursor.getInt(cursor
-                    .getColumnIndex("OverFlowTimes")));
-            copyIcrf.setMagAttTimes(cursor.getInt(cursor
-                    .getColumnIndex("MagAttTimes")));
-            copyIcrf.setCardAttTimes(cursor.getInt(cursor
-                    .getColumnIndex("CardAttTimes")));
-            copyIcrf.setMeterState(cursor.getInt(cursor
-                    .getColumnIndex("MeterState")));
-            copyIcrf.setCopyState(cursor.getInt(cursor
-                    .getColumnIndex("copyState")));
-            copyIcrf.setCopyWay(cursor.getString(cursor
-                    .getColumnIndex("copyWay")));
-            copyIcrf.setCopyTime(cursor.getString(cursor
-                    .getColumnIndex("copyTime")));
-            copyIcrf.setCopyMan(cursor.getString(cursor
-                    .getColumnIndex("copyMan")));
-            copyIcrf.setStateMessage(cursor.getString(cursor
-                    .getColumnIndex("StateMessage")));
-            copyIcrf.setCurrMonthTotal(cursor.getString(cursor
-                    .getColumnIndex("CurrMonthTotal")));
-            copyIcrf.setLast1MonthTotal(cursor.getString(cursor
-                    .getColumnIndex("Last1MonthTotal")));
-            copyIcrf.setLast2MonthTotal(cursor.getString(cursor
-                    .getColumnIndex("Last2MonthTotal")));
-            copyIcrf.setLast3MonthTotal(cursor.getString(cursor
-                    .getColumnIndex("Last3MonthTotal")));
-            copyIcrf.setMeterName(cursor.getString(cursor
-                    .getColumnIndex("meterName")));
+            copyIcrf.setMeterNo(cursor.getString(cursor.getColumnIndex("meterNo")));
+            copyIcrf.setCumulant(cursor.getString(cursor.getColumnIndex("Cumulant")));
+            copyIcrf.setSurplusMoney(cursor.getString(cursor.getColumnIndex("SurplusMoney")));
+            copyIcrf.setOverZeroMoney(cursor.getString(cursor.getColumnIndex("OverZeroMoney")));
+            copyIcrf.setBuyTimes(cursor.getInt(cursor.getColumnIndex("BuyTimes")));
+            copyIcrf.setOverFlowTimes(cursor.getInt(cursor.getColumnIndex("OverFlowTimes")));
+            copyIcrf.setMagAttTimes(cursor.getInt(cursor.getColumnIndex("MagAttTimes")));
+            copyIcrf.setCardAttTimes(cursor.getInt(cursor.getColumnIndex("CardAttTimes")));
+            copyIcrf.setMeterState(cursor.getInt(cursor.getColumnIndex("MeterState")));
+            copyIcrf.setCopyState(cursor.getInt(cursor.getColumnIndex("copyState")));
+            copyIcrf.setCopyWay(cursor.getString(cursor.getColumnIndex("copyWay")));
+            copyIcrf.setCopyTime(cursor.getString(cursor.getColumnIndex("copyTime")));
+            copyIcrf.setCopyMan(cursor.getString(cursor.getColumnIndex("copyMan")));
+            copyIcrf.setStateMessage(cursor.getString(cursor.getColumnIndex("StateMessage")));
+            copyIcrf.setCurrMonthTotal(cursor.getString(cursor.getColumnIndex("CurrMonthTotal")));
+            copyIcrf.setLast1MonthTotal(cursor.getString(cursor.getColumnIndex("Last1MonthTotal")));
+            copyIcrf.setLast2MonthTotal(cursor.getString(cursor.getColumnIndex("Last2MonthTotal")));
+            copyIcrf.setLast3MonthTotal(cursor.getString(cursor.getColumnIndex("Last3MonthTotal")));
+            copyIcrf.setMeterName(cursor.getString(cursor.getColumnIndex("meterName")));
             copyIcrf.setdBm(cursor.getString(cursor.getColumnIndex("dBm")));
             copyIcrf.setElec(cursor.getString(cursor.getColumnIndex("elec")));
-            copyIcrf.setUnitPrice(cursor.getString(cursor
-                    .getColumnIndex("unitPrice")));
-            copyIcrf.setAccMoney(cursor.getString(cursor
-                    .getColumnIndex("accMoney")));
-            copyIcrf.setAccBuyMoney(cursor.getString(cursor
-                    .getColumnIndex("accBuyMoney")));
-            copyIcrf.setCurrentShow(cursor.getString(cursor
-                    .getColumnIndex("currentShow")));
+            copyIcrf.setUnitPrice(cursor.getString(cursor.getColumnIndex("unitPrice")));
+            copyIcrf.setAccMoney(cursor.getString(cursor.getColumnIndex("accMoney")));
+            copyIcrf.setAccBuyMoney(cursor.getString(cursor.getColumnIndex("accBuyMoney")));
+            copyIcrf.setCurrentShow(cursor.getString(cursor.getColumnIndex("currentShow")));
             db.close();
             return copyIcrf;
         } else {

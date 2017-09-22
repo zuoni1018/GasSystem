@@ -186,6 +186,33 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:background="@color/item_line" />
+
+            <LinearLayout
+                android:id="@+id/layoutSetChannel"
+                style="@style/maintenance_layout_style">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/channel" />
+
+                <TextView
+                    style="@style/biglisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="设置抄表扩频因子、信道"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/item_line" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

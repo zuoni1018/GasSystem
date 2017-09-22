@@ -35,6 +35,7 @@ import com.pl.bll.XmlParser;
 import com.pl.common.NetWorkManager;
 import com.pl.entity.BookInfo;
 import com.pl.entity.GroupInfo;
+import com.pl.gassystem.activity.GroupingDetailsActivity;
 import com.pl.gassystem.adapter.main.BookInfoAdapter;
 import com.pl.utils.GlobalConsts;
 
@@ -223,8 +224,8 @@ public class BookInfoActivity extends Activity {
                 if (bookInfoType == GlobalConsts.BOOKINFO_TYPE_COPY) {
                     //如果是从抄表按钮点进来的
 //                    Intent intent = new Intent(BookInfoActivity.this, GroupInfoActivity.class);
-                    Intent intent = new Intent(BookInfoActivity.this, GroupInfoStatisticActivity.class);
-//                    Intent intent = new Intent(BookInfoActivity.this, GroupingDetailsActivity.class);
+//                    Intent intent = new Intent(BookInfoActivity.this, GroupInfoStatisticActivity.class);
+                    Intent intent = new Intent(BookInfoActivity.this, GroupingDetailsActivity.class);
                     BookInfo bkinfo = adapter.getItem(position);
                     intent.putExtra("BookNo", bkinfo.getBookNo());
                     intent.putExtra("BookName", bkinfo.getBookName());

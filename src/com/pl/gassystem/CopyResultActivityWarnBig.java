@@ -19,11 +19,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pl.gassystem.adapter.main.CopyDataAdapter;
-import com.pl.gassystem.adapter.main.CopyDataICRFAdapter;
 import com.pl.bll.CopyBiz;
+import com.pl.bll.SetBiz;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
+import com.pl.gassystem.adapter.main.CopyDataAdapter;
+import com.pl.gassystem.adapter.main.CopyDataICRFAdapter;
 import com.pl.utils.GlobalConsts;
 
 import java.util.ArrayList;
@@ -53,6 +54,9 @@ public class CopyResultActivityWarnBig extends Activity {
 
     private void setupView() {
         btGoCopy = (Button) findViewById(R.id.btGoCopy);
+        if(new SetBiz(CopyResultActivityWarnBig.this).getRunMode().equals(GlobalConsts.RUN_MODE_HANG_TIAN)){
+            btGoCopy.setVisibility(View.GONE);
+        }
         btnquit = (ImageButton) findViewById(R.id.btnquit);
         btnmenu = (ImageButton) findViewById(R.id.btnmenu);
         search = (EditText) findViewById(R.id.search);

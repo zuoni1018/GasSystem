@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.pl.bll.SetBiz;
 import com.pl.gassystem.R;
 import com.pl.gassystem.bean.ht.HtSendMessage;
-import com.pl.gassystem.utils.SPUtils;
-import com.pl.utils.GlobalConsts;
 import com.zuoni.zuoni_common.dialog.other.DataPickerHtChooseDialog;
 
 import java.util.ArrayList;
@@ -49,6 +47,11 @@ public class HtSetBookParameterActivity extends HtBaseTitleActivity {
     private ArrayList<String> bookNos;
     private DataPickerHtChooseDialog dataPickerHtChooseDialog;
     private SetBiz setBiz;
+
+
+    private String newYinZi="09";
+    private String newXinDao="14";
+
 
     @Override
     protected int setLayout() {
@@ -101,15 +104,15 @@ public class HtSetBookParameterActivity extends HtBaseTitleActivity {
                 builder.setOnDataSelectedListener(new DataPickerHtChooseDialog.OnDataSelectedListener() {
                     @Override
                     public void onDataSelected(String itemValue) {
-                        setBiz.updateRunMode(GlobalConsts.RUN_MODE_HANG_TIAN);
                         tvKuoPinYinZi.setText(itemValue);
-                        SPUtils.put(getContext(), "HtKuoPinYinZi", itemValue);
+                        newYinZi=itemValue;
+
                     }
 
                     @Override
                     public void onDataSelected2(String itemValue) {
                         tvKuoPinXinDao.setText(itemValue);
-                        SPUtils.put(getContext(), "HtKuoPinXinDao", itemValue);
+                        newXinDao=itemValue;
                     }
                 });
 

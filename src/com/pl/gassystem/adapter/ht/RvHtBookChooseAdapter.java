@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.pl.entity.GroupBind;
 import com.pl.gassystem.R;
-import com.pl.gassystem.bean.ht.HtBook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,10 @@ import java.util.List;
 public class RvHtBookChooseAdapter extends RecyclerView.Adapter<RvHtBookChooseAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<HtBook> mList;
+    private List<GroupBind> mList;
     private LayoutInflater mInflater;
 
-    public RvHtBookChooseAdapter(Context mContext, List<HtBook> mList) {
+    public RvHtBookChooseAdapter(Context mContext, List<GroupBind> mList) {
         this.mContext = mContext;
         if (mList != null) {
             this.mList = mList;
@@ -44,9 +44,9 @@ public class RvHtBookChooseAdapter extends RecyclerView.Adapter<RvHtBookChooseAd
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.tvBookNo.setText(mList.get(position).getBookNum());
-        holder.tvBookName.setText(mList.get(position).getBookName());
-        if(mList.get(position).isChoose()){
+        holder.tvBookNo.setText(mList.get(position).getMeterNo());
+        holder.tvBookName.setText(mList.get(position).getMeterName());
+        if(mList.get(position).isCheck()){
             holder.ivChoose.setImageResource(R.mipmap.choose_01);
         }else {
             holder.ivChoose.setImageResource(R.mipmap.choose_02);
@@ -55,8 +55,8 @@ public class RvHtBookChooseAdapter extends RecyclerView.Adapter<RvHtBookChooseAd
         holder.layoutMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean nowChoose=mList.get(position).isChoose();
-                mList.get(position).setChoose(!nowChoose);
+                boolean nowChoose=mList.get(position).isCheck();
+                mList.get(position).setCheck(!nowChoose);
                 if(nowChoose){
                     holder.ivChoose.setImageResource(R.mipmap.choose_02);
                 }else {

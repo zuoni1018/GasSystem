@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtValveMaintainActivity_ViewBinding implements Unbinder {
   private HtValveMaintainActivity target;
 
-  private View view2131689989;
+  private View view2131689991;
 
   @UiThread
   public HtValveMaintainActivity_ViewBinding(HtValveMaintainActivity target) {
@@ -33,7 +33,7 @@ public class HtValveMaintainActivity_ViewBinding implements Unbinder {
     target.rbValveState = Utils.findRequiredViewAsType(source, R.id.rbValveState, "field 'rbValveState'", RadioButton.class);
     target.mRadioGroup = Utils.findRequiredViewAsType(source, R.id.mRadioGroup, "field 'mRadioGroup'", RadioGroup.class);
     view = Utils.findRequiredView(source, R.id.btSure, "method 'onViewClicked'");
-    view2131689989 = view;
+    view2131689991 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class HtValveMaintainActivity_ViewBinding implements Unbinder {
     target.rbValveState = null;
     target.mRadioGroup = null;
 
-    view2131689989.setOnClickListener(null);
-    view2131689989 = null;
+    view2131689991.setOnClickListener(null);
+    view2131689991 = null;
   }
 }

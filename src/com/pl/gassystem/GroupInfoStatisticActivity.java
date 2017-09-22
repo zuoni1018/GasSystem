@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pl.gassystem.activity.CopyDetailsActivity;
 import com.pl.gassystem.utils.KeyBoardUtils;
 import com.pl.gassystem.utils.ToastUtils;
 import com.pl.bean.GroupInfoStatistic;

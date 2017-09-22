@@ -15,17 +15,19 @@ import java.lang.Override;
 public class HtMaintenanceActivity_ViewBinding implements Unbinder {
   private HtMaintenanceActivity target;
 
-  private View view2131689993;
-
-  private View view2131689994;
-
-  private View view2131689996;
-
-  private View view2131689995;
-
-  private View view2131689997;
-
   private View view2131689998;
+
+  private View view2131689999;
+
+  private View view2131690001;
+
+  private View view2131690000;
+
+  private View view2131690002;
+
+  private View view2131690003;
+
+  private View view2131690004;
 
   @UiThread
   public HtMaintenanceActivity_ViewBinding(HtMaintenanceActivity target) {
@@ -39,7 +41,7 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.layoutValveMaintain, "field 'layoutValveMaintain' and method 'onViewClicked'");
     target.layoutValveMaintain = Utils.castView(view, R.id.layoutValveMaintain, "field 'layoutValveMaintain'", LinearLayout.class);
-    view2131689993 = view;
+    view2131689998 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,7 +50,7 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.layoutQueryParameter, "field 'layoutQueryParameter' and method 'onViewClicked'");
     target.layoutQueryParameter = Utils.castView(view, R.id.layoutQueryParameter, "field 'layoutQueryParameter'", LinearLayout.class);
-    view2131689994 = view;
+    view2131689999 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +59,7 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.layoutSetParameter, "field 'layoutSetParameter' and method 'onViewClicked'");
     target.layoutSetParameter = Utils.castView(view, R.id.layoutSetParameter, "field 'layoutSetParameter'", LinearLayout.class);
-    view2131689996 = view;
+    view2131690001 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -66,7 +68,7 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.layoutChangeBookNoOrCumulant, "field 'layoutChangeBookNoOrCumulant' and method 'onViewClicked'");
     target.layoutChangeBookNoOrCumulant = Utils.castView(view, R.id.layoutChangeBookNoOrCumulant, "field 'layoutChangeBookNoOrCumulant'", LinearLayout.class);
-    view2131689995 = view;
+    view2131690000 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +76,7 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.layoutUpdateKey, "method 'onViewClicked'");
-    view2131689997 = view;
+    view2131690002 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,7 +84,15 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.layoutSetCopKey, "method 'onViewClicked'");
-    view2131689998 = view;
+    view2131690003 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.layoutSetChannel, "method 'onViewClicked'");
+    view2131690004 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -103,17 +113,19 @@ public class HtMaintenanceActivity_ViewBinding implements Unbinder {
     target.layoutSetParameter = null;
     target.layoutChangeBookNoOrCumulant = null;
 
-    view2131689993.setOnClickListener(null);
-    view2131689993 = null;
-    view2131689994.setOnClickListener(null);
-    view2131689994 = null;
-    view2131689996.setOnClickListener(null);
-    view2131689996 = null;
-    view2131689995.setOnClickListener(null);
-    view2131689995 = null;
-    view2131689997.setOnClickListener(null);
-    view2131689997 = null;
     view2131689998.setOnClickListener(null);
     view2131689998 = null;
+    view2131689999.setOnClickListener(null);
+    view2131689999 = null;
+    view2131690001.setOnClickListener(null);
+    view2131690001 = null;
+    view2131690000.setOnClickListener(null);
+    view2131690000 = null;
+    view2131690002.setOnClickListener(null);
+    view2131690002 = null;
+    view2131690003.setOnClickListener(null);
+    view2131690003 = null;
+    view2131690004.setOnClickListener(null);
+    view2131690004 = null;
   }
 }
