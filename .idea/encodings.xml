@@ -51,6 +51,6 @@
     <file url="file://$PROJECT_DIR$/src/com/pl/protocol/HhProtocol.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/pl/utils/GlobalConsts.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/zxing/decoding/CaptureActivityHandler.java" charset="GBK" />
-    <file url="PROJECT" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
