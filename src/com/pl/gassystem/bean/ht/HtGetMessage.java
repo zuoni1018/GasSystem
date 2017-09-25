@@ -183,8 +183,8 @@ public class HtGetMessage {
                     + " 命令类型:" + this.getCommandType()
                     + " 表号:" + this.getBookNo()
                     + " \n阀门状态:" + this.getValveState()
-                    + " 电池电压:" + this.getVoltage()
-                    + " 信号强度:" + this.getSignal();
+                    + " 电池电压:" + this.getVoltage();
+//                    + " 信号强度:" + this.getSignal();
         }
 
     }

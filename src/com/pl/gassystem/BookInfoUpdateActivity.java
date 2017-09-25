@@ -84,44 +84,36 @@ public class BookInfoUpdateActivity extends Activity {
                 String bookName = etBookName.getText().toString().trim();
                 String remark = etRemark.getText().toString().trim();
                 String etestateNo2 = etestateNo.getText().toString().trim();
-                String etstaffNo2 =   etstaffNo.getText().toString().trim();
+                String etstaffNo2 = etstaffNo.getText().toString().trim();
 
-//                if ("".equals(bookName)) {
-//                    Toast.makeText(BookInfoUpdateActivity.this, "请先输入账册名称", Toast.LENGTH_SHORT).show();
-//                } else if ("".equals(etstaffNo2)) {
-//                    Toast.makeText(BookInfoUpdateActivity.this, "请输入表工编号", Toast.LENGTH_SHORT).show();
-//                } else if ("".equals(etestateNo2)) {
-//                    Toast.makeText(BookInfoUpdateActivity.this, "请输入小区编号", Toast.LENGTH_SHORT).show();
-//                } else {
-                    // 获取输入
-                    BookInfo bkInfo = new BookInfo();
-                    bkInfo.setBookName(bookName);
-                    bkInfo.setEstateNo(etestateNo2);
-                    bkInfo.setRemark(remark);
-                    bkInfo.setStaffNo(remark);
-                    //获得账册类型
-                    String meterType = "";
-                    if (rgMeterType.getCheckedRadioButtonId() == R.id.rdoIC) {
-                        meterType = "04";
-                    } else if (rgMeterType.getCheckedRadioButtonId() == R.id.rdoWX) {
-                        meterType = "05";
-                    }
-                    bkInfo.setMeterTypeNo(meterType);
-                    // 操作 新建账单则向数据库里新建
-                    switch (opType) {
-                        case GlobalConsts.TYPE_ADD:
-                            String bookNo = bookInfoBiz.getLastBookNo();
-                            bkInfo.setBookNo(StringFormatter.getAddStringNo(bookNo));
-                            bookInfoBiz.addBookInfo(bkInfo);
-                            break;
+                // 获取输入
+                BookInfo bkInfo = new BookInfo();
+                bkInfo.setBookName(bookName);
+                bkInfo.setEstateNo(etestateNo2);
+                bkInfo.setRemark(remark);
+                bkInfo.setStaffNo(remark);
+                //获得账册类型
+                String meterType = "";
+                if (rgMeterType.getCheckedRadioButtonId() == R.id.rdoIC) {
+                    meterType = "04";
+                } else if (rgMeterType.getCheckedRadioButtonId() == R.id.rdoWX) {
+                    meterType = "05";
+                }
+                bkInfo.setMeterTypeNo(meterType);
+                // 操作 新建账单则向数据库里新建
+                switch (opType) {
+                    case GlobalConsts.TYPE_ADD:
+                        String bookNo = bookInfoBiz.getLastBookNo();
+                        bkInfo.setBookNo(StringFormatter.getAddStringNo(bookNo));
+                        bookInfoBiz.addBookInfo(bkInfo);
+                        break;
 
-                        case GlobalConsts.TYPE_UPDATE:
-                            bkInfo.setBookNo(tvBookNo.getText().toString());
-                            bookInfoBiz.updateBookInfo(bkInfo);
-                            break;
-                    }
-                    finish();
-//                }
+                    case GlobalConsts.TYPE_UPDATE:
+                        bkInfo.setBookNo(tvBookNo.getText().toString());
+                        bookInfoBiz.updateBookInfo(bkInfo);
+                        break;
+                }
+                finish();
             }
         });
 

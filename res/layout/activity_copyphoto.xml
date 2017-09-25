@@ -319,10 +319,7 @@
                 android:layout_marginTop="2dp"
                 android:text="下调"
                 android:textSize="16sp" />
-
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -372,11 +369,6 @@
                 android:layout_weight="0.3"
                 android:text="发送设置"
                 android:textSize="16sp" />
-
         </LinearLayout>
-
-
     </LinearLayout>
-
-
 </LinearLayout>

@@ -148,21 +148,27 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btCopy"
+            android:theme="@style/button_style"
+            android:id="@+id/btCopyChoose"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@color/color_blue"
             android:text="抄取选择的表"
-            android:textColor="#fff"
+            android:textColor="@color/color_white"
             android:textSize="14sp" />
 
+        <Button
+            android:theme="@style/button_style"
+            android:id="@+id/btCopyAll"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:text="抄取全部"
+            android:textColor="#fff"
+            android:textSize="14sp" />
     </LinearLayout>
-
-    <include
-        layout="@layout/ct_page_choose_bar"
-        android:visibility="gone" />
-
 </LinearLayout>

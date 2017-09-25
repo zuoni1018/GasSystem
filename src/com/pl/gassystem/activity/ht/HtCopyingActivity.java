@@ -341,12 +341,12 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             if (copySize == 0) {
                 countDownTime = 200; //说明是单抄只传了 bookNo过来
             } else if (copySize > 20) {
-                countDownTime = 200 + 20 * intervalTime;
+                countDownTime = 200 + 20 * (intervalTime+100);
             } else {
-                countDownTime = 200 + 20 * copySize;
+                countDownTime = 200 + (intervalTime+100) * copySize;
             }
 
-            timer = new CountDownTimer(countDownTime + wakeCycle + 2000, 1000) {
+            timer = new CountDownTimer(countDownTime + wakeCycle + 3000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     tvTime.setText((millisUntilFinished / 1000) + "s");
@@ -362,7 +362,8 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                         createCommand(nowCopyNum);
                         tvNowNum.setText(nowCopyNum + "");
                     } else {
-                        if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+                        if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
+                                | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
                             Intent intent = new Intent(getContext(), CopyResultActivity.class);
                             intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_SHOWALL);
                             intent.putExtra("meterNos", bookNos);
@@ -370,13 +371,11 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                             startActivity(intent);
                             finish();
                         }
-
                         tvTime.setText("抄表结束");
                     }
                 }
             };
             timer.start();
-
         }
     }
 

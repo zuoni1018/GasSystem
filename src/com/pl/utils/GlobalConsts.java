@@ -63,7 +63,6 @@ public class GlobalConsts {
 	public static final String RUN_MODE_SHANGHAI = "5";
 	public static final String RUN_MODE_PHOTO = "6";
 	public static final String RUN_MODE_ZHGT = "7";
-
 	public static final String RUN_MODE_HANG_TIAN = "8";//杭天运行模式
 
 }

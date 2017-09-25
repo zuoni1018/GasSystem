@@ -16,21 +16,21 @@ import java.lang.Override;
 public class SetRunModeActivity_ViewBinding implements Unbinder {
   private SetRunModeActivity target;
 
-  private View view2131689834;
+  private View view2131689835;
 
-  private View view2131689836;
+  private View view2131689837;
 
-  private View view2131689838;
+  private View view2131689839;
 
-  private View view2131689840;
+  private View view2131689841;
 
-  private View view2131689842;
+  private View view2131689843;
 
-  private View view2131689844;
+  private View view2131689845;
 
-  private View view2131689846;
+  private View view2131689847;
 
-  private View view2131689848;
+  private View view2131689849;
 
   @UiThread
   public SetRunModeActivity_ViewBinding(SetRunModeActivity target) {
@@ -45,7 +45,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipStandard = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipStandard, "field 'tvRunModeTipStandard'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModeStandard, "field 'linRunModeStandard' and method 'onViewClicked'");
     target.linRunModeStandard = Utils.castView(view, R.id.linRunModeStandard, "field 'linRunModeStandard'", LinearLayout.class);
-    view2131689834 = view;
+    view2131689835 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipLORA = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipLORA, "field 'tvRunModeTipLORA'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModeLORA, "field 'linRunModeLORA' and method 'onViewClicked'");
     target.linRunModeLORA = Utils.castView(view, R.id.linRunModeLORA, "field 'linRunModeLORA'", LinearLayout.class);
-    view2131689836 = view;
+    view2131689837 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipFSK = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipFSK, "field 'tvRunModeTipFSK'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModeFSK, "field 'linRunModeFSK' and method 'onViewClicked'");
     target.linRunModeFSK = Utils.castView(view, R.id.linRunModeFSK, "field 'linRunModeFSK'", LinearLayout.class);
-    view2131689838 = view;
+    view2131689839 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,7 +75,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipHuiZhou = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipHuiZhou, "field 'tvRunModeTipHuiZhou'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModeHuiZhou, "field 'linRunModeHuiZhou' and method 'onViewClicked'");
     target.linRunModeHuiZhou = Utils.castView(view, R.id.linRunModeHuiZhou, "field 'linRunModeHuiZhou'", LinearLayout.class);
-    view2131689840 = view;
+    view2131689841 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -85,7 +85,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipShangHai = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipShangHai, "field 'tvRunModeTipShangHai'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModeShangHai, "field 'linRunModeShangHai' and method 'onViewClicked'");
     target.linRunModeShangHai = Utils.castView(view, R.id.linRunModeShangHai, "field 'linRunModeShangHai'", LinearLayout.class);
-    view2131689842 = view;
+    view2131689843 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -95,7 +95,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipPhoto = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipPhoto, "field 'tvRunModeTipPhoto'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModePhoto, "field 'linRunModePhoto' and method 'onViewClicked'");
     target.linRunModePhoto = Utils.castView(view, R.id.linRunModePhoto, "field 'linRunModePhoto'", LinearLayout.class);
-    view2131689844 = view;
+    view2131689845 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -105,7 +105,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvRunModeTipZHGT = Utils.findRequiredViewAsType(source, R.id.tvRunModeTipZHGT, "field 'tvRunModeTipZHGT'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linRunModeZHGT, "field 'linRunModeZHGT' and method 'onViewClicked'");
     target.linRunModeZHGT = Utils.castView(view, R.id.linRunModeZHGT, "field 'linRunModeZHGT'", LinearLayout.class);
-    view2131689846 = view;
+    view2131689847 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -117,7 +117,7 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvModeChooseHt = Utils.findRequiredViewAsType(source, R.id.tvModeChooseHt, "field 'tvModeChooseHt'", TextView.class);
     view = Utils.findRequiredView(source, R.id.layoutModeChooseHt, "field 'layoutModeChooseHt' and method 'onViewClicked'");
     target.layoutModeChooseHt = Utils.castView(view, R.id.layoutModeChooseHt, "field 'layoutModeChooseHt'", LinearLayout.class);
-    view2131689848 = view;
+    view2131689849 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -152,21 +152,21 @@ public class SetRunModeActivity_ViewBinding implements Unbinder {
     target.tvModeChooseHt = null;
     target.layoutModeChooseHt = null;
 
-    view2131689834.setOnClickListener(null);
-    view2131689834 = null;
-    view2131689836.setOnClickListener(null);
-    view2131689836 = null;
-    view2131689838.setOnClickListener(null);
-    view2131689838 = null;
-    view2131689840.setOnClickListener(null);
-    view2131689840 = null;
-    view2131689842.setOnClickListener(null);
-    view2131689842 = null;
-    view2131689844.setOnClickListener(null);
-    view2131689844 = null;
-    view2131689846.setOnClickListener(null);
-    view2131689846 = null;
-    view2131689848.setOnClickListener(null);
-    view2131689848 = null;
+    view2131689835.setOnClickListener(null);
+    view2131689835 = null;
+    view2131689837.setOnClickListener(null);
+    view2131689837 = null;
+    view2131689839.setOnClickListener(null);
+    view2131689839 = null;
+    view2131689841.setOnClickListener(null);
+    view2131689841 = null;
+    view2131689843.setOnClickListener(null);
+    view2131689843 = null;
+    view2131689845.setOnClickListener(null);
+    view2131689845 = null;
+    view2131689847.setOnClickListener(null);
+    view2131689847 = null;
+    view2131689849.setOnClickListener(null);
+    view2131689849 = null;
   }
 }

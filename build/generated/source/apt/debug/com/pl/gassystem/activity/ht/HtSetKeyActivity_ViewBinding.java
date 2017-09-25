@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtSetKeyActivity_ViewBinding implements Unbinder {
   private HtSetKeyActivity target;
 
-  private View view2131689991;
+  private View view2131689993;
 
   @UiThread
   public HtSetKeyActivity_ViewBinding(HtSetKeyActivity target) {
@@ -33,7 +33,7 @@ public class HtSetKeyActivity_ViewBinding implements Unbinder {
     target.etKey02 = Utils.findRequiredViewAsType(source, R.id.etKey02, "field 'etKey02'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689991 = view;
+    view2131689993 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class HtSetKeyActivity_ViewBinding implements Unbinder {
     target.btSure = null;
     target.tvNum = null;
 
-    view2131689991.setOnClickListener(null);
-    view2131689991 = null;
+    view2131689993.setOnClickListener(null);
+    view2131689993 = null;
   }
 }

@@ -124,8 +124,8 @@ public class HtSetBookParameterActivity extends HtBaseTitleActivity {
                 Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
                 mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_SET_PARAMETER);//命令类型
                 mIntent.putStringArrayListExtra("bookNos", bookNos);//操作表
-                mIntent.putExtra("yinzi","09");//扩频因子
-                mIntent.putExtra("xindao","14");//扩频信道
+                mIntent.putExtra("yinzi",newYinZi);//扩频因子
+                mIntent.putExtra("xindao",newXinDao);//扩频信道
                 mIntent.putExtra("dongjieri","0000");//设置冻结日
                 mIntent.putExtra("kaichuangshijian","0023");//开窗起止时间
                 mIntent.putExtra("isSetYinZi",false);

@@ -40,6 +40,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/btCopyAllBook"
                         style="@style/ct_copy_situation_click_layout_style">
 
@@ -56,6 +57,17 @@
                             style="@style/ct_copy_situation_click_imageview_style"
                             android:src="@mipmap/ct_icon_08" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutUpData"
+                        style="@style/ct_copy_situation_click_layout_style">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            style="@style/ct_copy_situation_click_imageview_style"
+                            android:src="@mipmap/ct_icon_03" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -111,15 +123,7 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/layoutUpData"
-                        style="@style/ct_copy_situation_click_layout_style">
 
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            style="@style/ct_copy_situation_click_imageview_style"
-                            android:src="@mipmap/ct_icon_03" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/btSetting"

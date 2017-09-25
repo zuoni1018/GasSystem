@@ -1,4 +1,4 @@
-#Fri Sep 22 09:18:46 CST 2017
+#Sat Sep 23 15:57:25 CST 2017
 file.9=D\:\\workSpace\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\gson-2.8.1_d2347ed24d5a1ae2e93cba0b5d107870e7c54ad5\\classes.dex
 base.10=D\:\\workSpace\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\badgeview_1e3b6c29e29e2df1ba18160b7f18e6828fe66574
 file.8=D\:\\workSpace\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\okio-1.8.0_7734011ec18c631eaf8eb2348946891d8db45806\\classes.dex

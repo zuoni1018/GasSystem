@@ -66,7 +66,6 @@ public abstract class BaseTitleActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
         finishActivity();
     }
 

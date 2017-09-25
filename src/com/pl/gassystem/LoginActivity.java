@@ -98,20 +98,6 @@ public class LoginActivity extends Activity {
                 e.printStackTrace();
             }
         }
-        /*
-         * if((widthPixels !=800 || heightPixels !=1280) && (widthPixels != 1200
-		 * || heightPixels != 1920) && (widthPixels != 720 || heightPixels !=
-		 * 1280)){ //if(widthPixels !=800 || heightPixels !=1280){ new
-		 * AlertDialog
-		 * .Builder(this,android.R.style.Theme_DeviceDefault_Light_Dialog)
-		 * .setTitle("设备不支持") .setMessage("程序不支持当前设备分辨率，请更换设备")
-		 * .setCancelable(false) .setPositiveButton("确定", new
-		 * DialogInterface.OnClickListener() {
-		 * 
-		 * @Override public void onClick(DialogInterface arg0, int arg1) {
-		 * finish(); } }).show(); }
-		 */
-
         setupView();
         addListener();//设置监听
         addOnTouchListener();//给按钮设置触摸事件  设置点击透明度渐变

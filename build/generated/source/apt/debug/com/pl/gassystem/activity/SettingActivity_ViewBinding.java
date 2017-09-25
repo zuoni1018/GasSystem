@@ -15,17 +15,17 @@ import java.lang.Override;
 public class SettingActivity_ViewBinding implements Unbinder {
   private SettingActivity target;
 
-  private View view2131689857;
+  private View view2131689858;
 
-  private View view2131689859;
-
-  private View view2131689861;
+  private View view2131689860;
 
   private View view2131689862;
 
   private View view2131689863;
 
   private View view2131689864;
+
+  private View view2131689865;
 
   @UiThread
   public SettingActivity_ViewBinding(SettingActivity target) {
@@ -39,7 +39,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
     View view;
     target.tvSettingUserName = Utils.findRequiredViewAsType(source, R.id.tvSettingUserName, "field 'tvSettingUserName'", TextView.class);
     view = Utils.findRequiredView(source, R.id.linSettingBookInfoUrl, "method 'onViewClicked'");
-    view2131689857 = view;
+    view2131689858 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,7 +47,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.linSettingCopyPhotoUrl, "method 'onViewClicked'");
-    view2131689859 = view;
+    view2131689860 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,14 +55,6 @@ public class SettingActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.linSettingRunMode, "method 'onViewClicked'");
-    view2131689861 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.linSettingCopyTimeSet, "method 'onViewClicked'");
     view2131689862 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -70,7 +62,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.linSettingMJCSet, "method 'onViewClicked'");
+    view = Utils.findRequiredView(source, R.id.linSettingCopyTimeSet, "method 'onViewClicked'");
     view2131689863 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -78,8 +70,16 @@ public class SettingActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.linSettingLogOut, "method 'onViewClicked'");
+    view = Utils.findRequiredView(source, R.id.linSettingMJCSet, "method 'onViewClicked'");
     view2131689864 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.linSettingLogOut, "method 'onViewClicked'");
+    view2131689865 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -97,17 +97,17 @@ public class SettingActivity_ViewBinding implements Unbinder {
 
     target.tvSettingUserName = null;
 
-    view2131689857.setOnClickListener(null);
-    view2131689857 = null;
-    view2131689859.setOnClickListener(null);
-    view2131689859 = null;
-    view2131689861.setOnClickListener(null);
-    view2131689861 = null;
+    view2131689858.setOnClickListener(null);
+    view2131689858 = null;
+    view2131689860.setOnClickListener(null);
+    view2131689860 = null;
     view2131689862.setOnClickListener(null);
     view2131689862 = null;
     view2131689863.setOnClickListener(null);
     view2131689863 = null;
     view2131689864.setOnClickListener(null);
     view2131689864 = null;
+    view2131689865.setOnClickListener(null);
+    view2131689865 = null;
   }
 }

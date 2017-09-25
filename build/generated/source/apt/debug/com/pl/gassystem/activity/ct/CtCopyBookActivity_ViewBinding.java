@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -20,11 +19,11 @@ import java.lang.Override;
 public class CtCopyBookActivity_ViewBinding implements Unbinder {
   private CtCopyBookActivity target;
 
-  private View view2131689905;
+  private View view2131689885;
 
-  private View view2131689907;
+  private View view2131689887;
 
-  private View view2131689910;
+  private View view2131689888;
 
   @UiThread
   public CtCopyBookActivity_ViewBinding(CtCopyBookActivity target) {
@@ -38,39 +37,34 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     View view;
     target.etSearch = Utils.findRequiredViewAsType(source, R.id.etSearch, "field 'etSearch'", EditText.class);
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
-    view = Utils.findRequiredView(source, R.id.ivTurnLeft, "field 'ivTurnLeft' and method 'onViewClicked'");
-    target.ivTurnLeft = Utils.castView(view, R.id.ivTurnLeft, "field 'ivTurnLeft'", ImageView.class);
-    view2131689905 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    target.tvNowPageNum = Utils.findRequiredViewAsType(source, R.id.tvNowPageNum, "field 'tvNowPageNum'", TextView.class);
-    view = Utils.findRequiredView(source, R.id.ivTurnRight, "field 'ivTurnRight' and method 'onViewClicked'");
-    target.ivTurnRight = Utils.castView(view, R.id.ivTurnRight, "field 'ivTurnRight'", ImageView.class);
-    view2131689907 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    target.tvAllPageNum = Utils.findRequiredViewAsType(source, R.id.tvAllPageNum, "field 'tvAllPageNum'", TextView.class);
-    target.etGoPageNum = Utils.findRequiredViewAsType(source, R.id.etGoPageNum, "field 'etGoPageNum'", EditText.class);
-    view = Utils.findRequiredView(source, R.id.btGoPageNum, "field 'btGoPageNum' and method 'onViewClicked'");
-    target.btGoPageNum = Utils.castView(view, R.id.btGoPageNum, "field 'btGoPageNum'", Button.class);
-    view2131689910 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    target.layoutChooseAll = Utils.findRequiredViewAsType(source, R.id.layoutChooseAll, "field 'layoutChooseAll'", LinearLayout.class);
     target.ivChooseAll = Utils.findRequiredViewAsType(source, R.id.ivChooseAll, "field 'ivChooseAll'", ImageView.class);
-    target.btCopy = Utils.findRequiredViewAsType(source, R.id.btCopy, "field 'btCopy'", Button.class);
+    view = Utils.findRequiredView(source, R.id.layoutChooseAll, "field 'layoutChooseAll' and method 'onViewClicked'");
+    target.layoutChooseAll = Utils.castView(view, R.id.layoutChooseAll, "field 'layoutChooseAll'", LinearLayout.class);
+    view2131689885 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.btCopyChoose, "field 'btCopyChoose' and method 'onViewClicked'");
+    target.btCopyChoose = Utils.castView(view, R.id.btCopyChoose, "field 'btCopyChoose'", Button.class);
+    view2131689887 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.btCopyAll, "field 'btCopyAll' and method 'onViewClicked'");
+    target.btCopyAll = Utils.castView(view, R.id.btCopyAll, "field 'btCopyAll'", Button.class);
+    view2131689888 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
   }
 
   @Override
@@ -82,21 +76,16 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
 
     target.etSearch = null;
     target.mRecyclerView = null;
-    target.ivTurnLeft = null;
-    target.tvNowPageNum = null;
-    target.ivTurnRight = null;
-    target.tvAllPageNum = null;
-    target.etGoPageNum = null;
-    target.btGoPageNum = null;
-    target.layoutChooseAll = null;
     target.ivChooseAll = null;
-    target.btCopy = null;
+    target.layoutChooseAll = null;
+    target.btCopyChoose = null;
+    target.btCopyAll = null;
 
-    view2131689905.setOnClickListener(null);
-    view2131689905 = null;
-    view2131689907.setOnClickListener(null);
-    view2131689907 = null;
-    view2131689910.setOnClickListener(null);
-    view2131689910 = null;
+    view2131689885.setOnClickListener(null);
+    view2131689885 = null;
+    view2131689887.setOnClickListener(null);
+    view2131689887 = null;
+    view2131689888.setOnClickListener(null);
+    view2131689888 = null;
   }
 }

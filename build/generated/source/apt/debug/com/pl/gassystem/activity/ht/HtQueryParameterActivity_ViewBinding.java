@@ -16,7 +16,7 @@ import java.lang.Override;
 public class HtQueryParameterActivity_ViewBinding implements Unbinder {
   private HtQueryParameterActivity target;
 
-  private View view2131689991;
+  private View view2131689993;
 
   @UiThread
   public HtQueryParameterActivity_ViewBinding(HtQueryParameterActivity target) {
@@ -31,7 +31,7 @@ public class HtQueryParameterActivity_ViewBinding implements Unbinder {
     target.etInputNo = Utils.findRequiredViewAsType(source, R.id.etInputNo, "field 'etInputNo'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689991 = view;
+    view2131689993 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class HtQueryParameterActivity_ViewBinding implements Unbinder {
     target.etInputNo = null;
     target.btSure = null;
 
-    view2131689991.setOnClickListener(null);
-    view2131689991 = null;
+    view2131689993.setOnClickListener(null);
+    view2131689993 = null;
   }
 }

@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pl.gassystem.bean.ct.CtBookInfo;
 import com.pl.gassystem.R;
+import com.pl.gassystem.bean.ct.ColletorMeterBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,10 @@ import java.util.List;
 public class RvCopyBookAdapter extends RecyclerView.Adapter<RvCopyBookAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<CtBookInfo> mList;
+    private List<ColletorMeterBean> mList;
     private LayoutInflater mInflater;
 
-    public RvCopyBookAdapter(Context mContext, List<CtBookInfo> mList) {
+    public RvCopyBookAdapter(Context mContext, List<ColletorMeterBean> mList) {
         this.mContext = mContext;
         if (mList != null) {
             this.mList = mList;
@@ -64,7 +64,7 @@ public class RvCopyBookAdapter extends RecyclerView.Adapter<RvCopyBookAdapter.My
 //
 //        holder.tvDevState.setText(mList.get(position).getDevState());
 
-        if(mList.get(position).isChoose()){
+        if(mList.get(position).isShowMore()){
             holder.ivChoose.setImageResource(R.mipmap.choose_01);
         }else {
             holder.ivChoose.setImageResource(R.mipmap.choose_02);
@@ -73,8 +73,8 @@ public class RvCopyBookAdapter extends RecyclerView.Adapter<RvCopyBookAdapter.My
         holder.ivChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean myChoose = mList.get(position).isChoose();
-                mList.get(position).setChoose(!myChoose);
+                boolean myChoose = mList.get(position).isShowMore();
+                mList.get(position).setShowMore(!myChoose);
                 if(myChoose){
                     holder.ivChoose.setImageResource(R.mipmap.choose_02);
                 }else {

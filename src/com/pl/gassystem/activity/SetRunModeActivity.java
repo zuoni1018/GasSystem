@@ -177,22 +177,31 @@ public class SetRunModeActivity extends BaseTitleActivity {
         tvRunModeTipZHGT.setVisibility(View.INVISIBLE);
         tvModeChooseHt.setVisibility(View.INVISIBLE);
         //给当前模式打勾
-        if (runMode.equals(GlobalConsts.RUN_MODE_STANDARD)) {
-            tvRunModeTipStandard.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) {
-            tvRunModeTipHuiZhou.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_LORA)) {
-            tvRunModeTipLORA.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_FSK)) {
-            tvRunModeTipFSK.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_SHANGHAI)) {
-            tvRunModeTipShangHai.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_PHOTO)) {
-            tvRunModeTipPhoto.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_ZHGT)) {
-            tvRunModeTipZHGT.setVisibility(View.VISIBLE);
-        } else if (runMode.equals(GlobalConsts.RUN_MODE_HANG_TIAN)) {
-            tvModeChooseHt.setVisibility(View.VISIBLE);
+        switch (runMode) {
+            case GlobalConsts.RUN_MODE_STANDARD:
+                tvRunModeTipStandard.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_HUI_ZHOU:
+                tvRunModeTipHuiZhou.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_LORA:
+                tvRunModeTipLORA.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_FSK:
+                tvRunModeTipFSK.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_SHANGHAI:
+                tvRunModeTipShangHai.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_PHOTO:
+                tvRunModeTipPhoto.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_ZHGT:
+                tvRunModeTipZHGT.setVisibility(View.VISIBLE);
+                break;
+            case GlobalConsts.RUN_MODE_HANG_TIAN:
+                tvModeChooseHt.setVisibility(View.VISIBLE);
+                break;
         }
         tvYinZi.setText((String) SPUtils.get(getContext(), "HtKuoPinYinZi", "09"));
         tvXinDao.setText((String) SPUtils.get(getContext(), "HtKuoPinXinDao", "14"));

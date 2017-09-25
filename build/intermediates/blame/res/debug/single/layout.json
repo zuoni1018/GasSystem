@@ -532,12 +532,12 @@
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ct_copy_book_list.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_set_copy_channel.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_set_copy_channel.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\top_style_03.xml",
@@ -600,12 +600,12 @@
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ex_title_bar_style.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_onlyback.xml",
-        "source": "D:\\workSpace\\GasSystem\\res\\layout\\titlebar_onlyback.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_details.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_copy_details.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_onlyback.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\titlebar_onlyback.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_create_book.xml",

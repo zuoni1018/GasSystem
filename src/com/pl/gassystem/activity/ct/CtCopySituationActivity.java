@@ -262,6 +262,7 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                 //开始抄表
                 mIntent = new Intent(getContext(), CtCopyBookActivity.class);
                 mIntent.putExtra("CollectorNo", collectorNo);
+                mIntent.putExtra("readState","-1");
                 startActivity(mIntent);
                 break;
             case R.id.btCopyAllBook:
@@ -313,7 +314,12 @@ public class CtCopySituationActivity extends CtBaseTitleActivity {
                 break;
 
             case R.id.layoutShowCopy:
-                getAllBook("0");
+                //开始抄表
+                mIntent = new Intent(getContext(), CtCopyBookActivity.class);
+                mIntent.putExtra("CollectorNo", collectorNo);
+                mIntent.putExtra("readState","0");
+                startActivity(mIntent);
+//                getAllBook("0");
                 break;
         }
     }

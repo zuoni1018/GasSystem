@@ -70,7 +70,7 @@ public class CtNetworkingActivity extends CtBaseTitleActivity {
     LinearLayout layoutChooseAll;
     @BindView(R.id.ivChooseAll)
     ImageView ivChooseAll;
-    @BindView(R.id.btCopy)
+    @BindView(R.id.btCopyChoose)
     Button btCopy;
     @BindView(R.id.ivDevState)
     ImageView ivDevState;

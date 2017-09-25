@@ -22,7 +22,7 @@ import android.widget.TextView;
 import java.util.Set;
 
 /**
- * 这项活动出现一个对话框。它列出了所有配对的装置和设备在该地区检测后发现。 当一个设备是由用户选择，设备的MAC地址发送回结果意图的父活动。
+ * 蓝牙搜索设备
  */
 public class DeviceListActivity extends Activity {
 
