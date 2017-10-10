@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
   private HtSingleCopyTestActivity target;
 
-  private View view2131689993;
+  private View view2131689997;
 
   @UiThread
   public HtSingleCopyTestActivity_ViewBinding(HtSingleCopyTestActivity target) {
@@ -33,7 +33,7 @@ public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
     target.mRadioGroup = Utils.findRequiredViewAsType(source, R.id.mRadioGroup, "field 'mRadioGroup'", RadioGroup.class);
     target.rbCopyNormal = Utils.findRequiredViewAsType(source, R.id.rbCopyNormal, "field 'rbCopyNormal'", RadioButton.class);
     view = Utils.findRequiredView(source, R.id.btSure, "method 'onViewClicked'");
-    view2131689993 = view;
+    view2131689997 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
     target.mRadioGroup = null;
     target.rbCopyNormal = null;
 
-    view2131689993.setOnClickListener(null);
-    view2131689993 = null;
+    view2131689997.setOnClickListener(null);
+    view2131689997 = null;
   }
 }

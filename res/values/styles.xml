@@ -124,4 +124,20 @@
         <item name="android:layout_height">@dimen/button_height</item>
     </style>
 
+    <style name="rv_item_style_01">
+        <!--android:singleLine="true"-->
+        <!--android:ellipsize="marquee"-->
+        <!--android:marqueeRepeatLimit="marquee_forever"-->
+        <!--<item name="android:ellipsize">marquee</item>-->
+        <!--<item name="android:marqueeRepeatLimit">marquee_forever</item>-->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

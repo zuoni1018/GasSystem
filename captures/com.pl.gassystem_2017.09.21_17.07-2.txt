@@ -1,0 +1,42 @@
+Applications Memory Usage (kB):
+Uptime: 404357993 Realtime: 1473423712
+
+** MEMINFO in pid 27359 [com.pl.gassystem] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap     7771     7744        0     1740    11272     9410     1861
+  Dalvik Heap    26024    25972        0     7640    50263    37426    12837
+ Dalvik Other     9744     9744        0        0                           
+        Stack      292      292        0        0                           
+       Cursor        4        4        0        0                           
+       Ashmem        2        0        0        0                           
+      Gfx dev    21920    21860        0        0                           
+    Other dev        5        0        4        0                           
+     .so mmap     1372      468      176     1936                           
+    .apk mmap      199        0       72        0                           
+    .ttf mmap      362        0      168        0                           
+    .dex mmap       80        0       76        0                           
+    .oat mmap     1566        0      400        0                           
+    .art mmap     1188      924       16       84                           
+   Other mmap       33        4       16        0                           
+   EGL mtrack    17280    17280        0        0                           
+      Unknown      216      216        0      100                           
+        TOTAL    88058    84508      928    11500    61535    46836    14698
+ 
+ Objects
+               Views:      411         ViewRootImpl:        3
+         AppContexts:        5           Activities:        3
+              Assets:        5        AssetManagers:        5
+       Local Binders:       12        Proxy Binders:       22
+       Parcel memory:        4         Parcel count:       16
+    Death Recipients:        1      OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:      238
+  PAGECACHE_OVERFLOW:       41          MALLOC_SIZE:       62
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4      116             17         1/16/2  /data/data/com.pl.gassystem/databases/gasSystem.db
+         4      116             17         1/16/2  /data/data/com.pl.gassystem/databases/gasSystem.db

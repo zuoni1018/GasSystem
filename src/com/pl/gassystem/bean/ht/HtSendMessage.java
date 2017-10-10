@@ -20,6 +20,28 @@ public class HtSendMessage {
     public static final String COMMAND_TYPE_SET_PARAMETER = "06";//设置参数
     public static final String COMMAND_TYPE_SET_KEY = "0b";//设置参数
 
+    public static String getCommandString(String commandType){
+        switch (commandType){
+            case COMMAND_TYPE_DOOR_STATE:
+                return "查看阀门状态";
+            case COMMAND_TYPE_OPEN_DOOR:
+                return "打开阀门";
+            case COMMAND_TYPE_CLOSE_DOOR:
+                return "关闭阀门";
+            case COMMAND_TYPE_COPY_FROZEN:
+                return "抄取冻结量";
+            case COMMAND_TYPE_COPY_NORMAL:
+                return "抄取实时量";
+            case COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT:
+                return "查看阀门状态";
+            case COMMAND_TYPE_QUERY_PARAMETER:
+                return "查看阀门状态";
+            case COMMAND_TYPE_SET_KEY:
+                return "查看阀门状态";
+        }
+
+        return "";
+    }
 
     //唤醒模式
     public static final String WAKE_UP_MARK_00 = "00";//不唤醒

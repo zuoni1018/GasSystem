@@ -22,7 +22,7 @@ import com.pl.gassystem.activity.AboutActivity;
 import com.pl.gassystem.activity.DataManageActivity;
 import com.pl.gassystem.activity.SettingActivity;
 import com.pl.gassystem.activity.ct.CtConcentratorListActivity;
-import com.pl.gassystem.activity.ht.HtBookListActivity;
+import com.pl.gassystem.activity.ht.HtMainActivity;
 import com.pl.gassystem.command.HtCommand;
 import com.pl.gassystem.utils.JumpActivityUtils;
 import com.pl.gassystem.utils.SPUtils;
@@ -155,7 +155,7 @@ public class MainActivity extends Activity implements OnTouchListener {
             @Override
             public void onClick(View v) {
 
-                Intent mIntent = new Intent(MainActivity.this, HtBookListActivity.class);
+                Intent mIntent = new Intent(MainActivity.this, HtMainActivity.class);
                 startActivity(mIntent);
             }
         });

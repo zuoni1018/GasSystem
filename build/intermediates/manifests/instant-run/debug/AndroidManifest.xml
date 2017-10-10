@@ -244,6 +244,15 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtSetKeyActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtSetNewCopyKeyActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtSetCopyChannelActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtMainActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGetBookInfoActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGetGroupInfoActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGetGroupBindActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGetUpdateMeterInfoActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGroupActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGetReadMeterInfoActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtGetAreaInfoActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtAreaActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />

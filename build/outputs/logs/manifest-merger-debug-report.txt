@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:2:1-255:12
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:2:1-266:12
 	package
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:3:5-31
 		INJECTED from D:\workSpace\GasSystem\AndroidManifest.xml
@@ -100,7 +100,7 @@ ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:41:5-45:39
 	android:anyDensity
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:42:9-34
 application
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:47:5-254:19
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:47:5-265:19
 MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\PVer\.android\build-cache\569592fa8096f3a4976b502fe566f4387d026c4e\output\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:transition:25.3.0] C:\Users\PVer\.android\build-cache\5dec36c7a618e125920b26df12d96fb29071e83b\output\AndroidManifest.xml:26:5-20
@@ -505,61 +505,97 @@ ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:235:9-76
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:235:19-73
 activity#com.pl.gassystem.activity.ht.HtMaintenanceActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:236:9-70
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:236:9-71
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:236:19-68
 activity#com.pl.gassystem.activity.ht.HtChooseBooksActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:237:9-70
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:237:9-71
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:237:19-68
 activity#com.pl.gassystem.activity.ht.HtSingleCopyTestActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:238:9-73
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:238:9-74
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:238:19-71
 activity#com.pl.gassystem.activity.ht.HtValveMaintainActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:239:9-72
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:239:9-73
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:239:19-70
 activity#com.pl.gassystem.activity.ht.HtQueryParameterActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:240:9-73
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:240:9-74
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:240:19-71
 activity#com.pl.gassystem.activity.ht.HtSetKeyActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:241:9-65
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:241:9-66
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:241:19-63
 activity#com.pl.gassystem.activity.ht.HtSetNewCopyKeyActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:242:9-72
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:242:9-73
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:242:19-70
 activity#com.pl.gassystem.activity.ht.HtSetCopyChannelActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:243:9-73
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:243:9-74
 	android:name
 		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:243:19-71
+activity#com.pl.gassystem.activity.ht.HtMainActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:246:9-64
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:246:19-61
+activity#com.pl.gassystem.activity.ht.HtGetBookInfoActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:247:9-71
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:247:19-68
+activity#com.pl.gassystem.activity.ht.HtGetGroupInfoActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:248:9-72
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:248:19-69
+activity#com.pl.gassystem.activity.ht.HtGetGroupBindActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:249:9-72
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:249:19-69
+activity#com.pl.gassystem.activity.ht.HtGetUpdateMeterInfoActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:250:9-78
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:250:19-75
+activity#com.pl.gassystem.activity.ht.HtGroupActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:251:9-65
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:251:19-62
+activity#com.pl.gassystem.activity.ht.HtGetReadMeterInfoActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:252:9-76
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:252:19-73
+activity#com.pl.gassystem.activity.ht.HtGetAreaInfoActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:253:9-70
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:253:19-68
+activity#com.pl.gassystem.activity.ht.HtAreaActivity
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:254:9-63
+	android:name
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:254:19-61
 activity#com.pl.gassystem.activity.LogActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:246:9-58
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:257:9-58
 	android:name
-		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:246:19-55
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:257:19-55
 activity#com.pl.gassystem.activity.AboutActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:247:9-60
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:258:9-60
 	android:name
-		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:247:19-57
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:258:19-57
 activity#com.pl.gassystem.activity.SettingActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:248:9-62
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:259:9-62
 	android:name
-		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:248:19-59
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:259:19-59
 activity#com.pl.gassystem.activity.DataManageActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:249:9-65
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:260:9-65
 	android:name
-		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:249:19-62
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:260:19-62
 activity#com.pl.gassystem.activity.SetRunModeActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:250:9-65
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:261:9-65
 	android:name
-		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:250:19-62
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:261:19-62
 activity#com.pl.gassystem.activity.GroupingDetailsActivity
-ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:251:9-69
+ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:262:9-70
 	android:name
-		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:251:19-67
+		ADDED from D:\workSpace\GasSystem\AndroidManifest.xml:262:19-67
 uses-sdk
 INJECTED from D:\workSpace\GasSystem\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\PVer\.android\build-cache\21ca0b4e57af1131b09316104684c799711e6064\output\AndroidManifest.xml:7:5-9:41
@@ -578,6 +614,7 @@ MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\PVer\.andro
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\63207fcf541f1eba8242edb464dbf9f1e52da3dd\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\PVer\.android\build-cache\efaecb7844bea76a59f628ee18aa33e72564a42a\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-compat:25.3.0] C:\Users\PVer\.android\build-cache\21986f603033e2e366c753926bdf784d25e165ce\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.github.smart-fun:XmlToJson:1.4.0] C:\Users\PVer\.android\build-cache\419ee15257ac37b1f139bb38443fd025d4fac1f0\output\AndroidManifest.xml:8:5-10:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.0] C:\Users\PVer\.android\build-cache\23dcc57616c5e02e6d985eeedd4bf8acff164713\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

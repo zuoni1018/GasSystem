@@ -42,6 +42,7 @@ import com.pl.bluetooth.BluetoothChatService;
 import com.pl.common.Cfun;
 import com.pl.common.NetWorkManager;
 import com.pl.entity.CopyDataPhoto;
+import com.pl.gassystem.utils.LogUtil;
 import com.pl.protocol.CqueueData;
 import com.pl.protocol.HhProtocol;
 import com.pl.utils.GlobalConsts;
@@ -671,7 +672,7 @@ public class CopyPhotoActivity extends Activity {
     }
 
     private void getCopyDataPhoto(String postData, String meterTypeNo) {
-        // Log.i("postData", postData);
+         LogUtil.i("postData", postData);
         String url = serverUrl + "WebMain.asmx/GetCopyDataPhoto";
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -693,6 +694,8 @@ public class CopyPhotoActivity extends Activity {
                 try {
                     CopyDataPhoto copyDataPhoto = parser.parseCopyDataPhoto(in);
                     if (copyDataPhoto != null) {
+                        LogUtil.i("嘿嘿",copyDataPhoto.getDevPower());
+
                         copyDataPhoto.setOperater(preferenceBiz.getUserName());
                         copyBiz.addCopyDataPhoto(copyDataPhoto);
                         in.close();
@@ -786,6 +789,9 @@ public class CopyPhotoActivity extends Activity {
     }
 
     private void fillCopy(String getMsg) {
+
+        LogUtil.i("fillCopy",getMsg);
+
         if (getMsg.length() == 116) {
             int page = Integer.parseInt(getMsg.substring(6, 8), 16); // 获取当前包号
             page = page - 1;

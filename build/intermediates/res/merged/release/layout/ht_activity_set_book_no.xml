@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar_style" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="当前表号:"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etNowBookNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:hint="请输入当前表号"
+        android:inputType="number"
+        android:maxLength="8"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="新表号:"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etNewBookNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:hint="请输入新表号"
+        android:inputType="number"
+        android:maxLength="8"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="设置累计量:"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etCumulant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:inputType="number"
+        android:maxLength="8"
+        android:text="00000000"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <RadioGroup
+        android:id="@+id/mRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbChangeBookNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改表号"
+            android:textColor="@color/color_blue"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rbChangeCumulant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改累计量"
+            android:textColor="@color/color_blue"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rbChangeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部"
+            android:textColor="@color/color_blue"
+            android:textSize="14sp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btSure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="确定"
+        android:textColor="@color/color_white"
+        android:textSize="14sp"
+        android:theme="@style/button_style" />
+</LinearLayout>

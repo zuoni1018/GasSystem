@@ -20,8 +20,8 @@ import android.widget.Toast;
 import com.pl.bll.CopyBiz;
 import com.pl.bluetooth.BluetoothChatService;
 import com.pl.entity.CopyData;
-import com.pl.gassystem.CopyResultActivity;
 import com.pl.gassystem.DeviceListActivity;
+import com.pl.gassystem.HtAppUrl;
 import com.pl.gassystem.R;
 import com.pl.gassystem.bean.ht.HtGetMessage;
 import com.pl.gassystem.bean.ht.HtGetMessageChangeBookNoOrCumulant;
@@ -34,7 +34,8 @@ import com.pl.gassystem.command.HtCommand;
 import com.pl.gassystem.utils.CalendarUtils;
 import com.pl.gassystem.utils.LogUtil;
 import com.pl.gassystem.utils.SPUtils;
-import com.pl.utils.GlobalConsts;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +45,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.pl.gassystem.utils.Xml2Json.xml2JSON;
 
 
 /**
@@ -236,8 +240,14 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             copyBiz.ChangeCopyState(bookNos.get(i), 0, "05");
         }
 
-        nowXinDao = (String) SPUtils.get(getContext(), "HtKuoPinXinDao", "14");
-        nowYinZi = (String) SPUtils.get(getContext(), "HtKuoPinYinZi", "09");
+        nowXinDao = getIntent().getStringExtra("XinDao");
+        nowYinZi = getIntent().getStringExtra("YinZi");
+
+        //设置当前的加密key
+        String nowKey = getIntent().getStringExtra("nowKey");
+        HtCommand.HT_PASSWORD = nowKey + "0000000000000000";
+
+
         //10进制转16进制
         String nowXinDao2 = Integer.toHexString(Integer.parseInt(nowXinDao));
         if (nowXinDao2.length() == 1) {
@@ -251,7 +261,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         } else {
             nowYinZi = nowYinZi2;
         }
-        LogUtil.i("当前因子", "nowXinDao=" + nowXinDao + "nowYinZi=" + nowYinZi);
+        LogUtil.i("当前因子", "nowXinDao=" + nowXinDao + "nowYinZi=" + nowYinZi+"key="+nowKey);
 
         // 检测是否能自动连接蓝牙
         String address = (String) SPUtils.get(getContext(), "htDevice", "");
@@ -309,7 +319,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             //唤醒周期
             int wakeCycle = 6000;
             //获取扩频因子
-            String yinzi = (String) SPUtils.get(getContext(), "HtKuoPinYinZi", "09");
+            String yinzi = nowYinZi;
             assert yinzi != null;
             switch (yinzi) {
                 case "07":
@@ -341,9 +351,9 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             if (copySize == 0) {
                 countDownTime = 200; //说明是单抄只传了 bookNo过来
             } else if (copySize > 20) {
-                countDownTime = 200 + 20 * (intervalTime+100);
+                countDownTime = 200 + 20 * (intervalTime + 100);
             } else {
-                countDownTime = 200 + (intervalTime+100) * copySize;
+                countDownTime = 200 + (intervalTime + 100) * copySize;
             }
 
             timer = new CountDownTimer(countDownTime + wakeCycle + 3000, 1000) {
@@ -364,12 +374,12 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     } else {
                         if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
                                 | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
-                            Intent intent = new Intent(getContext(), CopyResultActivity.class);
-                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_SHOWALL);
-                            intent.putExtra("meterNos", bookNos);
-                            intent.putExtra("meterTypeNo", "05");
-                            startActivity(intent);
-                            finish();
+//                            Intent intent = new Intent(getContext(), CopyResultActivity.class);
+//                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_SHOWALL);
+//                            intent.putExtra("meterNos", bookNos);
+//                            intent.putExtra("meterTypeNo", "05");
+//                            startActivity(intent);
+//                            finish();
                         }
                         tvTime.setText("抄表结束");
                     }
@@ -432,7 +442,6 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
         String message = HtCommand.encodeHangTianChangeBookNoOrCumulant(htSendMessage);
         sendMessage(message);
-
     }
 
 
@@ -607,6 +616,13 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     LogUtil.i("蓝牙得到结果", readMessage);
                     readMessage(readMessage);
+                    if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
+                            |commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)){
+                        upLoadCopy(readMessage);
+                    }
+
+
+
 
                     break;
 
@@ -621,6 +637,39 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             }
         }
     };
+
+    private void upLoadCopy(String readMessage) {
+
+        LogUtil.i("上传抄表数据",readMessage);
+
+        OkHttpUtils.post()
+                .url(HtAppUrl.GET_COPY_DATA_LORA)
+                .addParams("data",readMessage)
+                .addParams("MeterType","8")
+                .addParams("UserName","admin")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast(e.toString());
+                        LogUtil.i("上传抄表数据" + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("上传抄表数据1\n" + response);
+                        LogUtil.i("上传抄表数据2" + xml2JSON(response));
+
+//                        Gson gson = new Gson();
+//                        HtGetBookInfo htGetBookInfo = gson.fromJson(xml2JSON(response), HtGetBookInfo.class);
+                    }
+                });
+
+
+
+
+
+    }
 
     private void readMessage(String readMessage) {
 

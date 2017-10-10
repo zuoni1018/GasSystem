@@ -120,6 +120,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\PVer\.android\build-cache\419ee15257ac37b1f139bb38443fd025d4fac1f0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e554c3ff5d110a96117c3ad82f4d915c75d1b13c">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_89215db6ad87d8463695ae62bfc09fef98643dc6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\workSpace\GasSystem\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -151,7 +160,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="8c8d75f3dcce66ca3aafef9adc5c411f76c18183">
+        sha1="4a7b06139219660df00816b57471a74a72934ad9">
         <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_67af8536582d812a7a3f81ed70b8000e6cac7484\classes.dex" />
     </item>
     <item

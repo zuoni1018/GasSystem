@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/scan"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/secure_connect"
+        android:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/discoverable"
+        android:icon="@android:drawable/ic_menu_mylocation"
+        android:title="@string/discoverable"/>
+    <item
+        android:id="@+id/setup"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/insecure_connect"/>
+    <item
+        android:id="@+id/clenr"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/clenr"/>
+
+</menu>

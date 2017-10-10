@@ -233,14 +233,25 @@
         <activity android:name=".activity.ht.HtBookListActivity" />
         <activity android:name=".activity.ht.HtChangeBookNoOrCumulantActivity" />
         <activity android:name=".activity.ht.HtSetBookParameterActivity" />
-        <activity android:name=".activity.ht.HtMaintenanceActivity"/>
-        <activity android:name=".activity.ht.HtChooseBooksActivity"/>
-        <activity android:name=".activity.ht.HtSingleCopyTestActivity"/>
-        <activity android:name=".activity.ht.HtValveMaintainActivity"/>
-        <activity android:name=".activity.ht.HtQueryParameterActivity"/>
-        <activity android:name=".activity.ht.HtSetKeyActivity"/>
-        <activity android:name=".activity.ht.HtSetNewCopyKeyActivity"/>
-        <activity android:name=".activity.ht.HtSetCopyChannelActivity"/>
+        <activity android:name=".activity.ht.HtMaintenanceActivity" />
+        <activity android:name=".activity.ht.HtChooseBooksActivity" />
+        <activity android:name=".activity.ht.HtSingleCopyTestActivity" />
+        <activity android:name=".activity.ht.HtValveMaintainActivity" />
+        <activity android:name=".activity.ht.HtQueryParameterActivity" />
+        <activity android:name=".activity.ht.HtSetKeyActivity" />
+        <activity android:name=".activity.ht.HtSetNewCopyKeyActivity" />
+        <activity android:name=".activity.ht.HtSetCopyChannelActivity" />
+
+
+        <activity android:name=".activity.ht.HtMainActivity" />
+        <activity android:name=".activity.ht.HtGetBookInfoActivity" />
+        <activity android:name=".activity.ht.HtGetGroupInfoActivity" />
+        <activity android:name=".activity.ht.HtGetGroupBindActivity" />
+        <activity android:name=".activity.ht.HtGetUpdateMeterInfoActivity" />
+        <activity android:name=".activity.ht.HtGroupActivity" />
+        <activity android:name=".activity.ht.HtGetReadMeterInfoActivity" />
+        <activity android:name=".activity.ht.HtGetAreaInfoActivity"/>
+        <activity android:name=".activity.ht.HtAreaActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />
@@ -248,7 +259,7 @@
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.DataManageActivity" />
         <activity android:name=".activity.SetRunModeActivity" />
-        <activity android:name=".activity.GroupingDetailsActivity"/>
+        <activity android:name=".activity.GroupingDetailsActivity" />
 
 
     </application>
