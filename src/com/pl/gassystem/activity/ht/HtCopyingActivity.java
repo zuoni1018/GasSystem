@@ -618,7 +618,13 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     readMessage(readMessage);
                     if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
                             |commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)){
-                        upLoadCopy(readMessage);
+                        String ReadType;
+                        if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)){
+                            ReadType="1";
+                        }else {
+                            ReadType="0";
+                        }
+                        upLoadCopy(readMessage,ReadType);
                     }
 
 
@@ -638,7 +644,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         }
     };
 
-    private void upLoadCopy(String readMessage) {
+    private void upLoadCopy(String readMessage,String ReadType) {
 
         LogUtil.i("上传抄表数据",readMessage);
 
@@ -647,6 +653,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                 .addParams("data",readMessage)
                 .addParams("MeterType","8")
                 .addParams("UserName","admin")
+                .addParams("ReadType",ReadType)
                 .build()
                 .execute(new StringCallback() {
                     @Override

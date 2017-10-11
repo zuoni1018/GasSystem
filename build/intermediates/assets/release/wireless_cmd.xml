@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<matchineroot nodetype="machine" >
+
+    <p04
+        name="设定通讯编号"
+        cmdQuery=""
+        cmdSet="04"
+        data=""
+        dataLength1="06"
+        dataLength2="02"
+        nodetype="module"
+        targetAddr="2015042814" />
+
+    <p05
+        name="修改通讯编号"
+        cmdQuery=""
+        cmdSet="05"
+        data=""
+        dataLength1="06"
+        dataLength2="02"
+        nodetype="module"
+        targetAddr="2015042814" />
+
+    <p07
+        name="基表编号"
+        cmdQuery="10"
+        cmdSet="07"
+        data=""
+        dataLength1="06"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p08
+        name="模块编号"
+        cmdQuery="10"
+        cmdSet="08"
+        data=""
+        dataLength1="06"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p09
+        name="表具编号"
+        cmdQuery="10"
+        cmdSet="09"
+        data=""
+        dataLength1="06"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p06
+        name="设定累积量"
+        cmdQuery=""
+        cmdSet="06"
+        data=""
+        dataLength1="05"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p01
+        name="抄取数据"
+        cmdQuery="01"
+        cmdSet=""
+        data=""
+        dataLength1="02"
+        dataLength2="08"
+        nodetype="module" />
+
+    <p02
+        name="开阀"
+        cmdQuery="02"
+        cmdSet=""
+        data="ff"
+        dataLength1="02"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p03
+        name="关阀"
+        cmdQuery="03"
+        cmdSet=""
+        data="ff"
+        dataLength1="02"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p12
+        name="始化表计"
+        cmdQuery="12"
+        cmdSet=""
+        data="ff"
+        dataLength1="02"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p13
+        name="设定无线定时"
+        cmdQuery=""
+        cmdSet="13"
+        data=""
+        dataLength1="02"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p14
+        name="设定低电压关阀"
+        cmdQuery=""
+        cmdSet="14"
+        data=""
+        dataLength1="02"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p15
+        name="无线发送测试"
+        cmdQuery="15"
+        cmdSet=""
+        data=""
+        dataLength1="02"
+        dataLength2="08"
+        nodetype="module" />
+
+    <p17
+        name="表具时间"
+        cmdQuery="17"
+        cmdSet="16"
+        data=""
+        dataLength1="06"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p19
+        name="累计冻结时间"
+        cmdQuery="19"
+        cmdSet="18"
+        data=""
+        dataLength1="04"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p20
+        name="抄取累计冻结量"
+        cmdQuery="20"
+        cmdSet=""
+        data=""
+        dataLength1="02"
+        dataLength2="0d"
+        nodetype="module" />
+
+    <p22
+        name="抄表时间"
+        cmdQuery="22"
+        cmdSet="21"
+        data=""
+        dataLength1="05"
+        dataLength2="02"
+        nodetype="module" />
+
+    <p11
+        name="带时间抄表"
+        cmdQuery=""
+        cmdSet="01"
+        data=""
+        dataLength1="06"
+        dataLength2="08"
+        nodetype="module" />
+
+    <p11
+        name="按月抄取累计冻结量"
+        cmdQuery="30"
+        cmdSet=""
+        data=""
+        dataLength1="02"
+        dataLength2="16"
+        nodetype="module" />
+
+</matchineroot>

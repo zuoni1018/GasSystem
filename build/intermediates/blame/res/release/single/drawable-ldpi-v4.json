@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\bg_style_03.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\drawable-ldpi\\bg_style_03.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\bg_style_05.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\drawable-ldpi\\bg_style_05.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\bg_rv_item01.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\drawable-ldpi\\bg_rv_item01.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\bg_style_04.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\drawable-ldpi\\bg_style_04.xml"
+    }
+]

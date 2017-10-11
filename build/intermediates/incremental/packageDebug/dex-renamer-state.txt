@@ -1,4 +1,4 @@
-#Sat Sep 23 16:03:16 CST 2017
+#Tue Oct 10 17:17:12 CST 2017
 base.0=D\:\\workSpace\\GasSystem\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_3d22eefcefc70ebbed383a01543e6a938d25a8d7
 renamed.1=classes.dex
 renamed.0=classes2.dex
