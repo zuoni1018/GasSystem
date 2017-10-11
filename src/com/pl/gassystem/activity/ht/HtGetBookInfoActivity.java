@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
-import static com.pl.gassystem.utils.Xml2Json.xml2JSON;
+import static com.pl.gassystem.utils.Xml2Json.xml2JSON2List;
 
 /**
  * Created by zangyi_shuai_ge on 2017/10/9
@@ -71,10 +71,10 @@ public class HtGetBookInfoActivity extends HtBaseTitleActivity {
                             @Override
                             public void onResponse(String response, int id) {
                                 LogUtil.i("账册列表1\n" + response);
-                                LogUtil.i("账册列表2" + xml2JSON(response));
+                                LogUtil.i("账册列表2" + xml2JSON2List("ArrayOfModApp_bookinfo","ModApp_bookinfo",response));
 
                                 Gson gson = new Gson();
-                                HtGetBookInfo htGetBookInfo = gson.fromJson(xml2JSON(response), HtGetBookInfo.class);
+                                HtGetBookInfo htGetBookInfo = gson.fromJson(xml2JSON2List("ArrayOfModApp_bookinfo","ModApp_bookinfo",response), HtGetBookInfo.class);
                                 mList.clear();
                                 mList.addAll(htGetBookInfo.getArrayOfModApp_bookinfo().getModApp_bookinfo());
                                 mAdapter.notifyDataSetChanged();

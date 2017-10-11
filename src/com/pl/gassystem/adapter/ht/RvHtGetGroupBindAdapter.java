@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pl.gassystem.R;
-import com.pl.gassystem.bean.ht.HtGroupBindBean;
+import com.pl.gassystem.bean.ht.HtCustomerInfoBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,18 +22,18 @@ import java.util.List;
 public class RvHtGetGroupBindAdapter extends RecyclerView.Adapter<RvHtGetGroupBindAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<HtGroupBindBean> mList;
+    private List<HtCustomerInfoBean> mList;
     private LayoutInflater mInflater;
-    private  boolean isRadio=false;
+    private boolean isRadio = false;
 
-    public RvHtGetGroupBindAdapter(Context mContext, List<HtGroupBindBean> mList,boolean isRadio) {
+    public RvHtGetGroupBindAdapter(Context mContext, List<HtCustomerInfoBean> mList, boolean isRadio) {
         this.mContext = mContext;
         if (mList != null) {
             this.mList = mList;
         } else {
             this.mList = new ArrayList<>();
         }
-        this.isRadio=isRadio;
+        this.isRadio = isRadio;
         mInflater = LayoutInflater.from(mContext);
     }
 
@@ -49,32 +49,41 @@ public class RvHtGetGroupBindAdapter extends RecyclerView.Adapter<RvHtGetGroupBi
         holder.layoutMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isRadio){
-                    for (int i = 0; i <mList.size() ; i++) {
+                if (isRadio) {
+                    for (int i = 0; i < mList.size(); i++) {
                         mList.get(i).setChoose(false);
                     }
                     mList.get(position).setChoose(true);
                     notifyDataSetChanged();
-                }else {
+                } else {
                     mList.get(position).setChoose(!mList.get(position).isChoose());
-                    if(mList.get(position).isChoose()){
+                    if (mList.get(position).isChoose()) {
                         holder.ivChoose.setImageResource(R.mipmap.choose_01);
-                    }else {
+                    } else {
                         holder.ivChoose.setImageResource(R.mipmap.choose_02);
                     }
                 }
 
             }
         });
-        holder.tvMeterTypeNo.setText(mList.get(position).getMeterType());
-        holder.tvGroupNo.setText(mList.get(position).getGroupNo());
-        holder.tvMeterNo.setText(mList.get(position).getMeterNo());
 
-        if(mList.get(position).isChoose()){
+        if (mList.get(position).isChoose()) {
             holder.ivChoose.setImageResource(R.mipmap.choose_01);
-        }else {
+        } else {
             holder.ivChoose.setImageResource(R.mipmap.choose_02);
         }
+
+        holder.KPXD.setText(mList.get(position).getKPXD());
+        holder.KCQZSJ.setText(mList.get(position).getKCQZSJ());
+        holder.DJR.setText(mList.get(position).getDJR());
+
+        holder.KEYCODE.setText(mList.get(position).getKEYCODE());
+        holder.MeterFacNo.setText(mList.get(position).getMeterFacNo());
+        holder.KPYZ.setText(mList.get(position).getKPYZ());
+
+        holder.ADDR.setText(mList.get(position).getADDR());
+        holder.CommunicateNo.setText(mList.get(position).getCommunicateNo());
+        holder.KEYVER.setText(mList.get(position).getKEYVER());
 
     }
 
@@ -86,16 +95,27 @@ public class RvHtGetGroupBindAdapter extends RecyclerView.Adapter<RvHtGetGroupBi
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         LinearLayout layoutMain;
-        TextView tvGroupNo,tvMeterTypeNo,tvMeterNo;
+        TextView KPXD, KCQZSJ, DJR,KEYCODE,MeterFacNo,KPYZ,ADDR,CommunicateNo,KEYVER;
         ImageView ivChoose;
+
 
         MyViewHolder(View itemView) {
             super(itemView);
-            tvGroupNo= (TextView) itemView.findViewById(R.id.tvGroupNo);
-            tvMeterTypeNo= (TextView) itemView.findViewById(R.id.tvMeterTypeNo);
-            tvMeterNo= (TextView) itemView.findViewById(R.id.tvMeterNo);
-            layoutMain= (LinearLayout) itemView.findViewById(R.id.layoutMain);
-            ivChoose= (ImageView) itemView.findViewById(R.id.ivChoose);
+            KPXD = (TextView) itemView.findViewById(R.id.KPXD);
+            KCQZSJ = (TextView) itemView.findViewById(R.id.KCQZSJ);
+            DJR = (TextView) itemView.findViewById(R.id.DJR);
+
+            KEYCODE = (TextView) itemView.findViewById(R.id.KEYCODE);
+            KPYZ = (TextView) itemView.findViewById(R.id.KPYZ);
+            MeterFacNo = (TextView) itemView.findViewById(R.id.MeterFacNo);
+
+            ADDR = (TextView) itemView.findViewById(R.id.ADDR);
+            CommunicateNo = (TextView) itemView.findViewById(R.id.CommunicateNo);
+            KEYVER = (TextView) itemView.findViewById(R.id.KEYVER);
+
+
+            layoutMain = (LinearLayout) itemView.findViewById(R.id.layoutMain);
+            ivChoose = (ImageView) itemView.findViewById(R.id.ivChoose);
         }
     }
 }

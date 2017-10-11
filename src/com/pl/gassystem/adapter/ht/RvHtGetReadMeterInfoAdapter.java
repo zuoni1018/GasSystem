@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -46,12 +47,12 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
         holder.layoutMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent mIntent = new Intent(mContext, HtGetGroupBindActivity.class);
-//                mIntent.putExtra("GroupNo", mList.get(position).getGroupNo());
-//                mIntent.putExtra("XinDao", mList.get(position).getKPXD());
-//                mIntent.putExtra("YinZi", mList.get(position).getKPYZ());
-
-//                mContext.startActivity(mIntent);
+                mList.get(position).setCheck(!mList.get(position).isCheck());
+                if (mList.get(position).isCheck()) {
+                    holder.ivCheck.setImageResource(R.mipmap.choose_01);
+                } else {
+                    holder.ivCheck.setImageResource(R.mipmap.choose_02);
+                }
             }
         });
 
@@ -80,7 +81,15 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
         holder.tvDJRQ.setText(mList.get(position).getDJRQ());
         holder.tvPCH.setText(mList.get(position).getPCH());
 
-       if (!mList.get(position).isChoose()) {
+
+        if (mList.get(position).isCheck()) {
+            holder.ivCheck.setImageResource(R.mipmap.choose_01);
+        } else {
+            holder.ivCheck.setImageResource(R.mipmap.choose_02);
+        }
+
+
+        if (!mList.get(position).isChoose()) {
             holder.layoutOther.setVisibility(View.GONE);
             holder.tvMore.setText("Õ¹¿ªÏêÇé");
         } else {
@@ -120,6 +129,8 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
                 tvOcrRead, tvOcrState, tvThisRead, tvOcrResult, tvOcrTime, tvcreateTime, tvReadType, tvKPXD,
                 tvKPYZ, tvFSQD, tvJSQD, tvDJRQ, tvPCH;
 
+        ImageView ivCheck;
+
 
         MyViewHolder(View itemView) {
             super(itemView);
@@ -151,6 +162,8 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
 
             tvKPXD = (TextView) itemView.findViewById(R.id.tvKPXD);
             tvPCH = (TextView) itemView.findViewById(R.id.tvPCH);
+
+            ivCheck = (ImageView) itemView.findViewById(R.id.ivCheck);
         }
     }
 }

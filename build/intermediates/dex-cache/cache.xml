@@ -2,6 +2,15 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="C:\Users\PVer\.android\build-cache\419ee15257ac37b1f139bb38443fd025d4fac1f0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e554c3ff5d110a96117c3ad82f4d915c75d1b13c">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\classes_89215db6ad87d8463695ae62bfc09fef98643dc6.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="D:\workSpace\GasSystem\libs\dom4j-1.6.1.jar"
         jumboMode="true"
@@ -66,21 +75,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\workSpace\GasSystem\libs\dom4j-1.6.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="5d3ccc056b6f056dbf0dddfdf43894b9065a8f94">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\release\dom4j-1.6.1_5e0ae902c0fa68a3fed6d7a9448fcc269a706c1a.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\workSpace\GasSystem\libs\badgeview.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="6301e7214e651730acacf9815ac3a56701231015">
         <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\release\badgeview_1e3b6c29e29e2df1ba18160b7f18e6828fe66574.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\libs\dom4j-1.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5d3ccc056b6f056dbf0dddfdf43894b9065a8f94">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\release\dom4j-1.6.1_5e0ae902c0fa68a3fed6d7a9448fcc269a706c1a.jar" />
     </item>
     <item
         is-multidex="true"
@@ -102,15 +111,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\workSpace\GasSystem\libs\jaxen-1.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\release\jaxen-1.1.1_488ae2e855a0217327421123e5813e55ecb1fdf2.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\workSpace\GasSystem\libs\universal-image-loader-1.9.4.jar"
         jumboMode="false"
         optimize="true"
@@ -119,13 +119,13 @@
         <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\release\universal-image-loader-1.9.4_04b5dcb03b47fd585d7af751f155230a57cf6feb.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\PVer\.android\build-cache\419ee15257ac37b1f139bb38443fd025d4fac1f0\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\libs\jaxen-1.1.1.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="e554c3ff5d110a96117c3ad82f4d915c75d1b13c">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10\classes_89215db6ad87d8463695ae62bfc09fef98643dc6\classes.dex" />
+        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\release\jaxen-1.1.1_488ae2e855a0217327421123e5813e55ecb1fdf2.jar" />
     </item>
     <item
         is-multidex="true"

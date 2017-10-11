@@ -424,6 +424,10 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\notification_template_icon_group.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_get_read_meter_info.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_get_read_meter_info.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_book_info.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_book_info.xml"
     },

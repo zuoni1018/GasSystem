@@ -1,6 +1,6 @@
 package com.pl.gassystem.bean.gson;
 
-import com.pl.gassystem.bean.ht.HtGroupBindBean;
+import com.pl.gassystem.bean.ht.HtCustomerInfoBean;
 
 import java.util.List;
 
@@ -10,36 +10,37 @@ import java.util.List;
 
 public class HtGetGroupBind {
 
+
     /**
-     * ArrayOfModApp_groupbind : {"ModApp_groupbind":[{"MeterTypeNo":"1","MeterNo":"12345678","GroupNo":"1"},{"MeterTypeNo":"1","MeterNo":"12345679","GroupNo":"1"}],"xmlns":"http://localhost/","xmlns:xsd":"http://www.w3.org/2001/XMLSchema","xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance"}
+     * ArrayOfModCustomerinfo : {"xmlns":"http://localhost/","xmlns:xsd":"http://www.w3.org/2001/XMLSchema","xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","ModCustomerinfo":[{"KPXD":"14","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","MeterFacNo":"2","KPYZ":"9","Id":"1395","ADDR":"20170721","CommunicateNo":"05170016","KEYVER":"1"},{"KPXD":"14","KCQZSJ":"1122","DJR":"","KEYCODE":"0102030405060708","MeterFacNo":"2","KPYZ":"9","Id":"2726","ADDR":"燃网大院1幢","CommunicateNo":"04000015","KEYVER":"01"},{"KPXD":"14","KCQZSJ":"1122","DJR":"","KEYCODE":"0102030405060708","MeterFacNo":"2","KPYZ":"9","Id":"2727","ADDR":"燃网大院1幢1","CommunicateNo":"04160105","KEYVER":"01"}]}
      */
 
-    private ArrayOfModAppGroupbindBean ArrayOfModApp_groupbind;
+    private ArrayOfModCustomerinfoBean ArrayOfModCustomerinfo;
 
-    public ArrayOfModAppGroupbindBean getArrayOfModApp_groupbind() {
-        return ArrayOfModApp_groupbind;
+    public ArrayOfModCustomerinfoBean getArrayOfModCustomerinfo() {
+        return ArrayOfModCustomerinfo;
     }
 
-    public void setArrayOfModApp_groupbind(ArrayOfModAppGroupbindBean ArrayOfModApp_groupbind) {
-        this.ArrayOfModApp_groupbind = ArrayOfModApp_groupbind;
+    public void setArrayOfModCustomerinfo(ArrayOfModCustomerinfoBean ArrayOfModCustomerinfo) {
+        this.ArrayOfModCustomerinfo = ArrayOfModCustomerinfo;
     }
 
-    public static class ArrayOfModAppGroupbindBean {
+    public static class ArrayOfModCustomerinfoBean {
         /**
-         * ModApp_groupbind : [{"MeterTypeNo":"1","MeterNo":"12345678","GroupNo":"1"},{"MeterTypeNo":"1","MeterNo":"12345679","GroupNo":"1"}]
          * xmlns : http://localhost/
          * xmlns:xsd : http://www.w3.org/2001/XMLSchema
          * xmlns:xsi : http://www.w3.org/2001/XMLSchema-instance
+         * ModCustomerinfo : [{"KPXD":"14","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","MeterFacNo":"2","KPYZ":"9","Id":"1395","ADDR":"20170721","CommunicateNo":"05170016","KEYVER":"1"},{"KPXD":"14","KCQZSJ":"1122","DJR":"","KEYCODE":"0102030405060708","MeterFacNo":"2","KPYZ":"9","Id":"2726","ADDR":"燃网大院1幢","CommunicateNo":"04000015","KEYVER":"01"},{"KPXD":"14","KCQZSJ":"1122","DJR":"","KEYCODE":"0102030405060708","MeterFacNo":"2","KPYZ":"9","Id":"2727","ADDR":"燃网大院1幢1","CommunicateNo":"04160105","KEYVER":"01"}]
          */
 
-        private List<HtGroupBindBean> ModApp_groupbind;
+        private List<HtCustomerInfoBean> ModCustomerinfo;
 
-        public List<HtGroupBindBean> getModApp_groupbind() {
-            return ModApp_groupbind;
+        public List<HtCustomerInfoBean> getModCustomerinfo() {
+            return ModCustomerinfo;
         }
 
-        public void setModApp_groupbind(List<HtGroupBindBean> ModApp_groupbind) {
-            this.ModApp_groupbind = ModApp_groupbind;
+        public void setModCustomerinfo(List<HtCustomerInfoBean> ModCustomerinfo) {
+            this.ModCustomerinfo = ModCustomerinfo;
         }
 
 

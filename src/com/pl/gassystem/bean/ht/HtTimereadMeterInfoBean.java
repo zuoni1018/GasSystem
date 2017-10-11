@@ -5,98 +5,108 @@ package com.pl.gassystem.bean.ht;
  */
 
 public class HtTimereadMeterInfoBean {
+
+
+//    public String getReadState() {
+//        switch (ReadState) {
+//            case "1":
+//                return "Î´³­";
+//            case "0":
+//                return "ÒÑ³­";
+//            default:
+//                return "Î´Öª";
+//        }
+//    }
     /**
-     * JSQD : 28
-     * OcrRead :
-     * Deafault :
-     * OcrResult :
-     * KPYZ :
-     * Operater :
-     * ReadType : 2
-     * Id : 3739
-     * ReadTime : 2017-10-10 14:00:27
-     * OcrState :
-     * DevState : 63
-     * DevPower : 3.6
-     * KPXD :
-     * PCH : 17100901
-     * ReadState : 1
-     * DJRQ : 0000
-     * OcrTime :
-     * CollectorNo : 04170003
-     * ISC : 0
-     * CreateTime : 2017-10-10 14:00:27
-     * ThisRead : 0
-     * FSQD :
+     * HUNAME :
+     * AdrCode : 4
+     * KCQZSJ : 0023
+     * DJR :
+     * KEYCODE : 0102030405060708
+     * XBDS :
+     * KPYZ : 9
+     * Id : 65
+     * ADDR :
+     * MQBBH :
+     * HTEL :
+     * KPXD : 14
+     * OTEL :
+     * HUCODE :
+     * MeterType : 7
+     * AreaNo : ²âÊÔ
+     * MeterFacNo : 2
+     * YICODE : 111
      * CommunicateNo : 04160101
-     * ImageName : FFFFFFFFFFFFFFFFFF
+     * KEYVER : 1
      */
 
-    private String JSQD;
-    private String OcrRead;
-    private String Deafault;
-    private String OcrResult;
+    private String HUNAME;
+    private String AdrCode;
+    private String KCQZSJ;
+    private String DJR;
+    private String KEYCODE;
+    private String XBDS;
     private String KPYZ;
-    private String Operater;
-    private String ReadType;
     private String Id;
-    private String ReadTime;
-    private String OcrState;
-    private String DevState;
-    private String DevPower;
+    private String ADDR;
+    private String MQBBH;
+    private String HTEL;
     private String KPXD;
-    private String PCH;
-    private String ReadState;
-    private String DJRQ;
-    private String OcrTime;
-    private String CollectorNo;
-    private String ISC;
-    private String CreateTime;
-    private String ThisRead;
-    private String FSQD;
+    private String OTEL;
+    private String HUCODE;
+    private String MeterType;
+    private String AreaNo;
+    private String MeterFacNo;
+    private String YICODE;
     private String CommunicateNo;
-    private String ImageName;
+    private String KEYVER;
 
-    private boolean isChoose=false;
-
-    public boolean isChoose() {
-        return isChoose;
+    public String getHUNAME() {
+        return HUNAME;
     }
 
-    public void setChoose(boolean choose) {
-        isChoose = choose;
+    public void setHUNAME(String HUNAME) {
+        this.HUNAME = HUNAME;
     }
 
-    public String getJSQD() {
-        return JSQD;
+    public String getAdrCode() {
+        return AdrCode;
     }
 
-    public void setJSQD(String JSQD) {
-        this.JSQD = JSQD;
+    public void setAdrCode(String AdrCode) {
+        this.AdrCode = AdrCode;
     }
 
-    public String getOcrRead() {
-        return OcrRead;
+    public String getKCQZSJ() {
+        return KCQZSJ;
     }
 
-    public void setOcrRead(String OcrRead) {
-        this.OcrRead = OcrRead;
+    public void setKCQZSJ(String KCQZSJ) {
+        this.KCQZSJ = KCQZSJ;
     }
 
-    public String getDeafault() {
-        return Deafault;
+    public String getDJR() {
+        return DJR;
     }
 
-    public void setDeafault(String Deafault) {
-        this.Deafault = Deafault;
+    public void setDJR(String DJR) {
+        this.DJR = DJR;
     }
 
-    public String getOcrResult() {
-        return OcrResult;
+    public String getKEYCODE() {
+        return KEYCODE;
     }
 
-    public void setOcrResult(String OcrResult) {
-        this.OcrResult = OcrResult;
+    public void setKEYCODE(String KEYCODE) {
+        this.KEYCODE = KEYCODE;
+    }
+
+    public String getXBDS() {
+        return XBDS;
+    }
+
+    public void setXBDS(String XBDS) {
+        this.XBDS = XBDS;
     }
 
     public String getKPYZ() {
@@ -107,22 +117,6 @@ public class HtTimereadMeterInfoBean {
         this.KPYZ = KPYZ;
     }
 
-    public String getOperater() {
-        return Operater;
-    }
-
-    public void setOperater(String Operater) {
-        this.Operater = Operater;
-    }
-
-    public String getReadType() {
-        return ReadType;
-    }
-
-    public void setReadType(String ReadType) {
-        this.ReadType = ReadType;
-    }
-
     public String getId() {
         return Id;
     }
@@ -131,36 +125,28 @@ public class HtTimereadMeterInfoBean {
         this.Id = Id;
     }
 
-    public String getReadTime() {
-        return ReadTime;
+    public String getADDR() {
+        return ADDR;
     }
 
-    public void setReadTime(String ReadTime) {
-        this.ReadTime = ReadTime;
+    public void setADDR(String ADDR) {
+        this.ADDR = ADDR;
     }
 
-    public String getOcrState() {
-        return OcrState;
+    public String getMQBBH() {
+        return MQBBH;
     }
 
-    public void setOcrState(String OcrState) {
-        this.OcrState = OcrState;
+    public void setMQBBH(String MQBBH) {
+        this.MQBBH = MQBBH;
     }
 
-    public String getDevState() {
-        return DevState;
+    public String getHTEL() {
+        return HTEL;
     }
 
-    public void setDevState(String DevState) {
-        this.DevState = DevState;
-    }
-
-    public String getDevPower() {
-        return DevPower;
-    }
-
-    public void setDevPower(String DevPower) {
-        this.DevPower = DevPower;
+    public void setHTEL(String HTEL) {
+        this.HTEL = HTEL;
     }
 
     public String getKPXD() {
@@ -171,83 +157,52 @@ public class HtTimereadMeterInfoBean {
         this.KPXD = KPXD;
     }
 
-    public String getPCH() {
-        return PCH;
+    public String getOTEL() {
+        return OTEL;
     }
 
-    public void setPCH(String PCH) {
-        this.PCH = PCH;
+    public void setOTEL(String OTEL) {
+        this.OTEL = OTEL;
     }
 
-    public String getReadState() {
-        switch (ReadState) {
-            case "1":
-                return "Î´³­";
-            case "0":
-                return "ÒÑ³­";
-            default:
-                return "Î´Öª";
-        }
+    public String getHUCODE() {
+        return HUCODE;
     }
 
-    public void setReadState(String ReadState) {
-        this.ReadState = ReadState;
+    public void setHUCODE(String HUCODE) {
+        this.HUCODE = HUCODE;
     }
 
-    public String getDJRQ() {
-        return DJRQ;
+    public String getMeterType() {
+        return MeterType;
     }
 
-    public void setDJRQ(String DJRQ) {
-        this.DJRQ = DJRQ;
+    public void setMeterType(String MeterType) {
+        this.MeterType = MeterType;
     }
 
-    public String getOcrTime() {
-        return OcrTime;
+    public String getAreaNo() {
+        return AreaNo;
     }
 
-    public void setOcrTime(String OcrTime) {
-        this.OcrTime = OcrTime;
+    public void setAreaNo(String AreaNo) {
+        this.AreaNo = AreaNo;
     }
 
-    public String getCollectorNo() {
-        return CollectorNo;
+    public String getMeterFacNo() {
+        return MeterFacNo;
     }
 
-    public void setCollectorNo(String CollectorNo) {
-        this.CollectorNo = CollectorNo;
+    public void setMeterFacNo(String MeterFacNo) {
+        this.MeterFacNo = MeterFacNo;
     }
 
-    public String getISC() {
-        return ISC;
+    public String getYICODE() {
+        return YICODE;
     }
 
-    public void setISC(String ISC) {
-        this.ISC = ISC;
-    }
-
-    public String getCreateTime() {
-        return CreateTime;
-    }
-
-    public void setCreateTime(String CreateTime) {
-        this.CreateTime = CreateTime;
-    }
-
-    public String getThisRead() {
-        return ThisRead;
-    }
-
-    public void setThisRead(String ThisRead) {
-        this.ThisRead = ThisRead;
-    }
-
-    public String getFSQD() {
-        return FSQD;
-    }
-
-    public void setFSQD(String FSQD) {
-        this.FSQD = FSQD;
+    public void setYICODE(String YICODE) {
+        this.YICODE = YICODE;
     }
 
     public String getCommunicateNo() {
@@ -258,11 +213,11 @@ public class HtTimereadMeterInfoBean {
         this.CommunicateNo = CommunicateNo;
     }
 
-    public String getImageName() {
-        return ImageName;
+    public String getKEYVER() {
+        return KEYVER;
     }
 
-    public void setImageName(String ImageName) {
-        this.ImageName = ImageName;
+    public void setKEYVER(String KEYVER) {
+        this.KEYVER = KEYVER;
     }
 }

@@ -13,7 +13,7 @@ import com.pl.gassystem.HtAppUrl;
 import com.pl.gassystem.R;
 import com.pl.gassystem.adapter.ht.RvHtGetGroupBindAdapter;
 import com.pl.gassystem.bean.gson.HtGetGroupBind;
-import com.pl.gassystem.bean.ht.HtGroupBindBean;
+import com.pl.gassystem.bean.ht.HtCustomerInfoBean;
 import com.pl.gassystem.bean.ht.HtGroupInfoBean;
 import com.pl.gassystem.bean.ht.HtSendMessage;
 import com.pl.gassystem.utils.LogUtil;
@@ -40,7 +40,7 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
     private HtGroupInfoBean mHtGroupInfoBean;
 
     private LRecyclerViewAdapter mAdapter;
-    private List<HtGroupBindBean> mList;
+    private List<HtCustomerInfoBean> mList;
 
     @Override
     protected int setLayout() {
@@ -59,7 +59,7 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
         mHtGroupInfoBean = (HtGroupInfoBean) getIntent().getSerializableExtra("HtGroupInfoBean");
         GroupNo = mHtGroupInfoBean.getGroupNo();
         commandType = getIntent().getStringExtra("commandType");
-        setTitle("燃气表列表("+HtSendMessage.getCommandString(commandType)+")");
+        setTitle("燃气表列表(" + HtSendMessage.getCommandString(commandType) + ")");
         mList = new ArrayList<>();
 
         if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
@@ -89,13 +89,13 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
                             @Override
                             public void onResponse(String response, int id) {
                                 LogUtil.i("表计列表1\n" + response);
-                                LogUtil.i("表计列表2" + xml2JSON2List("ArrayOfModApp_groupbind", "ModApp_groupbind", response));
+                                LogUtil.i("表计列表2" + xml2JSON2List("ArrayOfModCustomerinfo", "ModCustomerinfo", response));
 
                                 Gson gson = new Gson();
-                                HtGetGroupBind info = gson.fromJson(xml2JSON2List("ArrayOfModApp_groupbind", "ModApp_groupbind", response), HtGetGroupBind.class);
-                                if (info.getArrayOfModApp_groupbind().getModApp_groupbind() != null) {
+                                HtGetGroupBind info = gson.fromJson(xml2JSON2List("ArrayOfModCustomerinfo", "ModCustomerinfo", response), HtGetGroupBind.class);
+                                if (info.getArrayOfModCustomerinfo().getModCustomerinfo() != null) {
                                     mList.clear();
-                                    mList.addAll(info.getArrayOfModApp_groupbind().getModApp_groupbind());
+                                    mList.addAll(info.getArrayOfModCustomerinfo().getModCustomerinfo());
                                     mAdapter.notifyDataSetChanged();
                                 }
                                 mRecyclerView.refreshComplete(1);
@@ -114,7 +114,7 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
         ArrayList<String> bookNos = new ArrayList<>();
         for (int i = 0; i < mList.size(); i++) {
             if (mList.get(i).isChoose()) {
-                bookNos.add(mList.get(i).getMeterNo());//获取表号码
+                bookNos.add(mList.get(i).getCommunicateNo());//获取表号码
             }
         }
 
@@ -123,9 +123,9 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
             mIntent.putExtra("bookNo", bookNos.get(0));
             mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
 
-            mIntent.putExtra("YinZi", mHtGroupInfoBean.getKPYZ());
-            mIntent.putExtra("XinDao", mHtGroupInfoBean.getKPXD());
-            mIntent.putExtra("nowKey", mHtGroupInfoBean.getKEYCODE());
+            mIntent.putExtra("YinZi", mList.get(0).getKPYZ());
+            mIntent.putExtra("XinDao", mList.get(0).getKPXD());
+            mIntent.putExtra("nowKey", mList.get(0).getKEYCODE());
             mIntent.putExtra("commandType", commandType);
             startActivity(mIntent);
 
