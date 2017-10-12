@@ -4,6 +4,10 @@ package com.pl.gassystem.activity.ht;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -15,7 +19,7 @@ import java.lang.Override;
 public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
   private HtGetReadMeterInfoActivity target;
 
-  private View view2131690004;
+  private View view2131690026;
 
   private View view2131689982;
 
@@ -31,15 +35,19 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
 
     View view;
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
-    view = Utils.findRequiredView(source, R.id.bt1, "method 'onViewClicked'");
-    view2131690004 = view;
+    target.etSearch = Utils.findRequiredViewAsType(source, R.id.etSearch, "field 'etSearch'", EditText.class);
+    view = Utils.findRequiredView(source, R.id.tvChoose, "field 'tvChoose' and method 'onViewClicked'");
+    target.tvChoose = Utils.castView(view, R.id.tvChoose, "field 'tvChoose'", TextView.class);
+    view2131690026 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
-        target.onViewClicked(p0);
+        target.onViewClicked();
       }
     });
-    view = Utils.findRequiredView(source, R.id.bt2, "method 'onViewClicked'");
+    target.layoutSearchBar = Utils.findRequiredViewAsType(source, R.id.layoutSearchBar, "field 'layoutSearchBar'", LinearLayout.class);
+    view = Utils.findRequiredView(source, R.id.bt2, "field 'bt2' and method 'onViewClicked'");
+    target.bt2 = Utils.castView(view, R.id.bt2, "field 'bt2'", Button.class);
     view2131689982 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -57,9 +65,13 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.mRecyclerView = null;
+    target.etSearch = null;
+    target.tvChoose = null;
+    target.layoutSearchBar = null;
+    target.bt2 = null;
 
-    view2131690004.setOnClickListener(null);
-    view2131690004 = null;
+    view2131690026.setOnClickListener(null);
+    view2131690026 = null;
     view2131689982.setOnClickListener(null);
     view2131689982 = null;
   }

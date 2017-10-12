@@ -47,6 +47,8 @@ import com.pl.protocol.CqueueData;
 import com.pl.protocol.HhProtocol;
 import com.pl.utils.GlobalConsts;
 import com.pl.utils.MeterType;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.apache.http.Header;
 import org.xmlpull.v1.XmlPullParserException;
@@ -58,6 +60,9 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import okhttp3.Call;
 
 public class CopyPhotoActivity extends Activity {
 
@@ -139,6 +144,10 @@ public class CopyPhotoActivity extends Activity {
     private static Animation anim_btn_begin;
     private static Animation anim_btn_end;
 
+
+    private int nowNum = 0;
+    private List<String> meterNos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,8 +180,20 @@ public class CopyPhotoActivity extends Activity {
         copyBiz = new CopyBiz(this);
         preferenceBiz = new PreferenceBiz(this);
         setBiz = new SetBiz(this);
+
         // 初始化抄表数据
         meterNo = getIntent().getStringExtra("meterNo"); // 表号
+        tvLoadingPhotoComNum.setText(meterNo);
+
+        //拿到很多表号码
+        meterNos = getIntent().getStringArrayListExtra("meterNos");
+        if (meterNos != null) {
+            nowNum = 0;
+            meterNo = meterNos.get(0);
+            tvLoadingPhotoComNum.setText(meterNo);
+        }
+
+
         meterTypeNo = getIntent().getStringExtra("meterTypeNo");// 7,8位表
         baseType = getIntent().getStringExtra("baseType");
         YHTM = getIntent().getStringExtra("YHTM");
@@ -187,7 +208,6 @@ public class CopyPhotoActivity extends Activity {
             isCol = getIntent().getBooleanExtra("isCol", false);
         }
 
-        tvLoadingPhotoComNum.setText(meterNo);
 
         serverUrl = setBiz.getCopyPhotoUrl();
         ImgServerUrl = serverUrl + "Images/";
@@ -307,7 +327,25 @@ public class CopyPhotoActivity extends Activity {
         tvCopyPhotoDevState.setText("");
         imgCopyPhotoImage.setImageResource(R.drawable.imgblank);
     }
-
+    private void wakeUp2(String commNumber) {
+        sendMessage("aadd50aaaaaa" + commNumber.substring(6));
+        tvCopyPhotoBackMsg.setText("正在唤醒表具");
+        firstString = "";
+        ImgString = "";
+        pageConut = 0;// 总图片包数
+        pageCurrent = 0;// 当前图片包号
+        gettimes = 0; // 图片包接收次数
+        tempMsg = "";
+        // isHead = false; //中断包标识
+        isFill = false;
+        upCount = 0;
+        pgbCopyPhoto.setProgress(0);
+//        tvCopyPhotoDevPower.setText("");
+//        tvCopyPhotoOcrRead.setText("");
+//        tvCopyPhotoOcrState.setText("");
+//        tvCopyPhotoDevState.setText("");
+//        imgCopyPhotoImage.setImageResource(R.drawable.imgblank);
+    }
     // 抄表
     private void query() {
         String commNumber = meterNo;
@@ -501,14 +539,10 @@ public class CopyPhotoActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                if (tvCopyPhotoBackMsg.getText().toString().equals("表具已唤醒正在抄表")
-                        || tvCopyPhotoBackMsg.getText().toString()
+                if (tvCopyPhotoBackMsg.getText().toString().equals("表具已唤醒正在抄表") || tvCopyPhotoBackMsg.getText().toString()
                         .equals("正在唤醒表具")) {
-                    Toast.makeText(getApplicationContext(), "正在抄表中，请勿重复操作！",
-                            Toast.LENGTH_SHORT).show();
-                } else if (tvPhotoBtInfo.getText().toString().equals("蓝牙设备未连接")
-                        || tvPhotoBtInfo.getText().toString()
-                        .equals("正在连接蓝牙设备")) {
+                    Toast.makeText(getApplicationContext(), "正在抄表中，请勿重复操作！", Toast.LENGTH_SHORT).show();
+                } else if (tvPhotoBtInfo.getText().toString().equals("蓝牙设备未连接") || tvPhotoBtInfo.getText().toString().equals("正在连接蓝牙设备")) {
                     Toast.makeText(getApplicationContext(), "请先连接蓝牙设备！",
                             Toast.LENGTH_SHORT).show();
                 } else {
@@ -553,9 +587,7 @@ public class CopyPhotoActivity extends Activity {
                         maintenMode = 1;// 调整图片为止
                         wakeUp(meterNo);
                     } else {
-                        Toast.makeText(getApplicationContext(),
-                                "输入错误，请输入1-10范围内整数！", Toast.LENGTH_SHORT)
-                                .show();
+                        Toast.makeText(getApplicationContext(), "输入错误，请输入1-10范围内整数！", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -671,8 +703,15 @@ public class CopyPhotoActivity extends Activity {
         mChatService.connect(device);
     }
 
+    private String lastMeterNo;
+
     private void getCopyDataPhoto(String postData, String meterTypeNo) {
-         LogUtil.i("postData", postData);
+        doNext();
+
+
+        GetCopyDataPhoto(postData, meterTypeNo);//传给杭天
+
+        LogUtil.i("postData", postData);
         String url = serverUrl + "WebMain.asmx/GetCopyDataPhoto";
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -694,8 +733,7 @@ public class CopyPhotoActivity extends Activity {
                 try {
                     CopyDataPhoto copyDataPhoto = parser.parseCopyDataPhoto(in);
                     if (copyDataPhoto != null) {
-                        LogUtil.i("嘿嘿",copyDataPhoto.getDevPower());
-
+                        LogUtil.i("嘿嘿", copyDataPhoto.getDevPower());
                         copyDataPhoto.setOperater(preferenceBiz.getUserName());
                         copyBiz.addCopyDataPhoto(copyDataPhoto);
                         in.close();
@@ -718,6 +756,47 @@ public class CopyPhotoActivity extends Activity {
                 mHandler.sendMessage(msg);
             }
         });
+
+
+    }
+
+    private void doNext() {
+        lastMeterNo = meterNo;
+        //到这一步了说明抄表成功了
+        nowNum++;
+        if (meterNos != null && meterNos.size() > nowNum) {
+            meterNo = meterNos.get(nowNum);
+            btnCopyPhotoSetPoint.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    wakeUp2(meterNo);
+                    tvLoadingPhotoComNum.setText(meterNo + "(" + (nowNum + 1) + "/" + (meterNos.size()) + ")");//设置当前抄表表号
+                }
+            }, 3000);
+        }
+    }
+
+    private void GetCopyDataPhoto(String postData, String meterTypeNo) {
+//        LogUtil.i("啊嗷嗷啊" + postData + "meterTypeNo" + meterTypeNo);
+        OkHttpUtils.post()
+                .url(HtAppUrl.GET_COPY_DATA_PHOTO)
+                .addParams("data", postData)
+                .addParams("MeterType", meterTypeNo)
+                .addParams("UserName", "admin")
+                .addParams("ReadType", "0")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("摄像表" + e.toString());
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("摄像表" + response);
+                    }
+                });
     }
 
     private boolean checkImgPage(String getMsg) {
@@ -790,7 +869,7 @@ public class CopyPhotoActivity extends Activity {
 
     private void fillCopy(String getMsg) {
 
-        LogUtil.i("fillCopy",getMsg);
+        LogUtil.i("fillCopy", getMsg);
 
         if (getMsg.length() == 116) {
             int page = Integer.parseInt(getMsg.substring(6, 8), 16); // 获取当前包号
@@ -864,8 +943,7 @@ public class CopyPhotoActivity extends Activity {
     // }
 
     private void showCopyDataPhoto() {
-        CopyDataPhoto copyDataPhoto = copyBiz
-                .getLastCopyDataPhotoByCommunicateNo(meterNo);
+        CopyDataPhoto copyDataPhoto = copyBiz.getLastCopyDataPhotoByCommunicateNo(lastMeterNo);
         String url = ImgServerUrl + copyDataPhoto.getImageName();
         // 显示图片的配置
         DisplayImageOptions options = new DisplayImageOptions.Builder()
@@ -888,12 +966,10 @@ public class CopyPhotoActivity extends Activity {
                 case MESSAGE_STATE_CHANGE:
                     switch (msg.arg1) {
                         case BluetoothChatService.STATE_CONNECTED:
-                            tvPhotoBtInfo
-                                    .setText(getString(R.string.title_connected_to) + mConnectedDeviceName);
+                            tvPhotoBtInfo.setText(getString(R.string.title_connected_to) + mConnectedDeviceName);
                             try {
                                 Thread.sleep(300);
                             } catch (InterruptedException e1) {
-                                // TODO 自动生成的 catch 块
                                 e1.printStackTrace();
                             }
                             // 蓝牙连接后自动开始抄表
@@ -907,12 +983,6 @@ public class CopyPhotoActivity extends Activity {
                             tvPhotoBtInfo.setText(R.string.title_not_connected);
                             break;
                     }
-                    break;
-                case MESSAGE_WRITE:
-                    // byte[] writeBuf = (byte[]) msg.obj;
-                    // //构建一个字符串缓冲区
-                    // String writeMessage = new String(writeBuf);
-                    // Log.i("bluepost", writeMessage);
                     break;
                 case MESSAGE_READ:
                     byte[] readBuf = (byte[]) msg.obj;
@@ -971,7 +1041,6 @@ public class CopyPhotoActivity extends Activity {
                         try {
                             Thread.sleep(500);
                         } catch (InterruptedException e) {
-                            // TODO 自动生成的 catch 块
                             e.printStackTrace();
                         }
                         String postData = firstString + ";" + ImgString;
@@ -984,8 +1053,11 @@ public class CopyPhotoActivity extends Activity {
                 case MESSAGE_GETCOPYDATAPHOTO_ERROR:
                     tvCopyPhotoBackMsg.setText("数据解析失败 请尝试重抄");
                     break;
+
+                //直接下一个
                 case MESSAGE_COPYCANT:
                     tvCopyPhotoBackMsg.setText("抄表失败表具无响应");
+                    doNext();
                     break;
                 case MESSAGE_SERVER_CONNECT_SUCCESS:
                     // 检测是否能自动连接蓝牙

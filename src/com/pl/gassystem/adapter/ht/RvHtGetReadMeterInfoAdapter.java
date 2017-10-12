@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pl.gassystem.R;
-import com.pl.gassystem.bean.ht.HtTimereadMeterInfoBean;
+import com.pl.gassystem.bean.gson.HtGetReadMeterInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,10 @@ import java.util.List;
 public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetReadMeterInfoAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<HtTimereadMeterInfoBean> mList;
+    private List<HtGetReadMeterInfo.ArrayOfModCustomerinfoBean.ModCustomerinfoBean> mList;
     private LayoutInflater mInflater;
 
-    public RvHtGetReadMeterInfoAdapter(Context mContext, List<HtTimereadMeterInfoBean> mList) {
+    public RvHtGetReadMeterInfoAdapter(Context mContext, List<HtGetReadMeterInfo.ArrayOfModCustomerinfoBean.ModCustomerinfoBean> mList) {
         this.mContext = mContext;
         if (mList != null) {
             this.mList = mList;
@@ -56,30 +56,28 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
             }
         });
 
-        holder.tvCommunicateNo.setText(mList.get(position).getCommunicateNo());
-        holder.tvReadState.setText(mList.get(position).getReadState());
-        holder.tvImageName.setText(mList.get(position).getImageName());
-        holder.tvCollectorNo.setText(mList.get(position).getCollectorNo());
-        holder.tvOperater.setText(mList.get(position).getOperater());
-        holder.tvReadTime.setText(mList.get(position).getReadTime());
-        holder.tvDevState.setText(mList.get(position).getDevState());
-        holder.tvDevPower.setText(mList.get(position).getDevPower());
 
+        holder.AdrCode.setText(mList.get(position).getAdrCode());
+        holder.CommunicateNo.setText(mList.get(position).getCommunicateNo());
+        holder.MeterFacNo.setText(mList.get(position).getMeterFacNo());
+        holder.HUNAME.setText(mList.get(position).getHUNAME());
+        holder.ADDR.setText(mList.get(position).getADDR());
 
-        holder.tvOcrRead.setText(mList.get(position).getOcrRead());
-        holder.tvOcrState.setText(mList.get(position).getOcrState());
-        holder.tvThisRead.setText(mList.get(position).getThisRead());
-        holder.tvOcrResult.setText(mList.get(position).getOcrResult());
-        holder.tvOcrTime.setText(mList.get(position).getOcrTime());
-        holder.tvcreateTime.setText(mList.get(position).getCreateTime());
-        holder.tvReadType.setText(mList.get(position).getReadType());
-        holder.tvKPXD.setText(mList.get(position).getKPXD());
+        holder.MQBBH.setText(mList.get(position).getMQBBH());
+        holder.OTEL.setText(mList.get(position).getOTEL());
+        holder.HTEL.setText(mList.get(position).getHTEL());
+        holder.HUCODE.setText(mList.get(position).getHUCODE());
+        holder.XBDS.setText(mList.get(position).getXBDS());
 
-        holder.tvKPYZ.setText(mList.get(position).getKPYZ());
-        holder.tvFSQD.setText(mList.get(position).getFSQD());
-        holder.tvJSQD.setText(mList.get(position).getJSQD());
-        holder.tvDJRQ.setText(mList.get(position).getDJRQ());
-        holder.tvPCH.setText(mList.get(position).getPCH());
+        holder.YICODE.setText(mList.get(position).getYICODE());
+        holder.KPXD.setText(mList.get(position).getKPXD());
+        holder.KPYZ.setText(mList.get(position).getKPYZ());
+        holder.DJR.setText(mList.get(position).getDJR());
+        holder.KCQZSJ.setText(mList.get(position).getKCQZSJ());
+
+        holder.KEYVER.setText(mList.get(position).getKEYVER());
+        holder.KEYCODE.setText(mList.get(position).getKEYCODE());
+        holder.AreaNo.setText(mList.get(position).getAreaNo());
 
 
         if (mList.get(position).isCheck()) {
@@ -125,9 +123,12 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         LinearLayout layoutMain, layoutOther;
-        TextView tvMore, tvCommunicateNo, tvReadState, tvImageName, tvCollectorNo, tvOperater, tvReadTime, tvDevState, tvDevPower,
-                tvOcrRead, tvOcrState, tvThisRead, tvOcrResult, tvOcrTime, tvcreateTime, tvReadType, tvKPXD,
-                tvKPYZ, tvFSQD, tvJSQD, tvDJRQ, tvPCH;
+        TextView tvMore;
+
+        TextView AdrCode, CommunicateNo, MeterFacNo, HUNAME, ADDR,
+                MQBBH, OTEL, HTEL, HUCODE, XBDS,
+                YICODE, KPXD, KPYZ, DJR, KCQZSJ,
+                KEYVER, KEYCODE, AreaNo;
 
         ImageView ivCheck;
 
@@ -138,32 +139,31 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
 
             layoutOther = (LinearLayout) itemView.findViewById(R.id.layoutOther);
             layoutMain = (LinearLayout) itemView.findViewById(R.id.layoutMain);
-
-            tvCommunicateNo = (TextView) itemView.findViewById(R.id.tvCommunicateNo);
-            tvReadState = (TextView) itemView.findViewById(R.id.tvReadState);
-            tvImageName = (TextView) itemView.findViewById(R.id.tvImageName);
-            tvCollectorNo = (TextView) itemView.findViewById(R.id.tvCollectorNo);
-            tvOperater = (TextView) itemView.findViewById(R.id.tvOperater);
-            tvDevState = (TextView) itemView.findViewById(R.id.tvDevState);
-            tvReadTime = (TextView) itemView.findViewById(R.id.tvReadTime);
-            tvDevPower = (TextView) itemView.findViewById(R.id.tvDevPower);
-            tvOcrRead = (TextView) itemView.findViewById(R.id.tvOcrRead);
-            tvOcrState = (TextView) itemView.findViewById(R.id.tvOcrState);
-
-            tvThisRead = (TextView) itemView.findViewById(R.id.tvThisRead);
-            tvOcrResult = (TextView) itemView.findViewById(R.id.tvOcrResult);
-            tvOcrTime = (TextView) itemView.findViewById(R.id.tvOcrTime);
-            tvcreateTime = (TextView) itemView.findViewById(R.id.tvcreateTime);
-            tvReadType = (TextView) itemView.findViewById(R.id.tvReadType);
-            tvKPYZ = (TextView) itemView.findViewById(R.id.tvKPYZ);
-            tvFSQD = (TextView) itemView.findViewById(R.id.tvFSQD);
-            tvJSQD = (TextView) itemView.findViewById(R.id.tvJSQD);
-            tvDJRQ = (TextView) itemView.findViewById(R.id.tvDJRQ);
-
-            tvKPXD = (TextView) itemView.findViewById(R.id.tvKPXD);
-            tvPCH = (TextView) itemView.findViewById(R.id.tvPCH);
-
             ivCheck = (ImageView) itemView.findViewById(R.id.ivCheck);
+
+            AdrCode = (TextView) itemView.findViewById(R.id.AdrCode);
+            CommunicateNo = (TextView) itemView.findViewById(R.id.CommunicateNo);
+            MeterFacNo = (TextView) itemView.findViewById(R.id.MeterFacNo);
+            HUNAME = (TextView) itemView.findViewById(R.id.HUNAME);
+            ADDR = (TextView) itemView.findViewById(R.id.ADDR);
+
+            MQBBH = (TextView) itemView.findViewById(R.id.MQBBH);
+            OTEL = (TextView) itemView.findViewById(R.id.OTEL);
+            HTEL = (TextView) itemView.findViewById(R.id.HTEL);
+            HUCODE = (TextView) itemView.findViewById(R.id.HUCODE);
+            XBDS = (TextView) itemView.findViewById(R.id.XBDS);
+
+            YICODE = (TextView) itemView.findViewById(R.id.YICODE);
+            KPXD = (TextView) itemView.findViewById(R.id.KPXD);
+            KPYZ = (TextView) itemView.findViewById(R.id.KPYZ);
+            DJR = (TextView) itemView.findViewById(R.id.DJR);
+            KCQZSJ = (TextView) itemView.findViewById(R.id.KCQZSJ);
+
+            KEYVER = (TextView) itemView.findViewById(R.id.KEYVER);
+            KEYCODE = (TextView) itemView.findViewById(R.id.KEYCODE);
+            AreaNo = (TextView) itemView.findViewById(R.id.AreaNo);
+
+
         }
     }
 }

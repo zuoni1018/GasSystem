@@ -4,6 +4,10 @@ package com.pl.gassystem.activity.ht;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -14,6 +18,8 @@ import java.lang.Override;
 
 public class HtGetGroupBindActivity_ViewBinding implements Unbinder {
   private HtGetGroupBindActivity target;
+
+  private View view2131690026;
 
   private View view2131689652;
 
@@ -28,7 +34,19 @@ public class HtGetGroupBindActivity_ViewBinding implements Unbinder {
 
     View view;
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
-    view = Utils.findRequiredView(source, R.id.btGoCopy, "method 'onViewClicked'");
+    target.etSearch = Utils.findRequiredViewAsType(source, R.id.etSearch, "field 'etSearch'", EditText.class);
+    view = Utils.findRequiredView(source, R.id.tvChoose, "field 'tvChoose' and method 'onViewClicked2'");
+    target.tvChoose = Utils.castView(view, R.id.tvChoose, "field 'tvChoose'", TextView.class);
+    view2131690026 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked2();
+      }
+    });
+    target.layoutSearchBar = Utils.findRequiredViewAsType(source, R.id.layoutSearchBar, "field 'layoutSearchBar'", LinearLayout.class);
+    view = Utils.findRequiredView(source, R.id.btGoCopy, "field 'btGoCopy' and method 'onViewClicked'");
+    target.btGoCopy = Utils.castView(view, R.id.btGoCopy, "field 'btGoCopy'", Button.class);
     view2131689652 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -46,7 +64,13 @@ public class HtGetGroupBindActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.mRecyclerView = null;
+    target.etSearch = null;
+    target.tvChoose = null;
+    target.layoutSearchBar = null;
+    target.btGoCopy = null;
 
+    view2131690026.setOnClickListener(null);
+    view2131690026 = null;
     view2131689652.setOnClickListener(null);
     view2131689652 = null;
   }

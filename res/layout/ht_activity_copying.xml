@@ -7,11 +7,11 @@
     <include layout="@layout/title_bar_style" />
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -24,36 +24,39 @@
         <TextView
             android:id="@+id/tvNeedNum"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="1"
             android:textColor="@color/black"
             android:textSize="14sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="当前下发次数:"
             android:textColor="@color/black"
             android:textSize="14sp" />
+
         <TextView
             android:id="@+id/tvNowNum"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="1"
             android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -66,9 +69,9 @@
         <TextView
             android:id="@+id/tvTime"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="0s"
             android:textColor="@color/black"
@@ -302,17 +305,4 @@
             android:text="200" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.05"
-        android:gravity="bottom">
-
-        <ProgressBar
-            android:id="@+id/pgbCopying"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="40dip"
-            android:progressDrawable="@drawable/progress_diy" />
-    </LinearLayout>
 </LinearLayout>

@@ -5,6 +5,8 @@ package com.pl.gassystem.bean.ht;
  */
 
 public class HtUpdateMeterInfoBean {
+
+
     /**
      * MeterTypeNo : 2
      * KEYVER2 : 01

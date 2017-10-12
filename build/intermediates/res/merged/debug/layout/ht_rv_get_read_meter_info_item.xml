@@ -33,10 +33,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="采集器编号:" />
+                    android:text="地址编号:" />
 
                 <TextView
-                    android:id="@+id/tvCommunicateNo"
+                    android:id="@+id/AdrCode"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -47,10 +47,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="抄表状态" />
+                    android:text="通讯编号" />
 
                 <TextView
-                    android:id="@+id/tvReadState"
+                    android:id="@+id/CommunicateNo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
@@ -74,10 +74,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="压缩包名称+图片名称:" />
+                    android:text="表计类型:" />
 
                 <TextView
-                    android:id="@+id/tvImageName"
+                    android:id="@+id/MeterFacNo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -88,10 +88,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="集中器编号" />
+                    android:text="字轮位数" />
 
                 <TextView
-                    android:id="@+id/tvCollectorNo"
+                    android:id="@+id/MeterType"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -110,10 +110,10 @@
                 <TextView
 
                     style="@style/rv_item_style_01"
-                    android:text="操作员:" />
+                    android:text="用户名称:" />
 
                 <TextView
-                    android:id="@+id/tvOperater"
+                    android:id="@+id/HUNAME"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -124,10 +124,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="定时抄表时间:" />
+                    android:text="用户地址:" />
 
                 <TextView
-                    android:id="@+id/tvReadTime"
+                    android:id="@+id/ADDR"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -145,10 +145,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="采集器信息:" />
+                    android:text="煤气表编号:" />
 
                 <TextView
-                    android:id="@+id/tvDevState"
+                    android:id="@+id/MQBBH"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -160,10 +160,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="采集器电量:" />
+                    android:text="电话:" />
 
                 <TextView
-                    android:id="@+id/tvDevPower"
+                    android:id="@+id/OTEL"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -198,10 +198,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="识别读数:" />
+                    android:text="固定电话:" />
 
                 <TextView
-                    android:id="@+id/tvOcrRead"
+                    android:id="@+id/HTEL"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -212,10 +212,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="识别状态:" />
+                    android:text="用户编码:" />
 
                 <TextView
-                    android:id="@+id/tvOcrState"
+                    android:id="@+id/HUCODE"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -232,10 +232,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="人工确认读数:" />
+                    android:text="上次抄表读数:" />
 
                 <TextView
-                    android:id="@+id/tvThisRead"
+                    android:id="@+id/XBDS"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -246,10 +246,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="识别对错:" />
+                    android:text="受理编号:" />
 
                 <TextView
-                    android:id="@+id/tvOcrResult"
+                    android:id="@+id/YICODE"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -263,61 +263,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="人工识别时间:" />
-
-                <TextView
-                    android:id="@+id/tvOcrTime"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="createTime:" />
-
-                <TextView
-                    android:id="@+id/tvcreateTime"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="抄表类型:" />
-
-                <TextView
-                    android:id="@+id/tvReadType"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
 
                 <TextView
                     style="@style/rv_item_style_01"
                     android:text="扩频信道:" />
 
                 <TextView
-                    android:id="@+id/tvKPXD"
+                    android:id="@+id/KPXD"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -325,33 +277,13 @@
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
                 <TextView
                     style="@style/rv_item_style_01"
                     android:text="扩频因子:" />
 
                 <TextView
-                    android:id="@+id/tvKPYZ"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="发送强度:" />
-
-                <TextView
-                    android:id="@+id/tvFSQD"
+                    android:id="@+id/KPYZ"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -368,10 +300,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="接收强度:" />
+                    android:text="冻结日期:" />
 
                 <TextView
-                    android:id="@+id/tvJSQD"
+                    android:id="@+id/DJR"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -381,6 +313,75 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    style="@style/rv_item_style_01"
+                    android:text="开窗起止时间:" />
+
+                <TextView
+                    android:id="@+id/KCQZSJ"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/item_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/rv_item_style_01"
+                    android:text="密钥版本:" />
+
+                <TextView
+                    android:id="@+id/KEYVER"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/item_text"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/rv_item_style_01"
+                    android:text="密钥:" />
+
+                <TextView
+                    android:id="@+id/KEYCODE"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/item_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/rv_item_style_01"
+                    android:text="小区编号:" />
+
+                <TextView
+                    android:id="@+id/AreaNo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/item_text"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:visibility="invisible"
                     style="@style/rv_item_style_01"
                     android:text="冻结日期:" />
 
@@ -396,6 +397,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

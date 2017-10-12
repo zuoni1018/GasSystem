@@ -252,6 +252,7 @@
         <activity android:name=".activity.ht.HtGetReadMeterInfoActivity" />
         <activity android:name=".activity.ht.HtGetAreaInfoActivity"/>
         <activity android:name=".activity.ht.HtAreaActivity"/>
+        <activity android:name=".activity.ht.HtLoginActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />

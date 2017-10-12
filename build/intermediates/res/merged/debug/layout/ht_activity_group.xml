@@ -23,6 +23,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="开阀" />
+
+    <Button
+        android:id="@+id/bt6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看表具信息" />
     <Button
         android:id="@+id/bt4"
         android:layout_width="match_parent"
@@ -33,4 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="抄取实时量" />
+
+
 </LinearLayout>

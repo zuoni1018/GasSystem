@@ -13,4 +13,11 @@ public class HtAppUrl {
     public static final String GET_READ_METER_INFO = BASE_URL + "/GetReadMeterInfo";
     public static final String GET_AREA_INFO = BASE_URL + "/GetAreaInfo";
     public static final String GET_COPY_DATA_LORA = BASE_URL + "/GetCopyDataLora";
+    public static final String GET_COPY_DATA_PHOTO = BASE_URL + "/GetCopyDataPhoto";
+
+
+    public static final String UP_LOAD_METER_INFO = BASE_URL + "/UploadMeterInfo";
+    public static final String LOGIN = BASE_URL + "/Login";
+
+
 }

@@ -48,7 +48,10 @@ public class HtGetMessage {
     public void setFrozenTime(String frozenTime) {
         this.frozenTime = frozenTime;
     }
+    public String getValveState2() {
 
+        return valveState;
+    }
     public String getValveState() {
 
         if (commandType.equals(COMMAND_TYPE_COPY_NORMAL)

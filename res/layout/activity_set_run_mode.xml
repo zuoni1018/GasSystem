@@ -211,6 +211,7 @@
         android:background="@color/item_line" />
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/layoutModeChooseHt"
         style="@style/mode_choose_layout_style">
 

@@ -13,7 +13,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,8 +67,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     TextView tvLoadingCount;
     @BindView(R.id.tvLoadingAll)
     TextView tvLoadingAll;
-    @BindView(R.id.pgbCopying)
-    ProgressBar pgbCopying;
+
     @BindView(R.id.btnCopyScan)
     ImageButton btnCopyScan;
     @BindView(R.id.btnCopyingRead)
@@ -135,6 +133,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
     //设置密钥所需要的参数
     private String newKey = "";
+    private String KEYVER = "";
 
     //群抄参数设置
     private int needCopyNum = 1;//循环抄表次数
@@ -153,26 +152,37 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     private String nowYinZi = "09";
     private String nowXinDao = "14";
 
+    private String MeterFacNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-
         setTitle("蓝牙抄表");
         addOnTouchListener();
 
-
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();// 获取本地蓝牙适配器
-
         if (mBluetoothAdapter == null) {
             showToast("当前设备不支持蓝牙");
             finish();//退出当前界面并不执行下面代码
             return;
         }
-        //获取Intent传过来的信息
-        commandType = getIntent().getStringExtra("commandType");
+        //必传参数
+        commandType = getIntent().getStringExtra("commandType");//命令类型
+
+        nowXinDao = getIntent().getStringExtra("XinDao");//因子和信道
+        nowYinZi = getIntent().getStringExtra("YinZi");
+
+        String nowKey = getIntent().getStringExtra("nowKey"); //设置当前的加密key
+        HtCommand.HT_PASSWORD = nowKey + "0000000000000000";
+
+
+        //需要修改的表号
         bookNos = new ArrayList<>();
+
+
+        MeterFacNo = getIntent().getStringExtra("MeterFacNo");
+
 
         //一下三种命令下 只接收燃气表号 和 抄表命令类型 就可以了
         if (commandType.equals(HtSendMessage.COMMAND_TYPE_DOOR_STATE)
@@ -201,7 +211,9 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             newBookNo = getIntent().getStringExtra("newBookNo");
             cumulant = getIntent().getStringExtra("cumulant");
             changeType = getIntent().getStringExtra("changeType");//修改类型
-        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
+        }
+        //修改表计参数
+        else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
             bookNos = getIntent().getStringArrayListExtra("bookNos");
             setYinZi = getIntent().getStringExtra("yinzi");
             setXinDao = getIntent().getStringExtra("xindao");
@@ -210,9 +222,14 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             isSetYinZi = getIntent().getBooleanExtra("isSetYinZi", false);
             LogUtil.i("批量设置参数" + setYinZi + "===" + setXinDao + "===" + setDongJieRi + "===" + setKaiChuangShiJian + "===" + isSetYinZi);
             tvLoadingAll.setText(bookNos.size() + "");
-        } else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)) {
+        }
+        //修改表计密钥
+        else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)) {
             bookNos = getIntent().getStringArrayListExtra("bookNos");
-            newKey = getIntent().getStringExtra("newKey");
+            newKey = getIntent().getStringExtra("newKey");//新密钥
+            KEYVER = getIntent().getStringExtra("KEYVER");//密钥版本号码
+
+            LogUtil.i("新密钥" + newKey);
         }
         //计算
         if (bookNos.size() != 0) {
@@ -240,13 +257,6 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             copyBiz.ChangeCopyState(bookNos.get(i), 0, "05");
         }
 
-        nowXinDao = getIntent().getStringExtra("XinDao");
-        nowYinZi = getIntent().getStringExtra("YinZi");
-
-        //设置当前的加密key
-        String nowKey = getIntent().getStringExtra("nowKey");
-        HtCommand.HT_PASSWORD = nowKey + "0000000000000000";
-
 
         //10进制转16进制
         String nowXinDao2 = Integer.toHexString(Integer.parseInt(nowXinDao));
@@ -261,7 +271,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         } else {
             nowYinZi = nowYinZi2;
         }
-        LogUtil.i("当前因子", "nowXinDao=" + nowXinDao + "nowYinZi=" + nowYinZi+"key="+nowKey);
+        LogUtil.i("当前因子", "nowXinDao=" + nowXinDao + "nowYinZi=" + nowYinZi + "key=" + nowKey);
 
         // 检测是否能自动连接蓝牙
         String address = (String) SPUtils.get(getContext(), "htDevice", "");
@@ -616,20 +626,16 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     LogUtil.i("蓝牙得到结果", readMessage);
                     readMessage(readMessage);
-                    if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
-                            |commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)){
-                        String ReadType;
-                        if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)){
-                            ReadType="1";
-                        }else {
-                            ReadType="0";
-                        }
-                        upLoadCopy(readMessage,ReadType);
-                    }
-
-
-
-
+//                    if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
+//                            |commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)){
+//                        String ReadType;
+//                        if(commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)){
+//                            ReadType="1";
+//                        }else {
+//                            ReadType="0";
+//                        }
+//                        upLoadCopy(readMessage,ReadType);
+//                    }
                     break;
 
                 case MESSAGE_DEVICE_NAME:
@@ -644,16 +650,16 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         }
     };
 
-    private void upLoadCopy(String readMessage,String ReadType) {
+    private void upLoadCopy(String readMessage, String ReadType) {
 
-        LogUtil.i("上传抄表数据",readMessage);
+        LogUtil.i("上传抄表数据", readMessage);
 
         OkHttpUtils.post()
                 .url(HtAppUrl.GET_COPY_DATA_LORA)
-                .addParams("data",readMessage)
-                .addParams("MeterType","8")
-                .addParams("UserName","admin")
-                .addParams("ReadType",ReadType)
+                .addParams("data", readMessage)
+                .addParams("MeterType", "8")
+                .addParams("UserName", "admin")
+                .addParams("ReadType", ReadType)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -671,11 +677,6 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 //                        HtGetBookInfo htGetBookInfo = gson.fromJson(xml2JSON(response), HtGetBookInfo.class);
                     }
                 });
-
-
-
-
-
     }
 
     private void readMessage(String readMessage) {
@@ -692,13 +693,28 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                         | commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)
                         | commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)
                 ) {
-            //修改表号 或者累计量 修改密钥
+            //修改表号或者累计量 修改密钥
             HtGetMessageChangeBookNoOrCumulant htGetMessageQueryParameter = HtCommand.readChangeBookNoOrCumulantMessage(readMessage);
             assert htGetMessageQueryParameter != null;
             LogUtil.i("抄表结果", htGetMessageQueryParameter.getResult());
             num++;
             tvLoadingCount.setText(num + "");
             tvMessage.setText(tvMessage.getText().toString().trim() + "\n" + htGetMessageQueryParameter.getResult());
+
+
+            //向服务器上传修改后的参数
+            String CommunicateNo = htGetMessageQueryParameter.getBookNo();//（通讯编号）
+
+            //设置参数
+            if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
+                UploadMeterInfo(bookNos.get(0), setXinDao, setYinZi, setDongJieRi, setKaiChuangShiJian, "", "");
+            }
+            //修改密钥
+            else if (commandType.equals(HtSendMessage.COMMAND_TYPE_SET_KEY)) {
+                UploadMeterInfo(bookNos.get(0), "", "", "", "", KEYVER, newKey);
+            }
+
+
         } else {
             if (readMessage.length() > 25) {
                 HtGetMessage htGetMessage = HtCommand.readMessage(readMessage);
@@ -707,8 +723,10 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     num++;
                     tvLoadingCount.setText(num + "");
                     tvMessage.setText(tvMessage.getText().toString().trim() + "\n" + htGetMessage.getResult());
-                    //
-                    LogUtil.i("嗯呐", commandType);
+
+                    //提交抄表结果
+                    upLoadCopy(htGetMessage);
+
 
                     if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
                         CopyData copyData = getCopyDate(htGetMessage);
@@ -721,6 +739,76 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         }
 
 
+    }
+
+    /**
+     * 上传修改表具信息
+     * 参数 密钥
+     */
+    private void UploadMeterInfo(String communicateNo, String kpxd, String kpyz, String djr, String kcqzsj, String keyver, String keycode) {
+
+        LogUtil.i("上传修改表具信息:" + "communicateNo=" + communicateNo + "kpxd=" + kpxd + "kpyz=" + kpyz
+                + "djr=" + djr + "kcqzsj=" + kcqzsj + "keyver=" + keyver + "keycode=" + keycode);
+
+        OkHttpUtils.post()
+                .url(HtAppUrl.UP_LOAD_METER_INFO)
+                .addParams("CommunicateNo", communicateNo)
+                .addParams("KPXD", kpxd)
+                .addParams("KPYZ", kpyz)
+                .addParams("DJR", djr)
+                .addParams("KCQZSJ", kcqzsj)
+                .addParams("KEYVER", keyver)
+                .addParams("KEYCODE", keycode)
+                .addParams("UserName", "admin")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.i("上传修改数据" + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("上传修改数据" + response);
+                    }
+                });
+    }
+
+    private void upLoadCopy(HtGetMessage htGetMessage) {
+
+        String ReadType;
+        if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
+            ReadType = "0";
+        } else {
+            ReadType = "1";
+        }
+
+        OkHttpUtils.post()
+                .url(HtAppUrl.GET_COPY_DATA_LORA)
+                .addParams("CommunicateNo", htGetMessage.getBookNo())
+                .addParams("ThisRead", htGetMessage.getCopyValue())
+                .addParams("DevPower", htGetMessage.getVoltage().replace("V",""))
+                .addParams("JSQD", htGetMessage.getSignal().replace("%",""))
+                .addParams("DJR", htGetMessage.getFrozenTime())
+                .addParams("State", htGetMessage.getValveState2())
+                .addParams("MeterFacNo", MeterFacNo)
+                .addParams("UserName", "admin")
+                .addParams("ReadType", ReadType)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast(e.toString());
+                        LogUtil.i("上传抄表数据" + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("上传抄表数据1\n" + response);
+                        LogUtil.i("上传抄表数据2" + xml2JSON(response));
+
+                    }
+                });
     }
 
     //把接收到的命令转换为CopyData

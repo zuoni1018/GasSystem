@@ -32,6 +32,9 @@ public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
     target.etInputNo = Utils.findRequiredViewAsType(source, R.id.etInputNo, "field 'etInputNo'", EditText.class);
     target.mRadioGroup = Utils.findRequiredViewAsType(source, R.id.mRadioGroup, "field 'mRadioGroup'", RadioGroup.class);
     target.rbCopyNormal = Utils.findRequiredViewAsType(source, R.id.rbCopyNormal, "field 'rbCopyNormal'", RadioButton.class);
+    target.yizi = Utils.findRequiredViewAsType(source, R.id.yizi, "field 'yizi'", EditText.class);
+    target.xindao = Utils.findRequiredViewAsType(source, R.id.xindao, "field 'xindao'", EditText.class);
+    target.key = Utils.findRequiredViewAsType(source, R.id.key, "field 'key'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btSure, "method 'onViewClicked'");
     view2131689997 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
@@ -52,6 +55,9 @@ public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
     target.etInputNo = null;
     target.mRadioGroup = null;
     target.rbCopyNormal = null;
+    target.yizi = null;
+    target.xindao = null;
+    target.key = null;
 
     view2131689997.setOnClickListener(null);
     view2131689997 = null;

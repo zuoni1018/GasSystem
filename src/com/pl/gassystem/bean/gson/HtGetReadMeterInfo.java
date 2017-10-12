@@ -1,5 +1,7 @@
 package com.pl.gassystem.bean.gson;
 
+import java.util.List;
+
 /**
  * Created by zangyi_shuai_ge on 2017/10/10
  */
@@ -8,7 +10,7 @@ public class HtGetReadMeterInfo {
 
 
     /**
-     * ArrayOfModCustomerinfo : {"xmlns":"http://localhost/","xmlns:xsd":"http://www.w3.org/2001/XMLSchema","xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","ModCustomerinfo":{"HUNAME":"","AdrCode":"4","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"65","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160101","KEYVER":"1"}}
+     * ArrayOfModCustomerinfo : {"xmlns":"http://localhost/","xmlns:xsd":"http://www.w3.org/2001/XMLSchema","xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","ModCustomerinfo":[{"HUNAME":"","AdrCode":"5","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"66","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160102","KEYVER":"1"},{"HUNAME":"","AdrCode":"7","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"62","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04000032","KEYVER":"1"},{"HUNAME":"","AdrCode":"4","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"65","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160101","KEYVER":"1"},{"HUNAME":"","AdrCode":"4","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"65","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160101","KEYVER":"1"},{"HUNAME":"–Ì±¶∏˘","AdrCode":"724200000020100110020","KCQZSJ":"","DJR":"","KEYCODE":"","XBDS":"","KPYZ":"","Id":"69","ADDR":"∫Õ–≥ºŒ‘∞±±‘∑1¥±1µ•‘™5011 “","MQBBH":"","HTEL":"","KPXD":"","OTEL":"","HUCODE":"","MeterType":"8","AreaNo":"≤‚ ‘","MeterFacNo":"0","YICODE":"756821","CommunicateNo":"8162013867","KEYVER":""}]}
      */
 
     private ArrayOfModCustomerinfoBean ArrayOfModCustomerinfo;
@@ -26,29 +28,49 @@ public class HtGetReadMeterInfo {
          * xmlns : http://localhost/
          * xmlns:xsd : http://www.w3.org/2001/XMLSchema
          * xmlns:xsi : http://www.w3.org/2001/XMLSchema-instance
-         * ModCustomerinfo : {"HUNAME":"","AdrCode":"4","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"65","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160101","KEYVER":"1"}
+         * ModCustomerinfo : [{"HUNAME":"","AdrCode":"5","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"66","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160102","KEYVER":"1"},{"HUNAME":"","AdrCode":"7","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"62","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04000032","KEYVER":"1"},{"HUNAME":"","AdrCode":"4","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"65","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160101","KEYVER":"1"},{"HUNAME":"","AdrCode":"4","KCQZSJ":"0023","DJR":"","KEYCODE":"0102030405060708","XBDS":"","KPYZ":"9","Id":"65","ADDR":"","MQBBH":"","HTEL":"","KPXD":"14","OTEL":"","HUCODE":"","MeterType":"7","AreaNo":"≤‚ ‘","MeterFacNo":"2","YICODE":"111","CommunicateNo":"04160101","KEYVER":"1"},{"HUNAME":"–Ì±¶∏˘","AdrCode":"724200000020100110020","KCQZSJ":"","DJR":"","KEYCODE":"","XBDS":"","KPYZ":"","Id":"69","ADDR":"∫Õ–≥ºŒ‘∞±±‘∑1¥±1µ•‘™5011 “","MQBBH":"","HTEL":"","KPXD":"","OTEL":"","HUCODE":"","MeterType":"8","AreaNo":"≤‚ ‘","MeterFacNo":"0","YICODE":"756821","CommunicateNo":"8162013867","KEYVER":""}]
          */
 
-        private ModCustomerinfoBean ModCustomerinfo;
+        private List<ModCustomerinfoBean> ModCustomerinfo;
 
-        public ModCustomerinfoBean getModCustomerinfo() {
+        public List<ModCustomerinfoBean> getModCustomerinfo() {
             return ModCustomerinfo;
         }
 
-        public void setModCustomerinfo(ModCustomerinfoBean ModCustomerinfo) {
+        public void setModCustomerinfo(List<ModCustomerinfoBean> ModCustomerinfo) {
             this.ModCustomerinfo = ModCustomerinfo;
         }
 
         public static class ModCustomerinfoBean {
+
+            private boolean isCheck = false;
+            private boolean isChoose = false;
+
+            public boolean isCheck() {
+                return isCheck;
+            }
+
+            public void setCheck(boolean check) {
+                isCheck = check;
+            }
+
+            public boolean isChoose() {
+                return isChoose;
+            }
+
+            public void setChoose(boolean choose) {
+                isChoose = choose;
+            }
+
             /**
              * HUNAME :
-             * AdrCode : 4
+             * AdrCode : 5
              * KCQZSJ : 0023
              * DJR :
              * KEYCODE : 0102030405060708
              * XBDS :
              * KPYZ : 9
-             * Id : 65
+             * Id : 66
              * ADDR :
              * MQBBH :
              * HTEL :
@@ -59,7 +81,7 @@ public class HtGetReadMeterInfo {
              * AreaNo : ≤‚ ‘
              * MeterFacNo : 2
              * YICODE : 111
-             * CommunicateNo : 04160101
+             * CommunicateNo : 04160102
              * KEYVER : 1
              */
 
@@ -213,7 +235,16 @@ public class HtGetReadMeterInfo {
             }
 
             public String getMeterFacNo() {
-                return MeterFacNo;
+                switch (MeterFacNo) {
+                    case "0":
+                        return "…„œÒ±Ì";
+                    case "1":
+                        return "¥øŒﬁœﬂ";
+                    case "2":
+                        return "¿©∆µ±Ì";
+                    default:
+                        return "Œ¥÷™";
+                }
             }
 
             public void setMeterFacNo(String MeterFacNo) {

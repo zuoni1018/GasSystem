@@ -27,7 +27,11 @@ public class CopyDataPhoto {
 	}
 
 	public String getImageName() {
-		return ImageName;
+//		if(ImageName!=null){
+			return ImageName;
+//		}else {
+//			return "";
+//		}
 	}
 
 	public void setImageName(String imageName) {

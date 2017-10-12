@@ -28,6 +28,12 @@ public class HtSingleCopyTestActivity extends HtBaseTitleActivity {
     RadioGroup mRadioGroup;
     @BindView(R.id.rbCopyNormal)
     RadioButton rbCopyNormal;
+    @BindView(R.id.yizi)
+    EditText yizi;
+    @BindView(R.id.xindao)
+    EditText xindao;
+    @BindView(R.id.key)
+    EditText key;
     private String commandType = "";
 
     @Override
@@ -61,16 +67,27 @@ public class HtSingleCopyTestActivity extends HtBaseTitleActivity {
     @OnClick(R.id.btSure)
     public void onViewClicked() {
         String bookNo = etInputNo.getText().toString().trim();
-        if (bookNo.length() != 8) {
-            showToast("杭天表号为8位,请检查");
-        } else {
-            ArrayList<String > bookNoList=new ArrayList<>();
-            bookNoList.add(bookNo);
+        String myizi = yizi.getText().toString().trim();
+        String mxindao = xindao.getText().toString().trim();
+        String mkey = key.getText().toString().trim();
+
+        if (bookNo.length() == 8&&myizi.length()==2&&mxindao.length()==2&&mkey.length()==16) {
+            ArrayList<String> bookNos = new ArrayList<>();
+            bookNos.add(bookNo);
+
             Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
-            mIntent.putExtra("commandType", commandType);//输入命令指令
+            mIntent.putExtra("commandType", commandType);
+            mIntent.putExtra("bookNos", bookNos);
             mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
-            mIntent.putStringArrayListExtra("bookNos", bookNoList);
+            mIntent.putExtra("YinZi", myizi);
+            mIntent.putExtra("XinDao", mxindao);
+            mIntent.putExtra("nowKey", mkey);
+            mIntent.putExtra("MeterFacNo","0");
+
             startActivity(mIntent);
+        } else {
+            showToast("请输入正确的参数");
+
         }
     }
 }

@@ -15,7 +15,7 @@ import java.lang.Override;
 public class HtGroupActivity_ViewBinding implements Unbinder {
   private HtGroupActivity target;
 
-  private View view2131690004;
+  private View view2131690005;
 
   private View view2131689982;
 
@@ -24,6 +24,8 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
   private View view2131689984;
 
   private View view2131689985;
+
+  private View view2131690006;
 
   @UiThread
   public HtGroupActivity_ViewBinding(HtGroupActivity target) {
@@ -37,7 +39,7 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.bt1, "field 'bt1' and method 'onViewClicked'");
     target.bt1 = Utils.castView(view, R.id.bt1, "field 'bt1'", Button.class);
-    view2131690004 = view;
+    view2131690005 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -78,6 +80,14 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
+    view = Utils.findRequiredView(source, R.id.bt6, "method 'onViewClicked'");
+    view2131690006 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
   }
 
   @Override
@@ -91,8 +101,8 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     target.bt2 = null;
     target.bt3 = null;
 
-    view2131690004.setOnClickListener(null);
-    view2131690004 = null;
+    view2131690005.setOnClickListener(null);
+    view2131690005 = null;
     view2131689982.setOnClickListener(null);
     view2131689982 = null;
     view2131689983.setOnClickListener(null);
@@ -101,5 +111,7 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     view2131689984 = null;
     view2131689985.setOnClickListener(null);
     view2131689985 = null;
+    view2131690006.setOnClickListener(null);
+    view2131690006 = null;
   }
 }

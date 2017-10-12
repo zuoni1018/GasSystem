@@ -5,7 +5,6 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -38,7 +37,6 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
     target.tvLoadingName = Utils.findRequiredViewAsType(source, R.id.tvLoadingName, "field 'tvLoadingName'", TextView.class);
     target.tvLoadingCount = Utils.findRequiredViewAsType(source, R.id.tvLoadingCount, "field 'tvLoadingCount'", TextView.class);
     target.tvLoadingAll = Utils.findRequiredViewAsType(source, R.id.tvLoadingAll, "field 'tvLoadingAll'", TextView.class);
-    target.pgbCopying = Utils.findRequiredViewAsType(source, R.id.pgbCopying, "field 'pgbCopying'", ProgressBar.class);
     view = Utils.findRequiredView(source, R.id.btnCopyScan, "field 'btnCopyScan' and method 'onViewClicked'");
     target.btnCopyScan = Utils.castView(view, R.id.btnCopyScan, "field 'btnCopyScan'", ImageButton.class);
     view2131689653 = view;
@@ -85,7 +83,6 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
     target.tvLoadingName = null;
     target.tvLoadingCount = null;
     target.tvLoadingAll = null;
-    target.pgbCopying = null;
     target.btnCopyScan = null;
     target.btnCopyingRead = null;
     target.btnCopyingStop = null;

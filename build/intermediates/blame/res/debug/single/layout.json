@@ -56,6 +56,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\item_copydata_info.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_search.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_search.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_set_key.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_set_key.xml"
     },
@@ -222,6 +226,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\rv_grouping_details_item.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\rv_grouping_details_item.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_login.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_login.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",

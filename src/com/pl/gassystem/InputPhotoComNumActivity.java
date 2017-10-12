@@ -112,8 +112,7 @@ public class InputPhotoComNumActivity extends Activity {
 				} else if (rgInputPhotoBaseType.getCheckedRadioButtonId() == R.id.rdoBaseType7) {
 					baseType = "7";
 				}
-				Intent intent = new Intent(InputPhotoComNumActivity.this,
-						CopyPhotoActivity.class);
+				Intent intent = new Intent(InputPhotoComNumActivity.this, CopyPhotoActivity.class);
 				String meterNo = etInputPhotoNum.getText().toString();
 				if (meterNo.length() >= 10) {
 					if (meterNo.length() > 10) {
@@ -122,21 +121,14 @@ public class InputPhotoComNumActivity extends Activity {
 					intent.putExtra("meterNo", meterNo);
 					intent.putExtra("meterTypeNo", meterTypeNo);
 					intent.putExtra("baseType", baseType);
-					intent.putExtra("YHTM", etInputPhotoYHTM.getText()
-							.toString());
-					intent.putExtra("XBDS", etInputPhotoXBDS.getText()
-							.toString());
-					intent.putExtra("MQBBH", etInputPhotoMQBBH.getText()
-							.toString());
-					intent.putExtra("HUNANME", etInputPhotoHUNANME.getText()
-							.toString());
-					intent.putExtra("OTEL", etInputPhotoOTEL.getText()
-							.toString());
-					intent.putExtra("ADDR", etInputPhotoADDR.getText()
-							.toString());
+					intent.putExtra("YHTM", etInputPhotoYHTM.getText().toString());
+					intent.putExtra("XBDS", etInputPhotoXBDS.getText().toString());
+					intent.putExtra("MQBBH", etInputPhotoMQBBH.getText().toString());
+					intent.putExtra("HUNANME", etInputPhotoHUNANME.getText().toString());
+					intent.putExtra("OTEL", etInputPhotoOTEL.getText().toString());
+					intent.putExtra("ADDR", etInputPhotoADDR.getText().toString());
 					intent.putExtra("copyType", GlobalConsts.COPY_TYPE_SINGLE);
-					intent.putExtra("operationType",
-							GlobalConsts.COPY_OPERATION_COPY);
+					intent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);
 					startActivity(intent);
 				} else {
 					Toast.makeText(getApplicationContext(), "通讯编号必须大于10位!",

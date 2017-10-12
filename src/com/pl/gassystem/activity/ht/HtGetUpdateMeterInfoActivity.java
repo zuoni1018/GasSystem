@@ -47,7 +47,7 @@ public class HtGetUpdateMeterInfoActivity extends HtBaseTitleActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("需要修改参数的表计");
+        setTitle("需要修改参数的表计(扩频表)");
         ButterKnife.bind(this);
 
         AreaNo = getIntent().getStringExtra("AreaNo");

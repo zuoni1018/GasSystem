@@ -42,7 +42,7 @@ public class HtGroupActivity extends HtBaseTitleActivity {
         mHtGroupInfoBean = (HtGroupInfoBean) getIntent().getSerializableExtra("HtGroupInfoBean");
     }
 
-    @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5})
+    @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -73,6 +73,13 @@ public class HtGroupActivity extends HtBaseTitleActivity {
                 mIntent = new Intent(getContext(), HtGetGroupBindActivity.class);
                 mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_COPY_NORMAL);
                 mIntent.putExtra("HtGroupInfoBean", mHtGroupInfoBean);
+                startActivity(mIntent);
+                break;
+            case R.id.bt6:
+                Intent mIntent = new Intent(getContext(), HtGetGroupBindActivity.class);
+                mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_QUERY_PARAMETER);
+                mIntent.putExtra("HtGroupInfoBean", mHtGroupInfoBean);
+
                 startActivity(mIntent);
                 break;
         }
