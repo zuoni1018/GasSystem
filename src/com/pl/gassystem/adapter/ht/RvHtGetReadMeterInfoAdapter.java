@@ -112,6 +112,8 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
             }
         });
 
+        holder.MeterType.setText(mList.get(position).getMeterType());
+
 
     }
 
@@ -128,7 +130,7 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
         TextView AdrCode, CommunicateNo, MeterFacNo, HUNAME, ADDR,
                 MQBBH, OTEL, HTEL, HUCODE, XBDS,
                 YICODE, KPXD, KPYZ, DJR, KCQZSJ,
-                KEYVER, KEYCODE, AreaNo;
+                KEYVER, KEYCODE, AreaNo,MeterType;
 
         ImageView ivCheck;
 
@@ -163,7 +165,7 @@ public class RvHtGetReadMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetRea
             KEYCODE = (TextView) itemView.findViewById(R.id.KEYCODE);
             AreaNo = (TextView) itemView.findViewById(R.id.AreaNo);
 
-
+            MeterType= (TextView) itemView.findViewById(R.id.MeterType);
         }
     }
 }

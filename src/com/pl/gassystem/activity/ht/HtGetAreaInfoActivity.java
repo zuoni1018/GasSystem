@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
-import static com.pl.gassystem.utils.Xml2Json.xml2JSON;
+import static com.pl.gassystem.utils.Xml2Json.xml2JSON2List;
 
 /**
  * Created by zangyi_shuai_ge on 2017/10/9
@@ -47,9 +47,9 @@ public class HtGetAreaInfoActivity extends HtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         setTitle("小区列表");
         ButterKnife.bind(this);
-        mList=new ArrayList<>();
+        mList = new ArrayList<>();
 
-        mAdapter=new LRecyclerViewAdapter(new RvHtGetAreaInfoAdapter(getContext(),mList));
+        mAdapter = new LRecyclerViewAdapter(new RvHtGetAreaInfoAdapter(getContext(), mList));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
 
@@ -58,7 +58,7 @@ public class HtGetAreaInfoActivity extends HtBaseTitleActivity {
             public void onRefresh() {
                 OkHttpUtils.post()
                         .url(HtAppUrl.GET_AREA_INFO)
-                        .addParams("AreaNo","")
+                        .addParams("AreaNo", "")
                         .build()
                         .execute(new StringCallback() {
                             @Override
@@ -71,12 +71,12 @@ public class HtGetAreaInfoActivity extends HtBaseTitleActivity {
                             @Override
                             public void onResponse(String response, int id) {
                                 LogUtil.i("小区列表1\n" + response);
-                                LogUtil.i("小区列表2" + xml2JSON(response));
+                                LogUtil.i("小区列表2" + xml2JSON2List("ArrayOfModAreainfo", "ModAreainfo", response));
 
                                 Gson gson = new Gson();
-                                HtGetAreaInfo info = gson.fromJson(xml2JSON(response), HtGetAreaInfo.class);
+                                HtGetAreaInfo info = gson.fromJson(xml2JSON2List("ArrayOfModAreainfo", "ModAreainfo", response), HtGetAreaInfo.class);
 
-                                if(info.getArrayOfModAreainfo().getModAreainfo()!=null){
+                                if (info.getArrayOfModAreainfo().getModAreainfo() != null) {
                                     mList.clear();
                                     mList.addAll(info.getArrayOfModAreainfo().getModAreainfo());
                                     mAdapter.notifyDataSetChanged();

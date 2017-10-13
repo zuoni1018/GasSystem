@@ -18,7 +18,7 @@ import java.lang.Override;
 public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
   private HtSetBookParameterActivity target;
 
-  private View view2131690026;
+  private View view2131690049;
 
   private View view2131689997;
 
@@ -35,7 +35,7 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.tvChoose, "field 'tvChoose' and method 'onViewClicked'");
     target.tvChoose = Utils.castView(view, R.id.tvChoose, "field 'tvChoose'", TextView.class);
-    view2131690026 = view;
+    view2131690049 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,8 +75,8 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
     target.btSure = null;
     target.tvNum = null;
 
-    view2131690026.setOnClickListener(null);
-    view2131690026 = null;
+    view2131690049.setOnClickListener(null);
+    view2131690049 = null;
     view2131689997.setOnClickListener(null);
     view2131689997 = null;
   }

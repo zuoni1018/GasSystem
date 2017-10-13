@@ -1,11 +1,13 @@
 package com.pl.gassystem.bean.ht;
 
+import java.io.Serializable;
+
 /**
  * Created by zangyi_shuai_ge on 2017/9/14
  * 杭天接收命令
  */
 
-public class HtGetMessage {
+public class HtGetMessage implements Serializable {
     //命令类型
     public static final String COMMAND_TYPE_DOOR_STATE = "82";//查看阀门状态
     public static final String COMMAND_TYPE_OPEN_DOOR = "84";//打开阀门

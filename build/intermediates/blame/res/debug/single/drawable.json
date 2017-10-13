@@ -48,24 +48,24 @@
         "source": "D:\\workSpace\\GasSystem\\res\\drawable\\progress_diy.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\dialog_bg.xml",
-        "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\dialog_bg.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_right_1.xml",
         "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg_right_1.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\dialog_bg.xml",
+        "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\drawable\\dialog_bg.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\23dcc57616c5e02e6d985eeedd4bf8acff164713\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_btn_radio_material.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\drawable\\test_shape.xml",

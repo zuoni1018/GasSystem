@@ -85,8 +85,6 @@ public class RvHtGetUpdateMeterInfoAdapter extends RecyclerView.Adapter<RvHtGetU
                     public void onClick(DialogInterface dialog, int which) {
 
 
-
-
                         Intent mIntent = new Intent(mContext, HtCopyingActivity.class);
                         mIntent.putExtra("commandType", HtSendMessage.COMMAND_TYPE_SET_PARAMETER);//ÃüÁîÀàÐÍ
                         ArrayList<String> bookNos = new ArrayList<>();

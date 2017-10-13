@@ -19,7 +19,7 @@ import java.lang.Override;
 public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
   private HtGetReadMeterInfoActivity target;
 
-  private View view2131690026;
+  private View view2131690049;
 
   private View view2131689982;
 
@@ -38,7 +38,7 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     target.etSearch = Utils.findRequiredViewAsType(source, R.id.etSearch, "field 'etSearch'", EditText.class);
     view = Utils.findRequiredView(source, R.id.tvChoose, "field 'tvChoose' and method 'onViewClicked'");
     target.tvChoose = Utils.castView(view, R.id.tvChoose, "field 'tvChoose'", TextView.class);
-    view2131690026 = view;
+    view2131690049 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,8 +70,8 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     target.layoutSearchBar = null;
     target.bt2 = null;
 
-    view2131690026.setOnClickListener(null);
-    view2131690026 = null;
+    view2131690049.setOnClickListener(null);
+    view2131690049 = null;
     view2131689982.setOnClickListener(null);
     view2131689982 = null;
   }

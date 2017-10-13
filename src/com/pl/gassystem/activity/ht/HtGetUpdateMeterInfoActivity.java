@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
-import static com.pl.gassystem.utils.Xml2Json.xml2JSON;
+import static com.pl.gassystem.utils.Xml2Json.xml2JSON2List;
 
 /**
  * Created by zangyi_shuai_ge on 2017/10/9
@@ -77,10 +77,10 @@ public class HtGetUpdateMeterInfoActivity extends HtBaseTitleActivity {
                             @Override
                             public void onResponse(String response, int id) {
                                 LogUtil.i("需要修改参数的表计1\n" + response);
-                                LogUtil.i("需要修改参数的表计2" + xml2JSON(response));
+                                LogUtil.i("需要修改参数的表计2" +xml2JSON2List("ArrayOfModApp_updatemeterinfo","ModApp_updatemeterinfo",response));
 
                                 Gson gson = new Gson();
-                                HtGetUpdateMeterInfo info = gson.fromJson(xml2JSON(response), HtGetUpdateMeterInfo.class);
+                                HtGetUpdateMeterInfo info = gson.fromJson(xml2JSON2List("ArrayOfModApp_updatemeterinfo","ModApp_updatemeterinfo",response), HtGetUpdateMeterInfo.class);
                                 mList.clear();
                                 if(info.getArrayOfModApp_updatemeterinfo().getModApp_updatemeterinfo()!=null){
                                     mList.addAll(info.getArrayOfModApp_updatemeterinfo().getModApp_updatemeterinfo());

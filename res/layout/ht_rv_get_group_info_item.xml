@@ -116,20 +116,20 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="备注:" />
+                    android:text="冻结日:" />
 
                 <TextView
-                    android:id="@+id/tvRemark"
+                    android:id="@+id/tvDJR"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
+
             </LinearLayout>
 
             <View
@@ -190,22 +190,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="冻结日:" />
-
-                <TextView
-                    android:id="@+id/tvDJR"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="开窗起止时间:" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="开窗起止时间:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvKCQZSJ"
@@ -224,8 +214,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="密钥版本:" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="密钥版本:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvKEYVER"
@@ -237,9 +231,20 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="密钥:" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="密钥:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvKEY"
@@ -250,6 +255,30 @@
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="备注:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/item_text"
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout

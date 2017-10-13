@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
-import static com.pl.gassystem.utils.Xml2Json.xml2JSON;
+import static com.pl.gassystem.utils.Xml2Json.xml2JSON2List;
 
 /**
  * Created by zangyi_shuai_ge on 2017/10/9
@@ -79,10 +79,10 @@ public class HtGetGroupInfoActivity extends HtBaseTitleActivity {
                             @Override
                             public void onResponse(String response, int id) {
                                 LogUtil.i("分组列表1\n" + response);
-                                LogUtil.i("分组列表2" + xml2JSON(response));
+                                LogUtil.i("分组列表2" + xml2JSON2List("ArrayOfModApp_groupinfo","ModApp_groupinfo",response));
 
                                 Gson gson = new Gson();
-                                HtGetGroupInfo info = gson.fromJson(xml2JSON(response), HtGetGroupInfo.class);
+                                HtGetGroupInfo info = gson.fromJson(xml2JSON2List("ArrayOfModApp_groupinfo","ModApp_groupinfo",response), HtGetGroupInfo.class);
                                 mList.clear();
                                 if(info.getArrayOfModApp_groupinfo().getModApp_groupinfo()!=null){
                                     mList.addAll(info.getArrayOfModApp_groupinfo().getModApp_groupinfo());

@@ -34,6 +34,7 @@
                 android:id="@+id/tvBookNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -52,6 +53,7 @@
                 android:id="@+id/tvBookName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -78,6 +80,7 @@
                 android:id="@+id/tvAreaNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -97,6 +100,7 @@
                 android:id="@+id/tvMeterTypeNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -108,7 +112,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -118,19 +121,28 @@
                 android:gravity="center_vertical"
                 android:text="抄表工编号:"
                 android:textColor="#000000"
-                android:textSize="14sp"
-                android:visibility="gone" />
+                android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tvReadState"
+                android:id="@+id/StaffNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textColor="@color/item_text"
-                android:textSize="12sp"
-                android:visibility="gone" />
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,6 +157,7 @@
                 android:id="@+id/tvRemark"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"

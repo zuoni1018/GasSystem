@@ -60,6 +60,7 @@ public class RvHtGetBookInfoAdapter extends RecyclerView.Adapter<RvHtGetBookInfo
         holder.tvAreaNo.setText(mList.get(position).getAreaNo());
         holder.tvMeterTypeNo.setText(mList.get(position).getMeterType());
         holder.tvRemark.setText(mList.get(position).getRemark());
+        holder.StaffNo.setText(mList.get(position).getStaffNo());
     }
 
     @Override
@@ -70,7 +71,7 @@ public class RvHtGetBookInfoAdapter extends RecyclerView.Adapter<RvHtGetBookInfo
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         LinearLayout layoutMain;
-        TextView tvBookNo,tvBookName,tvAreaNo,tvMeterTypeNo,tvRemark;
+        TextView tvBookNo,tvBookName,tvAreaNo,tvMeterTypeNo,tvRemark,StaffNo;
 
         MyViewHolder(View itemView) {
             super(itemView);
@@ -80,6 +81,7 @@ public class RvHtGetBookInfoAdapter extends RecyclerView.Adapter<RvHtGetBookInfo
             tvMeterTypeNo= (TextView) itemView.findViewById(R.id.tvMeterTypeNo);
             tvRemark= (TextView) itemView.findViewById(R.id.tvRemark);
             layoutMain= (LinearLayout) itemView.findViewById(R.id.layoutMain);
+            StaffNo= (TextView) itemView.findViewById(R.id.StaffNo);
         }
     }
 }

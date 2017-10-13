@@ -141,7 +141,7 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
     }
 
     private void GetReadMeterInfo() {
-        String mMeterFacNo = "";
+        String mMeterFacNo;
         if (MeterFacNo.equals("3")) {
             mMeterFacNo = "";
         } else {
@@ -193,13 +193,14 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
     @OnClick({R.id.bt2})
     public void onViewClicked(View view) {
         ArrayList<String> bookNos = new ArrayList<>();
-
+        ArrayList<String> meterTypeNos = new ArrayList<>();
 
         switch (view.getId()) {
             case R.id.bt2:
                 for (int i = 0; i < mList.size(); i++) {
                     if (mList.get(i).isCheck()) {
                         bookNos.add(mList.get(i).getCommunicateNo());
+                        meterTypeNos.add(mList.get(i).getMeterType());
                     }
                 }
                 break;
@@ -241,6 +242,7 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
                 //ÉãÏñ±í³­±í
                 Intent intent = new Intent(getContext(), CopyPhotoActivity.class);
                 intent.putExtra("meterNos", bookNos);
+                intent.putExtra("meterTypeNos", meterTypeNos);
                 intent.putExtra("meterTypeNo", "0");
                 intent.putExtra("baseType", "1");
                 intent.putExtra("YHTM", "");

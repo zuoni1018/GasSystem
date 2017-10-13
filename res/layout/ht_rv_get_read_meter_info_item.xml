@@ -45,26 +45,38 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="通讯编号" />
-
-                <TextView
-                    android:id="@+id/CommunicateNo"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/ivCheck"
-                    android:layout_width="0dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="0.2"
-                    android:src="@mipmap/choose_02" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="通讯编号:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/CommunicateNo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/ivCheck"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.2"
+                        android:src="@mipmap/choose_02" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -101,7 +113,6 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,9 +133,46 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="电话:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/OTEL"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="用户地址:" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="用户地址:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/ADDR"
@@ -134,7 +182,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
 
@@ -144,33 +192,24 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="煤气表编号:" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="小区编号(地址):"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/MQBBH"
+                    android:id="@+id/AreaNo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="电话:" />
-
-                <TextView
-                    android:id="@+id/OTEL"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="10sp" />
             </LinearLayout>
 
             <View
@@ -230,33 +269,56 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="上次抄表读数:" />
-
-                <TextView
-                    android:id="@+id/XBDS"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="受理编号:" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="上次抄表读数:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/YICODE"
+                    <TextView
+                        android:id="@+id/XBDS"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="受理编号:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/YICODE"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -278,19 +340,31 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="扩频因子:" />
-
-                <TextView
-                    android:id="@+id/KPYZ"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="扩频因子:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/KPYZ"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -312,19 +386,31 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="开窗起止时间:" />
-
-                <TextView
-                    android:id="@+id/KCQZSJ"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="开窗起止时间:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/KCQZSJ"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -346,19 +432,32 @@
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="密钥:" />
-
-                <TextView
-                    android:id="@+id/KEYCODE"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="密钥:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/KEYCODE"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -368,10 +467,10 @@
 
                 <TextView
                     style="@style/rv_item_style_01"
-                    android:text="小区编号:" />
+                    android:text="煤气表编号:" />
 
                 <TextView
-                    android:id="@+id/AreaNo"
+                    android:id="@+id/MQBBH"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -381,9 +480,9 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:visibility="invisible"
                     style="@style/rv_item_style_01"
-                    android:text="冻结日期:" />
+                    android:text="冻结日期:"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/tvDJRQ"
@@ -397,10 +496,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
 
                 <TextView

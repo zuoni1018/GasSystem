@@ -29,6 +29,7 @@
                 android:id="@+id/tvAreaNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -43,6 +44,7 @@
                 android:id="@+id/tvAreaName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -64,6 +66,7 @@
                 android:id="@+id/tvPayType"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -78,6 +81,7 @@
                 android:id="@+id/tvStartReadDate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -100,6 +104,7 @@
                 android:id="@+id/tvEndReadDate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -114,11 +119,12 @@
                 android:id="@+id/tvRemark"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textColor="@color/item_text"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 

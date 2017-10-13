@@ -22,6 +22,7 @@ import com.pl.entity.CopyData;
 import com.pl.gassystem.DeviceListActivity;
 import com.pl.gassystem.HtAppUrl;
 import com.pl.gassystem.R;
+import com.pl.gassystem.bean.ht.HtCopyResult;
 import com.pl.gassystem.bean.ht.HtGetMessage;
 import com.pl.gassystem.bean.ht.HtGetMessageChangeBookNoOrCumulant;
 import com.pl.gassystem.bean.ht.HtGetMessageQueryParameter;
@@ -154,6 +155,11 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
 
     private String MeterFacNo;
 
+
+
+
+    private  ArrayList<HtCopyResult> htCopyResultList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,10 +183,11 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         HtCommand.HT_PASSWORD = nowKey + "0000000000000000";
 
 
+        //抄取冻结量 实时抄表结果
+        htCopyResultList=new ArrayList<>();
+
         //需要修改的表号
         bookNos = new ArrayList<>();
-
-
         MeterFacNo = getIntent().getStringExtra("MeterFacNo");
 
 
@@ -301,6 +308,9 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
     @Override
     protected void onDestroy() {
         mChatService.stop();
+        if(timer!=null){
+            timer.cancel();
+        }
         super.onDestroy();
     }
 
@@ -384,12 +394,11 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     } else {
                         if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)
                                 | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
-//                            Intent intent = new Intent(getContext(), CopyResultActivity.class);
-//                            intent.putExtra(GlobalConsts.EXTRA_COPYRESULT_TYPE, GlobalConsts.RE_TYPE_SHOWALL);
-//                            intent.putExtra("meterNos", bookNos);
-//                            intent.putExtra("meterTypeNo", "05");
-//                            startActivity(intent);
-//                            finish();
+
+                            Intent mIntent=new Intent(getContext(),HtResultCopyActivity.class);
+                            mIntent.putExtra("htCopyResultList",  htCopyResultList);
+                            startActivity(mIntent);
+                            finish();
                         }
                         tvTime.setText("抄表结束");
                     }
@@ -650,34 +659,7 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
         }
     };
 
-    private void upLoadCopy(String readMessage, String ReadType) {
 
-        LogUtil.i("上传抄表数据", readMessage);
-
-        OkHttpUtils.post()
-                .url(HtAppUrl.GET_COPY_DATA_LORA)
-                .addParams("data", readMessage)
-                .addParams("MeterType", "8")
-                .addParams("UserName", "admin")
-                .addParams("ReadType", ReadType)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        showToast(e.toString());
-                        LogUtil.i("上传抄表数据" + e.toString());
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        LogUtil.i("上传抄表数据1\n" + response);
-                        LogUtil.i("上传抄表数据2" + xml2JSON(response));
-
-//                        Gson gson = new Gson();
-//                        HtGetBookInfo htGetBookInfo = gson.fromJson(xml2JSON(response), HtGetBookInfo.class);
-                    }
-                });
-    }
 
     private void readMessage(String readMessage) {
 
@@ -688,6 +670,19 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
             num++;
             tvLoadingCount.setText(num + "");
             tvMessage.setText(tvMessage.getText().toString().trim() + "\n" + htGetMessageQueryParameter.getResult());
+
+            LogUtil.i("嘿嘿嘿嘿"+htGetMessageQueryParameter.getCommandType()+htGetMessageQueryParameter.getBookNo());
+
+            //把抄表结果传到下个界面去
+            Intent mIntent = new Intent(getContext(), HtResultQueryParameterActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("HtGetMessageQueryParameter", htGetMessageQueryParameter);
+            mIntent.putExtras(bundle);
+            mIntent.putExtra("CommandType",htGetMessageQueryParameter.getCommandType());
+            mIntent.putExtra("BookNo",htGetMessageQueryParameter.getBookNo());
+            startActivity(mIntent);
+            finish();
+
         } else if (
                 commandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)
                         | commandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)
@@ -727,13 +722,25 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                     //提交抄表结果
                     upLoadCopy(htGetMessage);
 
+                   //把抄表结果保存到列表中去
+                    HtCopyResult htCopyResult=new HtCopyResult();
+                    htCopyResult.setCommunicateNo(htGetMessage.getBookNo());
+                    htCopyResult.setThisRead(htGetMessage.getCopyValue());
+                    htCopyResult.setDJR(htGetMessage.getFrozenTime());
+                    htCopyResult.setDevPower( htGetMessage.getVoltage());
+                    htCopyResult.setJSQD(htGetMessage.getSignal());
+                    htCopyResult.setState(htGetMessage.getValveState());
+                    htCopyResult.setMeterFacNo( MeterFacNo);
+                    htCopyResult.setReadType(HtSendMessage.getCommandString(commandType));
 
-                    if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
-                        CopyData copyData = getCopyDate(htGetMessage);
-                        copyBiz.addCopyData(copyData);
-                        // 修改抄表状态
-                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, "05");
-                    }
+                    htCopyResultList.add(htCopyResult);
+
+//                    if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
+//                        CopyData copyData = getCopyDate(htGetMessage);
+//                        copyBiz.addCopyData(copyData);
+//                        // 修改抄表状态
+//                        copyBiz.ChangeCopyState(copyData.getMeterNo(), 1, "05");
+//                    }
                 }
             }
         }
@@ -787,8 +794,8 @@ public class HtCopyingActivity extends HtBaseTitleActivity {
                 .url(HtAppUrl.GET_COPY_DATA_LORA)
                 .addParams("CommunicateNo", htGetMessage.getBookNo())
                 .addParams("ThisRead", htGetMessage.getCopyValue())
-                .addParams("DevPower", htGetMessage.getVoltage().replace("V",""))
-                .addParams("JSQD", htGetMessage.getSignal().replace("%",""))
+                .addParams("DevPower", htGetMessage.getVoltage().replace("V", ""))
+                .addParams("JSQD", htGetMessage.getSignal().replace("%", ""))
                 .addParams("DJR", htGetMessage.getFrozenTime())
                 .addParams("State", htGetMessage.getValveState2())
                 .addParams("MeterFacNo", MeterFacNo)

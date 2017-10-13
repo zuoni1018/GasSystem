@@ -84,7 +84,7 @@ public class RvHtGetGroupBindAdapter extends RecyclerView.Adapter<RvHtGetGroupBi
         holder.ADDR.setText(mList.get(position).getADDR());
         holder.CommunicateNo.setText(mList.get(position).getCommunicateNo());
         holder.KEYVER.setText(mList.get(position).getKEYVER());
-
+        holder.MeterType.setText(mList.get(position).getMeterType());
     }
 
     @Override
@@ -95,7 +95,7 @@ public class RvHtGetGroupBindAdapter extends RecyclerView.Adapter<RvHtGetGroupBi
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         LinearLayout layoutMain;
-        TextView KPXD, KCQZSJ, DJR,KEYCODE,MeterFacNo,KPYZ,ADDR,CommunicateNo,KEYVER;
+        TextView KPXD, KCQZSJ, DJR,KEYCODE,MeterFacNo,KPYZ,ADDR,CommunicateNo,KEYVER,MeterType;
         ImageView ivChoose;
 
 
@@ -112,7 +112,7 @@ public class RvHtGetGroupBindAdapter extends RecyclerView.Adapter<RvHtGetGroupBi
             ADDR = (TextView) itemView.findViewById(R.id.ADDR);
             CommunicateNo = (TextView) itemView.findViewById(R.id.CommunicateNo);
             KEYVER = (TextView) itemView.findViewById(R.id.KEYVER);
-
+            MeterType= (TextView) itemView.findViewById(R.id.MeterType);
 
             layoutMain = (LinearLayout) itemView.findViewById(R.id.layoutMain);
             ivChoose = (ImageView) itemView.findViewById(R.id.ivChoose);

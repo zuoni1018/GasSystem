@@ -1,11 +1,13 @@
 package com.pl.gassystem.bean.ht;
 
+import java.io.Serializable;
+
 /**
  * Created by zangyi_shuai_ge on 2017/9/14
  * 杭天接收命令
  */
 
-public class HtGetMessageQueryParameter extends HtGetMessage {
+public class HtGetMessageQueryParameter extends HtGetMessage implements Serializable{
 
     //查询参数返回回来的信息
 

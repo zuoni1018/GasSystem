@@ -253,6 +253,8 @@
         <activity android:name=".activity.ht.HtGetAreaInfoActivity"/>
         <activity android:name=".activity.ht.HtAreaActivity"/>
         <activity android:name=".activity.ht.HtLoginActivity"/>
+        <activity android:name=".activity.ht.HtResultQueryParameterActivity"/>
+        <activity android:name=".activity.ht.HtResultCopyActivity"/>
 
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />

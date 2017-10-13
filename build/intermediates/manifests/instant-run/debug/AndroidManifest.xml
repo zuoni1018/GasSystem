@@ -254,6 +254,8 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtGetAreaInfoActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtAreaActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtLoginActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtResultQueryParameterActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtResultCopyActivity" />
 
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />

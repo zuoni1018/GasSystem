@@ -147,6 +147,7 @@ public class CopyPhotoActivity extends Activity {
 
     private int nowNum = 0;
     private List<String> meterNos;
+    private List<String> meterTypeNos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,6 +184,7 @@ public class CopyPhotoActivity extends Activity {
 
         // 初始化抄表数据
         meterNo = getIntent().getStringExtra("meterNo"); // 表号
+        meterTypeNo = getIntent().getStringExtra("meterTypeNo");// 7,8位表
         tvLoadingPhotoComNum.setText(meterNo);
 
         //拿到很多表号码
@@ -192,9 +194,11 @@ public class CopyPhotoActivity extends Activity {
             meterNo = meterNos.get(0);
             tvLoadingPhotoComNum.setText(meterNo);
         }
+        meterTypeNos=getIntent().getStringArrayListExtra("meterTypeNos");
+        if (meterTypeNos != null) {
+            meterTypeNo = meterTypeNos.get(0);
+        }
 
-
-        meterTypeNo = getIntent().getStringExtra("meterTypeNo");// 7,8位表
         baseType = getIntent().getStringExtra("baseType");
         YHTM = getIntent().getStringExtra("YHTM");
         XBDS = getIntent().getStringExtra("XBDS");
@@ -706,13 +710,17 @@ public class CopyPhotoActivity extends Activity {
     private String lastMeterNo;
 
     private void getCopyDataPhoto(String postData, String meterTypeNo) {
-        doNext();
+
 
 
         GetCopyDataPhoto(postData, meterTypeNo);//传给杭天
+        doNext();//抄下一个
+
+
 
         LogUtil.i("postData", postData);
         String url = serverUrl + "WebMain.asmx/GetCopyDataPhoto";
+        LogUtil.i("zzz地址"+url);
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("data", postData);
@@ -766,6 +774,7 @@ public class CopyPhotoActivity extends Activity {
         nowNum++;
         if (meterNos != null && meterNos.size() > nowNum) {
             meterNo = meterNos.get(nowNum);
+            meterTypeNo=meterTypeNos.get(nowNum);
             btnCopyPhotoSetPoint.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -777,7 +786,7 @@ public class CopyPhotoActivity extends Activity {
     }
 
     private void GetCopyDataPhoto(String postData, String meterTypeNo) {
-//        LogUtil.i("啊嗷嗷啊" + postData + "meterTypeNo" + meterTypeNo);
+        LogUtil.i("杭天GetCopyDataPhoto" + postData + "meterTypeNo" + meterTypeNo);
         OkHttpUtils.post()
                 .url(HtAppUrl.GET_COPY_DATA_PHOTO)
                 .addParams("data", postData)

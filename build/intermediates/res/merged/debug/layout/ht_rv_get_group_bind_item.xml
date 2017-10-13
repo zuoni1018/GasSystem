@@ -50,7 +50,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -62,12 +61,27 @@
                 android:id="@+id/MeterFacNo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textColor="@color/item_text"
                 android:textSize="12sp" />
 
+            <TextView
+                style="@style/rv_item_style_01"
+                android:text="机表字轮位数:" />
+
+            <TextView
+                android:id="@+id/MeterType"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/item_text"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -123,31 +137,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
-                style="@style/rv_item_style_01"
-                android:text="地址:" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="地址:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
+
                 android:id="@+id/ADDR"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
+                android:layout_gravity="left|center"
                 android:layout_weight="5"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textColor="@color/item_text"
                 android:textSize="12sp" />
 
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -158,6 +174,7 @@
                 android:id="@+id/KPYZ"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -172,6 +189,7 @@
                 android:id="@+id/KPXD"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -182,7 +200,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -193,6 +210,7 @@
                 android:id="@+id/DJR"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
@@ -217,39 +235,53 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
-                style="@style/rv_item_style_01"
-                android:text="密钥版本号:" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="密钥版本号:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/KEYVER"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textColor="@color/item_text"
                 android:textSize="12sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
             <TextView
-                style="@style/rv_item_style_01"
-                android:text="密钥:" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="密钥:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/KEYCODE"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textColor="@color/item_text"
                 android:textSize="12sp" />
         </LinearLayout>
-
-
     </LinearLayout>
-
 </LinearLayout>

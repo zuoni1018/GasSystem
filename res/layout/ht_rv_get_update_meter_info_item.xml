@@ -41,6 +41,7 @@
                     android:id="@+id/tvMeterNo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -62,7 +63,6 @@
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:visibility="gone"
                     android:id="@+id/ivCheck"
                     android:layout_width="0dp"
                     android:layout_height="20dp"
@@ -97,6 +97,7 @@
                     android:id="@+id/tvKPYZ1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -119,27 +120,39 @@
                     android:id="@+id/tvDJR1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="原开窗起止时间:" />
-
-                <TextView
-                    android:id="@+id/tvKCQZSJ1"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="10sp" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="原开窗起止时间:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvKCQZSJ1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,26 +167,40 @@
                     android:id="@+id/tvKEYVER1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="原密钥:" />
-
-                <TextView
-                    android:id="@+id/tvKEY1"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="10sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="原密钥:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvKEY1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <View
@@ -207,6 +234,7 @@
                     android:id="@+id/tvKPXD2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -221,6 +249,7 @@
                     android:id="@+id/tvKPYZ2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -241,25 +270,39 @@
                     android:id="@+id/tvDJR2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="新开窗起止时间:" />
-
-                <TextView
-                    android:id="@+id/tvKCQZSJ2"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="新开窗起止时间:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvKCQZSJ2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -275,25 +318,39 @@
                     android:id="@+id/tvKEYVER2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/item_text"
                     android:textSize="12sp" />
 
-                <TextView
-                    style="@style/rv_item_style_01"
-                    android:text="新密钥:" />
-
-                <TextView
-                    android:id="@+id/tvKEY2"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textColor="@color/item_text"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="新密钥:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvKEY2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/item_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <View

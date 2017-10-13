@@ -40,6 +40,15 @@ public class HtCustomerInfoBean {
     private String ADDR;
     private String CommunicateNo;
     private String KEYVER;
+    private String MeterType;
+
+    public String getMeterType() {
+        return MeterType;
+    }
+
+    public void setMeterType(String meterType) {
+        MeterType = meterType;
+    }
 
     public String getKPXD() {
         return KPXD;
@@ -74,7 +83,18 @@ public class HtCustomerInfoBean {
     }
 
     public String getMeterFacNo() {
-        return MeterFacNo;
+
+            switch (MeterFacNo) {
+                case "0":
+                    return "摄像表";
+                case "1":
+                    return "纯无线";
+                case "2":
+                    return "扩频表";
+                default:
+                    return "未知";
+            }
+//        return MeterFacNo;
     }
 
     public void setMeterFacNo(String MeterFacNo) {

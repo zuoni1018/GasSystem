@@ -104,13 +104,12 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
 
     private void GetGroupBind() {
 
-        String mMeterFacNo = "";
+        String mMeterFacNo ;
         if (MeterFacNo.equals("3")) {
             mMeterFacNo = "";
         } else {
             mMeterFacNo = MeterFacNo;
         }
-
 
         OkHttpUtils.post()
                 .url(HtAppUrl.GET_GROUP_BIND)
@@ -154,9 +153,11 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
     public void onViewClicked() {
         final Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
         ArrayList<String> bookNos = new ArrayList<>();
+        ArrayList<String> meterTypeNos = new ArrayList<>();
         for (int i = 0; i < mList.size(); i++) {
             if (mList.get(i).isChoose()) {
                 bookNos.add(mList.get(i).getCommunicateNo());//获取表号码
+                meterTypeNos.add(mList.get(i).getMeterType());
             }
         }
 
@@ -179,7 +180,8 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
                 //摄像表抄表
                 Intent intent = new Intent(getContext(), CopyPhotoActivity.class);
                 intent.putExtra("meterNos", bookNos);
-                intent.putExtra("meterTypeNo", "0");
+                intent.putExtra("meterTypeNos", meterTypeNos);
+                intent.putExtra("meterTypeNo", "");
                 intent.putExtra("baseType", "1");
                 intent.putExtra("YHTM", "");
                 intent.putExtra("XBDS", "");

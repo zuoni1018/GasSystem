@@ -84,8 +84,5 @@ public class HtGetBookInfoActivity extends HtBaseTitleActivity {
             }
         });
         mRecyclerView.refresh();
-
     }
-
-
 }

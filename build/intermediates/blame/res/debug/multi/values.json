@@ -10545,7 +10545,7 @@
                     "startOffset": 168493,
                     "endLine": 2451,
                     "endColumn": 12,
-                    "endOffset": 169273
+                    "endOffset": 169267
                 },
                 "from": {
                     "file": "D:\\workSpace\\GasSystem\\res\\values\\styles.xml",
@@ -10555,7 +10555,7 @@
                         "startOffset": 5291,
                         "endLine": 140,
                         "endColumn": 12,
-                        "endOffset": 6085
+                        "endOffset": 6079
                     }
                 }
             },
@@ -10563,10 +10563,10 @@
                 "to": {
                     "startLine": 2452,
                     "startColumn": 4,
-                    "startOffset": 169278,
+                    "startOffset": 169272,
                     "endLine": 2455,
                     "endColumn": 12,
-                    "endOffset": 169419
+                    "endOffset": 169413
                 },
                 "from": {
                     "file": "D:\\workSpace\\GasSystem\\res\\values\\styles.xml"
