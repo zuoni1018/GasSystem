@@ -23,6 +23,7 @@ import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
 import com.pl.gassystem.CopyPhotoActivity;
+import com.pl.gassystem.CopyingActivity;
 import com.pl.gassystem.HtAppUrl;
 import com.pl.gassystem.R;
 import com.pl.gassystem.adapter.ht.RvHtGetReadMeterInfoAdapter;
@@ -58,15 +59,14 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
     LinearLayout layoutSearchBar;
     @BindView(R.id.bt2)
     Button bt2;
-
+    @BindView(R.id.bt1)
+    Button bt1;
     private LRecyclerViewAdapter mAdapter;
     private List<HtGetReadMeterInfo.ArrayOfModCustomerinfoBean.ModCustomerinfoBean> mList;
     private List<HtGetReadMeterInfo.ArrayOfModCustomerinfoBean.ModCustomerinfoBean> showList;
 
     private String AreaNo = "";
     private String ReadState = "";
-
-
     private String MeterFacNo = "3";//全部
 
     @Override
@@ -79,7 +79,6 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
         super.onCreate(savedInstanceState);
         setTitle("查看需要补抄的表");
         ButterKnife.bind(this);
-
 
         AreaNo = getIntent().getStringExtra("AreaNo");
         ReadState = getIntent().getStringExtra("ReadState");
@@ -94,7 +93,6 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
                 setTitle("查看需要补抄的表(全部)");
                 break;
         }
-
 
         LogUtil.i("拿到AreaNo", AreaNo);
         mList = new ArrayList<>();
@@ -136,8 +134,6 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
 
             }
         });
-
-
     }
 
     private void GetReadMeterInfo() {
@@ -181,16 +177,17 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
 
                         if (MeterFacNo.equals("3")) {
                             bt2.setVisibility(View.GONE);
+                            bt1.setVisibility(View.GONE);
                         } else {
                             bt2.setVisibility(View.VISIBLE);
+                            bt1.setVisibility(View.VISIBLE);
                         }
-
                     }
                 });
     }
 
 
-    @OnClick({R.id.bt2})
+    @OnClick({R.id.bt2, R.id.bt1})
     public void onViewClicked(View view) {
         ArrayList<String> bookNos = new ArrayList<>();
         ArrayList<String> meterTypeNos = new ArrayList<>();
@@ -204,16 +201,18 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
                     }
                 }
                 break;
-//            case R.id.bt2:
-//                for (int i = 0; i < mList.size(); i++) {
-//                    bookNos.add(mList.get(i).getCommunicateNo());
-//                }
-//                break;
+            case R.id.bt1:
+                for (int i = 0; i < mList.size(); i++) {
+                    bookNos.add(mList.get(i).getCommunicateNo());
+                    meterTypeNos.add(mList.get(i).getMeterType());
+                }
+                break;
         }
 
         if (bookNos.size() > 0) {
+            //1是无线表  2是扩频表
 
-            if (MeterFacNo.equals("1") | MeterFacNo.equals("2")) {
+            if (MeterFacNo.equals("2")) {
                 final Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
                 mIntent.putExtra("bookNos", bookNos);
                 mIntent.putExtra("bookNo", bookNos.get(0));
@@ -238,6 +237,13 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
                     }
                 });
                 builder.show();
+            } else if (MeterFacNo.equals("1")) {
+                Intent mIntent = new Intent(getContext(), CopyingActivity.class);
+                mIntent.putExtra("meterNos", bookNos);
+                mIntent.putExtra("meterTypeNo", "05");
+                mIntent.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);
+                mIntent.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);
+                startActivity(mIntent);
             } else {
                 //摄像表抄表
                 Intent intent = new Intent(getContext(), CopyPhotoActivity.class);

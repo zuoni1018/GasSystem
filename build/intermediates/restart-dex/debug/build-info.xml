@@ -6,22 +6,22 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1507876106155"
+    timestamp="1508725725930"
     token="-245370326688890983"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2313" />
+        duration="2487" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="9" />
+        duration="59" />
     <task
         name="verifier"
-        duration="4" />
+        duration="50" />
 
     <artifact
         location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -32,16 +32,19 @@
 
     <build
         build-mode="FULL"
-        timestamp="1507864256652"
+        timestamp="1508719903330"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\workSpace\GasSystem\build\outputs\apk\GasSystem-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_4.apk"
@@ -50,22 +53,19 @@
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\workSpace\GasSystem\build\outputs\apk\GasSystem-debug.apk"
-            type="SPLIT_MAIN" />
-        <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -73,13 +73,13 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507871662834"
+        timestamp="1508721094462"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -87,34 +87,27 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507872725585"
+        timestamp="1508723412845"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1507874585101"
-        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1507875820843"
-        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
-        <artifact
-            location="D:\workSpace\GasSystem\build\outputs\apk\GasSystem-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507876106155"
+        timestamp="1508725725930"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\workSpace\GasSystem\build\intermediates\split-apk\debug\slices\slice_2.apk"

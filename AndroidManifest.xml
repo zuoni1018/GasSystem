@@ -255,7 +255,13 @@
         <activity android:name=".activity.ht.HtLoginActivity"/>
         <activity android:name=".activity.ht.HtResultQueryParameterActivity"/>
         <activity android:name=".activity.ht.HtResultCopyActivity"/>
-
+        <activity android:name=".activity.ht.HtResultCopyPhotoActivity"/>
+        <activity android:name=".activity.ht.HtMessageActivity"/>
+        <activity
+            android:name=".activity.ht.HtCopyPhotoActivity"
+            android:label="@string/title_activity_copy_photo"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainTitleBar" />
         <!--界面重构-->
         <activity android:name=".activity.LogActivity" />
         <activity android:name=".activity.AboutActivity" />

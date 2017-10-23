@@ -15,9 +15,7 @@ import butterknife.OnClick;
 
 public class HtAreaActivity extends HtBaseTitleActivity {
 
-    private Intent mIntent;
-
-    private String AreaNo="";
+    private String AreaNo = "";
 
     @Override
     protected int setLayout() {
@@ -30,33 +28,34 @@ public class HtAreaActivity extends HtBaseTitleActivity {
         ButterKnife.bind(this);
         setTitle("Ð¡Çø²Ù×÷");
 
-        AreaNo=getIntent().getStringExtra("AreaNo");
+        AreaNo = getIntent().getStringExtra("AreaNo");
     }
-    @OnClick({ R.id.bt2, R.id.bt3,R.id.bt4,R.id.bt5})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
 
+    @OnClick({R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5})
+    public void onViewClicked(View view) {
+        Intent mIntent;
+        switch (view.getId()) {
             case R.id.bt2:
                 mIntent = new Intent(getContext(), HtGetUpdateMeterInfoActivity.class);
-                mIntent.putExtra("AreaNo",AreaNo);
+                mIntent.putExtra("AreaNo", AreaNo);
                 startActivity(mIntent);
                 break;
             case R.id.bt3:
-                mIntent = new Intent(getContext(),  HtGetReadMeterInfoActivity.class);
+                mIntent = new Intent(getContext(), HtGetReadMeterInfoActivity.class);
                 mIntent.putExtra("AreaNo", AreaNo);
-                mIntent.putExtra("ReadState","1");
+                mIntent.putExtra("ReadState", "1");
                 startActivity(mIntent);
                 break;
             case R.id.bt4:
-                mIntent = new Intent(getContext(),  HtGetReadMeterInfoActivity.class);
+                mIntent = new Intent(getContext(), HtGetReadMeterInfoActivity.class);
                 mIntent.putExtra("AreaNo", AreaNo);
-                mIntent.putExtra("ReadState","0");
+                mIntent.putExtra("ReadState", "0");
                 startActivity(mIntent);
                 break;
             case R.id.bt5:
-                mIntent = new Intent(getContext(),  HtGetReadMeterInfoActivity.class);
+                mIntent = new Intent(getContext(), HtGetReadMeterInfoActivity.class);
                 mIntent.putExtra("AreaNo", AreaNo);
-                mIntent.putExtra("ReadState","");
+                mIntent.putExtra("ReadState", "");
                 startActivity(mIntent);
                 break;
         }

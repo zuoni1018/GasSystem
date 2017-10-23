@@ -7,8 +7,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.view.MotionEvent;
@@ -27,35 +27,31 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.PreferenceBiz;
 import com.pl.bll.SetBiz;
-import com.pl.bll.XmlParser;
 import com.pl.bluetooth.BluetoothChatService;
 import com.pl.common.Cfun;
 import com.pl.common.NetWorkManager;
-import com.pl.entity.CopyDataPhoto;
+import com.pl.gassystem.activity.ht.HtMessageActivity;
+import com.pl.gassystem.activity.ht.HtResultCopyPhotoActivity;
+import com.pl.gassystem.bean.gson.GetCopyDataPhoto;
 import com.pl.gassystem.utils.LogUtil;
+import com.pl.gassystem.utils.Xml2Json;
 import com.pl.protocol.CqueueData;
 import com.pl.protocol.HhProtocol;
 import com.pl.utils.GlobalConsts;
-import com.pl.utils.MeterType;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+import com.zuoni.zuoni_common.utils.common.ToastUtils;
 
 import org.apache.http.Header;
-import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -63,6 +59,8 @@ import java.util.Date;
 import java.util.List;
 
 import okhttp3.Call;
+
+import static java.lang.System.currentTimeMillis;
 
 public class CopyPhotoActivity extends Activity {
 
@@ -78,6 +76,7 @@ public class CopyPhotoActivity extends Activity {
     private EditText etCopyPhotoImgPosition, etCopyPhotoSetPoint;
     private Button btnCopyPhotoImgUp, btnCopyPhotoImgDown, btnCopyPhotoSetPoint;
     private SetBiz setBiz;
+    private TextView tvTime;
 
     // 本地蓝牙适配器
     private BluetoothAdapter mBluetoothAdapter = null;
@@ -136,8 +135,7 @@ public class CopyPhotoActivity extends Activity {
 
     private PreferenceBiz preferenceBiz;
     @SuppressLint("SimpleDateFormat")
-    private static SimpleDateFormat df = new SimpleDateFormat(
-            "yyyy-MM-dd HH:mm:ss");
+    private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @SuppressLint("SimpleDateFormat")
     private static SimpleDateFormat copydf = new SimpleDateFormat("yyMMddHHmm");
 
@@ -148,6 +146,10 @@ public class CopyPhotoActivity extends Activity {
     private int nowNum = 0;
     private List<String> meterNos;
     private List<String> meterTypeNos;
+    private ArrayList<GetCopyDataPhoto.ModTimereadmeterinfoBean> copyResults;
+
+
+    String myMessage = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,12 +157,20 @@ public class CopyPhotoActivity extends Activity {
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_copyphoto);
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_onlyback);
+        final TextView tvMessage = (TextView) findViewById(R.id.tvMessage);
+        tvMessage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(CopyPhotoActivity.this, HtMessageActivity.class);
+                mIntent.putExtra("message", myMessage);
+                startActivity(mIntent);
+            }
+        });
 
         anim_btn_begin = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_begin);
         anim_btn_end = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_scale_end);
         // 禁止自动弹出输入法
-        getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         setupView();
         addOnTouchListener();
@@ -192,12 +202,14 @@ public class CopyPhotoActivity extends Activity {
         if (meterNos != null) {
             nowNum = 0;
             meterNo = meterNos.get(0);
-            tvLoadingPhotoComNum.setText(meterNo);
+            tvLoadingPhotoComNum.setText(meterNo + "(1" + "/" + meterNos.size() + ")");
         }
-        meterTypeNos=getIntent().getStringArrayListExtra("meterTypeNos");
+        meterTypeNos = getIntent().getStringArrayListExtra("meterTypeNos");
         if (meterTypeNos != null) {
             meterTypeNo = meterTypeNos.get(0);
         }
+        copyResults = new ArrayList<>();
+
 
         baseType = getIntent().getStringExtra("baseType");
         YHTM = getIntent().getStringExtra("YHTM");
@@ -223,29 +235,25 @@ public class CopyPhotoActivity extends Activity {
                     .setTitle("网络错误")
                     .setMessage("网络连接失败，摄像表抄表必须连接到网络，请检查。")
                     .setCancelable(false)
-                    .setPositiveButton("确定",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface arg0,
-                                                    int arg1) {
-                                    finish();
-                                }
-                            }).show();
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0,
+                                            int arg1) {
+                            finish();
+                        }
+                    }).show();
         } else { // 检测能否连接识别服务器
             AsyncHttpClient client = new AsyncHttpClient();
             client.get(serverUrl, new AsyncHttpResponseHandler() {
                 @Override
-                public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-                                      Throwable arg3) {
-                    Message msg = Message.obtain(mHandler,
-                            MESSAGE_SERVER_CONNECT_FAILURT);
+                public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+                    Message msg = Message.obtain(mHandler, MESSAGE_SERVER_CONNECT_FAILURT);
                     mHandler.sendMessage(msg);
                 }
 
                 @Override
                 public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-                    Message msg = Message.obtain(mHandler,
-                            MESSAGE_SERVER_CONNECT_SUCCESS);
+                    Message msg = Message.obtain(mHandler, MESSAGE_SERVER_CONNECT_SUCCESS);
                     mHandler.sendMessage(msg);
                 }
             });
@@ -305,10 +313,12 @@ public class CopyPhotoActivity extends Activity {
         btnCopyPhotoSetPoint = (Button) findViewById(R.id.btnCopyPhotoSetPoint);
 
         // 创建默认的ImageLoader配置参数
-        ImageLoaderConfiguration configuration = ImageLoaderConfiguration
-                .createDefault(this);
+        ImageLoaderConfiguration configuration = ImageLoaderConfiguration.createDefault(this);
         ImageLoader.getInstance().init(configuration);
         loader = ImageLoader.getInstance();
+
+
+        tvTime= (TextView) findViewById(R.id.tvTime);
     }
 
     // 唤醒
@@ -331,6 +341,7 @@ public class CopyPhotoActivity extends Activity {
         tvCopyPhotoDevState.setText("");
         imgCopyPhotoImage.setImageResource(R.drawable.imgblank);
     }
+
     private void wakeUp2(String commNumber) {
         sendMessage("aadd50aaaaaa" + commNumber.substring(6));
         tvCopyPhotoBackMsg.setText("正在唤醒表具");
@@ -350,6 +361,8 @@ public class CopyPhotoActivity extends Activity {
 //        tvCopyPhotoDevState.setText("");
 //        imgCopyPhotoImage.setImageResource(R.drawable.imgblank);
     }
+
+
     // 抄表
     private void query() {
         String commNumber = meterNo;
@@ -462,8 +475,7 @@ public class CopyPhotoActivity extends Activity {
             e.printStackTrace();
         }
         if (message.equals("noQuery")) {
-            Toast.makeText(getApplicationContext(), "不是查询参数!",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "不是查询参数!", Toast.LENGTH_SHORT).show();
         } else {
             try {
                 Thread.sleep(150);
@@ -494,8 +506,6 @@ public class CopyPhotoActivity extends Activity {
                         mHandler.sendMessage(msg);
                     }
                 }
-
-                ;
             }.start();
         }
     }
@@ -517,23 +527,25 @@ public class CopyPhotoActivity extends Activity {
         }
         // 检查实际上发送的东西
         if (message.length() > 0) {
+
+            myMessage = myMessage + "\n\n\n" + currentTimeMillis() + "发送命令\n" + message;
             // 得到消息的字节，告诉bluetoothchatservice写
             byte[] send = message.getBytes();
             mChatService.write(send);
         }
     }
 
+    private String nowCopyNo = "";
+
     private void addListener() {
         btnCopyPhotoScan.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (tvCopyPhotoBackMsg.getText().toString().equals("表具已唤醒正在抄表")) {
-                    Toast.makeText(getApplicationContext(), "正在抄表中，请勿改变蓝牙连接！",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "正在抄表中，请勿改变蓝牙连接！", Toast.LENGTH_SHORT).show();
                 } else {
                     // 启动DeviceListActivity看到设备和做扫描
-                    Intent intent = new Intent(CopyPhotoActivity.this,
-                            DeviceListActivity.class);
+                    Intent intent = new Intent(CopyPhotoActivity.this, DeviceListActivity.class);
                     startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
                 }
             }
@@ -543,8 +555,7 @@ public class CopyPhotoActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                if (tvCopyPhotoBackMsg.getText().toString().equals("表具已唤醒正在抄表") || tvCopyPhotoBackMsg.getText().toString()
-                        .equals("正在唤醒表具")) {
+                if (tvCopyPhotoBackMsg.getText().toString().equals("表具已唤醒正在抄表") || tvCopyPhotoBackMsg.getText().toString().equals("正在唤醒表具")) {
                     Toast.makeText(getApplicationContext(), "正在抄表中，请勿重复操作！", Toast.LENGTH_SHORT).show();
                 } else if (tvPhotoBtInfo.getText().toString().equals("蓝牙设备未连接") || tvPhotoBtInfo.getText().toString().equals("正在连接蓝牙设备")) {
                     Toast.makeText(getApplicationContext(), "请先连接蓝牙设备！",
@@ -667,6 +678,9 @@ public class CopyPhotoActivity extends Activity {
     @Override
     protected void onDestroy() {
         mChatService.stop();
+        if (timer != null) {
+            timer.cancel();
+        }
         super.onDestroy();
     }
 
@@ -712,74 +726,87 @@ public class CopyPhotoActivity extends Activity {
     private void getCopyDataPhoto(String postData, String meterTypeNo) {
 
 
-
         GetCopyDataPhoto(postData, meterTypeNo);//传给杭天
-        doNext();//抄下一个
-
-
-
-        LogUtil.i("postData", postData);
-        String url = serverUrl + "WebMain.asmx/GetCopyDataPhoto";
-        LogUtil.i("zzz地址"+url);
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.put("data", postData);
-        params.put("Type", meterTypeNo);
-        params.put("meterType", baseType);
-        params.put("UserName", preferenceBiz.getUserName());
-        params.put("MQBBH", MQBBH);
-        params.put("YHTM", YHTM);
-        params.put("HUNANME", HUNANME);
-        params.put("ADDR", ADDR);
-        params.put("OTEL", OTEL);
-        params.put("XBDS", XBDS);
-        client.post(url, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-                InputStream in = new ByteArrayInputStream(arg2);
-                XmlParser parser = new XmlParser();
-                try {
-                    CopyDataPhoto copyDataPhoto = parser.parseCopyDataPhoto(in);
-                    if (copyDataPhoto != null) {
-                        LogUtil.i("嘿嘿", copyDataPhoto.getDevPower());
-                        copyDataPhoto.setOperater(preferenceBiz.getUserName());
-                        copyBiz.addCopyDataPhoto(copyDataPhoto);
-                        in.close();
-                        Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_SUCCESS);
-                        mHandler.sendMessage(msg);
-                    } else {
-                        Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_ERROR);
-                        mHandler.sendMessage(msg);
-                    }
-
-                } catch (XmlPullParserException | IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-                                  Throwable arg3) {
-                Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_FAILURT);
-                mHandler.sendMessage(msg);
-            }
-        });
+//        doNext();//抄下一个
+//
+//
+//
+//        LogUtil.i("postData", postData);
+//        String url = serverUrl + "WebMain.asmx/GetCopyDataPhoto";
+//        LogUtil.i("zzz地址"+url);
+//        AsyncHttpClient client = new AsyncHttpClient();
+//        RequestParams params = new RequestParams();
+//        params.put("data", postData);
+//        params.put("Type", meterTypeNo);
+//        params.put("meterType", baseType);
+//        params.put("UserName", preferenceBiz.getUserName());
+//        params.put("MQBBH", MQBBH);
+//        params.put("YHTM", YHTM);
+//        params.put("HUNANME", HUNANME);
+//        params.put("ADDR", ADDR);
+//        params.put("OTEL", OTEL);
+//        params.put("XBDS", XBDS);
+//        client.post(url, params, new AsyncHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//                InputStream in = new ByteArrayInputStream(arg2);
+//                XmlParser parser = new XmlParser();
+//                try {
+//                    CopyDataPhoto copyDataPhoto = parser.parseCopyDataPhoto(in);
+//                    if (copyDataPhoto != null) {
+//                        LogUtil.i("嘿嘿", copyDataPhoto.getDevPower());
+//                        copyDataPhoto.setOperater(preferenceBiz.getUserName());
+//                        copyBiz.addCopyDataPhoto(copyDataPhoto);
+////                        copyDataPhoto.get
+//                        in.close();
+//                        Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_SUCCESS);
+//                        mHandler.sendMessage(msg);
+//                    } else {
+//                        Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_ERROR);
+//                        mHandler.sendMessage(msg);
+//                    }
+//
+//                } catch (XmlPullParserException | IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+//                Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_FAILURT);
+//                mHandler.sendMessage(msg);
+//            }
+//        });
 
 
     }
 
     private void doNext() {
+
+        ToastUtils.showToast(CopyPhotoActivity.this, "执行下一步");
         lastMeterNo = meterNo;
         //到这一步了说明抄表成功了
         nowNum++;
         if (meterNos != null && meterNos.size() > nowNum) {
             meterNo = meterNos.get(nowNum);
-            meterTypeNo=meterTypeNos.get(nowNum);
-            btnCopyPhotoSetPoint.postDelayed(new Runnable() {
+            meterTypeNo = meterTypeNos.get(nowNum);
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     wakeUp2(meterNo);
                     tvLoadingPhotoComNum.setText(meterNo + "(" + (nowNum + 1) + "/" + (meterNos.size()) + ")");//设置当前抄表表号
+                }
+            }, 3000);
+        } else if (meterNos != null && meterNos.size() <= nowNum) {
+            LogUtil.i("抄完了");
+            ToastUtils.showToast(CopyPhotoActivity.this, "抄完了");
+            tvCopyPhotoBackMsg.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent mIntent = new Intent(CopyPhotoActivity.this, HtResultCopyPhotoActivity.class);
+                    mIntent.putExtra("ModTimereadmeterinfoBean", copyResults);
+                    startActivity(mIntent);
+                    finish();
                 }
             }, 3000);
         }
@@ -798,12 +825,25 @@ public class CopyPhotoActivity extends Activity {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         LogUtil.i("摄像表" + e.toString());
-
+                        Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_FAILURT);
+                        mHandler.sendMessage(msg);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         LogUtil.i("摄像表" + response);
+                        LogUtil.i("摄像表2" + Xml2Json.xml2JSON(response));
+                        Gson gson = new Gson();
+                        GetCopyDataPhoto info = gson.fromJson(Xml2Json.xml2JSON(response), GetCopyDataPhoto.class);
+                        if (info.getModTimereadmeterinfo() != null) {
+                            copyResults.add(info.getModTimereadmeterinfo());
+                            Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_SUCCESS);
+                            mHandler.sendMessage(msg);
+                        } else {
+                            Message msg = Message.obtain(mHandler, MESSAGE_GETCOPYDATAPHOTO_ERROR);
+                            mHandler.sendMessage(msg);
+                        }
+
                     }
                 });
     }
@@ -849,6 +889,7 @@ public class CopyPhotoActivity extends Activity {
             }
         } catch (Exception e) {
             tvCopyPhotoBackMsg.setText("表具数据接收错误 请重试");
+//            doNext();
         }
     }
 
@@ -922,6 +963,7 @@ public class CopyPhotoActivity extends Activity {
         return false;
     }
 
+
     // private boolean SaveCopyPhoto(String getMsg){
     // try {
     // if(getMsg.length() == 116){ //标准图片一包
@@ -950,20 +992,23 @@ public class CopyPhotoActivity extends Activity {
     // return false;
     // }
     // }
+    long lastGetMessageTime = 0;
+    private CountDownTimer timer;
 
     private void showCopyDataPhoto() {
-        CopyDataPhoto copyDataPhoto = copyBiz.getLastCopyDataPhotoByCommunicateNo(lastMeterNo);
-        String url = ImgServerUrl + copyDataPhoto.getImageName();
-        // 显示图片的配置
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .cacheInMemory(true).cacheOnDisk(true)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED).build();
-        loader.displayImage(url, imgCopyPhotoImage, options);
-        tvCopyPhotoOcrRead.setText(copyDataPhoto.getOcrRead());
-        tvCopyPhotoOcrState.setText(MeterType.GetCopyPhotoOcrState(copyDataPhoto.getOcrState()));
-        tvCopyPhotoDevState.setText(copyDataPhoto.getDevState());
-        tvCopyPhotoDevPower.setText(copyDataPhoto.getDevPower());
+//        CopyDataPhoto copyDataPhoto = copyBiz.getLastCopyDataPhotoByCommunicateNo(lastMeterNo);
+//        String url = ImgServerUrl + copyDataPhoto.getImageName();
+//        LogUtil.i("图片地址"+url);
+//        // 显示图片的配置
+//        DisplayImageOptions options = new DisplayImageOptions.Builder()
+//                .cacheInMemory(true).cacheOnDisk(true)
+//                .bitmapConfig(Bitmap.Config.RGB_565)
+//                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED).build();
+//        loader.displayImage(url, imgCopyPhotoImage, options);
+//        tvCopyPhotoOcrRead.setText(copyDataPhoto.getOcrRead());
+//        tvCopyPhotoOcrState.setText(MeterType.GetCopyPhotoOcrState(copyDataPhoto.getOcrState()));
+//        tvCopyPhotoDevState.setText(copyDataPhoto.getDevState());
+//        tvCopyPhotoDevPower.setText(copyDataPhoto.getDevPower());
     }
 
     // 从BluetoothChatService处理程序获得信息返回
@@ -997,6 +1042,32 @@ public class CopyPhotoActivity extends Activity {
                     byte[] readBuf = (byte[]) msg.obj;
                     // 构建一个字符串有效字节的缓冲区
                     String readMessage = new String(readBuf, 0, msg.arg1);
+                    myMessage = myMessage + "\n\n\n\n" + currentTimeMillis() + "收到命令\n" + readMessage;
+                    lastGetMessageTime = System.currentTimeMillis();
+                    LogUtil.i("收到数据" + readMessage);
+
+                    if (timer != null) {
+                        timer.cancel();
+                    }
+                    //计时15秒
+                    timer = new CountDownTimer(12000, 1000) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            tvTime.setText("等待超时时间:"+(int)(millisUntilFinished/1000)+"s");
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            LogUtil.i("结束计时");
+                            tvTime.setText("即将抄取下一只表");
+                            //时间到
+                            doNext();
+                        }
+                    };
+                    timer.start();
+
+
                     // Log.i("blueget", readMessage);
                     if (readMessage.equals("16161616")) {
                         if (!isMaintenance) {
@@ -1066,7 +1137,7 @@ public class CopyPhotoActivity extends Activity {
                 //直接下一个
                 case MESSAGE_COPYCANT:
                     tvCopyPhotoBackMsg.setText("抄表失败表具无响应");
-                    doNext();
+//                    doNext();
                     break;
                 case MESSAGE_SERVER_CONNECT_SUCCESS:
                     // 检测是否能自动连接蓝牙
@@ -1084,8 +1155,7 @@ public class CopyPhotoActivity extends Activity {
                             .setPositiveButton("确定",
                                     new DialogInterface.OnClickListener() {
                                         @Override
-                                        public void onClick(DialogInterface arg0,
-                                                            int arg1) {
+                                        public void onClick(DialogInterface arg0, int arg1) {
                                             finish();
                                         }
                                     }).show();

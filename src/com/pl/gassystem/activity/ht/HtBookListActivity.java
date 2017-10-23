@@ -101,11 +101,11 @@ public class HtBookListActivity extends HtBaseTitleActivity {
         tvAddBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String addbook=etAddBook.getText().toString().trim();
-                if(addbook.length()!=8){
+                String addbook = etAddBook.getText().toString().trim();
+                if (addbook.length() != 8) {
                     showToast("杭天表号为8位 请重新输入");
-                }else {
-                    GroupBind htBook=new GroupBind();
+                } else {
+                    GroupBind htBook = new GroupBind();
                     htBook.setGroupNo(addbook);
                     htBook.setCheck(false);
                     mList.add(htBook);
@@ -156,7 +156,7 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                     //查询参数
                     mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
                 } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)
-                        |nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
+                        | nowCommandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN)) {
                     if (BookNoList.size() > 1) {
                         mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
                         mIntent.putStringArrayListExtra("bookNos", BookNoList);
@@ -164,13 +164,13 @@ public class HtBookListActivity extends HtBaseTitleActivity {
                         mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_SINGLE);//单抄
                         mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
                     }
-                }else if(nowCommandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)){
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_CHANGE_BOOK_NO_OR_CUMULANT)) {
                     //设置表号需要跳转到另外一个界面
                     mIntent = new Intent(getContext(), HtChangeBookNoOrCumulantActivity.class);
 //                    mIntent.putExtra("commandType", nowCommandType);//输入命令指令
 //                    mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_SINGLE);//单抄
                     mIntent.putExtra("bookNo", BookNoList.get(0).trim());//获取表
-                }else if(nowCommandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)){
+                } else if (nowCommandType.equals(HtSendMessage.COMMAND_TYPE_SET_PARAMETER)) {
                     //设置表号需要跳转到另外一个界面
                     mIntent = new Intent(getContext(), HtSetBookParameterActivity.class);
                     mIntent.putExtra("bookNos", BookNoList);

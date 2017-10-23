@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_rv_get_group_bind_item.xml",
-        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_rv_get_group_bind_item.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_rv_get_group_bind_item.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_rv_get_group_bind_item.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
@@ -148,20 +148,20 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_title_bar_style.xml",
-        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ct_title_bar_style.xml"
-    },
-    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_picker_date.xml",
         "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\layout\\layout_picker_date.xml"
     },
     {
-        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_input_com_num.xml",
-        "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_input_com_num.xml"
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_title_bar_style.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ct_title_bar_style.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_group.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_group.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_input_com_num.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_input_com_num.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\top_style_04.xml",
@@ -392,6 +392,10 @@
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_copyphoto.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_copyphoto.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copydataicrf_detail.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\activity_copydataicrf_detail.xml"
     },
@@ -406,6 +410,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_header.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_header.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\test.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\test.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\item_copydata_info.xml",
@@ -754,6 +762,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\layout_recyclerview_list_footer_loading.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\569592fa8096f3a4976b502fe566f4387d026c4e\\output\\res\\layout\\layout_recyclerview_list_footer_loading.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_rv_copy_result_photo_item.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_rv_copy_result_photo_item.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\activity_copy_set_mjc.xml",

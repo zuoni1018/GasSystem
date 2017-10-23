@@ -19,6 +19,7 @@ import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
 import com.pl.gassystem.CopyPhotoActivity;
+import com.pl.gassystem.CopyingActivity;
 import com.pl.gassystem.HtAppUrl;
 import com.pl.gassystem.R;
 import com.pl.gassystem.adapter.ht.RvHtGetGroupBindAdapter;
@@ -57,6 +58,8 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
     LinearLayout layoutSearchBar;
     @BindView(R.id.btGoCopy)
     Button btGoCopy;
+    @BindView(R.id.bt1)
+    Button bt1;
     private HtGroupInfoBean mHtGroupInfoBean;
 
     private LRecyclerViewAdapter mAdapter;
@@ -84,8 +87,10 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
 
         if (commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_FROZEN) | commandType.equals(HtSendMessage.COMMAND_TYPE_COPY_NORMAL)) {
             mAdapter = new LRecyclerViewAdapter(new RvHtGetGroupBindAdapter(getContext(), mList, false));//多选
+            bt1.setVisibility(View.VISIBLE);
         } else {
             mAdapter = new LRecyclerViewAdapter(new RvHtGetGroupBindAdapter(getContext(), mList, true));//单选
+            bt1.setVisibility(View.GONE);
         }
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -95,7 +100,6 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
             @Override
             public void onRefresh() {
                 GetGroupBind();
-
             }
         });
         mRecyclerView.refresh();
@@ -104,7 +108,7 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
 
     private void GetGroupBind() {
 
-        String mMeterFacNo ;
+        String mMeterFacNo;
         if (MeterFacNo.equals("3")) {
             mMeterFacNo = "";
         } else {
@@ -140,8 +144,10 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
 
                         if (MeterFacNo.equals("3")) {
                             btGoCopy.setVisibility(View.GONE);
+                            bt1.setVisibility(View.GONE);
                         } else {
                             btGoCopy.setVisibility(View.VISIBLE);
+                            bt1.setVisibility(View.VISIBLE);
                         }
 
                     }
@@ -149,22 +155,32 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
     }
 
 
-    @OnClick(R.id.btGoCopy)
-    public void onViewClicked() {
+    @OnClick({R.id.btGoCopy, R.id.bt1})
+    public void onViewClicked(View view) {
         final Intent mIntent = new Intent(getContext(), HtCopyingActivity.class);
         ArrayList<String> bookNos = new ArrayList<>();
         ArrayList<String> meterTypeNos = new ArrayList<>();
-        for (int i = 0; i < mList.size(); i++) {
-            if (mList.get(i).isChoose()) {
-                bookNos.add(mList.get(i).getCommunicateNo());//获取表号码
-                meterTypeNos.add(mList.get(i).getMeterType());
-            }
+
+        switch (view.getId()) {
+            case R.id.btGoCopy:
+                for (int i = 0; i < mList.size(); i++) {
+                    if (mList.get(i).isChoose()) {
+                        bookNos.add(mList.get(i).getCommunicateNo());//获取表号码
+                        meterTypeNos.add(mList.get(i).getMeterType());
+                    }
+                }
+                break;
+            case R.id.bt1:
+                for (int i = 0; i < mList.size(); i++) {
+                    bookNos.add(mList.get(i).getCommunicateNo());
+                    meterTypeNos.add(mList.get(i).getMeterType());
+                }
+                break;
         }
 
+
         if (bookNos.size() > 0) {
-
-            if (MeterFacNo.equals("1") | MeterFacNo.equals("2")) {
-
+            if (MeterFacNo.equals("2")) {
                 mIntent.putExtra("bookNos", bookNos);
                 mIntent.putExtra("bookNo", bookNos.get(0));
                 mIntent.putExtra("copyType", HtSendMessage.COPY_TYPE_GROUP);//群抄
@@ -174,8 +190,15 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
                 mIntent.putExtra("nowKey", mList.get(0).getKEYCODE());
                 mIntent.putExtra("commandType", commandType);
 
-                mIntent.putExtra("MeterFacNo",MeterFacNo);
+                mIntent.putExtra("MeterFacNo", MeterFacNo);
                 startActivity(mIntent);
+            } else if (MeterFacNo.equals("1")) {
+                Intent mIntent2 = new Intent(getContext(), CopyingActivity.class);
+                mIntent2.putExtra("meterNos", bookNos);
+                mIntent2.putExtra("meterTypeNo", "05");
+                mIntent2.putExtra("copyType", GlobalConsts.COPY_TYPE_BATCH);
+                mIntent2.putExtra("operationType", GlobalConsts.COPY_OPERATION_COPY);
+                startActivity(mIntent2);
             } else {
                 //摄像表抄表
                 Intent intent = new Intent(getContext(), CopyPhotoActivity.class);

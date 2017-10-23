@@ -23,6 +23,8 @@ public class HtGetGroupBindActivity_ViewBinding implements Unbinder {
 
   private View view2131689652;
 
+  private View view2131690004;
+
   @UiThread
   public HtGetGroupBindActivity_ViewBinding(HtGetGroupBindActivity target) {
     this(target, target.getWindow().getDecorView());
@@ -51,7 +53,16 @@ public class HtGetGroupBindActivity_ViewBinding implements Unbinder {
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
-        target.onViewClicked();
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.bt1, "field 'bt1' and method 'onViewClicked'");
+    target.bt1 = Utils.castView(view, R.id.bt1, "field 'bt1'", Button.class);
+    view2131690004 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
       }
     });
   }
@@ -68,10 +79,13 @@ public class HtGetGroupBindActivity_ViewBinding implements Unbinder {
     target.tvChoose = null;
     target.layoutSearchBar = null;
     target.btGoCopy = null;
+    target.bt1 = null;
 
     view2131690049.setOnClickListener(null);
     view2131690049 = null;
     view2131689652.setOnClickListener(null);
     view2131689652 = null;
+    view2131690004.setOnClickListener(null);
+    view2131690004 = null;
   }
 }

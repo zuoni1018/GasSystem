@@ -19,11 +19,11 @@ import java.lang.Override;
 public class CtCopyBookActivity_ViewBinding implements Unbinder {
   private CtCopyBookActivity target;
 
-  private View view2131689885;
-
   private View view2131689887;
 
-  private View view2131689888;
+  private View view2131689889;
+
+  private View view2131689890;
 
   @UiThread
   public CtCopyBookActivity_ViewBinding(CtCopyBookActivity target) {
@@ -40,7 +40,7 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     target.ivChooseAll = Utils.findRequiredViewAsType(source, R.id.ivChooseAll, "field 'ivChooseAll'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.layoutChooseAll, "field 'layoutChooseAll' and method 'onViewClicked'");
     target.layoutChooseAll = Utils.castView(view, R.id.layoutChooseAll, "field 'layoutChooseAll'", LinearLayout.class);
-    view2131689885 = view;
+    view2131689887 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btCopyChoose, "field 'btCopyChoose' and method 'onViewClicked'");
     target.btCopyChoose = Utils.castView(view, R.id.btCopyChoose, "field 'btCopyChoose'", Button.class);
-    view2131689887 = view;
+    view2131689889 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,7 +58,7 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btCopyAll, "field 'btCopyAll' and method 'onViewClicked'");
     target.btCopyAll = Utils.castView(view, R.id.btCopyAll, "field 'btCopyAll'", Button.class);
-    view2131689888 = view;
+    view2131689890 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -81,11 +81,11 @@ public class CtCopyBookActivity_ViewBinding implements Unbinder {
     target.btCopyChoose = null;
     target.btCopyAll = null;
 
-    view2131689885.setOnClickListener(null);
-    view2131689885 = null;
     view2131689887.setOnClickListener(null);
     view2131689887 = null;
-    view2131689888.setOnClickListener(null);
-    view2131689888 = null;
+    view2131689889.setOnClickListener(null);
+    view2131689889 = null;
+    view2131689890.setOnClickListener(null);
+    view2131689890 = null;
   }
 }

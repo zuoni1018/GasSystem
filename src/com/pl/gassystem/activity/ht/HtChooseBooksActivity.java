@@ -78,10 +78,6 @@ public class HtChooseBooksActivity extends HtBaseTitleActivity {
         showList = new ArrayList<>();
         showList.addAll(htBookList);
 
-//        htBookList = new ArrayList<>();
-//        htBookList.add(getHtBook("05170016", "杭天测试表1"));
-//        htBookList.add(getHtBook("04000015", "杭天测试表2"));
-//        htBookList.add(getHtBook("04160105", "杭天测试表3"));
         mAdapter = new LRecyclerViewAdapter(new RvHtBookChooseAdapter(getContext(), showList));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);

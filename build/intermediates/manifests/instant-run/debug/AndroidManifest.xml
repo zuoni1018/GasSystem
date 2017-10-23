@@ -256,7 +256,13 @@
         <activity android:name="com.pl.gassystem.activity.ht.HtLoginActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtResultQueryParameterActivity" />
         <activity android:name="com.pl.gassystem.activity.ht.HtResultCopyActivity" />
-
+        <activity android:name="com.pl.gassystem.activity.ht.HtResultCopyPhotoActivity" />
+        <activity android:name="com.pl.gassystem.activity.ht.HtMessageActivity" />
+        <activity
+            android:name="com.pl.gassystem.activity.ht.HtCopyPhotoActivity"
+            android:label="@string/title_activity_copy_photo"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainTitleBar" />
         <!-- 界面重构 -->
         <activity android:name="com.pl.gassystem.activity.LogActivity" />
         <activity android:name="com.pl.gassystem.activity.AboutActivity" />

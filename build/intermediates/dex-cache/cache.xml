@@ -2,49 +2,31 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="D:\workSpace\GasSystem\libs\badgeview.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\dom4j-1.6.1.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="6301e7214e651730acacf9815ac3a56701231015">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\badgeview_1e3b6c29e29e2df1ba18160b7f18e6828fe66574.jar" />
+        sha1="5d3ccc056b6f056dbf0dddfdf43894b9065a8f94">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\dom4j-1.6.1_5e0ae902c0fa68a3fed6d7a9448fcc269a706c1a\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\workSpace\GasSystem\libs\universal-image-loader-1.9.4.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\android-async-http-1.4.8.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.4_04b5dcb03b47fd585d7af751f155230a57cf6feb.jar" />
+        sha1="77bbfe240e437ecb396d982afa0d3bd4f9090ba7">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\android-async-http-1.4.8_5ec12e0c829d6b7a01e56888d4315a67bb73fdec\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\workSpace\GasSystem\libs\zxing.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\jxl.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\zxing_13b0c35b28fde94546eb81a020519fed03d833de.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workSpace\GasSystem\zuoni-common\build\intermediates\bundles\default\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8fe90235364ff3a1b79d5ba301bc9ea9efd16986">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\classes_b4be20f1a4f870cb431032544b45c3dcb43620df.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workSpace\GasSystem\libs\zbar.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="0a7b88ba1496a0b4af76069ad40dacd3897149e0">
-        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\zbar_d58d5de3cf9883e56fcc2256b6e57471be2381ca.jar" />
+        sha1="955fa72ef2e3d5a45db59d84802401f75bc973a5">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jxl_50e7b83164874be7a8dd1a0232889a08d2e9a203\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -65,6 +47,33 @@
         <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\android-async-http-1.4.8_5ec12e0c829d6b7a01e56888d4315a67bb73fdec.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\zxing.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\zxing_13b0c35b28fde94546eb81a020519fed03d833de\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\badgeview.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6301e7214e651730acacf9815ac3a56701231015">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\badgeview_1e3b6c29e29e2df1ba18160b7f18e6828fe66574\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\libs\badgeview.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6301e7214e651730acacf9815ac3a56701231015">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\badgeview_1e3b6c29e29e2df1ba18160b7f18e6828fe66574.jar" />
+    </item>
+    <item
         is-multidex="false"
         jar="D:\workSpace\GasSystem\libs\dom4j-1.6.1.jar"
         jumboMode="false"
@@ -74,6 +83,33 @@
         <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\dom4j-1.6.1_5e0ae902c0fa68a3fed6d7a9448fcc269a706c1a.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\zbar.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0a7b88ba1496a0b4af76069ad40dacd3897149e0">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\zbar_d58d5de3cf9883e56fcc2256b6e57471be2381ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\universal-image-loader-1.9.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.4_04b5dcb03b47fd585d7af751f155230a57cf6feb\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\libs\universal-image-loader-1.9.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.4_04b5dcb03b47fd585d7af751f155230a57cf6feb.jar" />
+    </item>
+    <item
         is-multidex="false"
         jar="D:\workSpace\GasSystem\libs\jaxen-1.1.1.jar"
         jumboMode="false"
@@ -81,6 +117,60 @@
         revision="25.0.3"
         sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
         <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\jaxen-1.1.1_488ae2e855a0217327421123e5813e55ecb1fdf2.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3d22eefcefc70ebbed383a01543e6a938d25a8d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\libs\jaxen-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\2\jaxen-1.1.1_488ae2e855a0217327421123e5813e55ecb1fdf2\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\libs\zxing.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\zxing_13b0c35b28fde94546eb81a020519fed03d833de.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\workSpace\GasSystem\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9a78e73c76d7a1299654b4adfaf0751a3629e951">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_67af8536582d812a7a3f81ed70b8000e6cac7484\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\zuoni-common\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8fe90235364ff3a1b79d5ba301bc9ea9efd16986">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\classes_b4be20f1a4f870cb431032544b45c3dcb43620df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workSpace\GasSystem\libs\zbar.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0a7b88ba1496a0b4af76069ad40dacd3897149e0">
+        <dex dex="D:\workSpace\GasSystem\build\intermediates\pre-dexed\debug\zbar_d58d5de3cf9883e56fcc2256b6e57471be2381ca.jar" />
     </item>
 
 </items>

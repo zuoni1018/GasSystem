@@ -20,7 +20,7 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
 
   private View view2131690049;
 
-  private View view2131689997;
+  private View view2131689999;
 
   @UiThread
   public HtSetBookParameterActivity_ViewBinding(HtSetBookParameterActivity target) {
@@ -49,7 +49,7 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
     target.rbNeed = Utils.findRequiredViewAsType(source, R.id.rbNeed, "field 'rbNeed'", CheckBox.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689997 = view;
+    view2131689999 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
 
     view2131690049.setOnClickListener(null);
     view2131690049 = null;
-    view2131689997.setOnClickListener(null);
-    view2131689997 = null;
+    view2131689999.setOnClickListener(null);
+    view2131689999 = null;
   }
 }

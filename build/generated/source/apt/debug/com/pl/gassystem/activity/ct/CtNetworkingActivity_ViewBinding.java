@@ -20,11 +20,11 @@ import java.lang.Override;
 public class CtNetworkingActivity_ViewBinding implements Unbinder {
   private CtNetworkingActivity target;
 
-  private View view2131689907;
-
   private View view2131689909;
 
-  private View view2131689912;
+  private View view2131689911;
+
+  private View view2131689914;
 
   @UiThread
   public CtNetworkingActivity_ViewBinding(CtNetworkingActivity target) {
@@ -40,7 +40,7 @@ public class CtNetworkingActivity_ViewBinding implements Unbinder {
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
     view = Utils.findRequiredView(source, R.id.ivTurnLeft, "field 'ivTurnLeft' and method 'onViewClicked'");
     target.ivTurnLeft = Utils.castView(view, R.id.ivTurnLeft, "field 'ivTurnLeft'", ImageView.class);
-    view2131689907 = view;
+    view2131689909 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class CtNetworkingActivity_ViewBinding implements Unbinder {
     target.tvNowPageNum = Utils.findRequiredViewAsType(source, R.id.tvNowPageNum, "field 'tvNowPageNum'", TextView.class);
     view = Utils.findRequiredView(source, R.id.ivTurnRight, "field 'ivTurnRight' and method 'onViewClicked'");
     target.ivTurnRight = Utils.castView(view, R.id.ivTurnRight, "field 'ivTurnRight'", ImageView.class);
-    view2131689909 = view;
+    view2131689911 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class CtNetworkingActivity_ViewBinding implements Unbinder {
     target.etGoPageNum = Utils.findRequiredViewAsType(source, R.id.etGoPageNum, "field 'etGoPageNum'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btGoPageNum, "field 'btGoPageNum' and method 'onViewClicked'");
     target.btGoPageNum = Utils.castView(view, R.id.btGoPageNum, "field 'btGoPageNum'", Button.class);
-    view2131689912 = view;
+    view2131689914 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -98,11 +98,11 @@ public class CtNetworkingActivity_ViewBinding implements Unbinder {
     target.ivDevState = null;
     target.layoutDevState = null;
 
-    view2131689907.setOnClickListener(null);
-    view2131689907 = null;
     view2131689909.setOnClickListener(null);
     view2131689909 = null;
-    view2131689912.setOnClickListener(null);
-    view2131689912 = null;
+    view2131689911.setOnClickListener(null);
+    view2131689911 = null;
+    view2131689914.setOnClickListener(null);
+    view2131689914 = null;
   }
 }

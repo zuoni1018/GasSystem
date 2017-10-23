@@ -21,12 +21,12 @@ public abstract class HtBaseTitleActivity extends BaseTitleActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setFunctionName("º¼Ìì³­±í");
-
     }
 
 
    public  String getUserName(){
        String name = (String) SPUtils.get(getContext(), "HtUserName", "");
+       assert name != null;
        if(name.equals("")){
            return "admin";
        }

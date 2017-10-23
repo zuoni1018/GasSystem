@@ -15,13 +15,13 @@ import java.lang.Override;
 public class HtMainActivity_ViewBinding implements Unbinder {
   private HtMainActivity target;
 
-  private View view2131690005;
-
-  private View view2131689982;
-
-  private View view2131689983;
+  private View view2131690004;
 
   private View view2131689984;
+
+  private View view2131689985;
+
+  private View view2131689986;
 
   private View view2131690006;
 
@@ -37,7 +37,7 @@ public class HtMainActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.bt1, "field 'bt1' and method 'onViewClicked'");
     target.bt1 = Utils.castView(view, R.id.bt1, "field 'bt1'", Button.class);
-    view2131690005 = view;
+    view2131690004 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -46,7 +46,7 @@ public class HtMainActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.bt2, "field 'bt2' and method 'onViewClicked'");
     target.bt2 = Utils.castView(view, R.id.bt2, "field 'bt2'", Button.class);
-    view2131689982 = view;
+    view2131689984 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class HtMainActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.bt3, "field 'bt3' and method 'onViewClicked'");
     target.bt3 = Utils.castView(view, R.id.bt3, "field 'bt3'", Button.class);
-    view2131689983 = view;
+    view2131689985 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +64,7 @@ public class HtMainActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.bt4, "field 'bt4' and method 'onViewClicked2'");
     target.bt4 = Utils.castView(view, R.id.bt4, "field 'bt4'", Button.class);
-    view2131689984 = view;
+    view2131689986 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -93,14 +93,14 @@ public class HtMainActivity_ViewBinding implements Unbinder {
     target.bt3 = null;
     target.bt4 = null;
 
-    view2131690005.setOnClickListener(null);
-    view2131690005 = null;
-    view2131689982.setOnClickListener(null);
-    view2131689982 = null;
-    view2131689983.setOnClickListener(null);
-    view2131689983 = null;
+    view2131690004.setOnClickListener(null);
+    view2131690004 = null;
     view2131689984.setOnClickListener(null);
     view2131689984 = null;
+    view2131689985.setOnClickListener(null);
+    view2131689985 = null;
+    view2131689986.setOnClickListener(null);
+    view2131689986 = null;
     view2131690006.setOnClickListener(null);
     view2131690006 = null;
   }

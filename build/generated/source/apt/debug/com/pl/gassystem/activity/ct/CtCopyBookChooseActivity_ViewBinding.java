@@ -19,7 +19,7 @@ import java.lang.Override;
 public class CtCopyBookChooseActivity_ViewBinding implements Unbinder {
   private CtCopyBookChooseActivity target;
 
-  private View view2131689891;
+  private View view2131689893;
 
   @UiThread
   public CtCopyBookChooseActivity_ViewBinding(CtCopyBookChooseActivity target) {
@@ -38,7 +38,7 @@ public class CtCopyBookChooseActivity_ViewBinding implements Unbinder {
     target.tvCopyNum = Utils.findRequiredViewAsType(source, R.id.tvCopyNum, "field 'tvCopyNum'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btStartCopy, "field 'btStartCopy' and method 'onViewClicked'");
     target.btStartCopy = Utils.castView(view, R.id.btStartCopy, "field 'btStartCopy'", Button.class);
-    view2131689891 = view;
+    view2131689893 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class CtCopyBookChooseActivity_ViewBinding implements Unbinder {
     target.tvCopyNum = null;
     target.btStartCopy = null;
 
-    view2131689891.setOnClickListener(null);
-    view2131689891 = null;
+    view2131689893.setOnClickListener(null);
+    view2131689893 = null;
   }
 }

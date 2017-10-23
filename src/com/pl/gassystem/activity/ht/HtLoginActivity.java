@@ -41,6 +41,7 @@ public class HtLoginActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         String name = (String) SPUtils.get(getContext(), "HtUserName", "");
+        assert name != null;
         if(!name.trim().equals("")){
             Intent mIntent = new Intent(getContext(), HtMainActivity.class);
             startActivity(mIntent);

@@ -110,6 +110,8 @@ public class MainActivity extends Activity implements OnTouchListener {
         HtCommand.HT_PASSWORD=htCopyKey+"0000000000000000";
 
 
+
+
     }
 
 

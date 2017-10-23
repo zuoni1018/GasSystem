@@ -19,13 +19,25 @@
         android:layout_marginRight="10dp"
         android:layout_weight="1"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <Button
-        android:id="@+id/btGoCopy"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="前去抄表" />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="抄取全部" />
+        <Button
+            android:id="@+id/btGoCopy"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="前去抄表" />
+    </LinearLayout>
+
 
 </LinearLayout>
