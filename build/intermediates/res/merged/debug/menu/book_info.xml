@@ -1,25 +1,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.pl.gassystem.BookInfoActivity">
 
     <item
         android:id="@+id/action_addbookinfo"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom|withText"
         android:title="新建账册"
-        android:visible="true" />
+        android:visible="true"
+        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/action_importbookinfo"
         android:orderInCategory="200"
-        android:showAsAction="ifRoom|withText"
         android:title="下载账册"
-        android:visible="true" />
+        android:visible="true"
+        app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/action_importExcel"
         android:orderInCategory="200"
-        android:showAsAction="ifRoom|withText"
         android:title="导入Excel"
-        android:visible="true" />
-
+        android:visible="true"
+        app:showAsAction="ifRoom|withText" />
 </menu>

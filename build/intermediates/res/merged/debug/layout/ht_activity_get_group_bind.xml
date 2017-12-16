@@ -10,6 +10,12 @@
     <include layout="@layout/title_bar_style" />
 
     <include layout="@layout/ht_search"/>
+    <TextView
+        android:id="@+id/tvNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
 
     <com.github.jdsjlzx.recyclerview.LRecyclerView
         android:id="@+id/mRecyclerView"

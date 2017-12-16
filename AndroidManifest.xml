@@ -69,7 +69,7 @@
         <activity android:name=".GroupInfoStatisticActivity" />
         <activity android:name=".activity.CopyDetailsActivity" />
         <activity android:name=".ExportExcelActivity" />
-        <activity android:name=".ImportExcelActivity" />
+        <activity android:name=".activity.ImportExcelActivity" />
         <activity
             android:name=".BookInfoActivity"
             android:label="@string/title_activity_book_info"
@@ -269,6 +269,8 @@
         <activity android:name=".activity.DataManageActivity" />
         <activity android:name=".activity.SetRunModeActivity" />
         <activity android:name=".activity.GroupingDetailsActivity" />
+        <activity android:name=".activity.LogsActivity" />
+        <activity android:name=".activity.ChooseLogTypeActivity" />
 
 
     </application>

@@ -328,6 +328,7 @@
             android:layout_height="match_parent"
             android:background="#eeeeee" />
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/layoutHangTian"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -344,6 +345,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.1" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout06"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="0.32"
+            android:background="@color/color_white"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="18dp"
+                android:src="@mipmap/ht_9" />
         </LinearLayout>
 
     </LinearLayout>

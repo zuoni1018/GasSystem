@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtSetNewCopyKeyActivity_ViewBinding implements Unbinder {
   private HtSetNewCopyKeyActivity target;
 
-  private View view2131689999;
+  private View view2131690001;
 
   @UiThread
   public HtSetNewCopyKeyActivity_ViewBinding(HtSetNewCopyKeyActivity target) {
@@ -33,7 +33,7 @@ public class HtSetNewCopyKeyActivity_ViewBinding implements Unbinder {
     target.etNewCopyKey = Utils.findRequiredViewAsType(source, R.id.etNewCopyKey, "field 'etNewCopyKey'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689999 = view;
+    view2131690001 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class HtSetNewCopyKeyActivity_ViewBinding implements Unbinder {
     target.etNewCopyKey = null;
     target.btSure = null;
 
-    view2131689999.setOnClickListener(null);
-    view2131689999 = null;
+    view2131690001.setOnClickListener(null);
+    view2131690001 = null;
   }
 }

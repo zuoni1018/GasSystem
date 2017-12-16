@@ -11,7 +11,7 @@ import com.pl.gassystem.utils.LogUtil;
 public class DBOpenHelper extends SQLiteOpenHelper {
 
     public DBOpenHelper(Context context) {
-        super(context, "gasSystem.db", null, 7);
+        super(context, "gasSystem.db", null, 8);
     }
 
     @Override
@@ -129,6 +129,33 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 + "dBm TEXT, elec TEXT, unitPrice TEXT, accMoney TEXT, accBuyMoney TEXT, currentShow TEXT ,CommunicateNo TEXT, CollectorNo TEXT)";
         db.execSQL(sql);
 
+
+        //创建日志表
+
+
+        //摄像表
+        sql = "CREATE TABLE SXLOG ("
+                + "_id integer primary key autoincrement ,"
+                + "time TEXT, type TEXT, "
+                + "message TEXT, Spare1 TEXT, Spare2 TEXT)";
+        db.execSQL(sql);
+
+        //无线
+        sql = "CREATE TABLE WXLOG ("
+                + "_id integer primary key autoincrement ,"
+                + "time TEXT, type TEXT, "
+                + "message TEXT, Spare1 TEXT, Spare2 TEXT)";
+        db.execSQL(sql);
+
+        //扩频
+        sql = "CREATE TABLE KPLOG ("
+                + "_id integer primary key autoincrement ,"
+                + "time TEXT, type TEXT, "
+                + "message TEXT, Spare1 TEXT, Spare2 TEXT)";
+        db.execSQL(sql);
+
+
+
         values.clear();
         values.put("BookInfoUrl", "http://61.164.45.102:423/");
         values.put("CopyPhotoUrl", "http://61.164.45.102:423/");
@@ -217,6 +244,30 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                     + "copyWay TEXT, copyTime TEXT,"
                     + "copyMan TEXT,copyState integer,meterName TEXT,"
                     + "dBm TEXT, elec TEXT, unitPrice TEXT, accMoney TEXT, accBuyMoney TEXT, currentShow TEXT ,CommunicateNo TEXT, CollectorNo TEXT)";
+            db.execSQL(sql);
+        }
+
+        if(oldVersion<8){
+            //新建抄表日志
+            String sql;
+            sql = "CREATE TABLE SXLOG ("
+                    + "_id integer primary key autoincrement ,"
+                    + "time TEXT, type TEXT, "
+                    + "message TEXT, Spare1 TEXT, Spare2 TEXT)";
+            db.execSQL(sql);
+
+            //无线
+            sql = "CREATE TABLE WXLOG ("
+                    + "_id integer primary key autoincrement ,"
+                    + "time TEXT, type TEXT, "
+                    + "message TEXT, Spare1 TEXT, Spare2 TEXT)";
+            db.execSQL(sql);
+
+            //扩频
+            sql = "CREATE TABLE KPLOG ("
+                    + "_id integer primary key autoincrement ,"
+                    + "time TEXT, type TEXT, "
+                    + "message TEXT, Spare1 TEXT, Spare2 TEXT)";
             db.execSQL(sql);
         }
     }

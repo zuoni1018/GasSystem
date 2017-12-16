@@ -60,6 +60,8 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
     Button btGoCopy;
     @BindView(R.id.bt1)
     Button bt1;
+    @BindView(R.id.tvNum)
+    TextView tvNum;
     private HtGroupInfoBean mHtGroupInfoBean;
 
     private LRecyclerViewAdapter mAdapter;
@@ -141,7 +143,7 @@ public class HtGetGroupBindActivity extends HtBaseTitleActivity {
                         }
                         mAdapter.notifyDataSetChanged();
                         mRecyclerView.refreshComplete(1);
-
+                        tvNum.setText("π≤"+mList.size()+"’≈±Ì");
                         if (MeterFacNo.equals("3")) {
                             btGoCopy.setVisibility(View.GONE);
                             bt1.setVisibility(View.GONE);

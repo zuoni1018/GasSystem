@@ -79,7 +79,7 @@
         <activity android:name="com.pl.gassystem.GroupInfoStatisticActivity" />
         <activity android:name="com.pl.gassystem.activity.CopyDetailsActivity" />
         <activity android:name="com.pl.gassystem.ExportExcelActivity" />
-        <activity android:name="com.pl.gassystem.ImportExcelActivity" />
+        <activity android:name="com.pl.gassystem.activity.ImportExcelActivity" />
         <activity
             android:name="com.pl.gassystem.BookInfoActivity"
             android:label="@string/title_activity_book_info"
@@ -270,6 +270,8 @@
         <activity android:name="com.pl.gassystem.activity.DataManageActivity" />
         <activity android:name="com.pl.gassystem.activity.SetRunModeActivity" />
         <activity android:name="com.pl.gassystem.activity.GroupingDetailsActivity" />
+        <activity android:name="com.pl.gassystem.activity.LogsActivity" />
+        <activity android:name="com.pl.gassystem.activity.ChooseLogTypeActivity" />
     </application>
 
 </manifest>

@@ -15,9 +15,7 @@ import java.lang.Override;
 public class HtGroupActivity_ViewBinding implements Unbinder {
   private HtGroupActivity target;
 
-  private View view2131690004;
-
-  private View view2131689984;
+  private View view2131690010;
 
   private View view2131689985;
 
@@ -25,7 +23,9 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
 
   private View view2131689987;
 
-  private View view2131690006;
+  private View view2131689988;
+
+  private View view2131690012;
 
   @UiThread
   public HtGroupActivity_ViewBinding(HtGroupActivity target) {
@@ -39,7 +39,7 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.bt1, "field 'bt1' and method 'onViewClicked'");
     target.bt1 = Utils.castView(view, R.id.bt1, "field 'bt1'", Button.class);
-    view2131690004 = view;
+    view2131690010 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,7 +48,7 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.bt2, "field 'bt2' and method 'onViewClicked'");
     target.bt2 = Utils.castView(view, R.id.bt2, "field 'bt2'", Button.class);
-    view2131689984 = view;
+    view2131689985 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,14 +57,6 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.bt3, "field 'bt3' and method 'onViewClicked'");
     target.bt3 = Utils.castView(view, R.id.bt3, "field 'bt3'", Button.class);
-    view2131689985 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.bt4, "method 'onViewClicked'");
     view2131689986 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -72,7 +64,7 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.bt5, "method 'onViewClicked'");
+    view = Utils.findRequiredView(source, R.id.bt4, "method 'onViewClicked'");
     view2131689987 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -80,8 +72,16 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
+    view = Utils.findRequiredView(source, R.id.bt5, "method 'onViewClicked'");
+    view2131689988 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
     view = Utils.findRequiredView(source, R.id.bt6, "method 'onViewClicked'");
-    view2131690006 = view;
+    view2131690012 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -101,17 +101,17 @@ public class HtGroupActivity_ViewBinding implements Unbinder {
     target.bt2 = null;
     target.bt3 = null;
 
-    view2131690004.setOnClickListener(null);
-    view2131690004 = null;
-    view2131689984.setOnClickListener(null);
-    view2131689984 = null;
+    view2131690010.setOnClickListener(null);
+    view2131690010 = null;
     view2131689985.setOnClickListener(null);
     view2131689985 = null;
     view2131689986.setOnClickListener(null);
     view2131689986 = null;
     view2131689987.setOnClickListener(null);
     view2131689987 = null;
-    view2131690006.setOnClickListener(null);
-    view2131690006 = null;
+    view2131689988.setOnClickListener(null);
+    view2131689988 = null;
+    view2131690012.setOnClickListener(null);
+    view2131690012 = null;
   }
 }

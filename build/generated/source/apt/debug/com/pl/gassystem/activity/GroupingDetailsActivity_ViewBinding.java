@@ -18,7 +18,7 @@ import java.lang.Override;
 public class GroupingDetailsActivity_ViewBinding implements Unbinder {
   private GroupingDetailsActivity target;
 
-  private View view2131689759;
+  private View view2131689760;
 
   @UiThread
   public GroupingDetailsActivity_ViewBinding(GroupingDetailsActivity target) {
@@ -32,7 +32,7 @@ public class GroupingDetailsActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.layoutMenu, "field 'layoutMenu' and method 'onViewClicked'");
     target.layoutMenu = Utils.castView(view, R.id.layoutMenu, "field 'layoutMenu'", LinearLayout.class);
-    view2131689759 = view;
+    view2131689760 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,7 +60,7 @@ public class GroupingDetailsActivity_ViewBinding implements Unbinder {
     target.tvNoCopyNum = null;
     target.mRecyclerView = null;
 
-    view2131689759.setOnClickListener(null);
-    view2131689759 = null;
+    view2131689760.setOnClickListener(null);
+    view2131689760 = null;
   }
 }

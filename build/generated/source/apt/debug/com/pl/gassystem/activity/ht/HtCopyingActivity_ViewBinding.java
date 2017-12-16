@@ -18,9 +18,9 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
 
   private View view2131689653;
 
-  private View view2131689692;
-
   private View view2131689693;
+
+  private View view2131689694;
 
   @UiThread
   public HtCopyingActivity_ViewBinding(HtCopyingActivity target) {
@@ -48,7 +48,7 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btnCopyingRead, "field 'btnCopyingRead' and method 'onViewClicked'");
     target.btnCopyingRead = Utils.castView(view, R.id.btnCopyingRead, "field 'btnCopyingRead'", ImageButton.class);
-    view2131689692 = view;
+    view2131689693 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btnCopyingStop, "field 'btnCopyingStop' and method 'onViewClicked'");
     target.btnCopyingStop = Utils.castView(view, R.id.btnCopyingStop, "field 'btnCopyingStop'", ImageButton.class);
-    view2131689693 = view;
+    view2131689694 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -94,9 +94,9 @@ public class HtCopyingActivity_ViewBinding implements Unbinder {
 
     view2131689653.setOnClickListener(null);
     view2131689653 = null;
-    view2131689692.setOnClickListener(null);
-    view2131689692 = null;
     view2131689693.setOnClickListener(null);
     view2131689693 = null;
+    view2131689694.setOnClickListener(null);
+    view2131689694 = null;
   }
 }

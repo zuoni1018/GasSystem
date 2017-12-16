@@ -212,7 +212,6 @@ public class CopyDataICRF  implements Serializable{
     }
 
     public void setCopyState(int copyState) {
-        LogUtil.i("ºÙºÙºÚ"+copyState);
         this.copyState = copyState;
     }
 

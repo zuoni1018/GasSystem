@@ -14,13 +14,13 @@ import java.lang.Override;
 public class HtAreaActivity_ViewBinding implements Unbinder {
   private HtAreaActivity target;
 
-  private View view2131689984;
-
   private View view2131689985;
 
   private View view2131689986;
 
   private View view2131689987;
+
+  private View view2131689988;
 
   @UiThread
   public HtAreaActivity_ViewBinding(HtAreaActivity target) {
@@ -33,14 +33,6 @@ public class HtAreaActivity_ViewBinding implements Unbinder {
 
     View view;
     view = Utils.findRequiredView(source, R.id.bt2, "method 'onViewClicked'");
-    view2131689984 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.bt3, "method 'onViewClicked'");
     view2131689985 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -48,7 +40,7 @@ public class HtAreaActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.bt4, "method 'onViewClicked'");
+    view = Utils.findRequiredView(source, R.id.bt3, "method 'onViewClicked'");
     view2131689986 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -56,8 +48,16 @@ public class HtAreaActivity_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.bt5, "method 'onViewClicked'");
+    view = Utils.findRequiredView(source, R.id.bt4, "method 'onViewClicked'");
     view2131689987 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.bt5, "method 'onViewClicked'");
+    view2131689988 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -73,13 +73,13 @@ public class HtAreaActivity_ViewBinding implements Unbinder {
     target = null;
 
 
-    view2131689984.setOnClickListener(null);
-    view2131689984 = null;
     view2131689985.setOnClickListener(null);
     view2131689985 = null;
     view2131689986.setOnClickListener(null);
     view2131689986 = null;
     view2131689987.setOnClickListener(null);
     view2131689987 = null;
+    view2131689988.setOnClickListener(null);
+    view2131689988 = null;
   }
 }

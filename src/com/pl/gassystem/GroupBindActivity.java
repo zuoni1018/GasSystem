@@ -90,8 +90,6 @@ public class GroupBindActivity extends Activity {
                     break;
             }
         }
-
-        ;
     };
 
     private int getCount(ArrayList<GroupBind> binds) {

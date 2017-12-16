@@ -16,7 +16,7 @@ import java.lang.Override;
 public class HtResultQueryParameterActivity_ViewBinding implements Unbinder {
   private HtResultQueryParameterActivity target;
 
-  private View view2131690019;
+  private View view2131690025;
 
   @UiThread
   public HtResultQueryParameterActivity_ViewBinding(HtResultQueryParameterActivity target) {
@@ -53,7 +53,7 @@ public class HtResultQueryParameterActivity_ViewBinding implements Unbinder {
     target.SCMYSZSJ = Utils.findRequiredViewAsType(source, R.id.SCMYSZSJ, "field 'SCMYSZSJ'", TextView.class);
     target.CBCS = Utils.findRequiredViewAsType(source, R.id.CBCS, "field 'CBCS'", TextView.class);
     view = Utils.findRequiredView(source, R.id.bt, "method 'onViewClicked'");
-    view2131690019 = view;
+    view2131690025 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -93,7 +93,7 @@ public class HtResultQueryParameterActivity_ViewBinding implements Unbinder {
     target.SCMYSZSJ = null;
     target.CBCS = null;
 
-    view2131690019.setOnClickListener(null);
-    view2131690019 = null;
+    view2131690025.setOnClickListener(null);
+    view2131690025 = null;
   }
 }

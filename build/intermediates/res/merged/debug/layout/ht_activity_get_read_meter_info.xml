@@ -10,6 +10,13 @@
 
     <include layout="@layout/ht_search" />
 
+    <TextView
+        android:id="@+id/tvNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
 
     <com.github.jdsjlzx.recyclerview.LRecyclerView
         android:id="@+id/mRecyclerView"
@@ -23,12 +30,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/bt1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="抄取全部" />
+
         <Button
             android:id="@+id/bt2"
             android:layout_width="0dp"

@@ -1,5 +1,6 @@
 package com.pl.gassystem.userinfo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -19,6 +20,7 @@ import com.pl.bean.UserInfo;
 import com.pl.dal.userinfo.UserInfoDao;
 import com.pl.gassystem.R;
 import com.pl.gassystem.base.BaseTitleActivity2;
+import com.zuoni.zuoni_common.utils.common.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +30,6 @@ import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 
-import static com.pl.gassystem.ImportExcelActivity.getRealFilePath;
 
 /**
  * Created by zangyi_shuai_ge on 2017/8/29
@@ -54,6 +55,7 @@ public class XiNingUserInfoImportActivity extends BaseTitleActivity2 {
     private final int EXCEL_IMPORT = 6;
 
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -163,7 +165,7 @@ public class XiNingUserInfoImportActivity extends BaseTitleActivity2 {
             if (requestCode == 1) {
                 Uri uri = data.getData();
                 filePath = uri.getPath();
-                filePath = getRealFilePath(XiNingUserInfoImportActivity.this, uri);
+                filePath = FileUtils.getRealFilePath(XiNingUserInfoImportActivity.this, uri);
 //                filePath=filePath.replaceAll(":","/");
                 tvFilePath.setText(filePath);
                 SPUtils.put(XiNingUserInfoImportActivity.this, "filePath", filePath);

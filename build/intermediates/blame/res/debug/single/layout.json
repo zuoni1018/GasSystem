@@ -16,6 +16,10 @@
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_set_book_no.xml"
     },
     {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_choose_type.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_choose_type.xml"
+    },
+    {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\titlebar_listview.xml",
         "source": "D:\\workSpace\\GasSystem\\res\\layout\\titlebar_listview.xml"
     },
@@ -330,6 +334,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\top_style_02.xml",
         "source": "D:\\workSpace\\GasSystem\\zuoni-common\\build\\intermediates\\bundles\\default\\res\\layout\\top_style_02.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_rv_log.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_rv_log.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ct_rv_copy_book_choose_item.xml",
@@ -738,6 +746,10 @@
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "C:\\Users\\PVer\\.android\\build-cache\\8e7c2d5b428035619426ffc446fda00e98611f1a\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\ht_activity_logs.xml",
+        "source": "D:\\workSpace\\GasSystem\\res\\layout\\ht_activity_logs.xml"
     },
     {
         "merged": "D:\\workSpace\\GasSystem\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",

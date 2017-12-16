@@ -19,11 +19,11 @@ import java.lang.Override;
 public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
   private HtGetReadMeterInfoActivity target;
 
-  private View view2131690049;
+  private View view2131690054;
 
-  private View view2131689984;
+  private View view2131689985;
 
-  private View view2131690004;
+  private View view2131690010;
 
   @UiThread
   public HtGetReadMeterInfoActivity_ViewBinding(HtGetReadMeterInfoActivity target) {
@@ -40,7 +40,7 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     target.etSearch = Utils.findRequiredViewAsType(source, R.id.etSearch, "field 'etSearch'", EditText.class);
     view = Utils.findRequiredView(source, R.id.tvChoose, "field 'tvChoose' and method 'onViewClicked'");
     target.tvChoose = Utils.castView(view, R.id.tvChoose, "field 'tvChoose'", TextView.class);
-    view2131690049 = view;
+    view2131690054 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     target.layoutSearchBar = Utils.findRequiredViewAsType(source, R.id.layoutSearchBar, "field 'layoutSearchBar'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.bt2, "field 'bt2' and method 'onViewClicked'");
     target.bt2 = Utils.castView(view, R.id.bt2, "field 'bt2'", Button.class);
-    view2131689984 = view;
+    view2131689985 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,13 +59,14 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.bt1, "field 'bt1' and method 'onViewClicked'");
     target.bt1 = Utils.castView(view, R.id.bt1, "field 'bt1'", Button.class);
-    view2131690004 = view;
+    view2131690010 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onViewClicked(p0);
       }
     });
+    target.tvNum = Utils.findRequiredViewAsType(source, R.id.tvNum, "field 'tvNum'", TextView.class);
   }
 
   @Override
@@ -81,12 +82,13 @@ public class HtGetReadMeterInfoActivity_ViewBinding implements Unbinder {
     target.layoutSearchBar = null;
     target.bt2 = null;
     target.bt1 = null;
+    target.tvNum = null;
 
-    view2131690049.setOnClickListener(null);
-    view2131690049 = null;
-    view2131689984.setOnClickListener(null);
-    view2131689984 = null;
-    view2131690004.setOnClickListener(null);
-    view2131690004 = null;
+    view2131690054.setOnClickListener(null);
+    view2131690054 = null;
+    view2131689985.setOnClickListener(null);
+    view2131689985 = null;
+    view2131690010.setOnClickListener(null);
+    view2131690010 = null;
   }
 }

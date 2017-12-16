@@ -2,84 +2,105 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d2d2d2"
     android:orientation="vertical">
 
     <include layout="@layout/head_style" />
 
     <LinearLayout
+        android:id="@+id/layout01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_listview_item"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:text="文件路径:"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="所选择的文件路径为：" />
+            android:layout_weight="1"
+            android:scrollbars="none">
 
-        <TextView
-            android:id="@+id/tvFilePath"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="我是路径"
-            android:textColor="#060606"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvFilePath"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:gravity="center_vertical|right"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:text="请选择文件路径"
+                android:textColor="@color/rea" />
+        </HorizontalScrollView>
 
-        <Button
-            android:id="@+id/btChoose"
-            android:textColor="#fff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="#003F97"
-            android:text="选择Excel文件路径" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/turn_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_listview_item"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="请选择导入所导入账册的抄表方式" />
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:text="表具类型:"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-        <RadioGroup
-            android:id="@+id/mRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:singleLine="true"
+            android:text="请选择表具类型"
+            android:textColor="@color/rea" />
 
-            <RadioButton
-                android:id="@+id/rb01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="IC无线" />
-            <RadioButton
-                android:id="@+id/rb03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="西宁IC纯无线" />
-
-            <RadioButton
-                android:id="@+id/rb02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="纯无线" />
-
-        </RadioGroup>
-
-
-        <Button
-            android:id="@+id/btImport"
-            android:textColor="#fff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="#003F97"
-            android:text="导入Excel到手机" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/turn_right" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btImport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#003F97"
+        android:text="导入Excel到手机"
+        android:textColor="#fff"
+        android:textSize="16sp" />
 
 </LinearLayout>

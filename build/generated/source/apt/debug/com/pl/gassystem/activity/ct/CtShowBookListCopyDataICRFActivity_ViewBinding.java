@@ -18,7 +18,7 @@ import java.lang.Override;
 public class CtShowBookListCopyDataICRFActivity_ViewBinding implements Unbinder {
   private CtShowBookListCopyDataICRFActivity target;
 
-  private View view2131689895;
+  private View view2131689896;
 
   @UiThread
   public CtShowBookListCopyDataICRFActivity_ViewBinding(CtShowBookListCopyDataICRFActivity target) {
@@ -36,7 +36,7 @@ public class CtShowBookListCopyDataICRFActivity_ViewBinding implements Unbinder 
     target.rvBookList = Utils.findRequiredViewAsType(source, R.id.rvBookList, "field 'rvBookList'", LRecyclerView.class);
     view = Utils.findRequiredView(source, R.id.btBeginCopy, "field 'btBeginCopy' and method 'onViewClicked'");
     target.btBeginCopy = Utils.castView(view, R.id.btBeginCopy, "field 'btBeginCopy'", Button.class);
-    view2131689895 = view;
+    view2131689896 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class CtShowBookListCopyDataICRFActivity_ViewBinding implements Unbinder 
     target.rvBookList = null;
     target.btBeginCopy = null;
 
-    view2131689895.setOnClickListener(null);
-    view2131689895 = null;
+    view2131689896.setOnClickListener(null);
+    view2131689896 = null;
   }
 }

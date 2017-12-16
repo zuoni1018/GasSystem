@@ -19,6 +19,7 @@ import com.pl.bll.PreferenceBiz;
 import com.pl.bll.SetBiz;
 import com.pl.common.MyApplication;
 import com.pl.gassystem.activity.AboutActivity;
+import com.pl.gassystem.activity.ChooseLogTypeActivity;
 import com.pl.gassystem.activity.DataManageActivity;
 import com.pl.gassystem.activity.SettingActivity;
 import com.pl.gassystem.activity.ct.CtConcentratorListActivity;
@@ -262,6 +263,16 @@ public class MainActivity extends Activity implements OnTouchListener {
 //                startActivity(intent);
 //            }
 //        });
+
+        findViewById(R.id.layout06).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, ChooseLogTypeActivity.class);
+                intent.putExtra("tag",ChooseLogTypeActivity.TAG_SEE_LOG);
+                startActivity(intent);
+            }
+        });
     }
 
 

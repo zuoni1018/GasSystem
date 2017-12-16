@@ -1,5 +1,6 @@
 package com.pl.gassystem.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -86,6 +87,7 @@ public class CopyDetailsActivity extends BaseTitleActivity {
     private String commandType=HtSendMessage.COMMAND_TYPE_COPY_NORMAL;
 
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

@@ -332,7 +332,8 @@ public class XmlParser {
 				} else if ("copyWay".equals(tagName)) {
 					copyData.setCopyWay(parser.nextText());
 				} else if ("copyState".equals(tagName)) {
-					copyData.setCopyState(Integer.parseInt(parser.nextText()));
+//					copyData.setCopyState(Integer.parseInt(parser.nextText()));
+					copyData.setCopyState(0);
 				} else if ("copyTime".equals(tagName)) {
 					copyData.setCopyTime(parser.nextText());
 				} else if ("copyMan".equals(tagName)) {
@@ -425,8 +426,9 @@ public class XmlParser {
 				} else if ("copyMan".equals(tagName)) {
 					copyDataICRF.setCopyMan(parser.nextText());
 				} else if ("copyState".equals(tagName)) {
-					copyDataICRF.setCopyState(Integer.parseInt(parser
-							.nextText()));
+//					copyDataICRF.setCopyState(Integer.parseInt(parser
+//							.nextText()));
+					copyDataICRF.setCopyState(0);
 				} else if ("meterName".equals(tagName)) {
 					copyDataICRF.setMeterName(parser.nextText());
 				} else if ("dBm".equals(tagName)) {

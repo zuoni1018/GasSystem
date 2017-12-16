@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtResultCopyActivity_ViewBinding implements Unbinder {
   private HtResultCopyActivity target;
 
-  private View view2131690019;
+  private View view2131690025;
 
   @UiThread
   public HtResultCopyActivity_ViewBinding(HtResultCopyActivity target) {
@@ -33,7 +33,7 @@ public class HtResultCopyActivity_ViewBinding implements Unbinder {
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.mRecyclerView, "field 'mRecyclerView'", LRecyclerView.class);
     view = Utils.findRequiredView(source, R.id.bt, "field 'bt' and method 'onViewClicked'");
     target.bt = Utils.castView(view, R.id.bt, "field 'bt'", Button.class);
-    view2131690019 = view;
+    view2131690025 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class HtResultCopyActivity_ViewBinding implements Unbinder {
     target.mRecyclerView = null;
     target.bt = null;
 
-    view2131690019.setOnClickListener(null);
-    view2131690019 = null;
+    view2131690025.setOnClickListener(null);
+    view2131690025 = null;
   }
 }

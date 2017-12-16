@@ -17,7 +17,7 @@ import java.lang.Override;
 public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
   private HtSingleCopyTestActivity target;
 
-  private View view2131689999;
+  private View view2131690001;
 
   @UiThread
   public HtSingleCopyTestActivity_ViewBinding(HtSingleCopyTestActivity target) {
@@ -36,7 +36,7 @@ public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
     target.xindao = Utils.findRequiredViewAsType(source, R.id.xindao, "field 'xindao'", EditText.class);
     target.key = Utils.findRequiredViewAsType(source, R.id.key, "field 'key'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btSure, "method 'onViewClicked'");
-    view2131689999 = view;
+    view2131690001 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,7 +59,7 @@ public class HtSingleCopyTestActivity_ViewBinding implements Unbinder {
     target.xindao = null;
     target.key = null;
 
-    view2131689999.setOnClickListener(null);
-    view2131689999 = null;
+    view2131690001.setOnClickListener(null);
+    view2131690001 = null;
   }
 }

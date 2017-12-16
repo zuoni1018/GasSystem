@@ -18,18 +18,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pl.gassystem.activity.CopyDetailsActivity;
-import com.pl.gassystem.utils.KeyBoardUtils;
-import com.pl.gassystem.utils.ToastUtils;
 import com.pl.bean.GroupInfoStatistic;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.GroupInfo;
+import com.pl.gassystem.activity.CopyDetailsActivity;
 import com.pl.gassystem.base.BaseTitleActivity;
-import com.pl.utils.GlobalConsts;
+import com.pl.gassystem.utils.KeyBoardUtils;
 import com.pl.gassystem.utils.LogUtil;
+import com.pl.utils.GlobalConsts;
+import com.zuoni.zuoni_common.utils.common.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;

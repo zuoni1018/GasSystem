@@ -16,9 +16,9 @@ import java.lang.Override;
 public class HtSetCopyChannelActivity_ViewBinding implements Unbinder {
   private HtSetCopyChannelActivity target;
 
-  private View view2131689764;
+  private View view2131689878;
 
-  private View view2131689999;
+  private View view2131690001;
 
   @UiThread
   public HtSetCopyChannelActivity_ViewBinding(HtSetCopyChannelActivity target) {
@@ -34,7 +34,7 @@ public class HtSetCopyChannelActivity_ViewBinding implements Unbinder {
     target.tvKuoPinXinDao = Utils.findRequiredViewAsType(source, R.id.tvKuoPinXinDao, "field 'tvKuoPinXinDao'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btChoose, "field 'btChoose' and method 'onViewClicked'");
     target.btChoose = Utils.castView(view, R.id.btChoose, "field 'btChoose'", Button.class);
-    view2131689764 = view;
+    view2131689878 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -43,7 +43,7 @@ public class HtSetCopyChannelActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689999 = view;
+    view2131690001 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,9 +64,9 @@ public class HtSetCopyChannelActivity_ViewBinding implements Unbinder {
     target.btChoose = null;
     target.btSure = null;
 
-    view2131689764.setOnClickListener(null);
-    view2131689764 = null;
-    view2131689999.setOnClickListener(null);
-    view2131689999 = null;
+    view2131689878.setOnClickListener(null);
+    view2131689878 = null;
+    view2131690001.setOnClickListener(null);
+    view2131690001 = null;
   }
 }

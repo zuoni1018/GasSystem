@@ -1,5 +1,6 @@
 package com.pl.gassystem.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -76,6 +77,7 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
 
     private boolean isRefresh = false;//当前是否在刷新中
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -188,6 +190,12 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        isRun = false;
+        super.onDestroy();
+    }
+
+    @Override
     protected int setLayout() {
         return R.layout.activity_grouping_details;
     }
@@ -257,12 +265,9 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
         @Override
         public void run() {
             searchList.clear();
-
             //获得账册下的所有分组编号
             ArrayList<GroupInfo> groupInfos = groupInfoBiz.getGroupInfos(bookNo);
-
             for (int i = 0; i < groupInfos.size() && isRun; i++) {
-
                 //获得分组下的所有表编号
                 ArrayList<String> meterNos = copyBiz.GetCopyMeterNo(groupInfos.get(i).getGroupNo());
 
@@ -318,9 +323,4 @@ public class GroupingDetailsActivity extends BaseTitleActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        isRun = false;
-        super.onDestroy();
-    }
 }

@@ -18,9 +18,9 @@ import java.lang.Override;
 public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
   private HtSetBookParameterActivity target;
 
-  private View view2131690049;
+  private View view2131690054;
 
-  private View view2131689999;
+  private View view2131690001;
 
   @UiThread
   public HtSetBookParameterActivity_ViewBinding(HtSetBookParameterActivity target) {
@@ -35,7 +35,7 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.tvChoose, "field 'tvChoose' and method 'onViewClicked'");
     target.tvChoose = Utils.castView(view, R.id.tvChoose, "field 'tvChoose'", TextView.class);
-    view2131690049 = view;
+    view2131690054 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
     target.rbNeed = Utils.findRequiredViewAsType(source, R.id.rbNeed, "field 'rbNeed'", CheckBox.class);
     view = Utils.findRequiredView(source, R.id.btSure, "field 'btSure' and method 'onViewClicked'");
     target.btSure = Utils.castView(view, R.id.btSure, "field 'btSure'", Button.class);
-    view2131689999 = view;
+    view2131690001 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,9 +75,9 @@ public class HtSetBookParameterActivity_ViewBinding implements Unbinder {
     target.btSure = null;
     target.tvNum = null;
 
-    view2131690049.setOnClickListener(null);
-    view2131690049 = null;
-    view2131689999.setOnClickListener(null);
-    view2131689999 = null;
+    view2131690054.setOnClickListener(null);
+    view2131690054 = null;
+    view2131690001.setOnClickListener(null);
+    view2131690001 = null;
   }
 }

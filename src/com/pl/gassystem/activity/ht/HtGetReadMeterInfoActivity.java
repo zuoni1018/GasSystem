@@ -61,6 +61,8 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
     Button bt2;
     @BindView(R.id.bt1)
     Button bt1;
+    @BindView(R.id.tvNum)
+    TextView tvNum;
     private LRecyclerViewAdapter mAdapter;
     private List<HtGetReadMeterInfo.ArrayOfModCustomerinfoBean.ModCustomerinfoBean> mList;
     private List<HtGetReadMeterInfo.ArrayOfModCustomerinfoBean.ModCustomerinfoBean> showList;
@@ -174,6 +176,8 @@ public class HtGetReadMeterInfoActivity extends HtBaseTitleActivity {
                         }
                         mAdapter.notifyDataSetChanged();
                         mRecyclerView.refreshComplete(1);
+
+                        tvNum.setText("π≤"+mList.size()+"’≈±Ì");
 
                         if (MeterFacNo.equals("3")) {
                             bt2.setVisibility(View.GONE);

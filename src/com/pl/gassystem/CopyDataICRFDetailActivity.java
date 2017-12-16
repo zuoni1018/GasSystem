@@ -1,23 +1,25 @@
 package com.pl.gassystem;
 
-import com.pl.bll.CopyBiz;
-import com.pl.entity.CopyDataICRF;
-import com.pl.utils.MeterType;
-
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.pl.bean.UserInfo;
+import com.pl.bll.CopyBiz;
+import com.pl.dal.userinfo.UserInfoDao;
+import com.pl.entity.CopyDataICRF;
+import com.pl.utils.MeterType;
+
 public class CopyDataICRFDetailActivity extends Activity {
 
-	private TextView tvTitlebar_name;
+	private TextView tvTitlebar_name,tvPhone;
 	private TextView tvCopyDataICRFDetailMeterNo,
 			tvCopyDataICRFDetailMeterName, tvCopyDataICRFDetailCumulant,
 			tvCopyDataICRFDetailSurplusMoney,
@@ -81,6 +83,9 @@ public class CopyDataICRFDetailActivity extends Activity {
 		tvCopyDataICRFDetailAccMoney = (TextView) findViewById(R.id.tvCopyDataICRFDetailAccMoney);
 		tvCopyDataICRFDetailAccBuyMoney = (TextView) findViewById(R.id.tvCopyDataICRFDetailAccBuyMoney);
 		tvCopyDataICRFDetailCurrentShow = (TextView) findViewById(R.id.tvCopyDataICRFDetailCurrentShow);
+
+
+		tvPhone= (TextView) findViewById(R.id.tvPhone);
 	}
 
 	private void bindData() {
@@ -120,6 +125,11 @@ public class CopyDataICRFDetailActivity extends Activity {
 		}
 		tvCopyDataICRFDetailMeterState.setText(state);
 
+		UserInfoDao userInfoDao = new UserInfoDao(CopyDataICRFDetailActivity.this);
+		UserInfo userInfo=userInfoDao.getUserInfo(copyDataICRF.getMeterNo());
+		if(userInfo!=null){
+			tvPhone.setText(userInfo.getUserPhone());
+		}
 	}
 
 	private void addListener() {

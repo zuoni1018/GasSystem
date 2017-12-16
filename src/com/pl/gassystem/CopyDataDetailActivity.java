@@ -3,16 +3,16 @@ package com.pl.gassystem;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.pl.bean.UserInfo;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.SetBiz;
+import com.pl.dal.userinfo.UserInfoDao;
 import com.pl.entity.CopyData;
 import com.pl.utils.GlobalConsts;
 import com.pl.utils.MeterType;
@@ -31,6 +31,7 @@ public class CopyDataDetailActivity extends Activity {
     private ImageButton btnquit;
     private SetBiz setBiz;
     private static String runMode;
+    private TextView tvPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,8 @@ public class CopyDataDetailActivity extends Activity {
         // findViewById(R.id.tvCopyDataDetailIsBalance);
         tvCopyDataDetailRemark = (TextView) findViewById(R.id.tvCopyDataDetailRemark);
         tvCopyDataDetailMeterState = (TextView) findViewById(R.id.tvCopyDataDetailMeterState);
+
+        tvPhone= (TextView) findViewById(R.id.tvPhone);
     }
 
     private void bindData() {
@@ -129,6 +132,14 @@ public class CopyDataDetailActivity extends Activity {
             tvCopyDataDetailMeterState.setTextColor(Color.RED);
         }
         tvCopyDataDetailMeterState.setText(state);
+
+        UserInfoDao userInfoDao = new UserInfoDao(CopyDataDetailActivity.this);
+        UserInfo userInfo=userInfoDao.getUserInfo(copyData.getMeterNo());
+        if(userInfo!=null){
+            tvPhone.setText(userInfo.getUserPhone());
+        }
+
+//        tvPhone.setText(copyData.get);
     }
 
     private void addListener() {
@@ -136,28 +147,10 @@ public class CopyDataDetailActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO 自动生成的方法存根
                 finish();
             }
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.copy_detail, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

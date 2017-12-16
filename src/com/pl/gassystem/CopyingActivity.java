@@ -26,10 +26,13 @@ import com.pl.bll.SetBiz;
 import com.pl.bluetooth.BluetoothChatService;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
+import com.pl.gassystem.dao.HtLogDao;
+import com.pl.gassystem.utils.LogUtil;
 import com.pl.protocol.CqueueData;
 import com.pl.protocol.HhProtocol;
 import com.pl.utils.GlobalConsts;
-import com.pl.gassystem.utils.LogUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -37,8 +40,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class CopyingActivity extends Activity {
+import okhttp3.Call;
 
+import static com.pl.gassystem.utils.Xml2Json.xml2JSON;
+import static java.lang.System.currentTimeMillis;
+
+public class CopyingActivity extends Activity {
+    private HtLogDao htLogDao;
     private TextView tvTitlebar_name, tvLoadingCount, tvLoadingAll, tvBtInfo, tvCopyingBackMsg, tvLoadingComNum, tvLoadingName;
     private ProgressBar pgbCopying;
     // private Handler handler;
@@ -430,10 +438,10 @@ public class CopyingActivity extends Activity {
                         data.setCmdType("83");
                     }
                 } else if (operationType == GlobalConsts.COPY_OPERATION_COMNUMBER) {// 设置通讯号
-                    if(runMode.equals(GlobalConsts.RUN_MODE_ZHGT)){
+                    if (runMode.equals(GlobalConsts.RUN_MODE_ZHGT)) {
                         //港泰
                         data.setCmdType("87");//87
-                    }else {
+                    } else {
                         //普通
                         data.setCmdType("05");
                     }
@@ -575,7 +583,6 @@ public class CopyingActivity extends Activity {
 
     // 发送蓝牙消息
     private void sendMessage(String message) {
-        LogUtil.i("嗷嗷啊",message);
 
         // 检查连接
         if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
@@ -589,6 +596,12 @@ public class CopyingActivity extends Activity {
             // 得到消息的字节，告诉bluetoothchatservice写
             byte[] send = message.getBytes();
             mChatService.write(send);
+
+
+            if (htLogDao == null) {
+                htLogDao = new HtLogDao(CopyingActivity.this);
+            }
+            htLogDao.putWXLog(currentTimeMillis() + "", "0", message);
         }
     }
 
@@ -817,8 +830,7 @@ public class CopyingActivity extends Activity {
     }
 
     public static String getPrettyNumber(String number) {
-        return BigDecimal.valueOf(Double.parseDouble(number))
-                .stripTrailingZeros().toPlainString();
+        return BigDecimal.valueOf(Double.parseDouble(number)).stripTrailingZeros().toPlainString();
     }
 
     // 无线表抄表数据
@@ -826,8 +838,7 @@ public class CopyingActivity extends Activity {
         CopyData copyData = new CopyData();
         copyData.setMeterNo(meterNo);
         String[] strarray = dataString.split(";");
-        String CurrentShow = Integer
-                .toString(Integer.parseInt(strarray[0], 10));
+        String CurrentShow = Integer.toString(Integer.parseInt(strarray[0], 10));
         if (CurrentShow.length() > 2) {
             CurrentShow = CurrentShow.substring(0, CurrentShow.length() - 2)
                     + "." + CurrentShow.substring(CurrentShow.length() - 2);
@@ -848,7 +859,12 @@ public class CopyingActivity extends Activity {
         CopyData copyDataLast = copyBiz.getLastCopyDataByMeterNo(meterNo); // 查询上一次抄表记录
         if (copyDataLast != null) {
             String lastShow = copyDataLast.getCurrentShow();
-            lastShow = getPrettyNumber(lastShow);
+            try {
+                lastShow = getPrettyNumber(lastShow);
+            } catch (Exception e) {
+                lastShow = "0.00";
+            }
+
             if (lastShow == null) {
                 copyData.setLastShow("0.00");
                 copyData.setLastDosage("0");
@@ -875,8 +891,40 @@ public class CopyingActivity extends Activity {
         copyData.setOperateTime(df.format(new Date()));
         copyData.setIsBalance(0);
         copyData.setRemark("");
+        //顺便提交给杭天
+//        upLoadCopy(copyData);
         return copyData;
     }
+
+    private void upLoadCopy(CopyData mCopyData) {
+
+        OkHttpUtils.post()
+                .url(HtAppUrl.GET_COPY_DATA_LORA)
+                .addParams("CommunicateNo", mCopyData.getMeterNo())
+                .addParams("ThisRead", mCopyData.getCurrentShow())
+                .addParams("DevPower", mCopyData.getElec())
+                .addParams("JSQD", mCopyData.getdBm())
+                .addParams("DJR", "")
+                .addParams("State", "")
+                .addParams("MeterFacNo", "1")
+                .addParams("UserName", "admin")
+                .addParams("ReadType", "0")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+//                        showToast(e.toString());LogUtil.i("上传抄表数据" + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("上传抄表数据1\n" + response);
+                        LogUtil.i("上传抄表数据2" + xml2JSON(response));
+
+                    }
+                });
+    }
+
 
     // 惠州无线表抄表数据
     private CopyData getCopyDataHuiZhou(String meterNo, CqueueData data) {
@@ -965,6 +1013,12 @@ public class CopyingActivity extends Activity {
                         byte[] readBuf = (byte[]) msg.obj;
                         // 构建一个字符串有效字节的缓冲区
                         String readMessage = new String(readBuf, 0, msg.arg1);
+
+                        if (htLogDao == null) {
+                            htLogDao = new HtLogDao(CopyingActivity.this);
+                        }
+                        htLogDao.putWXLog(currentTimeMillis() + "", "1", readMessage);
+
                         // Log.i("blueget", readMessage);
                         if (readMessage.length() < 12) {
                             tvCopyingBackMsg.setText("接收数据错误！");
@@ -1008,10 +1062,8 @@ public class CopyingActivity extends Activity {
                                     if (msgDecode.getSourceAddr().equals(
                                             loadingComNumActual)) { // 判断接收到的数据是否是当前正在操作的表
                                         CopyData copyData;
-                                        if (runMode
-                                                .equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州模式
-                                            copyData = getCopyDataHuiZhou(
-                                                    loadingComNum, msgDecode);
+                                        if (runMode.equals(GlobalConsts.RUN_MODE_HUI_ZHOU)) { // 惠州模式
+                                            copyData = getCopyDataHuiZhou(loadingComNum, msgDecode);
                                         } else {
                                             copyData = getCopyData(loadingComNum, dataString);
                                         }

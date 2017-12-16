@@ -20,17 +20,18 @@ import com.pl.bll.CopyBiz;
 import com.pl.bll.PreferenceBiz;
 import com.pl.bll.SetBiz;
 import com.pl.bluetooth.BluetoothChatService;
+import com.pl.gassystem.CopyResultActivity;
+import com.pl.gassystem.DeviceListActivity;
+import com.pl.gassystem.R;
 import com.pl.gassystem.bean.ct.CtCopyData;
 import com.pl.gassystem.bean.ct.CtCopyDataICRF;
 import com.pl.gassystem.dao.CtCopyDataDao;
 import com.pl.gassystem.dao.CtCopyDataICRFDao;
-import com.pl.gassystem.CopyResultActivity;
-import com.pl.gassystem.DeviceListActivity;
-import com.pl.gassystem.R;
+import com.pl.gassystem.dao.HtLogDao;
+import com.pl.gassystem.utils.LogUtil;
 import com.pl.protocol.CqueueData;
 import com.pl.protocol.HhProtocol;
 import com.pl.utils.GlobalConsts;
-import com.pl.gassystem.utils.LogUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -40,6 +41,8 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static java.lang.System.currentTimeMillis;
 
 /**
  * Created by zangyi_shuai_ge on 2017/9/1
@@ -147,6 +150,8 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
     private CtCopyDataICRFDao ctCopyDataICRFDao;
 
     private  String collectorNo;
+
+    private HtLogDao htLogDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -618,6 +623,10 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
         if (message.length() > 0) {
             byte[] send = message.getBytes();
             mChatService.write(send);
+            if (htLogDao == null) {
+                htLogDao = new HtLogDao(CtCopyingActivity.this);
+            }
+            htLogDao.putWXLog(currentTimeMillis() + "", "0", message);
         }
     }
 
@@ -982,6 +991,11 @@ public class CtCopyingActivity extends CtBaseTitleActivity {
                         byte[] readBuf = (byte[]) msg.obj;
                         // 构建一个字符串有效字节的缓冲区
                         String readMessage = new String(readBuf, 0, msg.arg1);
+                        if (htLogDao == null) {
+                            htLogDao = new HtLogDao(CtCopyingActivity.this);
+                        }
+                        htLogDao.putWXLog(currentTimeMillis() + "", "1", readMessage);
+
                         // Log.i("blueget", readMessage);
                         if (readMessage.length() < 12) {
                             tvCopyingBackMsg.setText("接收数据错误！");

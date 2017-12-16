@@ -2,7 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/ht_7"
     android:orientation="vertical">
+
+
+
+
 
     <View
         android:id="@+id/view"
@@ -10,40 +15,86 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:src="@mipmap/ht_3" />
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="杭燃抄表"
-        android:textColor="@color/black"
+        android:text="杭气抄表系统"
+        android:textColor="#03554F"
         android:textSize="30sp" />
 
-    <EditText
-        android:id="@+id/UserName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:hint="用户名" />
 
-    <EditText
-        android:id="@+id/Password"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="密码"
-        android:inputType="textPassword" />
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ht_4" />
+
+        <EditText
+            android:id="@+id/UserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="用户名" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ht_2" />
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="密码"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+
+
 
     <Button
+        android:layout_gravity="center"
+        android:background="@mipmap/ht_1"
         android:id="@+id/btLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="登录" />
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="杭州燃网智能科技有限公司"
+        />
 
     <View
         android:layout_width="match_parent"

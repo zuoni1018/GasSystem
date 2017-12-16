@@ -117,7 +117,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="总数(200)" />
+            android:text="总数(000)" />
 
         <View
             android:layout_width="1dp"
@@ -130,7 +130,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="已抄(200)" />
+            android:text="已抄(000)" />
 
         <View
             android:layout_width="1dp"
@@ -143,7 +143,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="未抄(200)" />
+            android:text="未抄(000)" />
 
         <View
             android:layout_width="1dp"

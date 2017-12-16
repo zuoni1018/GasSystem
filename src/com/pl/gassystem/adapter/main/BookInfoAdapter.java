@@ -17,7 +17,7 @@ public class BookInfoAdapter extends BaseAdapter {
     private ArrayList<BookInfo> bookInfos;
     private LayoutInflater inflater;
 
-    public void setBookInfos(ArrayList<BookInfo> bookInfos) {
+    private void setBookInfos(ArrayList<BookInfo> bookInfos) {
         if (bookInfos != null) {
             this.bookInfos = bookInfos;
         } else {

@@ -20,17 +20,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pl.bean.UserInfo;
-import com.pl.gassystem.utils.FileUtil;
-import com.pl.gassystem.utils.LogUtil;
-import com.pl.common.MyDatePickerDialog;
-import com.pl.gassystem.adapter.main.DateListViewAdapter;
 import com.pl.bll.CopyBiz;
 import com.pl.bll.GroupInfoBiz;
+import com.pl.common.MyDatePickerDialog;
 import com.pl.dal.userinfo.UserInfoDao;
 import com.pl.entity.CopyData;
 import com.pl.entity.CopyDataICRF;
 import com.pl.entity.GroupInfo;
+import com.pl.gassystem.adapter.main.DateListViewAdapter;
 import com.pl.gassystem.base.BaseTitleActivity;
+import com.pl.gassystem.utils.LogUtil;
+import com.zuoni.zuoni_common.utils.common.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +44,7 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
-import static com.pl.gassystem.utils.FileUtil.getSDPath;
+import static com.zuoni.zuoni_common.utils.common.FileUtils.getSDPath;
 
 /**
  * Created by zangyi_shuai_ge on 2017/5/4
@@ -374,8 +374,8 @@ public class ExportExcelActivity extends BaseTitleActivity {
         @Override
         public void run() {
 
-            File file = new File(getSDPath() + "/HongHuDate"); //创建文件目录
-            FileUtil.makeDir(file);//先创建当前账册的excel表
+            File file = new File(FileUtils.getSDPath() + "/HongHuDate"); //创建文件目录
+            FileUtils.makeDir(file);//先创建当前账册的excel表
             //创建excel文件
             File file2 = new File(file.toString() + "/" + bookName + mYear + getDateString(mMonth + 1) + getDateString(mDay) + ".xls");
             filePath = file2.toString();
@@ -468,7 +468,7 @@ public class ExportExcelActivity extends BaseTitleActivity {
 
 
             File file = new File(getSDPath() + "/HongHuDate"); //创建文件目录
-            FileUtil.makeDir(file);//先创建当前账册的excel表
+            FileUtils.makeDir(file);//先创建当前账册的excel表
             //创建excel文件
             File file2 = new File(file.toString() + "/" + bookName + mYear + getDateString(mMonth + 1) + getDateString(mDay) + ".xls");
             filePath = file2.toString();
